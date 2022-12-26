@@ -1,3 +1,5 @@
+--fast attack blox fruit
+
 (getgenv()).Config = {
  ["FastAttack"] = true,
  ["ClickAttack"] = false
@@ -42,5 +44,7 @@ spawn(function()
         end
     end)
 end)
+
+--script
 
 loadstring(game:HttpGet('https://raw.githubusercontent.com/joi-droid/MaruHubBF/main/GOHANSSJ3'))()
