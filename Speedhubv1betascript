@@ -1,0 +1,4 @@
+
+(getgenv()).Key = "SPEED-JMSG-8ABT-DHNV-E9EE"
+(getgenv()).DiscordId = "866309890301100083"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NeaPchX2/SpeedHub44/main/SpeedHub.lua"))()
