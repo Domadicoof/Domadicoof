@@ -2461,33 +2461,32 @@ Main:Toggle("Auto Farm Level",_G.AutoFarm,function(value)
         end
     end)
     
-    Main:Dropdown("Select Mon")
-Main:Toggle("Auto Dough Boss v2", _G.Setting_table.Auto_Farm_Monster,function(vu)
-	Auto_Farm_Monster = vu
-	_G.Setting_table.Auto_Farm_Monster = vu
+Main:Toggle("Auto Farm Mon", _G.Auto_Farm_Monster,function(value)
+	Auto_Farm_Monster = value
+	_G.Auto_Farm_Monster = value
 end)
 spawn(function()
 	while wait(.5) do
 		pcall(function()
 			if Auto_Farm_Monster then
 				if not Mix_Farm then
-					if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Mon_Name) or game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Mon_Name) then
-						if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Mon_Name) then
+					if game.Workspace.Enemies:FindFirstChild(_G.Mon_Name) or game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Mon_Name) then
+						if game.Workspace.Enemies:FindFirstChild(_G.Mon_Name) then
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-								if v.Name == _G.Setting_table.Mon_Name and v.Humanoid.Health > 0 then
+								if v.Name == _G.Mon_Name and v.Humanoid.Health > 0 then
 									_G.PosMon = v.HumanoidRootPart.CFrame
 									StatrMagnet = true
 									repeat wait(_G.Fast_Delay)
-										EquipWeapon(_G.Setting_table.Weapon)
-										TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 0))
+										EquipWeapon(_G.SelectWeapon)
+										TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 40, 0))
 										AttackNoCD()
 									until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm_Monster
 									StatrMagnet = false
 								end
 							end
-						elseif game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Mon_Name) then
-							TP(game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Mon_Name).HumanoidRootPart.CFrame*CFrame.new(0,30,0))
+						elseif game.ReplicatedStorage:FindFirstChild(_G.Mon_Name) then
+							TP(game.ReplicatedStorage:FindFirstChild(_G.Mon_Name).HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 						end
 					end
 				end
@@ -2523,11 +2522,9 @@ end
 for key,value in ipairs(result) do
     table.insert(Mons, value)
 end
-local Select_M = General_Tab:Dropdown("Select Monster",_G.Setting_table.Mon_Name,Mons,function(vu)
-	_G.Setting_table.Mon_Name = vu
-	Update_Setting(getgenv()['MyName'])
-end)
-General_Tab:Button("Refresh Monster",function(vu)
+Main:Dropdown("Select Mon",_G.Mon_Name,function(value)
+
+Main:Button("Reset Mon",function()
 	Select_M:Clear()
 	local xx = {}
 
@@ -7024,3 +7021,4 @@ end)
 
 
 	
+
