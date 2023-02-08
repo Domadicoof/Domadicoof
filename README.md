@@ -2461,119 +2461,101 @@ Main:Toggle("Auto Farm Level",_G.AutoFarm,function(value)
         end
     end)
     
-    Main:Toggle("Auto Fram Material Magma Ore sea1", _G.Magmaoresea1,function(value)
-    
-    spawn(function()
-        while wait() do
-            if  _G.Magmaoresea1 then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Military Soldier [Lv. 300]") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "Military Soldier [Lv. 300]" then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        AutoHaki()
-                                        EquipWeapon(_G.SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                                        game:GetService("VirtualUser"):CaptureController()
-                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
-                                    until not  _G.Magmaoresea1 or not v.Parent or v.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Military Soldier [Lv. 300]") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Military Soldier [Lv. 300]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                        else
-                            if  _G.Magmaoresea1Hop then
-                                Hop()
-                            end
-                        end
-                    end
-                end)
-            end
-        end
-    end)
-    
-    Main:Toggle("Auto Fram Material Magma Ore sea2", _G.Magmaoresea2,function(value)
-    
-    spawn(function()
-        while wait() do
-            if  _G.Magmaoresea2 then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Magma Ninja [Lv. 1175]") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "Magma Ninja [Lv. 1175]" then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        AutoHaki()
-                                        EquipWeapon(_G.SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                                        game:GetService("VirtualUser"):CaptureController()
-                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
-                                    until not  _G.Magmaoresea2 or not v.Parent or v.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Magma Ninja [Lv. 1175]") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Magma Ninja [Lv. 1175]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                        else
-                            if  _G.Magmaoresea2Hop then
-                                Hop()
-                            end
-                        end
-                    end
-                end)
-            end
-        end
-    end)
-    
-    Main:Toggle("Auto Fram Material Fish Tail sea1", _G.fishtailsea1,function(value)
-    
-    spawn(function()
-        while wait() do
-            if  _G.fishtailsea1 then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Fishman Warrior [Lv. 375]") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "Fishman Warrior [Lv. 375]" then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        AutoHaki()
-                                        EquipWeapon(_G.SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                                        game:GetService("VirtualUser"):CaptureController()
-                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
-                                    until not  _G.Fishtailsea1 or not v.Parent or v.Humanoid.Health <= 0
-                                end
-                            end
-                        end
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Fishman Warrior [Lv. 375]") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Fishman Warrior [Lv. 375]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                        else
-                            if  _G.fishtailsea1Hop then
-                                Hop()
-                            end
-                        end
-                    end
-                end)
-            end
-        end
-    end)
+    Main:Dropdown("Select Mon")
+Main:Toggle("Auto Dough Boss v2", _G.Setting_table.Auto_Farm_Monster,function(vu)
+	Auto_Farm_Monster = vu
+	_G.Setting_table.Auto_Farm_Monster = vu
+end)
+spawn(function()
+	while wait(.5) do
+		pcall(function()
+			if Auto_Farm_Monster then
+				if not Mix_Farm then
+					if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Mon_Name) or game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Mon_Name) then
+						if game.Workspace.Enemies:FindFirstChild(_G.Setting_table.Mon_Name) then
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+								if v.Name == _G.Setting_table.Mon_Name and v.Humanoid.Health > 0 then
+									_G.PosMon = v.HumanoidRootPart.CFrame
+									StatrMagnet = true
+									repeat wait(_G.Fast_Delay)
+										EquipWeapon(_G.Setting_table.Weapon)
+										TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 0))
+										AttackNoCD()
+									until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm_Monster
+									StatrMagnet = false
+								end
+							end
+						elseif game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Mon_Name) then
+							TP(game.ReplicatedStorage:FindFirstChild(_G.Setting_table.Mon_Name).HumanoidRootPart.CFrame*CFrame.new(0,30,0))
+						end
+					end
+				end
+			else
+				wait(2)
+			end
+		end)
+	end
+end)
+local Mons = {}
+local xx = {}
+
+for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+    if string.find(v.Name , "Lv.") then
+        table.insert(xx, v.Name)
+    end
+end
+
+for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+    if string.find(v.Name , "Lv.") then
+        table.insert(xx, v.Name)
+    end
+end
+
+table.sort(xx)
+local result = {}
+
+for key,value in ipairs(xx) do
+    if value ~=xx[key+1] then
+        table.insert(result,value)
+    end
+end
+for key,value in ipairs(result) do
+    table.insert(Mons, value)
+end
+local Select_M = General_Tab:Dropdown("Select Monster",_G.Setting_table.Mon_Name,Mons,function(vu)
+	_G.Setting_table.Mon_Name = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+General_Tab:Button("Refresh Monster",function(vu)
+	Select_M:Clear()
+	local xx = {}
+
+	for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+		if string.find(v.Name , "Lv.") then
+			table.insert(xx, v.Name)
+		end
+	end
+
+	for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+		if string.find(v.Name , "Lv.") then
+			table.insert(xx, v.Name)
+		end
+	end
+
+	table.sort(xx)
+	local result = {}
+
+	for key,value in ipairs(xx) do
+		if value ~=xx[key+1] then
+			table.insert(result,value)
+		end
+	end
+	for key,value in ipairs(result) do
+		Select_M:Add(value)
+	end
+end)
+
     Main:Seperator("Misc Boss")
     
         local Boss = {}
@@ -2620,7 +2602,7 @@ Main:Toggle("Auto Farm Level",_G.AutoFarm,function(value)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
+                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(2,10,5))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
@@ -3975,7 +3957,7 @@ end)
     
     M:Seperator("Dark Dagger")
     
-    M:Toggle("Auto Dark Dagger",_G.AutoDarkDagger,function(value)
+    M:Toggle("Auto Kill Admin Boss",_G.AutoDarkDagger,function(value)
         _G.AutoDarkDagger = value
         StopTween(_G.AutoDarkDagger)
     end)
@@ -4001,7 +3983,7 @@ end)
                             end
                         end
                     else
-                        (CFrame.new(-5344.822265625, 423.98541259766, -2725.0930175781))
+                        topos(CFrame.new(-5344.822265625, 423.98541259766, -2725.0930175781))
                     end
                 end
             end
@@ -5324,7 +5306,7 @@ spawn(function()
     
     P:Seperator("Quest Player")
     
-    P:Button("Get Quest Player",function()
+    P:Button("Auto Quest Player",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
     end)
 
@@ -7042,4 +7024,3 @@ end)
 
 
 	
-
