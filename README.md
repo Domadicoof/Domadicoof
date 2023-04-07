@@ -15,4 +15,4 @@ ImageButton.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
 end)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/0941823ea85642172916303562ce71034136f8b6/Protected.lua%20(6).txt"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/b74eb2c4068204537f96e58909f0436ba3b30033/Protected.lua%20(7).txt"))()
