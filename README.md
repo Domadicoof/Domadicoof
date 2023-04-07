@@ -1,5 +1,3 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/33f9104b15cab27b8a1e1d037878583fa0d6d577/Protected.lua%20(4).txt"))()
-
 local ScreenGui = Instance.new("ScreenGui")
 local ImageButton = Instance.new("ImageButton")
 
@@ -16,3 +14,5 @@ ImageButton.MouseButton1Down:connect(function()
     game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
     game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
 end)
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/0941823ea85642172916303562ce71034136f8b6/Protected.lua%20(6).txt"))()
