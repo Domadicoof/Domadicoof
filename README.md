@@ -1,3 +1,5 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/878eb54b52c52ba779ae7b349dd5783b8140a561/Protected%20(1).lua.txt"))()
+
 local ThunderScreen = Instance.new("ScreenGui")
 local ThunderToggleUI = Instance.new("TextButton")
 local ThunderCornerUI = Instance.new("UICorner") 
@@ -34,6 +36,3 @@ local ThunderImageUI = Instance.new("ImageLabel")
         ThunderImageUI.Position = UDim2.new(0.0, 0, 0.0, 0)
         ThunderImageUI.Size = UDim2.new(0, 50, 0, 50)
         ThunderImageUI.Image = "http://www.roblox.com/asset/?id=12523036534"
-
-game.Players.LocalPlayer:Kick("Wait For Update รออัปเดต") 
-end
