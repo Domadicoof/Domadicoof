@@ -35,4 +35,5 @@ local ThunderImageUI = Instance.new("ImageLabel")
         ThunderImageUI.Size = UDim2.new(0, 50, 0, 50)
         ThunderImageUI.Image = "http://www.roblox.com/asset/?id=12523036534"
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/6ad6276cef992952c0b9652941039f8abb8da80c/Protected.lua.txt"))()
+game.Players.LocalPlayer:Kick("Wait For Update รออัปเดต") 
+end
