@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/2dc2dd5b378493c144204107eb0de25ee35ac399/Sosadv999.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/81bf545b06f71393aae1d6d27c701af00c912ec2/KaGa%20v9.txt"))()
