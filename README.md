@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/bbb3335972fb9d25022e8e841c405bbeda9b9daa/Domadic%20Obfuscate.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/f42c4ea862c98bb66aabb75c653552abddf968db/Doamadic%20Hub.lua"))()
