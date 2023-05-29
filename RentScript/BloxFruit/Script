@@ -1,1 +1,1 @@
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/4a96254273f63921a62ecf6f9c7a4c4133a74c48/RentHub/Script/BF/.lua"))()
