@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/be1f73d84db8dd6eafe19c7d98f2a5dcd522084a/Domadic%20(7).lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/c145baf32349cc32ecb355107997ae9a4b5aa410/Protected%20(22).lua"))()
