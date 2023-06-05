@@ -1571,9 +1571,6 @@ Main:Slider("Jump Hack", 0, 150, 150, function(jump)
 end)
 
 
-Main:Slider('Bring Mob',1, 1000,1000,function(value)
-  bringfrec = value
-  end)
 
 local GC = getconnections or get_signal_cons
 if GC then
@@ -1767,10 +1764,20 @@ spawn(function()
   end
 end)
 
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if Fastattack == true then
+            game.Players.LocalPlayer.Character.Stun.Value = 0
+            game.Players.LocalPlayer.Character.Humanoid.Sit = false
+            game.Players.LocalPlayer.Character.Busy.Value = false        
+        end
+    end)
+end)
+
 Main:Seperator("⚙️ Config ⚙️")
 
 --// Setting Farm
-local bringfrec = 350
+local bringfrec = 250
 local posX = 0
 local posY = 30
 local posZ = 0
@@ -3445,7 +3452,8 @@ spawn(function()
     if v.Name == Ms then
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
-    Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,0,30))
+    Fastattack = true
+    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
     v.Humanoid.JumpPower = 0
@@ -3463,6 +3471,7 @@ spawn(function()
     end
     end
     end
+    Fastattack = false
     for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
     if string.find(v.Name,NameMon) then
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
@@ -3491,6 +3500,7 @@ spawn(function()
     if v.Name == Ms then
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
+    Fastattack = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
     v.HumanoidRootPart.Transparency = 1
@@ -3508,6 +3518,7 @@ spawn(function()
     until not _G.Auto_Farm_Level or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
     end
     end
+    Fastattack = false
     end
     else
       for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
@@ -3527,6 +3538,7 @@ spawn(function()
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 1000 then
     repeat task.wait(0.0001)
     EquipTool(SelectWeapon)
+    Fastattack = true
     Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX, posY, posZ))
     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
     v.HumanoidRootPart.Transparency = 1
@@ -3540,6 +3552,7 @@ spawn(function()
     Click()
     until not _G.Auto_Farm_Level or not v.Parent or v.Humanoid.Health <= 0 or not game.Workspace.Enemies:FindFirstChild(v.Name)
     end
+    Fastattack = false
     end
     end
     end
@@ -3583,6 +3596,7 @@ if World1 then
                                     if v.Name == "Ice Admiral [Lv. 700] [Boss]" then
                                         repeat task.wait()
                                             EquipTool(SelectWeapon)
+                                            Fastattack = true
                                             Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.Transparency = 1
@@ -3599,6 +3613,7 @@ if World1 then
                                 end
                             end
                         end
+                        Fastattack = false
                         if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress").KilledIceBoss == true then
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelDressrosa")
                         end
@@ -3632,6 +3647,7 @@ if World2 then
                                                 if v.Name == "rip_indra [Lv. 1500] [Boss]" then
                                                     repeat task.wait()
                                                         EquipTool(SelectWeapon)
+                                                        Fastattack = true
                                                         Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                                         v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                                         v.HumanoidRootPart.Transparency = 1
@@ -3644,6 +3660,7 @@ if World2 then
                                                         MonFarm = v.Name
                                                         Click()
                                                     until not AutoThirdSea or not v.Parent or v.Humanoid.Health <= 0
+                                                    Fastattack = false
                                                     wait(.5)
                                                     General = 2
                                                     repeat task.wait() game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou") until General == 1
@@ -3663,6 +3680,7 @@ if World2 then
                                                 if v.Name == "Don Swan [Lv. 1000] [Boss]" then
                                                     repeat task.wait()
                                                         EquipTool(SelectWeapon)
+                                                        Fastattack = true
                                                         Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                                         v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                                         v.HumanoidRootPart.Transparency = 1
@@ -3675,6 +3693,7 @@ if World2 then
                                                         MonFarm = v.Name
                                                         Click()
                                                     until not AutoThirdSea or not v.Parent or v.Humanoid.Health <= 0
+                                                    Fastattack = false
                                                 end
                                             end
                                         end
@@ -3768,6 +3787,7 @@ if World2 then
                                             if v.Name == "Jeremy [Lv. 850] [Boss]" then
                                                 repeat task.wait()
                                                     EquipTool(SelectWeapon)
+                                                    Fastattack = true
                                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                                     v.HumanoidRootPart.Transparency = 1
@@ -3780,6 +3800,7 @@ if World2 then
                                                     MonFarm = v.Name
                                                     Click()
                                                 until not v.Parent or v.Humanoid.Health <= 0 or AutoThirdSea == false
+                                                Fastattack = false
                                             end
                                         end
                                     end
@@ -3844,6 +3865,7 @@ spawn(function()
                                     EquipTool(SelectWeapon)
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    Fastattack = true
                                     v.HumanoidRootPart.Transparency = 1
                                     v.Humanoid.JumpPower = 0
                                     v.Humanoid.WalkSpeed = 0
@@ -3855,6 +3877,7 @@ spawn(function()
                                     game:GetService'VirtualUser':CaptureController()
                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                 until AutoEcto == false or not v.Parent or v.Humanoid.Health == 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
+                                Fastattack = false
                             end
                         end
                     end
@@ -3980,6 +4003,7 @@ spawn(function()
     if v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]" then
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
+    Fastattack = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
@@ -3995,6 +4019,7 @@ spawn(function()
     v.Humanoid.Animator:Destroy()
     end
     until not AutoFarmBone or not v.Parent or v.Humanoid.Health <= 0
+    Fastattack = false
     end
     end
     end
@@ -4162,6 +4187,7 @@ spawn(function()
     if v.Name == SelectMonster then
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
+    Fastattack = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
@@ -4177,6 +4203,7 @@ spawn(function()
     v.Humanoid.Animator:Destroy()
     end
     until not AutoFarmSelectMonsterNoQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
+    Fastattack = false
     end
     end
     end
@@ -4243,6 +4270,7 @@ spawn(function()
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
     v.Humanoid.JumpPower = 0
+    Fastattack = true
     v.Humanoid.WalkSpeed = 0
     v.HumanoidRootPart.CanCollide = false
 --v.Humanoid:ChangeState(11)
@@ -4254,6 +4282,7 @@ spawn(function()
     v.Humanoid.Animator:Destroy()
     end
     until not AutoFarmMaterial or not v.Parent or v.Humanoid.Health <= 0
+    Fastattack = false
     end
     end
     end
@@ -4374,6 +4403,7 @@ spawn(function()
     if v.Name == SelectBoss then
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
+    Fastattack = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
@@ -4391,6 +4421,7 @@ spawn(function()
     until not AutoFarmBossQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
     end
     end
+    Fastattack = false
     end
     Tween(game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss).HumanoidRootPart.CFrame * Farm_Mode)
     end
@@ -4428,6 +4459,7 @@ spawn(function()
     if v.Name == SelectBoss then
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
+    Fastattack = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
@@ -4445,6 +4477,7 @@ spawn(function()
     until not AutoFarmBossNoQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
     end
     end
+    Fastattack = false
     end
     else
       Tween(game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss).HumanoidRootPart.CFrame * Farm_Mode)
@@ -5459,6 +5492,7 @@ spawn(function()
                                     if v.Name == "Fishman Raider [Lv. 1775]" or v.Name == "Fishman Captain [Lv. 1800]" then
                                         repeat task.wait()
                                             EquipTool(SelectWeapon)
+                                            Fastattack = true
                                             Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.Transparency = 1
@@ -5471,6 +5505,7 @@ spawn(function()
                                             MonFarm = v.Name
                                             Click()
                                         until not AutoGodhuman or not v.Parent or v.Humanoid.Health <= 0 or CheckMaterial("Fish Tail") >= 20
+                                        Fastattack = false
                                     end
                                 else
                                     Tween(CFrame.new(-10993,332,-8940))
@@ -5483,6 +5518,7 @@ spawn(function()
                                     if v.Name == "Fishman Raider [Lv. 1775]" or v.Name == "Fishman Captain [Lv. 1800]" then
                                         repeat task.wait()
                                             EquipTool(SelectWeapon)
+                                            Fastattack = true
                                             Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.Transparency = 1
@@ -5496,6 +5532,7 @@ spawn(function()
                                             game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                         until not AutoGodhuman or not v.Parent or v.Humanoid.Health <= 0 or CheckMaterial("Dragon Scale") >= 10
+                                        Fastattack = false
                                     end
                                 else
                                     Tween(CFram.new(6594,383,139))
@@ -5519,6 +5556,7 @@ spawn(function()
                                             Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.Transparency = 1
+                                            Fastattack = true
                                             v.Humanoid.JumpPower = 0
                                             v.Humanoid.WalkSpeed = 0
                                             v.HumanoidRootPart.CanCollide = false
@@ -5529,6 +5567,7 @@ spawn(function()
                                             game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                         until not AutoGodhuman or not v.Parent or v.Humanoid.Health <= 0 or CheckMaterial("Magma Ore") >= 20
+                                        Fastattack = false
                                     end
                                 else
                                     Tween(CFrame.new(-5428,78,-5959))
@@ -5542,6 +5581,7 @@ spawn(function()
                                         repeat task.wait()
                                             EquipTool(SelectWeapon)
                                             Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                            Fastattack = true
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.Transparency = 1
                                             v.Humanoid.JumpPower = 0
@@ -5554,6 +5594,7 @@ spawn(function()
                                             game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                         until not AutoGodhuman or not v.Parent or v.Humanoid.Health <= 0 or CheckMaterial("Mystic Droplet") >= 10
+                                        Fastattack = false
                                     end
                                 else
                                     Tween(CFrame.new(-3385,239,-10542))
@@ -5622,6 +5663,7 @@ spawn(function()
   repeat task.wait()
   EquipTool(SelectWeapon)
   Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+  Fastattack = true
   v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
   v.HumanoidRootPart.Transparency = 1
   v.Humanoid.JumpPower = 0
@@ -5634,6 +5676,7 @@ spawn(function()
   game:GetService'VirtualUser':CaptureController()
   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
   until not AutoCakePrince or not v.Parent or v.Humanoid.Health <= 0
+  Fastattack = false
   end
   end
   else
@@ -5649,6 +5692,7 @@ spawn(function()
   repeat task.wait()
   EquipTool(SelectWeapon)
   Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+  Fastattack = true
   v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
   v.HumanoidRootPart.Transparency = 1
   v.Humanoid.JumpPower = 0
@@ -5661,6 +5705,7 @@ spawn(function()
   game:GetService'VirtualUser':CaptureController()
   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
   until not AutoCakePrince or not v.Parent or v.Humanoid.Health <= 0
+  Fastattack = false
   end
   end
   end
@@ -5717,6 +5762,7 @@ local EliteProgress = Farm:Label("")
                                             repeat task.wait()
                                                 EquipTool(SelectWeapon)
                                                 Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                                Fastattack = true
                                                 MonsterPosition = v.HumanoidRootPart.CFrame
                                                 v.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
                                                 v.Humanoid.JumpPower = 0
@@ -5726,6 +5772,7 @@ local EliteProgress = Farm:Label("")
                                                 --v.Humanoid:ChangeState(11)
                                                 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                                             until AutoEliteHunter == false or v.Humanoid.Health <= 0 or not v.Parent
+                                            Fastattack = false
                                         end
                                     end
                                 end
@@ -5782,6 +5829,7 @@ spawn(function()
                                 repeat task.wait()
                                     EquipTool(SelectWeapon)
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                    Fastattack = true
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     v.HumanoidRootPart.Transparency = 1
                                     v.Humanoid.JumpPower = 0
@@ -5794,6 +5842,7 @@ spawn(function()
                                     game:GetService'VirtualUser':CaptureController()
                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                 until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hidden Key") or AutoRengoku == false or not v.Parent or v.Humanoid.Health <= 0
+                                Fastattack = false
                             end
                         end
                     end
@@ -5832,6 +5881,7 @@ spawn(function()
                                 repeat task.wait()
                                     EquipTool(SelectWeapon)
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                    Fastattack = true
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     v.HumanoidRootPart.Transparency = 1
                                     v.Humanoid.JumpPower = 0
@@ -5844,6 +5894,7 @@ spawn(function()
                                     game:GetService'VirtualUser':CaptureController()
                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                 until not AutoBuddySword or not v.Parent or v.Humanoid.Health <= 0
+                                Fastattack = false
                             end
                         end
                     end
@@ -5884,6 +5935,7 @@ spawn(function()
                             if v.Name == "Thunder God [Lv. 575] [Boss]" then
                                 repeat task.wait()
                                     EquipTool(SelectWeapon)
+                                    Fastattack = true
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     v.HumanoidRootPart.Transparency = 1
@@ -5897,6 +5949,7 @@ spawn(function()
                                     game:GetService'VirtualUser':CaptureController()
                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                 until not AutoPole or not v.Parent or v.Humanoid.Health <= 0
+                                Fastattack = false
                             end
                         end
                     end
@@ -5974,6 +6027,7 @@ spawn(function()
                                 repeat task.wait()
                                     EquipTool(SelectWeapon)
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                    Fastattack = true
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     v.HumanoidRootPart.Transparency = 1
                                     v.Humanoid.JumpPower = 0
@@ -5986,6 +6040,7 @@ spawn(function()
                                     game:GetService'VirtualUser':CaptureController()
                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                 until v.Humanoid.Health <= 0 or not AutoHallowSycthe
+                                Fastattack = false
                             end
                         end
                     end
@@ -6033,6 +6088,7 @@ spawn(function()
                                 repeat task.wait()
                                     EquipTool(SelectWeapon)
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                    Fastattack = true
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     v.HumanoidRootPart.Transparency = 1
                                     v.Humanoid.JumpPower = 0
@@ -6045,6 +6101,7 @@ spawn(function()
                                     game:GetService'VirtualUser':CaptureController()
                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                 until not AutoCavander or not v.Parent or v.Humanoid.Health <= 0
+                                Fastattack = false
                             end
                         end
                     end
@@ -6872,6 +6929,7 @@ spawn(function()
                                 repeat task.wait()
                                     EquipTool(SelectWeapon)
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                    Fastattack = true
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     v.HumanoidRootPart.Transparency = 1
                                     v.Humanoid.JumpPower = 0
@@ -6883,6 +6941,7 @@ spawn(function()
                                     MonFarm = v.Name
                                     Click()
                                 until v.Humanoid.Health <= 0 or not v.Parent or not Auto_Serpent_Bow
+                                Fastattack = false
                             end
                         end
                     end
