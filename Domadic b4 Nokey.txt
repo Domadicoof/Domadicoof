@@ -3463,8 +3463,8 @@ spawn(function()
     if v.Name == Ms then
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
-    Fastattack = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+    Fastattack = true
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
     v.Humanoid.JumpPower = 0
@@ -3479,10 +3479,10 @@ spawn(function()
     v.Humanoid.Animator:Destroy()
     end
     until not AutoFarmQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
-    end
-    end
-    end
     Fastattack = false
+    end
+    end
+    end
     for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
     if string.find(v.Name,NameMon) then
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
