@@ -1423,7 +1423,7 @@ function main:PlayerInfo()
 			
 			Seperator.Name = "Seperator"
 			Seperator.Parent = MainFramePage
-			Seperator.BackgroundColor3 = Color3.fromRGB(35, 21, 233)
+			Seperator.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
 			Seperator.BackgroundTransparency = 1.000
 			Seperator.Size = UDim2.new(0, 470, 0, 20)
 			
@@ -1459,7 +1459,7 @@ function main:PlayerInfo()
 			
 			Linee.Name = "Linee"
 			Linee.Parent = MainFramePage
-			Linee.BackgroundColor3 = Color3.fromRGB(35, 21, 233)
+			Linee.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
 			Linee.BackgroundTransparency = 2.000
 			Linee.Position = UDim2.new(0, 0, 0.119999997, 0)
 			Linee.Size = UDim2.new(0, 470, 0, 20)
@@ -7647,6 +7647,7 @@ if World3 then
                                     if v.Name == "Beautiful Pirate [Lv. 1950] [Boss]" then
                                         repeat task.wait()
                                             EquipTool(SelectWeapon)
+                                            Fastattack = true
                                             Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.Transparency = 1
@@ -7660,6 +7661,7 @@ if World3 then
                                             game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                         until AutoRainbowHaki == false or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                        Fastattack = false
                                     end
                                 end
                             end
@@ -7820,6 +7822,7 @@ spawn(function()
                             if v.Name == "Forest Pirate [Lv. 1825]" then
                                 repeat task.wait()
                                     EquipTool(SelectWeapon)
+                                    Fastattack = true
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     v.HumanoidRootPart.Transparency = 1
@@ -7832,6 +7835,7 @@ spawn(function()
                                     MonFarm = v.Name
                                     Click()										
                                 until not Musketeer or v.Humanoid.Health <= 0
+                                Fastattack = false
                             end
                         end
                     end
@@ -7859,6 +7863,7 @@ if World2 then
                                 pcall(function()
                                     EquipTool(SelectWeapon)
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                    Fastattack = true
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     v.HumanoidRootPart.Transparency = 1
                                     v.Humanoid.JumpPower = 0
@@ -7871,6 +7876,7 @@ if World2 then
                                     Click()
                                 end)
                             until _G.SwanGlasses == false or v.Humanoid.Health <= 0
+                            Fastattack = false
                         end
                     end
                 else
