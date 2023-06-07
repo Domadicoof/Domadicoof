@@ -2271,9 +2271,9 @@ spawn(function()
 	end
 end)
 
-M:AddSeperator(" Materials ")
+Main:AddSeperator(" Materials ")
 
-M:AddToggle("Auto Farm Radioactive Material",false,function(value)
+Main:AddToggle("Auto Farm Radioactive Material",false,function(value)
 Radioactive = value
 StopTween(Radioactive)
 end)
@@ -2317,7 +2317,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Auto Farm Mystic Droplet",false,function(value)
+    Main:AddToggle("Auto Farm Mystic Droplet",false,function(value)
 _G.Makori_gay = value
 StopTween(_G.Makori_gay)
 end)
@@ -2361,7 +2361,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Auto Farm Magma Ore",_G.Makori_gay,function(value)
+    Main:AddToggle("Auto Farm Magma Ore",_G.Makori_gay,function(value)
 _G.Umm = value
 StopTween(_G.Umm)
 end)
@@ -2445,7 +2445,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Auto Farm Angel Wings",_G.Makori_gay,function(value)
+    Main:AddToggle("Auto Farm Angel Wings",_G.Makori_gay,function(value)
 _G.Auto_Wing = value
 StopTween(_G.Auto_Wing)
 end)
@@ -2489,7 +2489,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Auto Farm Leather",_G.Makori_gay,function(value)
+    Main:AddToggle("Auto Farm Leather",_G.Makori_gay,function(value)
 _G.Leather = value
 StopTween(_G.Leather)
 end)
@@ -2611,7 +2611,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Auto Farm Scrap Metal",false,function(value)
+    Main:AddToggle("Auto Farm Scrap Metal",false,function(value)
 Scrap = value
 StopTween(Scrap)
 end)
@@ -2733,7 +2733,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Auto Farm Conjured Cocoa",false,function(value)
+    Main:AddToggle("Auto Farm Conjured Cocoa",false,function(value)
 Cocoafarm = value
 StopTween(Cocoafarm)
 end)
@@ -2777,7 +2777,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Auto Farm Dragon Scale",false,function(value)
+    Main:AddToggle("Auto Farm Dragon Scale",false,function(value)
 Dragon_Scale = value
 StopTween(Dragon_Scale)
 end)
@@ -2821,7 +2821,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Auto Farm Gunpowder",false,function(value)
+    Main:AddToggle("Auto Farm Gunpowder",false,function(value)
 Gunpowder = value
 StopTween(Gunpowder)
 end)
@@ -2865,7 +2865,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Auto Farm Fish Tail World 3",false,function(value)
+    Main:AddToggle("Auto Farm Fish Tail World 3",false,function(value)
 Fish = value
 StopTween(Fish)
 end)
@@ -2909,7 +2909,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Auto Farm Mini Tusk",false,function(value)
+    Main:AddToggle("Auto Farm Mini Tusk",false,function(value)
 MiniHee = value
 StopTween(MiniHee)
 end)
@@ -2953,7 +2953,7 @@ spawn(function()
         end
     end)
     
-    M:AddToggle("Hop Farm",_G.Makori_gay,function(value)
+    Main:AddToggle("Hop Farm",_G.Makori_gay,function(value)
     _G.StardHop = value
     end)
     
