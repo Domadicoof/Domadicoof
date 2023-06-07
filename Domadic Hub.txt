@@ -5026,13 +5026,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not Radioactive or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5071,13 +5070,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.Makori_gay or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5116,13 +5114,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.Umm or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5157,13 +5154,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.Umm or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5202,13 +5198,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.Auto_Wing or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5247,13 +5242,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.Leather or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5287,13 +5281,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.Leather or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5327,13 +5320,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.Leather or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5372,13 +5364,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not Scrap or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5412,13 +5403,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not Scrap or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5452,13 +5442,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not Scrap or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5497,13 +5486,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not Cocoafarm or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5542,13 +5530,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not Dragon_Scale or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5587,13 +5574,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not Gunpowder or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5632,13 +5618,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not Fish or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
@@ -5677,13 +5662,12 @@ spawn(function()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        v.HumanoidRootPart.CFrame = PosMon
+                                        v.Head.CanCollide = false 
+                                        MakoriGayMag = true
+                                        PosMon = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
-                                        MakoriGayMag = true
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not MiniHee or not v.Parent or v.Humanoid.Health <= 0
                                     MakoriGayMag = false
                                 end
