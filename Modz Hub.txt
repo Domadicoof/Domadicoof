@@ -2292,13 +2292,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag1 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Radioactive or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag1 = false
                                 end
                             end
                         end
@@ -2336,13 +2336,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag2 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Makori_gay or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag2 = false
                                 end
                             end
                         end
@@ -2380,13 +2380,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag3 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Umm or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag3 = false
                                 end
                             end
                         end
@@ -2420,13 +2420,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag4 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Umm or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag4 = false
                                 end
                             end
                         end
@@ -2464,13 +2464,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag5 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Auto_Wing or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag5 = false
                                 end
                             end
                         end
@@ -2508,13 +2508,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag6 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Leather or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag6 = false
                                 end
                             end
                         end
@@ -2547,13 +2547,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag7 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Leather or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag7 = false
                                 end
                             end
                         end
@@ -2586,13 +2586,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag8 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Leather or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag8 = false
                                 end
                             end
                         end
@@ -2630,13 +2630,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag9 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Scrap or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag9 = false
                                 end
                             end
                         end
@@ -2669,13 +2669,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag11 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Scrap or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag11 = false
                                 end
                             end
                         end
@@ -2708,13 +2708,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag12 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Scrap or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag12 = false
                                 end
                             end
                         end
@@ -2752,13 +2752,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag13 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Cocoafarm or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag13 = false
                                 end
                             end
                         end
@@ -2796,13 +2796,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag14 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Dragon_Scale or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag14 = false
                                 end
                             end
                         end
@@ -2840,13 +2840,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag15 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Gunpowder or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag15 = false
                                 end
                             end
                         end
@@ -2884,13 +2884,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag16 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Fish or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag16 = false
                                 end
                             end
                         end
@@ -2928,13 +2928,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag = true
+                                        MakoriGayMag17 = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not MiniHee or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    MakoriGayMag17 = false
                                 end
                             end
                         end
@@ -2953,7 +2953,7 @@ spawn(function()
         end
     end)
     
-    Main:AddToggle("Hop Farm",_G.Makori_gay,function(value)
+    Main:AddToggle("Hop Farm",false,function(value)
     _G.StardHop = value
     end)
     
@@ -7177,7 +7177,7 @@ end
 task.spawn(function()
 	while task.wait() do
 		pcall(function()
-			if Radioactive or _G.Makori_gay or _G.Umm or _G.Auto_Wing or _G.Leather or Scrap or Cocoafarm or Dragon_Scale or MiniHee or MakoriGayMag and _G.BringMonster then
+			if Radioactive or _G.Makori_gay or _G.Umm or _G.Auto_Wing or _G.Leather or Scrap or Cocoafarm or Dragon_Scale or MiniHee or MakoriGayMag1 or MakoriGayMag2 or MakoriGayMag3 or MakoriGayMag4 or MakoriGayMag5 or MakoriGayMag6 or MakoriGayMag7 or MakoriGayMag8 or MakoriGayMag9 or MakoriGayMag10 or MakoriGayMag11 or MakoriGayMag12 or MakoriGayMag13 or MakoriGayMag14 or MakoriGayMag15 or MakoriGayMag16 or MakoriGayMag17 and _G.BringMonster then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
 						if InMyNetWork(v.HumanoidRootPart) then
