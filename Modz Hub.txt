@@ -2336,13 +2336,13 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
-                                        MakoriGayMag2 = true
+                                        Pongtai = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Makori_gay or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag2 = false
+                                    Pongtai = false
                                 end
                             end
                         end
@@ -7177,7 +7177,45 @@ end
 task.spawn(function()
 	while task.wait() do
 		pcall(function()
-			if Radioactive or _G.Makori_gay or _G.Umm or _G.Auto_Wing or _G.Leather or Scrap or Cocoafarm or Dragon_Scale or MiniHee or MakoriGayMag1 or MakoriGayMag2 or MakoriGayMag3 or MakoriGayMag4 or MakoriGayMag5 or MakoriGayMag6 or MakoriGayMag7 or MakoriGayMag8 or MakoriGayMag9 or MakoriGayMag10 or MakoriGayMag11 or MakoriGayMag12 or MakoriGayMag13 or MakoriGayMag14 or MakoriGayMag15 or MakoriGayMag16 or MakoriGayMag17 and _G.BringMonster then
+			if MakoriGayMag1 or MakoriGayMag2 or MakoriGayMag3 or MakoriGayMag4 or MakoriGayMag5 or MakoriGayMag6 or MakoriGayMag7 or MakoriGayMag8 or MakoriGayMag9 or MakoriGayMag10 or MakoriGayMag11 or MakoriGayMag12 or MakoriGayMag13 or MakoriGayMag14 or MakoriGayMag15 or MakoriGayMag16 or MakoriGayMag17 and _G.BringMonster then
+				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
+						if InMyNetWork(v.HumanoidRootPart) then
+							v.HumanoidRootPart.CFrame = PosGay
+							v.Humanoid.JumpPower = 0
+							v.Humanoid.WalkSpeed = 0
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							v.HumanoidRootPart.Transparency = 1
+							v.HumanoidRootPart.CanCollide = false
+							v.Head.CanCollide = false
+							if v.Humanoid:FindFirstChild("Animator") then
+								v.Humanoid.Animator:Destroy()
+							end
+							v.Humanoid:ChangeState(11)
+							v.Humanoid:ChangeState(14)
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
+    
+function InMyNetWork(object)
+	if isnetworkowner then
+		return isnetworkowner(object)
+	else
+		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 200 then 
+			return true
+		end
+		return false
+	end
+end
+
+task.spawn(function()
+	while task.wait() do
+		pcall(function()
+			if Pongtai and _G.BringMonster then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
 						if InMyNetWork(v.HumanoidRootPart) then
