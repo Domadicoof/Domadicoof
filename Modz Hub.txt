@@ -5461,6 +5461,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
     
 M:AddToggle("Auto Farm Sea baest",false,function(value)
 _G.AutoFarmSeabaest = value
+StopTween(_G.AutoFarmSeabaest)
 end)
 
 spawn(function()
@@ -5493,13 +5494,13 @@ spawn(function()
  end)
  
  if _G.AutoSkill then 
-     game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
+     game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",true,game)
      game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
-     game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
+     game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",true,game)
      game:GetService("VirtualInputManager"):SendKeyEvent(false,"X",false,game)
-     game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game)
+     game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",true,game)
      game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
-     game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",false,game)
+     game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",true,game)
      game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game)
  end
  
