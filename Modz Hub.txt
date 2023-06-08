@@ -17,6 +17,9 @@
         game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
         game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
     end)
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Makorikakmak","All")
+    end)
         
 
 local PlaceName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
@@ -5494,15 +5497,18 @@ spawn(function()
  end)
  
  if _G.AutoSkill then 
-     game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",true,game)
-     game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
-     game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",true,game)
-     game:GetService("VirtualInputManager"):SendKeyEvent(false,"X",false,game)
-     game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",true,game)
-     game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
-     game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",true,game)
-     game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game)
+     UseSkill("Z")
+     UseSkill("X")
+     UseSkill("C")
+     UseSkill("V")
  end
+ 
+function UseSkill(skill)
+    Tool = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,skill,false,game)
+    task.wait()
+    game:GetService("VirtualInputManager"):SendKeyEvent(false,skill,false,game)
+end
  
     
  M:AddSeperator("Misc Law Sword")
@@ -10894,6 +10900,6 @@ end)
     
     Esp:AddLine()
     
-    Esp:AddLabel("Made By มีดร้ายเเรง🔪🔪#6356")
-    
+    Esp:AddLabel("Made By มีดร้ายเเรง🔪🔪#6356") 
+
     
