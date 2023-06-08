@@ -18,19 +18,9 @@
         game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
     end)
         
+    _G.Color = Color3.fromRGB(50,255,255)
 
-elseif game.PlaceId == 4520749081 or game.PlaceId == 6381829480 or game.PlaceId == 5931540094 or game.PlaceId == 5931540094 then
-    _G.Color = Color3.fromRGB(255,255,255)
-    if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
-    
-    repeat wait() until game:GetService("Players")
-    
-    if not game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then repeat wait() until game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") end
-        
-    wait(1)
-    
-    do
-        local ui = game.CoreGui:FindFirstChild("UlLib")
+    local ui = game.CoreGui:FindFirstChild("UlLib")
         if ui then
             ui:Destroy()
         end
@@ -1879,8 +1869,8 @@ if game.PlaceId == 2753915549 then
     
     function TP1(Pos)
     Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-    if Distance < 250 then
-        Speed = 600
+    if Distance < 50 then
+        Speed = 50
     elseif Distance < 500 then
         Speed = 300
     elseif Distance < 750 then
@@ -1897,8 +1887,8 @@ end
     
         function topos(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-        if Distance < 250 then
-            Speed = 600
+        if Distance < 50 then
+            Speed = 50
         elseif Distance < 500 then
             Speed = 300
         elseif Distance < 750 then
@@ -2002,18 +1992,17 @@ end
 
 
 
-local Library = DarkraiX:Window("KOBEN HUB","Blox Fruit | Version Premium","DarkRaiGui",Enum.KeyCode.RightControl);
-local Main = Library:AddTab("Main","")
-local Ss = Library:AddTab("Stats","")
-local M = Library:AddTab("Auto Item","")
-local P = Library:AddTab("Player","")
-local R = Library:AddTab("Raid","")
-local T = Library:AddTab("Teleport","")
-local RaceV4 = Library:AddTab("Race V4","")
-local S = Library:AddTab("Shop","")
-local D = Library:AddTab("Devil Fruit","")
-local Misc = Library:AddTab("Miscellaneous","")
-local Esp = Library:AddTab("Esp","")
+local RenUi = library:AddWindow("Loli Hub | BF",Enum.KeyCode.RightControl)
+local Main = RenUi:AddTab("Auto Farm","6026568198")
+local Ss = RenUi:AddTab("Stats","7040410130")
+local M = RenUi:AddTab("Item","11162889532")
+local P = RenUi:AddTab("Combat","7251993295")
+local R = RenUi:AddTab("Dungeon","7044284832")
+local T = RenUi:AddTab("Teleport","6035190846")
+local RaceV4 = RenUi:AddTab("Race V4","11446900930")
+local S = RenUi:AddTab("Shop","6031265976")
+local D = RenUi:AddTab("Devil Fruit","7044233235")
+local Misc = RenUi:AddTab("Misc","6034509993")
 
 
 Main:AddSeperator("Farm")
@@ -9995,7 +9984,103 @@ Misc:AddButton("Kaitun Cap", function(value)
     game.Players.LocalPlayer.Character.Animate.Disabled = true 
 end)
 
-    Misc:AddSeperator("Abilities")
+Misc:AddToggle("ESP Player",false,function(a)
+        ESPPlayer = a
+	UpdatePlayerChams()
+    end)
+    
+    Misc:AddToggle("ESP Chest",false,function(a)
+        ChestESP = a
+	UpdateChestChams() 
+    end)
+    
+    Misc:AddToggle("ESP Fruit",false,function(a)
+        DevilFruitESP = a
+        while DevilFruitESP do wait()
+            UpdateDevilChams() 
+        end
+    end)
+    
+    Misc:AddToggle("ESP Real Fruit",RealFruitESP,function(a)
+        RealFruitESP = a
+	UpdateRealFruitChams() 
+    end)
+    
+    Misc:AddToggle("ESP Flower",false,function(a)
+        FlowerESP = a
+	UpdateFlowerChams() 
+    end)
+    spawn(function()
+	    while wait(2) do
+		    if FlowerESP then
+			    UpdateFlowerChams() 
+		    end
+		    if DevilFruitESP then
+			    UpdateDevilChams() 
+		    end
+		    if ChestESP then
+			    UpdateChestChams() 
+		    end
+		    if ESPPlayer then
+			    UpdatePlayerChams()
+		    end
+		    if RealFruitESP then
+			    UpdateRealFruitChams()
+		    end
+	    end
+    end)
+Misc:AddToggle("ESP Island",IslandESP,function(value)
+        IslandESP = value
+        while IslandESP do wait()
+            UpdateIslandESP() 
+        end
+    end)
+    Esp:AddToggle("Esp Npc", false, function(nec)
+    NpcESP = nec
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            if NpcESP then
+                for i,v in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
+                    if v:FindFirstChild('HumanoidRootPart') then
+                        if not v:FindFirstChild("NpcEspes") then
+                            local BillboardGui = Instance.new("BillboardGui")
+                            local TextLabel = Instance.new("TextLabel")
+
+                            BillboardGui.Parent = v
+                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+                            BillboardGui.Active = true
+                            BillboardGui.Name = "NpcEspes"
+                            BillboardGui.AlwaysOnTop = true
+                            BillboardGui.LightInfluence = 1.000
+                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
+                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
+
+                            TextLabel.Parent = BillboardGui
+                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                            TextLabel.BackgroundTransparency = 1.000
+                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
+                            TextLabel.Font = Enum.Font.GothamBold
+                            TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+                            TextLabel.Text.Size = 35
+                        end
+                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
+                        v.NpcEspes.TextLabel.Text = v.Name.." - ["..Dis.." M]"
+                    end
+                end
+            else
+                for i,v in pairs (game:GetService("Workspace").NPCs:GetChildren()) do
+                    if v:FindFirstChild("NpcEspes") then
+                        v.NpcEspes:Destroy()
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+Misc:AddSeperator("Abilities")
     
     Misc:AddToggle("Dodge No Cooldown",false,function(value)
         nododgecool = value
@@ -10752,101 +10837,6 @@ function UpdateRealFruitChams()
 	end
     end
 	
-	Esp:AddToggle("ESP Player",false,function(a)
-        ESPPlayer = a
-	UpdatePlayerChams()
-    end)
-    
-    Esp:AddToggle("ESP Chest",false,function(a)
-        ChestESP = a
-	UpdateChestChams() 
-    end)
-    
-    Esp:AddToggle("ESP Fruit",false,function(a)
-        DevilFruitESP = a
-        while DevilFruitESP do wait()
-            UpdateDevilChams() 
-        end
-    end)
-    
-    Esp:AddToggle("ESP Real Fruit",RealFruitESP,function(a)
-        RealFruitESP = a
-	UpdateRealFruitChams() 
-    end)
-    
-    Esp:AddToggle("ESP Flower",false,function(a)
-        FlowerESP = a
-	UpdateFlowerChams() 
-    end)
-    spawn(function()
-	    while wait(2) do
-		    if FlowerESP then
-			    UpdateFlowerChams() 
-		    end
-		    if DevilFruitESP then
-			    UpdateDevilChams() 
-		    end
-		    if ChestESP then
-			    UpdateChestChams() 
-		    end
-		    if ESPPlayer then
-			    UpdatePlayerChams()
-		    end
-		    if RealFruitESP then
-			    UpdateRealFruitChams()
-		    end
-	    end
-    end)
-Esp:AddToggle("ESP Island",IslandESP,function(value)
-        IslandESP = value
-        while IslandESP do wait()
-            UpdateIslandESP() 
-        end
-    end)
-    Esp:AddToggle("Esp Npc", false, function(nec)
-    NpcESP = nec
-end)
-spawn(function()
-    while wait() do
-        pcall(function()
-            if NpcESP then
-                for i,v in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
-                    if v:FindFirstChild('HumanoidRootPart') then
-                        if not v:FindFirstChild("NpcEspes") then
-                            local BillboardGui = Instance.new("BillboardGui")
-                            local TextLabel = Instance.new("TextLabel")
-
-                            BillboardGui.Parent = v
-                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-                            BillboardGui.Active = true
-                            BillboardGui.Name = "NpcEspes"
-                            BillboardGui.AlwaysOnTop = true
-                            BillboardGui.LightInfluence = 1.000
-                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
-                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
-
-                            TextLabel.Parent = BillboardGui
-                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                            TextLabel.BackgroundTransparency = 1.000
-                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
-                            TextLabel.Font = Enum.Font.GothamBold
-                            TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-                            TextLabel.Text.Size = 35
-                        end
-                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
-                        v.NpcEspes.TextLabel.Text = v.Name.." - ["..Dis.." M]"
-                    end
-                end
-            else
-                for i,v in pairs (game:GetService("Workspace").NPCs:GetChildren()) do
-                    if v:FindFirstChild("NpcEspes") then
-                        v.NpcEspes:Destroy()
-                    end
-                end
-            end
-        end)
-    end
-end)
     
     Esp:AddLine()
     
