@@ -1107,7 +1107,7 @@ spawn(function()
 Main:AddLine()
 
 --// Setting Player
-Main:AddSeperator("👤 Local Player 👤")
+Main:AddSeperator("Local Player")
 
 Main:AddSlider("Speed Hack", 0, 150, 150, function(speed)
   game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = speed
@@ -1339,7 +1339,7 @@ local bringfrec = 250
 local posX = 0
 local posY = 30
 local posZ = 0
-local TweenSpeed = 350
+local TweenSpeed = 250
 local WeaponList = {
   "Melee","Devil Fruit","Sword","Gun"
 }
@@ -3654,7 +3654,7 @@ Main:AddToggle('Auto Try Luck', TryLuck, function(gravefunc)
     end)
 end
 
-Main:AddSeperator("👥 Other Mobs 👥")
+Main:AddSeperator("Other Mobs")
 
 Main:AddDropdown("Select Monster",tableMon,{""}, function(monsterlistfunc)
   SelectMonster = monsterlistfunc
@@ -3789,7 +3789,7 @@ spawn(function()
   end)
 
 
-Main:AddSeperator("⚔️ Material Farm ⚔️")
+Main:AddSeperator("🌸Material Farm🌸")
 --// Material List
 
 if World1 then
@@ -3867,7 +3867,7 @@ spawn(function()
   end
 end)
 
-Main:AddSeperator("🎃 Boss Farm 🎃")
+Main:AddSeperator("👽Boss Farm👽")
 
 --// Boss Farming
 local BossStatus = Main:AddLabel("")
@@ -9342,7 +9342,7 @@ end
         end)
     end
 
-Dungeon:Seperator("🧿 Esp Section 🧿")
+Dungeon:AddSeperator("Esp Menus")
 
 Dungeon:AddToggle('Chest ESP', false, function(ce)
     ChestESP = ce
