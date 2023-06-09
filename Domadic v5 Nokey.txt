@@ -6529,7 +6529,7 @@ end
 
 if World1 then
 Farm:AddSeperator("🗡️ Saber Sword 🗡️")
-    Farm:Toggle('Auto Saber', false, function(autosaberfunc)
+    Farm:AddToggle('Auto Saber', false, function(autosaberfunc)
         AutoSaber = autosaberfunc
         CancelTween(AutoSaber)
     end)
