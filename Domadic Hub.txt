@@ -3447,7 +3447,7 @@ local Esp = Library:Tab("Esp","rbxassetid://12950874071")
 
 H:Label("Script PC/Mobile")
 
-Misc:Button("Join Discord For More Updates",function()
+H:Button("Join Discord For More Updates",function()
 setclipboard("https://discord.gg/3tsD3dvU")
 end)
  
@@ -9052,7 +9052,7 @@ RaceV4:Label("Go to Third Sea Pls🥺")
 end
 
 if World3 then
-    RaceV4:Seperator("👾 Race V4 👾")
+    RaceV4:Seperator("Race V4")
     
 RaceV4:Button("Teleport To Top Of GreatTree",function()
   topos(CFrame.new(2947.556884765625, 2281.630615234375, -7213.54931640625))
@@ -9157,7 +9157,7 @@ end)
   topos(CFrame.new(28967.408203125, 14918.0751953125, 234.31198120117188))
   end)
 
-  RaceV4:Seperator("🍃 Auto Complete Trials 🍃")
+  RaceV4:Seperator("Auto Complete Trials")
   
   RaceV4:Button("Buy Ancient One Quest",function(t)
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer('UpgradeRace','Buy')
