@@ -5543,7 +5543,7 @@ Farm:AddToggle('Auto Pole [HOP]' , false, function(value)
 end)
 end
 if World3 then
-Farm:Seperator("🗡️ Yama Sword 🗡️")
+Farm:AddSeperator("🗡️ Yama Sword 🗡️")
 
 local Total_Elite_Hunter = Farm:AddLabel("")
 
