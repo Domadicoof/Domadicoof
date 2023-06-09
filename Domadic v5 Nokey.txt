@@ -1,5 +1,5 @@
 do local GUI = game.CoreGui:FindFirstChild("Darkrai");if GUI then GUI:Destroy();end;if _G.Color == nil then
-       _G.Color = Color3.fromRGB(255, 255, 255)
+       _G.Color = Color3.fromRGB(7, 236, 240)
    end 
 end
 
@@ -1044,7 +1044,7 @@ ImageButton1.MouseButton1Down:connect(function()
 end)
 UICorner.Parent = ImageButton1
 
-local Library = DarkraiX:Window("Domadic HUB","Blox Fruit | Version Premium","DarkRaiGui",Enum.KeyCode.RightControl);
+local Library = DarkraiX:Window("Domadic HUB","Blox Fruit | Version Premium NoKey","DarkRaiGui",Enum.KeyCode.RightControl);
 
 local Main = Library:AddTab("Main","")
 local Farm = Library:AddTab("Farm/Quest","")
@@ -10096,7 +10096,7 @@ end)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","2")
     end)
 
-          Shop:Button("Bizarre Rifle [ 250 Ectoplasm ]", function()
+          Shop:AddButton("Bizarre Rifle [ 250 Ectoplasm ]", function()
                                     local A_1 = "Ectoplasm"
                                     local A_2 = "Buy"
                                     local A_3 = 1
