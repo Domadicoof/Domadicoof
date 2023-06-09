@@ -3447,6 +3447,9 @@ local Esp = Library:Tab("Esp","rbxassetid://12950874071")
 
 H:Label("Script PC/Mobile")
 
+Misc:Button("Join Discord For More Updates",function()
+setclipboard("https://discord.gg/3tsD3dvU")
+end)
  
 H:Seperator("UpdLog")
 
@@ -3481,6 +3484,7 @@ H:Label("[+] Npc Teleport|31/5/2566|18:48")
 H:Label("[+] Esp Npc|31/5/2566|18:48")
 H:Label("[+] Race V4 Selection|31/5/2566|21:54")
 H:Label("[+] Auto Farm Materials |7/6/2566|07:54")
+H:Label("[+] Auto Farm SeaBeast |9/6/2566|20:53")
 
 
 
