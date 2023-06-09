@@ -9885,7 +9885,7 @@ end)
 
 
 
-    Shop:AddSeperator("🦾 Abilities 🦾")
+    Shop:AddSeperator("Abilities")
     
     Shop:AddButton("Buy Geppo [ $10,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
