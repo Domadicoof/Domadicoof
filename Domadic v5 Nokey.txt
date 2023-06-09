@@ -2976,7 +2976,7 @@ function CheckAntiCheatBypass()
 
 CheckAntiCheatBypass()
 
-Main:AddToggle("Anti Cheat Bypass(❗Do Not Turn Off❗)", true, function(value)
+Main:AddToggle("Anti Cheat Bypass", true, function(value)
   _G.SafeFarm = value
 CheckAntiCheatBypass()
   Notification("Anti Cheat Bypass Activated ✅")
@@ -4515,7 +4515,7 @@ spawn(function()
   end)
 
 KillPercent = 25
-Main:AddSlider('Kill Mobs At Health min ... %',1,100,100, function(KillPercentfunc)
+Main:AddSlider('Kill Mobs At Health min ... %',1,100,25, function(KillPercentfunc)
   KillPercent = KillPercentfunc
   end)
 
@@ -4695,7 +4695,7 @@ end
 
 
 
-Farm:AddSeperator("🦾 Fighting Style 🦾")
+Farm:AddSeperator("Fighting Style")
 
 Farm:AddToggle('Auto Death Step', AutoDeathStep, function(ads)
     AutoDeathStep = ads
@@ -5198,7 +5198,7 @@ if World3 then
 
 Farm:AddSeperator("🫅 Cake Prince 🫅")
 
-local CakePrinceStatus = Farm:Label("")
+local CakePrinceStatus = Farm:AddLabel("")
 spawn(function()
   while task.wait() do
   pcall(function()
@@ -11241,7 +11241,7 @@ end
         setfpscap(500)
     end)
 
-    Misc:Button("FPS delete color",function()
+    Misc:AddButton("FPS delete color",function()
 for _,v in pairs(workspace:GetDescendants()) do
 if v.ClassName == "Part"
 or v.ClassName == "SpawnLocation"
