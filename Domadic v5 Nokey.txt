@@ -5305,7 +5305,7 @@ local EliteProgress = Farm:AddLabel("")
                 if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
                     BosstElite:Set("Elite Boss : Spawned.")
                 else
-                    BosstElite:Set("Elite Hunter Has Been Spawned ✅")
+                    BosstElite:Set("Elite Hunter Not Spawned ")
                 end
             end)
         end
