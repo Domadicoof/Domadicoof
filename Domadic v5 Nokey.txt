@@ -3043,6 +3043,7 @@ spawn(function()
     if string.find(v.Name,NameMon) then
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
     Tween(v.CFrame * Farm_Mode)
+    Tween(CFrameMon)
     end
     end
     end
