@@ -3818,6 +3818,8 @@ end)
                         StartMagnet = false
                         CheckQuest()
                         repeat wait() TP1(CFrameQuest) until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not _G.AutoFarm
+                        if BypassTP then
+                        BTP(CFrameQuest)
                         if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then
                             wait(0.1)
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
@@ -4323,6 +4325,18 @@ spawn(function()
         end
     end)
 end)
+
+Main:Toggle('Bypass Teleport Auto Farm', BypassTP, function(vale)
+  BypassTP = vale
+end)
+
+function BTP(P1)
+game.Players.LocalPlayer.Character.Head:Destroy()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+end
 
 Main:Toggle("Fast Attack Fast (Not Kicking) ",true,function(value)
 _G.FastAttackNormalSpeed = value
