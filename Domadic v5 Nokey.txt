@@ -3038,12 +3038,13 @@ spawn(function()
     Fastattack = false
     end
     end
+    else
+    Tween(CFrameMon)
     end
     for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
     if string.find(v.Name,NameMon) then
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
     Tween(v.CFrame * Farm_Mode)
-    Tween(CFrameMon)
     end
     end
     end
