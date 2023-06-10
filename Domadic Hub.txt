@@ -3430,10 +3430,6 @@ local Esp = Library:Tab("Esp","rbxassetid://12950874071")
 
 
 H:Label("Script PC/Mobile")
-
-H:Button("Join Discord For More Updates",function()
-setclipboard("https://discord.gg/3tsD3dvU")
-end)
  
 H:Seperator("UpdLog")
 
