@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/a2f22fb3fcf09a6dc09b5249f5a86dc7fcac2312/DomadicNewha/Kubscript"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/32ff87742f762617e9e5cdae2cb5812ddae63c91/SadKub"))()
