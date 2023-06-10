@@ -1107,17 +1107,6 @@ spawn(function()
 Main:AddLine()
 
 --// Setting Player
-Main:AddSeperator("Local Player")
-
-Main:AddSlider("Speed Hack", 0, 150, 150, function(speed)
-  game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = speed
-  end)
-
-Main:AddSlider("Jump Hack", 0, 150, 150, function(jump)
-  game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = jump
-end)
-
-
 
 local GC = getconnections or get_signal_cons
 if GC then
