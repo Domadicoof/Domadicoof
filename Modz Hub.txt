@@ -1657,7 +1657,7 @@ if game.PlaceId == 2753915549 then
                 NameQuest = "CandyQuest1"
                 NameMon = "Snow Demon"
                 CFrameQuest = CFrame.new(-1150.0400390625, 20.378934860229492, -14446.3349609375)
-                CFrameMon = CFrame.new(-899.0391235351562, 26.511367797851562, -14430.8681640625)
+                CFrameMon = CFrame.new(-683.8216552734375, 73.99142456054688, -14395.048828125)
             end
         end
     end
@@ -2052,7 +2052,7 @@ end
 
 
 
-local Library = DarkraiX:Window("KOBEN HUB","Blox Fruit | Version Premium","DarkRaiGui",Enum.KeyCode.RightControl);
+local Library = DarkraiX:Window("Rent HUB","Blox Fruit | Version Free","DarkRaiGui",Enum.KeyCode.RightControl);
 local Main = Library:AddTab("Main","")
 local Ss = Library:AddTab("Stats","")
 local M = Library:AddTab("Auto Item","")
