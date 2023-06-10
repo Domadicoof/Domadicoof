@@ -1687,7 +1687,7 @@ NameQuest = "BuggyQuest1"
 QuestLv = 1
 NameMon = "Pirate"
 CFrameQ = CFrame.new(-1140.1761474609, 4.752049446106, 3827.4057617188)
-CFrameMon = CFrame.new(-1201.0881347656, 40.628940582275, 3857.5966796875)
+CFrameMon = CFrame.new(-1103.513427734375, 13.752052307128906, 3896.091064453125)
 elseif Lv == 40 or Lv <= 59 or SelectMonster == "Brute [Lv. 45]" or SelectArea == 'Buggy' then -- Brute
 Ms = "Brute [Lv. 45]"
 NameQuest = "BuggyQuest1"
