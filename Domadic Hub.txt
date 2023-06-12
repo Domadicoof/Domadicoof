@@ -3482,6 +3482,7 @@ H:Label("[+] Race V4 Selection|31/5/2566|21:54")
 H:Label("[+] Auto Farm Materials |7/6/2566|07:54")
 H:Label("[+] Auto Farm SeaBeast |9/6/2566|20:53")
 H:Label("[+] Fixes Auto Farm Bosses Not Working|11/6/2566|21:30")
+H:Label("[+] Added Auto Farm Mob|12/6/2566|08:30")
 
 
 
@@ -3973,14 +3974,14 @@ Main:Toggle("Auto Kaitan",false,function(value)
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
-                                        MakoriGayMag = true
+                                        SelectMag = true
                                         PosMon = v.HumanoidRootPart.CFrame
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.AutoFarmMob or not v.Parent or v.Humanoid.Health <= 0
-                                    MakoriGayMag = false
+                                    SelectMag = false
                                 end
                             end
                         end
@@ -8954,7 +8955,7 @@ end
 task.spawn(function()
 	while task.wait() do
 		pcall(function()
-			if _G.AutoFarmNearest and AutoFarmNearestMagnet and _G.BringMonster then
+			if _G.AutoFarmNearest and AutoFarmNearestMagnet or SelectMag and _G.BringMonster then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
 						if InMyNetWork(v.HumanoidRootPart) then
