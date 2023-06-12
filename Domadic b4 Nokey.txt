@@ -1490,7 +1490,7 @@ ImageButton1.BorderSizePixel = 0
 ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
-ImageButton1.Image = "http://www.roblox.com/asset/?id="
+ImageButton1.Image = "http://www.roblox.com/asset/?id=8226716738"
 ImageButton1.MouseButton1Down:connect(function()
   game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
   game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
@@ -4962,7 +4962,7 @@ spawn(function()
   end)
 
 KillPercent = 25
-Main:Slider('Kill Mobs At Health min ... %',1,100,100, function(KillPercentfunc)
+Main:Slider('Kill Mobs At Health min ... %',1,100,25, function(KillPercentfunc)
   KillPercent = KillPercentfunc
   end)
 
@@ -5752,7 +5752,7 @@ local EliteProgress = Farm:Label("")
                 if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
                     BosstElite:Set("Elite Boss : Spawned.")
                 else
-                    BosstElite:Set("Elite Hunter Has Been Spawned ✅")
+                    BosstElite:Set("Elite Hunter Not Spawn")
                 end
             end)
         end
