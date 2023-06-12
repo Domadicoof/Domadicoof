@@ -111,8 +111,7 @@ Top.ZIndex = 2
 	Logo.BackgroundTransparency = 1.000
 	Logo.Position = UDim2.new(0, 10, 0, 30)
 	Logo.Size = UDim2.new(0, 60, 0, 60)
-	Logo.Text = "X2"
-	Logo.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Logo.Image = ""
 	Logo.Active = true
 	Logo.ZIndex = 8
 	
