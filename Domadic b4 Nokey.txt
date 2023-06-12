@@ -59,9 +59,9 @@ end
 
 function Notification(text)
 game.StarterGui:SetCore("SendNotification", {
-  Title = "Domadic Hub"; -- the title (ofc)
+  Title = "Secret X Hub"; -- the title (ofc)
   Text = text; -- what the text says (ofc)
-  Icon = "rbxassetid://12523036534"; -- the image if u want.
+  Icon = "rbxassetid://8226716738"; -- the image if u want.
   Duration = 3; -- how long the notification should in secounds
 })
 end
@@ -111,7 +111,7 @@ Top.ZIndex = 2
 	Logo.BackgroundTransparency = 1.000
 	Logo.Position = UDim2.new(0, 10, 0, 30)
 	Logo.Size = UDim2.new(0, 60, 0, 60)
-	Logo.Image = ""
+	Logo.Image = "http://www.roblox.com/asset/?id=8226716738"
 	Logo.Active = true
 	Logo.ZIndex = 8
 	
@@ -125,8 +125,8 @@ Top.ZIndex = 2
 	Name.Position = UDim2.new(0.107756112, 0, 0, 0)
 	Name.Size = UDim2.new(0, 50, 0, 27)
 	Name.Font = Enum.Font.GothamSemibold
-	Name.Text = "MakoriX2SwitchKak X Hub"
-	Name.TextColor3 = Color3.fromRGB(7, 236, 240)
+	Name.Text = "Secret X Hub"
+	Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Name.TextSize = 17.000
 
 	local Hub = Instance.new("TextLabel")
@@ -9616,7 +9616,7 @@ wait(1);
 
 Notify({
 Description = "There are no devil fruits left.";
-Title = "Domadic Hub";
+Title = "Secret Hub";
 Duration = 5;
 });
 						end
