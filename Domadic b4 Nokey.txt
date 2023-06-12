@@ -111,7 +111,8 @@ Top.ZIndex = 2
 	Logo.BackgroundTransparency = 1.000
 	Logo.Position = UDim2.new(0, 10, 0, 30)
 	Logo.Size = UDim2.new(0, 60, 0, 60)
-	Logo.Image = "rbxassetid://12523036534"
+	Logo.Text = "X2"
+	Logo.TextColor3 = Color3.fromRGB(255, 255, 255)
 	Logo.Active = true
 	Logo.ZIndex = 8
 	
@@ -125,7 +126,7 @@ Top.ZIndex = 2
 	Name.Position = UDim2.new(0.107756112, 0, 0, 0)
 	Name.Size = UDim2.new(0, 50, 0, 27)
 	Name.Font = Enum.Font.GothamSemibold
-	Name.Text = "Domadic Hub"
+	Name.Text = "MakoriX2SwitchKak X Hub"
 	Name.TextColor3 = Color3.fromRGB(7, 236, 240)
 	Name.TextSize = 17.000
 
@@ -1490,7 +1491,7 @@ ImageButton1.BorderSizePixel = 0
 ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
 ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
-ImageButton1.Image = "http://www.roblox.com/asset/?id=12523036534"
+ImageButton1.Image = "http://www.roblox.com/asset/?id="
 ImageButton1.MouseButton1Down:connect(function()
   game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
   game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
@@ -1562,13 +1563,6 @@ Main:Line()
 --// Setting Player
 Main:Seperator("👤 Local Player 👤")
 
-Main:Slider("Speed Hack", 0, 150, 150, function(speed)
-  game:GetService("Players").LocalPlayer.Character.Humanoid.WalkSpeed = speed
-  end)
-
-Main:Slider("Jump Hack", 0, 150, 150, function(jump)
-  game:GetService("Players").LocalPlayer.Character.Humanoid.JumpPower = jump
-end)
 
 
 
@@ -3258,7 +3252,7 @@ spawn(function()
 spawn(function()
   pcall(function()
     while wait() do
-    if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.d or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or _G.Mirage or AutoKenHop or AutoKenV2 or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto then
+    if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.d or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or _G.Mirage or AutoKenHop or AutoKenV2 or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto or _G.Next_Islands or _G.Auto_Raid or _G.Raid or _G.Auto_Dungeon then
     if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
     local Noclip = Instance.new("BodyVelocity")
     Noclip.Name = "BodyClip"
@@ -3279,7 +3273,7 @@ spawn(function()
 spawn(function()
   pcall(function()
     game:GetService("RunService").Stepped:Connect(function()
-      if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or _G.Mirage or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or _G.d or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto then
+      if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or _G.Mirage or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or _G.d or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto or _G.Next_Islands or _G.Auto_Raid or _G.Raid or _G.Auto_Dungeon then
       for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
       if v:IsA("BasePart") then
       v.CanCollide = false
@@ -3492,6 +3486,7 @@ spawn(function()
     end
     end
     end
+    Tween(CFrameMon)
     for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
     if string.find(v.Name,NameMon) then
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
