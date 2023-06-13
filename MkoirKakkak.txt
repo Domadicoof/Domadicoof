@@ -2196,7 +2196,7 @@ end)
         _G.SelectMob = value
     end)
     
-    Main:Button("Refresh Mob",function()
+    Main:AddButton("Refresh Mob",function()
      Select_M:Clear()
      local xx = {}
 	
