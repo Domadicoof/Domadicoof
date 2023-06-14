@@ -11032,6 +11032,6 @@ end)
     
     Esp:AddLine()
     
-    Esp:AddLabel("Made By มีดร้ายเเรง🔪🔪#6356")
+    Esp:AddLabel("Made By xMkoriCraftz#5066")
     
     
