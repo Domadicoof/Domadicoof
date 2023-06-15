@@ -3431,7 +3431,6 @@ end
 
 
 local Library = Update:Window("Domadic Hub");
-local H = Library:Tab("Ummm","rbxassetid://12950870585")
 local Main = Library:Tab("Main","rbxassetid://6026568198")
 local M = Library:Tab("Auto Item","rbxassetid://7251993295")
 local Ss = Library:Tab("Stats","rbxassetid://7040410130")
@@ -3444,137 +3443,7 @@ local D = Library:Tab("Fruit","rbxassetid://7044233235")
 local Misc = Library:Tab("Misc","rbxassetid://6034509993")
 local Esp = Library:Tab("Esp","rbxassetid://12950874071")
 
-
-H:Label("Script PC/Mobile")
- 
-H:Seperator("UpdLog")
-
-H:Label("[+] Reduce Tween Speed | 5/4/2566|10:02")
-H:Label("[+] Added Super Fast Attack | 8/4/2566|00:30")
-H:Label("[+] Added Anti Afk | 8/4/2566|00:30")
-H:Label("[+] New Ui | 20/4/2566|19:40")
-H:Label("[+] Reduce Cpu | 20/4/2566|22:39")
-H:Label("[+] Added Auto Click | 22/4/2566|12:16")
-H:Label("[+] Fixed Bug Attack| 26/4/2566|19:45")
-H:Label("[+] Auto Farm Nearest | 27/4/2566|09:52")
-H:Label("[+] Anti Ban | 30/4/2566|11:35")
-H:Label("[+] Fix Auto Farm| 30/4/2566|11:35")
-H:Label("[+] New Ui| 30/4/2566|19:37")
-H:Label("[+] Fix Auto Chest Can't Use| 30/4/2566|23:10")
-H:Label("[+] Added Auto Cavander| 30/4/2566|23:12")
-H:Label("[+] Added Auto Twin Hook| 30/4/2566|23:13")
-H:Label("[+] Added Elite Spawan Check| 30/4/2566|23:12")
-H:Label("[+] Added unlock Buso| 2/5/2566|19:25")
-H:Label("[+] Added unlock Soru| 2/5/2566|19:25")
-H:Label("[+] Added unlock Geppo| 2/5/2566|19:25")
-H:Label("[+] Added Auto Buy All Abilities 2/5/2566|1:19")
-H:Label("[+] Added Auto Buy All Sword 2/5/2566|1:20")
-H:Label("[+] Fixed Kill Aura|11/5/2566|14:53")
-H:Label("[+] Fixed Tween To Fruit|15/5/2566|15:59")
-H:Label("[+] Fixed Auto Farm Nearest|27/5/2566|8:59")
-H:Label("[+] Added Mangnet Auto farm Nearest|27/5/2566|8:59")
-H:Label("[+] More Upd|31/5/2566|18:48")
-H:Label("[+] New Ui|31/5/2566|18:48")
-H:Label("[+] Tp Gear|31/5/2566|18:48")
-H:Label("[+] Npc Teleport|31/5/2566|18:48")
-H:Label("[+] Esp Npc|31/5/2566|18:48")
-H:Label("[+] Race V4 Selection|31/5/2566|21:54")
-H:Label("[+] Auto Farm Materials |7/6/2566|07:54")
-H:Label("[+] Auto Farm SeaBeast |9/6/2566|20:53")
-H:Label("[+] Fixes Auto Farm Bosses Not Working|11/6/2566|21:30")
-H:Label("[+] Added Auto Farm Mob|12/6/2566|08:30")
-
-
-
-
-local Time = H:Label("Executor Time");spawn(function() getgenv().Time = true;while true do wait(.1) UpdateTime() end end);function UpdateTime() local date = os.date("*t");local hour = (date.hour) % 24;local ampm = hour < 12 and "AM" or "PM";local timezone = string.format("%02i:%02i:%02i %s", ((hour -1) % 12) + 1, date.min, date.sec, ampm);local datetime = string.format("%02d/%02d/%04d", date.day, date.month, date.year);local LocalizationService = game:GetService("LocalizationService");local Players = game:GetService("Players");local player = Players.LocalPlayer;local name = player.Name;local result, code = pcall(function()   return LocalizationService:GetCountryRegionForPlayerAsync(player)  end);Time:Set(" : " .. timezone);Time:Set("Executor Time: " .. datetime .. " [ " .. code .. " ]");spawn(function() if getgenv().Time then pcall(function()  while wait() do  Time()  end end) end end) end
-
-H:Seperator("Status")
-    
-    local locallv = H:Label("Level")
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                locallv:Set("Level :".." "..game:GetService("Players").LocalPlayer.Data.Level.Value)
-            end)
-        end
-    end)
-    
-    local localrace = H:Label("Race")
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                localrace:Set("Race :".." "..game:GetService("Players").LocalPlayer.Data.Race.Value)
-            end)
-        end
-    end)
-    
-    local localbeli = H:Label("Beli")
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                localbeli:Set("Beli :".." "..game:GetService("Players").LocalPlayer.Data.Beli.Value)
-            end)
-        end
-    end)
-    
-    local localfrag = H:Label("Fragment")
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                localfrag:Set("Fragments :".." "..game:GetService("Players").LocalPlayer.Data.Fragments.Value)
-            end)
-        end
-    end)
-    
-    
-    local localexp = H:Label("ExP")
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                localexp:Set("ExP Points :".." "..game:GetService("Players").LocalPlayer.Data.Exp.Value)
-            end)
-        end
-    end)
-    
-    local localstat = H:Label("Stats Points")
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                localstat:Set("Stats Points :".." "..game:GetService("Players").LocalPlayer.Data.Points.Value)
-            end)
-        end
-    end)
-    
-    local localbountyhornor = H:Label("Bounty")
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                localbountyhornor:Set("Bounty / Honor :".." "..game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value)
-            end)
-        end
-    end)
-    
-    local localDevil = H:Label("Devil Fruit")
-    
-    spawn(function()
-        while wait() do
-            pcall(function()
-                if game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) then
-                    localDevil:Set("Devil Fruit :".." "..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-                else
-                    localDevil:Set("Not Have Devil Fruit")
-                end
-            end)
-        end
-    end)
+local Time = Main:Label("Executor Time");spawn(function() getgenv().Time = true;while true do wait(.1) UpdateTime() end end);function UpdateTime() local date = os.date("*t");local hour = (date.hour) % 24;local ampm = hour < 12 and "AM" or "PM";local timezone = string.format("%02i:%02i:%02i %s", ((hour -1) % 12) + 1, date.min, date.sec, ampm);local datetime = string.format("%02d/%02d/%04d", date.day, date.month, date.year);local LocalizationService = game:GetService("LocalizationService");local Players = game:GetService("Players");local player = Players.LocalPlayer;local name = player.Name;local result, code = pcall(function()   return LocalizationService:GetCountryRegionForPlayerAsync(player)  end);Time:Set(" : " .. timezone);Time:Set("Executor Time: " .. datetime .. " [ " .. code .. " ]");spawn(function() if getgenv().Time then pcall(function()  while wait() do  Time()  end end) end end) end
 
 Main:Seperator("Farm")
 
