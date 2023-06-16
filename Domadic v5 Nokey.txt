@@ -2630,8 +2630,8 @@ end
 --// Tween Island
 function TP2(P1)
 local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-if Distance >= 250 then
-Speed = 200
+if Distance >= 500000 then
+Speed = 150
 end
 game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear), {
   CFrame = P1
@@ -2649,8 +2649,8 @@ end
 --// Tween Farm
 function Tween(P1)
 local Distance = (P1.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-if Distance >= 250 then
-Speed = 200
+if Distance >= 500000 then
+Speed = 150
 end
 game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear), {
   CFrame = P1
