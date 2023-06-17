@@ -9584,12 +9584,12 @@ function UpdatePlayerChams()
 						name.BackgroundTransparency = 1
 						name.TextStrokeTransparency = 0.5
 						if v.Team == game.Players.LocalPlayer.Team then
-							name.TextColor3 = Color3.new(0,255,0)
-						else
 							name.TextColor3 = Color3.new(7, 236, 240)
+						else
+							name.TextColor3 = Color3.new(255, 0, 0)
 						end
 					else
-						v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..' | '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M\nHealth : ' .. round(v.Character.Humanoid.Health*100/v.Character.Humanoid.MaxHealth) .. '%')
+						v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..' | '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' Distance\nHealth : ' .. round(v.Character.Humanoid.Health*100/v.Character.Humanoid.MaxHealth) .. '%')
 					end
 				else
 					if v.Character.Head:FindFirstChild('NameEsp'..Number) then
@@ -9877,12 +9877,12 @@ function UpdatePlayerChams()
 						name.BackgroundTransparency = 1
 						name.TextStrokeTransparency = 0.5
 						if v.Team == game.Players.LocalPlayer.Team then
-							name.TextColor3 = Color3.new(0,255,0)
+							name.TextColor3 = Color3.new(7, 236, 240)
 						else
 							name.TextColor3 = Color3.new(255,0,0)
 						end
 					else
-						v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..' | '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M\nHealth : ' .. round(v.Character.Humanoid.Health*100/v.Character.Humanoid.MaxHealth) .. '%')
+						v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..' | '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' Distance\nHealth : ' .. round(v.Character.Humanoid.Health*100/v.Character.Humanoid.MaxHealth) .. '%')
 					end
 				else
 					if v.Character.Head:FindFirstChild('NameEsp'..Number) then
