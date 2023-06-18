@@ -3850,7 +3850,7 @@ _G.AutoClick = value
 end)
 
 
-    Set:AddToggle("Remove Attack",true,function(value)
+    Set:AddToggle("Remove attack Animation",true,function(value)
     getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync 
 getgenv().B = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.Particle).play
 spawn(function()
@@ -3872,9 +3872,9 @@ spawn(function()
         
     end
 end)
-   end)
-   
-    Set:AddToggle("Delete Attack FIx",true,function(d)
+end)
+  
+Set:AddToggle("Delete Attack FIx",nil,function(d)
     _G.DeleteAttackFx = d
     if _G.DeleteAttackFx == true then
     while _G.DeleteAttackFx do wait()
@@ -3886,17 +3886,29 @@ end)
     end
     end
 end)
+
     
     
 Set:AddToggle("White Screen",_G.WhiteScreen,function(value)
-    _G.WhiteScreen = value
-end)
+_G.WhiteScreen = value
 if _G.WhiteScreen == true then
     game:GetService("RunService"):Set3dRenderingEnabled(false)
 elseif _G.WhiteScreen == false then
     game:GetService("RunService"):Set3dRenderingEnabled(true)
 end
 end)
+
+spawn(function()
+      while wait() do
+      if _G.WhiteScreen then
+        for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
+            if v.Name == "CurvedRing" or v.Name == "SlashHit" or v.Name == "DamageCounter" or v.Name == "SwordSlash" or v.Name == "SlashTail" or v.Name == "Sounds" then
+                v:Destroy() 
+            end
+        end
+    end
+    end
+end) 
     
  getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync
 getgenv().B = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.Particle).play
@@ -3918,9 +3930,9 @@ spawn(function()
             end)
          end
     end
-    end)
-    Set:AddToggle("Invisible Monsters",_G.inv,function(value)
-    _G.inv = value
+end)
+Set:AddToggle("Invisible Monsters",_G.inv,function(value)
+_G.inv = value
     
          while wait() do
              if _G.inv then
