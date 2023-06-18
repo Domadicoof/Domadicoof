@@ -3893,7 +3893,8 @@ spawn(function()
 end)
 end)
   
-    _G.DeleteAttackFx = true
+Set:AddToggle("Delete Attack Fix",nill,function(d)
+    _G.DeleteAttackFx = d
     if _G.DeleteAttackFx == true then
     while _G.DeleteAttackFx do wait()
         for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
