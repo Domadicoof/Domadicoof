@@ -278,7 +278,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
 		TabButton.Name = text.."Server"
 		TabButton.Text = text
 		TabButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-	    TabButton.BorderColor3 = Color3.fromRGB(255,255,255)
+	    TabButton.BorderColor3 = Color3.fromRGB(17, 156, 63)
         TabButton.BorderSizePixel = 3
 		TabButton.Size = UDim2.new(0, 130, 0, 23)
 		TabButton.Font = Enum.Font.GothamSemibold
@@ -2051,6 +2051,7 @@ end
 
 local Library = DarkraiX:Window("SABI HUB","Blox Fruit","DarkRaiGui",Enum.KeyCode.RightControl);
 local Main = Library:AddTab("Main","")
+local Set = Library:AddTab("Setting","")
 local Ss = Library:AddTab("Stats","")
 local M = Library:AddTab("Auto Item","")
 local P = Library:AddTab("Player","")
@@ -3735,9 +3736,9 @@ spawn(function()
         end
     end)
     
-    Main:AddSeperator("Setting")
+    Set:AddSeperator("Setting")
     
-Main:AddToggle("Bring Mob",true,function(Mag)
+Set:AddToggle("Bring Mob",true,function(Mag)
     _G.BringMonster = Mag
     end)
     spawn(function()
@@ -3773,7 +3774,7 @@ Main:AddToggle("Bring Mob",true,function(Mag)
         end
     end)
 
-Main:AddToggle("Auto Haki",true,function(value)
+Set:AddToggle("Auto Haki",true,function(value)
 _G.AUTOHAKI = value
 end)
 spawn(function()
@@ -3788,7 +3789,7 @@ spawn(function()
         end
     end
 end)
-    Main:AddToggle("Fast Attack [1]",true,function(Fast)
+    Set:AddToggle("Fast Attack [1]",true,function(Fast)
     _G.FastAttack = Fast
 end)
 
@@ -3815,7 +3816,7 @@ spawn(function()
     end
 end)
 
-    Main:AddToggle("Fast Attack [2]",true,function(value)
+    Set:AddToggle("Fast Attack [2]",true,function(value)
         _G.FastAttack2 = value
     end)   
     
@@ -3844,12 +3845,12 @@ spawn(function()
     end)
 end)
 
-Main:AddToggle("Auto Click",false,function(value)
+Set:AddToggle("Auto Click",false,function(value)
 _G.AutoClick = value
 end)
 
 
-    Main:AddToggle("Remove Attack",false,function(value)
+    Set:AddToggle("Remove Attack",true,function(value)
     getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync 
 getgenv().B = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.Particle).play
 spawn(function()
@@ -3873,7 +3874,7 @@ spawn(function()
 end)
    end)
    
-    Main:AddToggle("Delete Attack FIx",false,function(d)
+    Set:AddToggle("Delete Attack FIx",true,function(d)
     _G.DeleteAttackFx = d
     if _G.DeleteAttackFx == true then
     while _G.DeleteAttackFx do wait()
@@ -3898,7 +3899,7 @@ end)
     end
 end) 
     
-        Main:AddToggle("White Screen",_G.WhiteScreen,function(value)
+        Set:AddToggle("White Screen",_G.WhiteScreen,function(value)
     _G.WhiteScreen = value
 if _G.WhiteScreen == true then
     game:GetService("RunService"):Set3dRenderingEnabled(false)
@@ -3928,7 +3929,7 @@ spawn(function()
          end
     end
     end)
-    Main:AddToggle("Invisible Monsters",_G.inv,function(value)
+    Set:AddToggle("Invisible Monsters",_G.inv,function(value)
     _G.inv = value
     
          while wait() do
@@ -3959,30 +3960,30 @@ spawn(function()
       end
     end)
     
-    Main:AddSeperator("Misc Setting Mastery")
+    Set:AddSeperator("Misc Setting Mastery")
     
-    _G.Kill_At = 50
+    _G.Kill_At = 25
 
-    Main:AddSlider("Kill At %",1,100,50,function(value)
+    Set:AddSlider("Kill At %",1,100,25,function(value)
 
         _G.Kill_At = value
     end)
     
  
-    Main:AddToggle("Skill Z",true,function(value)
+    Set:AddToggle("Skill Z",true,function(value)
         _G.SkillZ = value
     end)
  
     
-    Main:AddToggle("Skill X",true,function(value)
+    Set:AddToggle("Skill X",true,function(value)
         _G.SkillX = value
     end)
     
-    Main:AddToggle("Skill C",true,function(value)
+    Set:AddToggle("Skill C",true,function(value)
         _G.SkillC = value
     end)
     
-     Main:AddToggle("Skill V",true,function(value)
+     Set:AddToggle("Skill V",true,function(value)
         _G.SkillV = value
     end)
     
@@ -10992,17 +10993,107 @@ spawn(function()
                             TextLabel.BackgroundTransparency = 1.000
                             TextLabel.Size = UDim2.new(0, 200, 0, 50)
                             TextLabel.Font = Enum.Font.GothamBold
-                            TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+                            TextLabel.TextColor3 = Color3.fromRGB(17, 156, 63)
                             TextLabel.Text.Size = 35
                         end
                         local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
-                        v.NpcEspes.TextLabel.Text = v.Name.." - ["..Dis.." M]"
+                        v.NpcEspes.TextLabel.Text = v.Name.." - "..Dis.." M"
                     end
                 end
             else
                 for i,v in pairs (game:GetService("Workspace").NPCs:GetChildren()) do
                     if v:FindFirstChild("NpcEspes") then
                         v.NpcEspes:Destroy()
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+Esp:Toggle("Esp Sea Beast", false, function(nec)
+    SeaESP = nec
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            if SeaESP then
+                for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+                    if v:FindFirstChild('HumanoidRootPart') then
+                        if not v:FindFirstChild("Seaesps") then
+                            local BillboardGui = Instance.new("BillboardGui")
+                            local TextLabel = Instance.new("TextLabel")
+
+                            BillboardGui.Parent = v
+                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+                            BillboardGui.Active = true
+                            BillboardGui.Name = "Seaesps"
+                            BillboardGui.AlwaysOnTop = true
+                            BillboardGui.LightInfluence = 1.000
+                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
+                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
+
+                            TextLabel.Parent = BillboardGui
+                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                            TextLabel.BackgroundTransparency = 1.000
+                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
+                            TextLabel.Font = Enum.Font.GothamBold
+                            TextLabel.TextColor3 = Color3.fromRGB(17, 156, 63)
+                            TextLabel.Text.Size = 35
+                        end
+                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
+                        v.Seaesps.TextLabel.Text = v.Name.." - "..Dis.." M"
+                    end
+                end
+            else
+                for i,v in pairs (game:GetService("Workspace").SeaBeasts:GetChildren()) do
+                    if v:FindFirstChild("Seaesps") then
+                        v.Seaesps:Destroy()
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+Esp:Toggle("Esp Mob", false, function(nec)
+    MobESP = nec
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            if MobESP then
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if v:FindFirstChild('HumanoidRootPart') then
+                        if not v:FindFirstChild("MobEap") then
+                            local BillboardGui = Instance.new("BillboardGui")
+                            local TextLabel = Instance.new("TextLabel")
+
+                            BillboardGui.Parent = v
+                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+                            BillboardGui.Active = true
+                            BillboardGui.Name = "MobEap"
+                            BillboardGui.AlwaysOnTop = true
+                            BillboardGui.LightInfluence = 1.000
+                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
+                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
+
+                            TextLabel.Parent = BillboardGui
+                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                            TextLabel.BackgroundTransparency = 1.000
+                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
+                            TextLabel.Font = Enum.Font.GothamBold
+                            TextLabel.TextColor3 = Color3.fromRGB(17, 156, 63)
+                            TextLabel.Text.Size = 35
+                        end
+                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
+                        v.MobEap.TextLabel.Text = v.Name.." - "..Dis.." M"
+                    end
+                end
+            else
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if v:FindFirstChild("MobEap") then
+                        v.MobEap:Destroy()
                     end
                 end
             end
