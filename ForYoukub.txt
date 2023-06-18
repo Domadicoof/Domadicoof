@@ -11011,7 +11011,7 @@ spawn(function()
     end
 end)
 
-Esp:Toggle("Esp Sea Beast", false, function(nec)
+Esp:AddToggle("Esp Sea Beast", false, function(nec)
     SeaESP = nec
 end)
 spawn(function()
@@ -11056,7 +11056,7 @@ spawn(function()
     end
 end)
 
-Esp:Toggle("Esp Mob", false, function(nec)
+Esp:AddToggle("Esp Mob", false, function(nec)
     MobESP = nec
 end)
 spawn(function()
@@ -11103,6 +11103,5 @@ end)
     
     Esp:AddLine()
     
-    Esp:AddLabel("Made By xMkoriCraftz#5066")
     
     
