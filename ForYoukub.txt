@@ -3893,9 +3893,7 @@ spawn(function()
 end)
 end)
   
-Set:AddToggle("Delete Attack FIx",true,function(d)
-    _G.DeleteAttackFx = d
-    if _G.DeleteAttackFx == true then
+if _G.DeleteAttackFx == true then
     while _G.DeleteAttackFx do wait()
         for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
             if v.Name == "CurvedRing" or v.Name == "DamageCounter" or v.Name == "SwordSlash" or v.Name == "Damage" or v.Name == "Mon" or v.Name == "Sounds" then
