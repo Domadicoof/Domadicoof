@@ -1,3 +1,6 @@
+game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
+game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+
 local ScreenGui1 = Instance.new("ScreenGui")
 local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
@@ -14,8 +17,8 @@ ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
 ImageButton1.Image = "http://www.roblox.com/asset/?id=12523036534"
 ImageButton1.MouseButton1Down:connect(function()
-  game:GetService("VirtualInputManager"):SendKeyEvent(true,J,false,game)
-  game:GetService("VirtualInputManager"):SendKeyEvent(false,J,false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
 end)
 UICorner.Parent = ImageButton1
 
@@ -138,11 +141,11 @@ end
 local Update = {}
 
 function Update:Window(name,logo,keybind)
-	local uihide = true
+	local uihide = false
 	local abc = false
 	local logo = logo or 0
 	local currentpage = ""
-	local keybind = keybind or Enum.KeyCode.J
+	local keybind = keybind or Enum.KeyCode.RightControl
 	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	
 	local SOMEXHUB = Instance.new("ScreenGui")
@@ -539,7 +542,7 @@ local Hub1 = Instance.new("TextLabel")
 	BindButton.Position = UDim2.new(0.865561002, 0, 0, 0)
 	BindButton.Size = UDim2.new(0, 100, 0, 27)
 	BindButton.Font = Enum.Font.Code
-	BindButton.Text = "[J]"
+	BindButton.Text = "[Rightcontrol]"
 	BindButton.TextColor3 = Color3.fromRGB(255,255,255)
 	BindButton.TextSize = 14.000
 	BindButton.Visible = true
@@ -3783,8 +3786,8 @@ end)
 Main:Seperator("Farm")
 
 
-Main:Toggle("Auto SetSpawn Point",true,function(x)
-    _G.Set = x
+Main:Toggle("Auto SetSpawn Point",true,function(value)
+    _G.Set = value
 end)
 
 spawn(function()
@@ -4755,28 +4758,8 @@ spawn(function()
       topos(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
     end)
     
-    M:Seperator("Misc Weapon")
-        WeaponList = {}
-    
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do  
-        if v:IsA("Tool") then
-            table.insert(WeaponList ,v.Name)
-        end
-    end
-    
-    local SelectWeapona = M:Dropdown("Select Weapon",WeaponList,{""},function(value)
-        _G.SelectWeapon = value
-    end)
-    
-    M:Button("Refresh Tools",function()
-        SelectWeapona:Clear()
-        for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do  
-            SelectWeapona:Add(v.Name)
-        end
-    end)
-    
-    
-    
+    M:Line()
+
     M:Seperator("Fighting Style")
     
     M:Toggle("Auto Superhuman",_G.AutoSuperhuman,function(value)
