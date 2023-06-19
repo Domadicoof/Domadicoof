@@ -11,8 +11,8 @@ ImageButton.Position = UDim2.new(0.1208337, 0, 0.0952890813, 0)
 ImageButton.Size = UDim2.new(0, 50, 0, 50)
 ImageButton.Image = "http://www.roblox.com/asset/?id=12523036534"
 ImageButton.MouseButton1Down:connect(function()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
-    game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,"G",false,game)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false,"G",false,game)
 end)
 
 local LoliHub = Instance.new("ScreenGui")
@@ -138,7 +138,7 @@ function Update:Window(name,logo,keybind)
 	local abc = false
 	local logo = logo or 0
 	local currentpage = ""
-	local keybind = keybind or Enum.KeyCode.RightControl
+	local keybind = keybind or Enum.KeyCode.G
 	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	
 	local SOMEXHUB = Instance.new("ScreenGui")
