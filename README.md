@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/e3ce008db05635ea87189a396b41f12616d3e1e9/MkoriGammakmak"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Domadicoof/Domadicoof/48a26199011752dc06b1bb0a44d5a096bf4e9a1a/GGscript"))()
