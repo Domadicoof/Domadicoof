@@ -1,19 +1,23 @@
-local ScreenGui = Instance.new("ScreenGui")
-local ImageButton = Instance.new("ImageButton")
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-ImageButton.Parent = ScreenGui
-ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton.BorderSizePixel = 0
-ImageButton.Position = UDim2.new(0.1208337, 0, 0.0952890813, 0)
-ImageButton.Size = UDim2.new(0, 50, 0, 50)
-ImageButton.Image = "http://www.roblox.com/asset/?id=12523036534"
-ImageButton.MouseButton1Down:connect(function()
-    game:GetService("VirtualInputManager"):SendKeyEvent(true,"G",false,game)
-    game:GetService("VirtualInputManager"):SendKeyEvent(false,"G",false,game)
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Draggable = true
+ImageButton1.Image = "http://www.roblox.com/asset/?id=12523036534"
+ImageButton1.MouseButton1Down:connect(function()
+  game:GetService("VirtualInputManager"):SendKeyEvent(true,G,false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(false,G,false,game)
 end)
+UICorner.Parent = ImageButton1
 
 local LoliHub = Instance.new("ScreenGui")
 local Open = Instance.new("TextButton")
@@ -139,7 +143,7 @@ function Update:Window(name,logo,keybind)
 	local logo = logo or 0
 	local currentpage = ""
 	local keybind = keybind or Enum.KeyCode.G
-	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
+	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","G")
 	
 	local SOMEXHUB = Instance.new("ScreenGui")
 	SOMEXHUB.Name = "1xliiUI"
@@ -535,7 +539,7 @@ local Hub1 = Instance.new("TextLabel")
 	BindButton.Position = UDim2.new(0.865561002, 0, 0, 0)
 	BindButton.Size = UDim2.new(0, 100, 0, 27)
 	BindButton.Font = Enum.Font.Code
-	BindButton.Text = "[RightControl]"
+	BindButton.Text = "[G]"
 	BindButton.TextColor3 = Color3.fromRGB(255,255,255)
 	BindButton.TextSize = 14.000
 	BindButton.Visible = true
@@ -12410,10 +12414,6 @@ game.StarterGui:SetCore("SendNotification", {
       Title = "Domadic Hub", 
       Text = "made by มีดร้ายเเรง🔪🔪#6356"
   })
-  
-  require(game:GetService("ReplicatedStorage").Notification).new("Script By มีดร้ายเเรง🔪🔪#6356 "):Display();
-  wait()
-  setthreadcontext(5)
             
   _G.FastAttackNormalSpeed = true
   
