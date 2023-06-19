@@ -14,8 +14,8 @@ ImageButton1.Size = UDim2.new(0, 50, 0, 50)
 ImageButton1.Draggable = true
 ImageButton1.Image = "http://www.roblox.com/asset/?id=12523036534"
 ImageButton1.MouseButton1Down:connect(function()
-  game:GetService("VirtualInputManager"):SendKeyEvent(true,G,false,game)
-  game:GetService("VirtualInputManager"):SendKeyEvent(false,G,false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(true,J,false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(false,J,false,game)
 end)
 UICorner.Parent = ImageButton1
 
@@ -138,12 +138,12 @@ end
 local Update = {}
 
 function Update:Window(name,logo,keybind)
-	local uihide = false
+	local uihide = true
 	local abc = false
 	local logo = logo or 0
 	local currentpage = ""
-	local keybind = keybind or Enum.KeyCode.G
-	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","G")
+	local keybind = keybind or Enum.KeyCode.J
+	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	
 	local SOMEXHUB = Instance.new("ScreenGui")
 	SOMEXHUB.Name = "1xliiUI"
@@ -539,7 +539,7 @@ local Hub1 = Instance.new("TextLabel")
 	BindButton.Position = UDim2.new(0.865561002, 0, 0, 0)
 	BindButton.Size = UDim2.new(0, 100, 0, 27)
 	BindButton.Font = Enum.Font.Code
-	BindButton.Text = "[G]"
+	BindButton.Text = "[J]"
 	BindButton.TextColor3 = Color3.fromRGB(255,255,255)
 	BindButton.TextSize = 14.000
 	BindButton.Visible = true
