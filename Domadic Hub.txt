@@ -3490,6 +3490,7 @@ H:Label("[+] Auto Farm Materials |7/6/2566|07:54")
 H:Label("[+] Auto Farm SeaBeast |9/6/2566|20:53")
 H:Label("[+] Fixes Auto Farm Bosses Not Working|11/6/2566|21:30")
 H:Label("[+] Added Auto Farm Mob|12/6/2566|08:30")
+H:Label("[+] Fixed Gui Cannot Be Closed|19/6/2566|18:23")
 
 
 
@@ -12396,6 +12397,12 @@ game.StarterGui:SetCore("SendNotification", {
       Icon = "http://www.roblox.com/asset/?id=12523036534";
       Title = "Domadic Hub", 
       Text = "made by มีดร้ายเเรง🔪🔪#6356"
+  })
+  
+  game.StarterGui:SetCore("SendNotification", {
+      Icon = "http://www.roblox.com/asset/?id=12523036534";
+      Title = "Domadic Hub", 
+      Text = "Click Rightcontrol or Logo to Show Gui"
   })
             
   _G.FastAttackNormalSpeed = true
