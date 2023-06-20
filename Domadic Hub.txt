@@ -45,7 +45,7 @@ LoliHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 posto.Name = "posto"
  posto.Parent = Open
  posto.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- posto.Color = Color3.fromRGB(51,255,255)
+ posto.Color = Color3.fromRGB(7, 236, 240)
  posto.LineJoinMode = Enum.LineJoinMode.Round
  posto.Thickness = 1
  posto.Transparency = 0
@@ -71,7 +71,7 @@ _G.SectionOn = Color3.fromRGB(0, 250, 0)
 
 _G.Color1 = Color3.fromRGB(0,255,0)
 do local GUI = game.CoreGui:FindFirstChild("1xliiUI");if GUI then GUI:Destroy();end;if _G.Color == nil then
-_G.Color = Color3.fromRGB(255,255,255)
+_G.Color = Color3.fromRGB(7, 236, 240)
 end 
 end
 
