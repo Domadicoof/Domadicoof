@@ -331,7 +331,7 @@ local ListNof = Instance.new("Frame")
 			NofLabel.Size = UDim2.new(0, 188, 0, 52)
 			NofLabel.ZIndex = 4
 			NofLabel.Font = Enum.Font.Code
-			NofLabel.TextColor3 = main_color or Color3.fromRGB(51,255,255)
+			NofLabel.TextColor3 = main_color or Color3.fromRGB(7, 236, 240)
 			NofLabel.TextScaled = false
 			NofLabel.TextSize = 18.000
 			NofLabel.TextStrokeTransparency = 0.100
@@ -902,7 +902,7 @@ local Space = Instance.new("TextLabel")
 
 			Label.Name = "Label"
 			Label.Parent = Toggle
-			Label.BackgroundColor3 = Color3.fromRGB(255,255,255)
+			Label.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
 			Label.BackgroundTransparency = 1.000
 			Label.Position = UDim2.new(0, 1, 0, 1)
 			Label.Size = UDim2.new(0, 360, 0, 29)
