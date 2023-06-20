@@ -202,7 +202,7 @@ local osfunc = {}
 	local Name = Instance.new("TextLabel")
 	Name.Name = "Name"
 	Name.Parent = Top
-	Name.BackgroundColor3 = Color3.fromRGB(51,255,255)
+	Name.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
 	Name.BackgroundTransparency = 1.000
 	Name.Position = UDim2.new(0.1, 0, 0, 0)
 	Name.Size = UDim2.new(0, 10, 0, 27)
@@ -676,13 +676,13 @@ local LabelTitle = Instance.new("TextLabel")
 		TabButton.BackgroundTransparency = 0.1
 		TabButton.Size = UDim2.new(0, 138, 0, 30)
 		TabButton.Font = Enum.Font.Code
-		TabButton.TextColor3 = Color3.fromRGB(255, 225, 225)
+		TabButton.TextColor3 = Color3.fromRGB(255, 255, 255)
 		TabButton.TextSize = 12.000
 		TabButton.TextTransparency = 0
 
 		Label3.Name = "Label"
 			Label3.Parent = TabButton
-			Label3.BackgroundColor3 = Color3.fromRGB(255,255,255)
+			Label3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Label3.BackgroundTransparency = 1.000
 			Label3.Position = UDim2.new(0, 27, 0, 7)
 			Label3.Size = UDim2.new(0, 20, 0, 20)
@@ -698,7 +698,7 @@ local MCNR1 = Instance.new("UICorner")
 WindowStroke.Name = "WindowStroke"
  WindowStroke.Parent = TabButton
  WindowStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
- WindowStroke.Color = Color3.fromRGB(255,255,255)
+ WindowStroke.Color = Color3.fromRGB(7, 236, 240)
  WindowStroke.LineJoinMode = Enum.LineJoinMode.Round
  WindowStroke.Thickness = 1
  WindowStroke.Transparency = 0
@@ -1085,7 +1085,7 @@ ImageButton.Rotation = 180
 
 DropTextList.Name = "DropTextList"
 DropTextList.Parent = Frame
-DropTextList.BackgroundColor3 = _G.BackgroundItemColor
+DropTextList.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
 DropTextList.BackgroundTransparency = 1.000
 DropTextList.Position = UDim2.new(0, 3, 0, 30)
 DropTextList.Size = UDim2.new(0, 350, 0, 25)
@@ -1185,7 +1185,7 @@ FrameSize = 120
  
  ItemList.Name = "ItemList"
  ItemList.Parent = DropItemScroll
- ItemList.BackgroundColor3 = Color3.fromRGB(51,255,255)
+ ItemList.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
  ItemList.BackgroundTransparency = 1.000
  ItemList.Size = UDim2.new(0, 350, 0, 30)
  ItemList.AutoButtonColor = false
@@ -1260,7 +1260,7 @@ FrameSize = 120
  local ItemList = Instance.new("TextButton")
  ItemList.Name = "ItemList"
  ItemList.Parent = DropItemScroll
- ItemList.BackgroundColor3 = Color3.fromRGB(51,255,255)
+ ItemList.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
  ItemList.BackgroundTransparency = 1.000
  ItemList.Size = UDim2.new(0, 330, 0, 30)
  ItemList.AutoButtonColor = false
@@ -1292,7 +1292,7 @@ game.TweenService:Create(ImageButton, TweenInfo.new(0.08, Enum.EasingStyle.Linea
 {Rotation = 180}
 ):Play()
 game.TweenService:Create(ImageButton, TweenInfo.new(0.08, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),
-{ImageColor3 = Color3.fromRGB(51,255,255)}
+{ImageColor3 = Color3.fromRGB(7, 236, 240)}
 ):Play()
  end)
  DropItemScroll.CanvasSize = UDim2.new(0, 0, 0, DropItemLayout.AbsoluteContentSize.Y)
@@ -1323,7 +1323,7 @@ local UICorner_3 = Instance.new("UICorner")
 -- Prop --
 SliderFrame.Name = slidertitle or "SliderFrame"
 SliderFrame.Parent = MainFramePage
-SliderFrame.BackgroundColor3 = Color3.fromRGB(51,255,255)
+SliderFrame.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
 SliderFrame.BackgroundTransparency = 1
 SliderFrame.BorderSizePixel = 0
 SliderFrame.Size = UDim2.new(0, 362, 0, 55)
