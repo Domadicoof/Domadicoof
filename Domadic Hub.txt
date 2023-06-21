@@ -1,4 +1,3 @@
-
 local ScreenGui1 = Instance.new("ScreenGui")
 local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
@@ -10817,48 +10816,6 @@ spawn(function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","2")
     end)
     
-    S:Seperator("Buy Item Ectoplasm")
-    
-    S:Toggle("Auto Buy Bizarre Rifle",_G.AutoBuyBizarreRifle,function(value)
-	AutoBuyBizarreRifle = value
-	end)
-	
-	S:Toggle("Auto Buy Ghoul Mask",_G.AutoBuyGhoulMask,function(value)
-    AutoBuyGhoulMask = value
-    end)
-		
-	S:Toggle("Auto Buy Midnight Blade",_G.AutoBuyMidnightBlade,function(value)
-    AutoBuyMidnightBlade = value
-    end)
-    
-	spawn(function()
-		while wait() do
-			if AutoBuyBizarreRifle then
-				local args = {
-					[1] = "Ectoplasm",
-					[2] = "Buy",
-					[3] = 1
-				}
-				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-			end
-			if AutoBuyGhoulMask then
-				local args = {
-					[1] = "Ectoplasm",
-					[2] = "Buy",
-					[3] = 2
-				}
-				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-			end
-			if AutoBuyMidnightBlade then
-				local args = {
-					[1] = "Ectoplasm",
-					[2] = "Buy",
-					[3] = 3
-				}
-				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-			end
-		end
-	end)
 	
     D:Seperator("Sniper")
     
