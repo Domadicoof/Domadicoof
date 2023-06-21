@@ -3821,7 +3821,7 @@ end)
         end
     end)
    
-   Main:Toggle("Auto Farm Level",_G.AutoFarm,function(value)
+    Main:Toggle("Auto Farm Level",_G.AutoFarm,function(value)
         _G.AutoFarm = value
         StopTween(_G.AutoFarm)
     end)
@@ -3899,6 +3899,45 @@ Main:Toggle("Auto Kaitan",false,function(value)
        _G.BuyAllAib = value
        _G.BuyAllSword = value
       StopTween(_G.AutoFarm)
+    end)
+    
+    spawn(function()
+        while wait() do
+            if _G.BuyAllSword then
+                pcall(function()
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
+                    if _G.BuyAllSwordHop and _G.BuyAllSword then
+                        wait(10)
+                        Hop()
+                    end
+                end)
+            end 
+        end
+    end)
+    
+    spawn(function()
+        while wait() do
+            if _G.BuyAllAib then
+                pcall(function()
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
+                    if _G.BuyAllAibhop and _G.BuyAllAib then
+                        wait(10)
+                        Hop()
+                    end
+                end)
+            end 
+        end
     end)
     
     local Mons = {}
@@ -10587,77 +10626,32 @@ spawn(function()
 
     S:Seperator("Abilities")
     
-    S:Button("Buy Geppo",function()
+    S:Button("Buy Geppo [ $10,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
     end)
     
-    S:Button("Buy Buso Haki",function()
+    S:Button("Buy Buso Haki [ $25,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
     end)
     
-    S:Button("Buy Soru",function()
+    S:Button("Buy Soru [ $25,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
     end)
     
-    S:Button("Buy Observation(Ken) Haki",function()
+    S:Button("Buy Observation Haki [ $750,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
     end)
     
-    S:Toggle("Auto Buy All Abilities",false,function(Value)
-        _G.BuyAllAib = Value    
-       end)
-       
-        while _G.BuyAllAib do wait(.1)
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
-		    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
-		    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
-        end
-    end)
-    
-    S:Seperator("Fighting Style")
-    
-    S:Button("Buy Black Leg",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
-    end)
-    
-    S:Button("Buy Electro",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
-    end)
-    
-    S:Button("Buy Fishman Karate",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
-    end)
-    
-    S:Button("Buy Dragon Claw",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
-    end)
-    
-    S:Button("Buy Superhuman",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
-    end)
-    
-    S:Button("Buy Death Step",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
-    end)
-    
-    S:Button("Buy Sharkman Karate",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
-    end)
-    
-    S:Button("Buy Electric Claw",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
-    end)
-    
-    S:Button("Buy Dragon Talon",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
-    end)
-    S:Button("Buy God Human",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
-    end)
-    
-    S:Seperator("⛵ Boats  ⛵//")
+S:Toggle("Auto Buy Abilities", false, function(t)
+    Abilities = t
+    while Abilities do wait(.1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
+    end
+end)
+
+S:Seperator("⛵ Boats  ⛵//")
 
 BoatList = {
     "Pirate Sloop",
@@ -10695,110 +10689,217 @@ spawn(function()
 end)
 
 S:Dropdown("Select Boats",BoatList,function(value)
-        SelectBoat = value
+    SelectBoat = value
+end)
+
+S:Button("Buy Boat",function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBoat",_G.SelectBoat)
+end)
+
+    S:Seperator("Fighting Style")
+    
+    S:Button("Buy Black Leg [ $150,000 Beli ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBlackLeg")
+    end)
+    
+    S:Button("Buy Electro [ $550,000 Beli ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectro")
+    end)
+    
+    S:Button("Buy Fishman Karate [ $750,000 Beli ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyFishmanKarate")
+    end)
+    
+    S:Button("Buy Dragon Claw [ $1,500 Fragments ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","1")
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","DragonClaw","2")
+    end)
+    
+    S:Button("Buy Superhuman [ $3,000,000 Beli ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySuperhuman")
+    end)
+    
+    S:Button("Buy Death Step [ $5,000 Fragments $5,000,000 Beli ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDeathStep")
+    end)
+    
+    S:Button("Buy Sharkman Karate [ $5,000 Fragments $2,500,000 Beli ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate",true)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuySharkmanKarate")
+    end)
+    
+    S:Button("Buy Electric Claw [ $5,000 Fragments $3,000,000 Beli ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyElectricClaw")
+    end)
+    
+    S:Button("Buy Dragon Talon [ $5,000 Fragments $3,000,000 Beli ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyDragonTalon")
     end)
 
-    S:Button("Buy Boat",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBoat",_G.SelectBoat)
+    S:Button("Buy God Human [ $5,000 Fragments $5,000,000 Beli ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
     end)
-    
     -----Shop----------------
     
-    S:Seperator("Accessory")
+    S:Seperator(" Sword ")
     
-    S:Button("Tomoe Ring",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Tomoe Ring")
-    end)
-    
-    S:Button("Black Cape",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Black Cape")
-    end)
-    
-    S:Button("Swordsman Hat",function()
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Swordsman Hat")
-    end)
-    
-    S:Seperator("Sword")
-    
-    S:Toggle("Auto Buy All Sword",false,function(Value)
-    _G.BuyAllSword = Value    
-    end)
-    
-    while _G.BuyAllSword do wait(.1)
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
-		    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
-		    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
-		    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
-		    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
-		    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
-		    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
-		    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
-		    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
-        end
-    end)
-    
-    S:Button("Cutlass",function()
+    S:Button("Cutlass [ $1,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
     end)
-    
-    S:Button("Katana",function()
+
+    S:Button("Katana [ $1,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
     end)
     
-    S:Button("Iron Mace",function()
+    S:Button("Iron Mace [ $25,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
     end)
     
-    S:Button("Duel Katana",function()
+    S:Button("Dual Katana [ $12,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
     end)
     
-    S:Button("Triple Katana", function()
+    S:Button("Triple Katana [ $60,000 Beli ]", function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
     end)
     
-    S:Button("Pipe",function()
+    S:Button("Pipe [ $100,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
     end)
     
-    S:Button("Dual Headed Blade",function()
+    S:Button("Dual-Headed Blade [ $400,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
     end)
     
-    S:Button("Bisento",function()
+    S:Button("Bisento [ $1,200,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
     end)
     
-    S:Button("Soul Cane",function()
+    S:Button("Soul Cane [ $750,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
     end)
+
+    S:Button("Pole v.2 [ 5,000 Fragments ]",function()
+		game.ReplicatedStorage.Remotes.CommF_:InvokeServer("ThunderGodTalk")
+	end)
+
+    S:Toggle("Yama Sword [ Elite Hunter 30 ]",_G.AutoYama,function(value)
+        _G.AutoYama = value
+    end)
     
-    S:Seperator("Gun")
+    spawn(function()
+        while wait() do
+            if _G.AutoYama then
+                if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter","Progress") >= 30 then
+                    repeat wait(.1)
+                        fireclickdetector(game:GetService("Workspace").Map.Waterfall.SealedKatana.Handle.ClickDetector)
+                    until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Yama") or not _G.AutoYama
+                end
+            end
+        end
+    end)
+
+
+    S:Seperator(" Gun ")
     
-    S:Button("Slingshot",function()
+    S:Button("Slingshot [ $5,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Slingshot")
     end)
     
-    S:Button("Musket",function()
+    S:Button("Musket [ $8,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Musket")
     end)
     
-    S:Button("Flintlock",function()
+    S:Button("Flintlock [ $10,500 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Flintlock")
     end)
     
-    S:Button("Refined Flintlock",function()
+    S:Button("Refined Slingshot [ $30,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Refined Flintlock")
     end)
     
-    S:Button("Cannon",function()
+    S:Button("Refined Flintlock [ $65,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Refined Flintlock"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+    
+    S:Button("Cannon [ $100,000 Beli ]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cannon")
     end)
     
-    S:Button("Kabucha",function()
+    S:Button("Kabucha [ 1,500 Fragments]",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","1")
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","2")
     end)
+
+          S:Button("Bizarre Rifle [ 250 Ectoplasm ]", function()
+                                    local A_1 = "Ectoplasm"
+                                    local A_2 = "Buy"
+                                    local A_3 = 1
+                                    local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+                                    Event:InvokeServer(A_1, A_2, A_3) 
+                                    local A_1 = "Ectoplasm"
+                                    local A_2 = "Buy"
+                                    local A_3 = 1
+                                    local Event = game:GetService("ReplicatedStorage").Remotes["CommF_"]
+                                    Event:InvokeServer(A_1, A_2, A_3)
+                                end)
+
+    ------------Bone------------------
+    
+    S:Seperator("🦴 Bones 🦴")
+    
+    S:Button("Buy Surprise [ $50 Bone ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
+    end)
+    
+    S:Button("Stat Refund [ $50 Bone ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,2)
+    end)
+        
+    S:Button("Race Reroll [ $50 Bone ]",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,3)
+    end)
+    
+    ------------Stat------------------
+    
+    S:Seperator("📊 Stat 📊")
+
+S:Button("Reset Stats (Use 2.5K Fragments)", function()
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","1")
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Refund","2")
+end)
+
+S:Button("Random Race (Use 3K Fragments)", function()
+	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","1")
+	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","2")
+end)
+    --------------Accessories-----------------
+    	S:Seperator("⚙️ Accessories ⚙️")
+	S:Button("Black Cape [ $50,000 Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Black Cape"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	S:Button("Swordsman Hat [ 150k Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Swordsman Hat"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	S:Button("Tomoe Ring [ $500k Beli ]",function()
+		local args = {
+			[1] = "BuyItem",
+			[2] = "Tomoe Ring"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
 	
     D:Seperator("Sniper")
     
