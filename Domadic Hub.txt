@@ -7986,6 +7986,21 @@ M:Seperator(" Trident ")
         _G.AutoBuyLegendarySword_Hop = value
     end)
     
+    M:Toggle("Auto True Triple Katana",_G.AutoEvotruetriplekatana,function(value)
+    truetripleKatana = value  
+    _G.AutoBuyLegendarySword = value
+	end)
+	spawn(function()
+		while wait() do
+			if truetripleKatana then
+				local string_1 = "MysteriousMan";
+				local string_2 = "2";
+				local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+				Target:InvokeServer(string_1, string_2);   
+			end 
+		end
+	end)
+    
     M:Seperator("Enchancement Colour")
     
     M:Toggle("Auto Enchancement Colour",_G.AutoBuyEnchancementColour,function(value)
@@ -10607,21 +10622,12 @@ spawn(function()
     _G.BuyAllAib = Value    
     end)
     
-	spawn(function()
-        while wait() do
-            if _G.BuyAllAib then
-                pcall(function()
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
-                    if _G.BuyAllAibhop and _G.BuyAllAib then
-                        wait(10)
-                        Hop()
-                    end
-                end)
-            end 
-        end
+    while _G.BuyAllAib do wait(.1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
+    end
     end)
     
     S:Seperator("Fighting Style")
@@ -10667,6 +10673,52 @@ spawn(function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyGodhuman")
     end)
     
+    S:Seperator("Boats")
+
+    BoatList = {
+        "Pirate Sloop",
+        "Enforcer",
+        "Rocket Boost",
+        "Dinghy",
+        "Pirate Basic",
+        "Pirate Brigade"
+    }
+
+    spawn(function()
+        while wait() do
+            pcall(function()
+                if SelectBoat == "Pirate Sloop" then
+                    _G.SelectBoat = "PirateSloop"
+                else
+                    if SelectBoat == "Enforcer" then
+                        _G.SelectBoat = "Enforcer"
+                    else
+                        if SelectBoat == "RocketBoost" then
+                            _G.SelectBoat = "RocketBoost"
+                        else
+                            if SelectBoat == "PirateBasic" then
+                                _G.SelectBoat = "PirateBasic"
+                            else
+                                if SelectBoat == "PirateBrigade" then
+                                    _G.SelectBoat = "PirateBrigade"
+                                end
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+
+    S:Dropdown("Select Boats",BoatList,function(value)
+        SelectBoat = value
+    end)
+
+    S:Button("Buy Boat",function()
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyBoat",_G.SelectBoat)
+    end)
+
+    
     -----Shop----------------
     
     S:Seperator("Accessory")
@@ -10689,26 +10741,17 @@ spawn(function()
     _G.BuyAllSword = Value    
     end)
     
-    spawn(function()
-        while wait() do
-            if _G.BuyAllSword then
-                pcall(function()
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
-                    if _G.BuyAllSwordHop and _G.BuyAllSword then
-                        wait(10)
-                        Hop()
-                    end
-                end)
-            end 
-        end
+    while _G.BuyAllSword do wait(.1)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
+    end
     end)
     
     S:Button("Cutlass",function()
@@ -10773,6 +10816,49 @@ spawn(function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","1")
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Slingshot","2")
     end)
+    
+    S:Seperator("Buy Item Ectoplasm")
+    
+    S:Toggle("Auto Buy Bizarre Rifle",_G.AutoBuyBizarreRifle,function(value)
+	AutoBuyBizarreRifle = value
+	end)
+	
+	S:Toggle("Auto Buy Ghoul Mask",_G.AutoBuyGhoulMask,function(value)
+    AutoBuyGhoulMask = value
+    end)
+		
+	S:Toggle("Auto Buy Midnight Blade",_G.AutoBuyMidnightBlade,function(value)
+    AutoBuyMidnightBlade = value
+    end)
+    
+	spawn(function()
+		while wait() do
+			if AutoBuyBizarreRifle then
+				local args = {
+					[1] = "Ectoplasm",
+					[2] = "Buy",
+					[3] = 1
+				}
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end
+			if AutoBuyGhoulMask then
+				local args = {
+					[1] = "Ectoplasm",
+					[2] = "Buy",
+					[3] = 2
+				}
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end
+			if AutoBuyMidnightBlade then
+				local args = {
+					[1] = "Ectoplasm",
+					[2] = "Buy",
+					[3] = 3
+				}
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+			end
+		end
+	end)
 	
     D:Seperator("Sniper")
     
@@ -12410,7 +12496,7 @@ game.StarterGui:SetCore("SendNotification", {
   })
   
             
-  _G.FastAttackNormalSpeed = true
+  _G.FastAttackNormalSpeed = value
   
             local SeraphFrame = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework")))[2]
             local VirtualUser = game:GetService('VirtualUser')
