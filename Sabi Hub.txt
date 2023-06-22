@@ -3002,7 +3002,7 @@ spawn(function()
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
                                         MakoriGayMag = true
-                                        PosMonBone = v.HumanoidRootPart.CFrame
+                                        PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
@@ -3011,17 +3011,13 @@ spawn(function()
                             end
                         end
                     else
+                    topos(CFrame.new(61337.7734375, 19.214027404785156, 1484.168701171875))
                         MakoriGayMag = false
                         for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
                             if v.Name == "Fishman Warrior [Lv. 375]" then
                                 topos(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                                elseif v.Name == "Fishman Commando [Lv. 400]" then
+                            elseif v.Name == "Fishman Commando [Lv. 400]" then
                                 topos(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                                local Distance = (Vector3.new(61337.7734375, 19.214027404785156, 1484.168701171875) - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-                                if Distance > 18000 then
-                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
-                                end
-                                topos(CFrame.new(61337.7734375, 19.214027404785156, 1484.168701171875))
                             end
                         end
                     end
