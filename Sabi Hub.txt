@@ -7548,21 +7548,26 @@ spawn(function()
 	
 	Ss:AddSeperator("Fake Mode")
 	
-	Ss:AddTextbox("Fake Level",true,function(value)
+	Ss:AddTextbox("Fake Level", "Type", true, function(value)
         game:GetService("Players").LocalPlayer.Data.Level.Value = value
     end)
-    Ss:AddTextbox("Fake Exp",true,function(value)
+    
+    Ss:AddTextbox("Fake Exp", "Type", true, function(value)
         game:GetService("Players").LocalPlayer.Data.Exp.Value = value
     end)
-    Ss:AddTextbox("Fake Beli",true,function(value)
+    
+    Ss:AddTextbox("Fake Money", "Type", true, function(value)
         game:GetService("Players").LocalPlayer.Data.Beli.Value = value
     end)
-    Ss:AddTextbox("Fake Points",true,function(value)
+    
+    Ss:AddTextbox("Fake Points", "Type", true, function(value)
         game:GetService("Players").LocalPlayer.Data.Points.Value = value
     end)
-    Ss:AddTextbox("Fake Bounty",true,function(value)
+    
+    Ss:AddTextbox("Fake Bounty", "Type", true, function(value)
         game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value = value
     end)
+    
 
 	
     local plyserv = P:AddLabel("Players")
