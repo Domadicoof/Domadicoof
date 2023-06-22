@@ -4111,7 +4111,19 @@ _G.inv = value
             end
         end)
     elseif World3 then
-        M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
+    spawn(function()
+        pcall(function()
+            while wait() do
+    if game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island') then
+    Mirragecheck:Set('🏝️: Mirage Island is Spawning')
+    else
+      Mirragecheck:Set('❌: Mirage Island Not Found ' )end
+            end
+        end)
+end)
+
+Mirragecheck = M:AddLabel("")
+M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
             _G.AutoMysticIsland = value
         end)
     
@@ -4128,7 +4140,7 @@ _G.inv = value
         end)
     end
     
-    M:AddToggle("Teleport To Gear",false,function(value)
+    M:AddButton("Teleport To Gear",false,function(value)
       topos(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
     end)
     
