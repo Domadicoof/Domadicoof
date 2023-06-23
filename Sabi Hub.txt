@@ -4004,8 +4004,6 @@ _G.inv = value
      Set:AddToggle("Skill V",true,function(value)
         _G.SkillV = value
     end)
-    
-    M:AddSeperator("World")
 
     if World1 then
         M:AddToggle("Auto Second Sea",_G.AutoSecondSea,function(value)
@@ -4149,44 +4147,7 @@ _G.inv = value
                 end)
             end
         end)
-    elseif World3 then
-    spawn(function()
-        pcall(function()
-            while wait() do
-    if game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island') then
-    Mirragecheck:Set('🏝️: Mirage Island is Spawning')
-    else
-      Mirragecheck:Set('❌: Mirage Island Not Found ' )end
-            end
-        end)
-end)
-
-Mirragecheck = M:AddLabel("")
-M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
-            _G.AutoMysticIsland = value
-        end)
-    
-        spawn(function()
-            while wait() do
-                if _G.AutoMysticIsland then
-                    pcall(function()
-                        if game:GetService("Workspace").Map:FindFirstChild("Mirage Island") then
-                            topos(game:GetService("Workspace").Map:FindFirstChild("Mirage Island").HumanoidRootPart.CFrame * CFrame.new(0,500,-100))
-                        end
-                    end)
-                end
-            end
-        end)
-    end
-    M:AddToggle("Auto Mystic Island Hop",_G.AutoMysticIsland,function(value)
-    _G.AutoMysticIslandHop = value
-    end)
-    
-    M:AddButton("Teleport To Gear",false,function(value)
-      topos(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
-    end)
-    
-    
+     
     M:AddSeperator("Fighting Style")
     
     M:AddToggle("Auto Superhuman",_G.AutoSuperhuman,function(value)
@@ -4817,6 +4778,35 @@ end)
         end
     end)
     
+    spawn(function()
+        pcall(function()
+            while wait() do
+    if game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island') then
+    Mirragecheck:Set('🏝️: Mirage Island is Spawning')
+    else
+      Mirragecheck:Set('❌: Mirage Island Not Found ' )end
+            end
+        end)
+end)
+
+Mirragecheck = M:AddLabel("")
+M:AddToggle("Auto Mirage Island",false,function(value)
+ if game:GetService("Workspace").Map:FindFirstChild("Mirage Island") then
+                           topos(game:GetService("Workspace").Map:FindFirstChild("Mirage Island").HumanoidRootPart.CFrame * CFrame.new(0,500,-100))
+                    else
+if _G.Mystichop then
+hop()
+end
+end
+end)
+
+M:AddToggle("Auto Mirage Island Hop",false,function(value)
+ _G.Mystichop = value
+end)
+M:AddButton("Teleport to Gear",function()
+      topos(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
+    end)
+    
     M:AddSeperator("Soul Guitar")
     
     local FM = M:AddLabel('Moon Check')
@@ -5085,7 +5075,7 @@ spawn(function()
 							if v.Name == "Mythological Pirate [Lv. 1850]" then
 								repeat wait()
 									topos(v.HumanoidRootPart.CFrame * CFrame.new(0,0,-2))
-								until _G.AutoCdk == false or Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_1 == false
+								until Auto_Cursed_Dual_Katana == false or Auto_Cursed_Dual_Katana == false or Auto_Quest_Yama_1 == false
 								game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("CDKQuest","StartTrial","Evil")
 							end
 						end
@@ -5198,7 +5188,7 @@ spawn(function()
 			if Auto_Quest_Yama_3 then
 				pcall(function()
 					if game.Players.LocalPlayer.Backpack:FindFirstChild("Hallow Essence") then         
-						_G.Main["Auto Farm Bone"] = false           
+						_G.Auto_Bone = false           
 						topos(game:GetService("Workspace").Map["Haunted Castle"].Summoner.Detection.CFrame)
 					elseif game:GetService("Workspace").Map:FindFirstChild("HellDimension") then
 						repeat wait()
@@ -5271,7 +5261,7 @@ spawn(function()
 								topos(CFrame.new(-9570.033203125, 315.9346923828125, 6726.89306640625))
 							end
 						else
-							_G.Main["Auto Farm Bone"] = true
+							_G.Auto_Bone = true
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
 						end
 					end
