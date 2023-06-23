@@ -4147,6 +4147,39 @@ _G.inv = value
                 end)
             end
         end)
+        elseif World3 then
+    spawn(function()
+        pcall(function()
+            while wait() do
+    if game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island') then
+    Mirragecheck:Set('🟢: Mirage Island is Spawning')
+    else
+      Mirragecheck:Set('❌: Mirage Island Not Found ' )end
+            end
+        end)
+end)
+
+Mirragecheck = M:AddLabel("")
+M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
+            _G.AutoMysticIsland = value
+        end)
+    
+        spawn(function()
+            while wait() do
+                if _G.AutoMysticIsland then
+                    pcall(function()
+                        if game:GetService("Workspace").Map:FindFirstChild("Mirage Island") then
+                            topos(game:GetService("Workspace").Map:FindFirstChild("Mirage Island").HumanoidRootPart.CFrame * CFrame.new(0,500,-100))
+                        end
+                    end)
+                end
+            end
+        end)
+    end
+    
+    M:AddButton("Teleport To Gear",function()
+      topos(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
+    end)
      
     M:AddSeperator("Fighting Style")
     
@@ -4776,35 +4809,6 @@ end)
                 end)
             end
         end
-    end)
-    
-    spawn(function()
-        pcall(function()
-            while wait() do
-    if game.Workspace._WorldOrigin.Locations:FindFirstChild('Mirage Island') then
-    Mirragecheck:Set('🏝️: Mirage Island is Spawning')
-    else
-      Mirragecheck:Set('❌: Mirage Island Not Found ' )end
-            end
-        end)
-end)
-
-Mirragecheck = M:AddLabel("")
-M:AddToggle("Auto Mirage Island",false,function(value)
- if game:GetService("Workspace").Map:FindFirstChild("Mirage Island") then
-                           topos(game:GetService("Workspace").Map:FindFirstChild("Mirage Island").HumanoidRootPart.CFrame * CFrame.new(0,500,-100))
-                    else
-if _G.Mystichop then
-hop()
-end
-end
-end)
-
-M:AddToggle("Auto Mirage Island Hop",false,function(value)
- _G.Mystichop = value
-end)
-M:AddButton("Teleport to Gear",function()
-      topos(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
     end)
     
     M:AddSeperator("Soul Guitar")
