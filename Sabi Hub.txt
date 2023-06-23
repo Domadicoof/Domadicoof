@@ -4178,6 +4178,9 @@ M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
             end
         end)
     end
+    M:AddToggle("Auto Mystic Island Hop",_G.AutoMysticIsland,function(value)
+    _G.AutoMysticIslandHop = value
+    end)
     
     M:AddButton("Teleport To Gear",false,function(value)
       topos(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
