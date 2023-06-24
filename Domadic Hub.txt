@@ -1700,9 +1700,9 @@ if game.PlaceId == 2753915549 then
                             name.TextYAlignment = 'Top'
                             name.BackgroundTransparency = 1
                             name.TextStrokeTransparency = 0.5
-                            name.TextColor3 = Color3.fromRGB(80, 245, 245)
+                            name.TextColor3 = Color3.fromRGB(7, 236, 240)
                         else
-                            v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                            v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
                         end
                     end
                 else
@@ -1737,7 +1737,7 @@ function UpdatePlayerChams()
 						name.Font = Enum.Font.GothamSemibold
 						name.FontSize = "Size14"
 						name.TextWrapped = true
-						name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
+						name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' Distance')
 						name.Size = UDim2.new(1,0,1,0)
 						name.TextYAlignment = 'Top'
 						name.BackgroundTransparency = 1
@@ -1748,7 +1748,7 @@ function UpdatePlayerChams()
 							name.TextColor3 = Color3.new(255,0,0)
 						end
 					else
-						v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..' | '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M\nHealth : ' .. round(v.Character.Humanoid.Health*100/v.Character.Humanoid.MaxHealth) .. '%')
+						v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..' | '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' Distance\nHealth : ' .. round(v.Character.Humanoid.Health*100/v.Character.Humanoid.MaxHealth) .. '%')
 					end
 				else
 					if v.Character.Head:FindFirstChild('NameEsp'..Number) then
@@ -1782,18 +1782,18 @@ function UpdateChestChams()
 							name.TextStrokeTransparency = 0.5
 							if v.Name == "Chest1" then
 								name.TextColor3 = Color3.fromRGB(109, 109, 109)
-								name.Text = ("Chest 1" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+								name.Text = ("Chest 1" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 							end
 							if v.Name == "Chest2" then
 								name.TextColor3 = Color3.fromRGB(173, 158, 21)
-								name.Text = ("Chest 2" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+								name.Text = ("Chest 2" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 							end
 							if v.Name == "Chest3" then
 								name.TextColor3 = Color3.fromRGB(85, 255, 255)
-								name.Text = ("Chest 3" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+								name.Text = ("Chest 3" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 							end
 						else
-							v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+							v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 						end
 					end
 				else
@@ -1825,10 +1825,10 @@ function UpdateDevilChams()
 						name.TextYAlignment = 'Top'
 						name.BackgroundTransparency = 1
 						name.TextStrokeTransparency = 0.5
-						name.TextColor3 = Color3.fromRGB(255, 0, 0)
-						name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+						name.TextColor3 = Color3.fromRGB(255, 255, 255)
+						name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 					else
-						v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+						v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 					end
 				end
 			else
@@ -1861,15 +1861,15 @@ function UpdateFlowerChams()
 						name.TextStrokeTransparency = 0.5
 						name.TextColor3 = Color3.fromRGB(255, 0, 0)
 						if v.Name == "Flower1" then 
-							name.Text = ("Blue Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+							name.Text = ("Blue Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 							name.TextColor3 = Color3.fromRGB(0, 0, 255)
 						end
 						if v.Name == "Flower2" then
-							name.Text = ("Red Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+							name.Text = ("Red Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 							name.TextColor3 = Color3.fromRGB(255, 0, 0)
 						end
 					else
-						v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+						v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 					end
 				else
 					if v:FindFirstChild('NameEsp'..Number) then
@@ -1900,9 +1900,9 @@ function UpdateRealFruitChams()
 					name.BackgroundTransparency = 1
 					name.TextStrokeTransparency = 0.5
 					name.TextColor3 = Color3.fromRGB(255, 0, 0)
-					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				else
-					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				end
 			else
 				if v.Handle:FindFirstChild('NameEsp'..Number) then
@@ -1930,9 +1930,9 @@ function UpdateRealFruitChams()
 					name.BackgroundTransparency = 1
 					name.TextStrokeTransparency = 0.5
 					name.TextColor3 = Color3.fromRGB(255, 174, 0)
-					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				else
-					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				end
 			else
 				if v.Handle:FindFirstChild('NameEsp'..Number) then
@@ -1960,9 +1960,9 @@ function UpdateRealFruitChams()
 					name.BackgroundTransparency = 1
 					name.TextStrokeTransparency = 0.5
 					name.TextColor3 = Color3.fromRGB(251, 255, 0)
-					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				else
-					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				end
 			else
 				if v.Handle:FindFirstChild('NameEsp'..Number) then
@@ -1993,9 +1993,9 @@ function UpdateIslandESP()
                             name.TextYAlignment = 'Top'
                             name.BackgroundTransparency = 1
                             name.TextStrokeTransparency = 0.5
-                            name.TextColor3 = Color3.fromRGB(80, 245, 245)
+                            name.TextColor3 = Color3.fromRGB(7, 236, 240)
                         else
-                            v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                            v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
                         end
                     end
                 else
@@ -2030,7 +2030,7 @@ function UpdatePlayerChams()
 						name.Font = Enum.Font.GothamSemibold
 						name.FontSize = "Size14"
 						name.TextWrapped = true
-						name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M')
+						name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' Distance')
 						name.Size = UDim2.new(1,0,1,0)
 						name.TextYAlignment = 'Top'
 						name.BackgroundTransparency = 1
@@ -2041,7 +2041,7 @@ function UpdatePlayerChams()
 							name.TextColor3 = Color3.new(255,0,0)
 						end
 					else
-						v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..' | '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' M\nHealth : ' .. round(v.Character.Humanoid.Health*100/v.Character.Humanoid.MaxHealth) .. '%')
+						v.Character.Head['NameEsp'..Number].TextLabel.Text = (v.Name ..' | '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Character.Head.Position).Magnitude/3) ..' Distance\nHealth : ' .. round(v.Character.Humanoid.Health*100/v.Character.Humanoid.MaxHealth) .. '%')
 					end
 				else
 					if v.Character.Head:FindFirstChild('NameEsp'..Number) then
@@ -2075,18 +2075,18 @@ function UpdateChestChams()
 							name.TextStrokeTransparency = 0.5
 							if v.Name == "Chest1" then
 								name.TextColor3 = Color3.fromRGB(109, 109, 109)
-								name.Text = ("Chest 1" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+								name.Text = ("Chest 1" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 							end
 							if v.Name == "Chest2" then
 								name.TextColor3 = Color3.fromRGB(173, 158, 21)
-								name.Text = ("Chest 2" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+								name.Text = ("Chest 2" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 							end
 							if v.Name == "Chest3" then
 								name.TextColor3 = Color3.fromRGB(85, 255, 255)
-								name.Text = ("Chest 3" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+								name.Text = ("Chest 3" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 							end
 						else
-							v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+							v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 						end
 					end
 				else
@@ -2118,10 +2118,10 @@ function UpdateDevilChams()
 						name.TextYAlignment = 'Top'
 						name.BackgroundTransparency = 1
 						name.TextStrokeTransparency = 0.5
-						name.TextColor3 = Color3.fromRGB(255, 0, 0)
-						name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+						name.TextColor3 = Color3.fromRGB(255, 255, 255)
+						name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 					else
-						v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+						v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 					end
 				end
 			else
@@ -2154,15 +2154,15 @@ function UpdateFlowerChams()
 						name.TextStrokeTransparency = 0.5
 						name.TextColor3 = Color3.fromRGB(255, 0, 0)
 						if v.Name == "Flower1" then 
-							name.Text = ("Blue Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+							name.Text = ("Blue Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 							name.TextColor3 = Color3.fromRGB(0, 0, 255)
 						end
 						if v.Name == "Flower2" then
-							name.Text = ("Red Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+							name.Text = ("Red Flower" ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 							name.TextColor3 = Color3.fromRGB(255, 0, 0)
 						end
 					else
-						v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+						v['NameEsp'..Number].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance')
 					end
 				else
 					if v:FindFirstChild('NameEsp'..Number) then
@@ -2193,9 +2193,9 @@ function UpdateRealFruitChams()
 					name.BackgroundTransparency = 1
 					name.TextStrokeTransparency = 0.5
 					name.TextColor3 = Color3.fromRGB(255, 0, 0)
-					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				else
-					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				end
 			else
 				if v.Handle:FindFirstChild('NameEsp'..Number) then
@@ -2223,9 +2223,9 @@ function UpdateRealFruitChams()
 					name.BackgroundTransparency = 1
 					name.TextStrokeTransparency = 0.5
 					name.TextColor3 = Color3.fromRGB(255, 174, 0)
-					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				else
-					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				end
 			else
 				if v.Handle:FindFirstChild('NameEsp'..Number) then
@@ -2253,9 +2253,9 @@ function UpdateRealFruitChams()
 					name.BackgroundTransparency = 1
 					name.TextStrokeTransparency = 0.5
 					name.TextColor3 = Color3.fromRGB(251, 255, 0)
-					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					name.Text = (v.Name ..' \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				else
-					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' M')
+					v.Handle['NameEsp'..Number].TextLabel.Text = (v.Name ..' '.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Handle.Position).Magnitude/3) ..' Distance')
 				end
 			else
 				if v.Handle:FindFirstChild('NameEsp'..Number) then
@@ -3075,8 +3075,7 @@ end)
 Main:AddToggle("Auto Kaitan",false,function(value)
        _G.AutoFarm = value
        _G.SelectWeapon = "Combat"
-       melee = value
-       defense = value
+       _G.Auto_Stats_Kaitun = value
        _G.AutoSuperhuman = value
        _G.AutoSecondSea = value
        _G.AutoThirdSea = value
@@ -3101,7 +3100,7 @@ Main:AddToggle("Auto Kaitan",false,function(value)
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
-                    if _G.BuyAllSwordHop and _G.BuyAllSword then
+                    if Hop then
                         wait(10)
                         Hop()
                     end
@@ -3118,7 +3117,7 @@ Main:AddToggle("Auto Kaitan",false,function(value)
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
-                    if _G.BuyAllAibhop and _G.BuyAllAib then
+                    if Hop then
                         wait(10)
                         Hop()
                     end
