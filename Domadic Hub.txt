@@ -3826,9 +3826,9 @@ spawn(function()
 
     Main:AddSeperator("Misc Setting Mastery")
     
-    _G.Kill_At = 50
+    _G.Kill_At = 35
 
-    Main:AddSlider("Kill At %",1,100,50,function(value)
+    Main:AddSlider("Kill At %",1,100,35,function(value)
 
         _G.Kill_At = value
     end)
@@ -5097,7 +5097,7 @@ spawn(function()
                                                 if v.Humanoid.Health <= HealthMs then
                                                     AutoHaki()
                                                     EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,10))
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,5))
                                                     v.HumanoidRootPart.CanCollide = false
                                                     PosMonMasteryFruit = v.HumanoidRootPart.CFrame
                                                     v.Humanoid.WalkSpeed = 0
@@ -5107,7 +5107,7 @@ spawn(function()
                                                     UseSkill = false 
                                                     AutoHaki()
                                                     EquipWeapon(_G.SelectWeapon)
-                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                                     PosMonMasteryFruit = v.HumanoidRootPart.CFrame
@@ -5344,7 +5344,7 @@ spawn(function()
                                                 HealthMin = v.Humanoid.MaxHealth * _G.Kill_At/100
                                                 if v.Humanoid.Health <= HealthMin then                                                
                                                     EquipWeapon(SelectWeaponGun)
-                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,0,10))
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,5))
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.HumanoidRootPart.Size = Vector3.new(2,2,1)
@@ -5361,7 +5361,7 @@ spawn(function()
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.Head.CanCollide = false               
                                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                                                     game:GetService'VirtualUser':CaptureController()
                                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                                 end
