@@ -11769,8 +11769,10 @@ game.StarterGui:SetCore("SendNotification", {
       Title = "Domadic Hub", 
       Text = "made by มีดร้ายเเรง🔪🔪#6356"
   })
+
+  _G.FastAttackNormalSpeed = true
   
-            
+  
   
             local SeraphFrame = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework")))[2]
             local VirtualUser = game:GetService('VirtualUser')
