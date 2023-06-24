@@ -11653,7 +11653,7 @@ spawn(function()
                             TextLabel.Text.Size = 35
                         end
                         local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
-                        v.NpcEspes.TextLabel.Text = v.Name.." - "..Dis.." M"
+                        v.NpcEspes.TextLabel.Text = v.Name.." - "..Dis.." Distance"
                     end
                 end
             else
@@ -11698,7 +11698,7 @@ spawn(function()
                             TextLabel.Text.Size = 35
                         end
                         local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
-                        v.Seaesps.TextLabel.Text = v.Name.." - "..Dis.." M"
+                        v.Seaesps.TextLabel.Text = v.Name.." - "..Dis.." Distance"
                     end
                 end
             else
@@ -11743,7 +11743,7 @@ spawn(function()
                             TextLabel.Text.Size = 35
                         end
                         local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
-                        v.MobEap.TextLabel.Text = v.Name.." - "..Dis.." M"
+                        v.MobEap.TextLabel.Text = v.Name.." - "..Dis.." Distance"
                     end
                 end
             else
