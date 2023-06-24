@@ -2471,7 +2471,9 @@ function UpdateRealFruitChams()
     
     function TP1(Pos)
     Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-    if Distance < 250 then
+    if Distance < 50 then
+        Speed = 1000
+    elseif Distance < 250 then
         Speed = 600
     elseif Distance < 500 then
         Speed = 300
@@ -2489,7 +2491,9 @@ end
     
         function topos(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-        if Distance < 250 then
+        if Distance < 50 then
+            Speed = 1000
+        elseif Distance < 250 then
             Speed = 600
         elseif Distance < 500 then
             Speed = 300
