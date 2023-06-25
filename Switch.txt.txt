@@ -3904,7 +3904,6 @@ spawn(function()
 										until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
 										if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-											until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm
 										end
 									end
 								end
