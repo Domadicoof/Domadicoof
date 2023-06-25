@@ -1951,7 +1951,7 @@ end)
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.AutoClick then
+        if _G.AutoClick or AttackNoCD() then
              pcall(function()
                 game:GetService'VirtualUser':CaptureController()
 			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
@@ -3785,13 +3785,13 @@ if IKAI then
 end
 
 game.StarterGui:SetCore("SendNotification", {
-	Title = "Switch Notification", 
+	Title = "NFT Notification", 
 	Text = "ฟังชั่นที่มีไอคอนนี้สามารถเปิด\nพร้อมฟามเวลได้",
 	Icon = "http://www.roblox.com/asset/?id=9610159123",
 	Duration = 8
 })
 
-local win = library:Window("Switch",[[Hub]],[[Version : Premium ]],"9606070311",Enum.KeyCode.RightControl)
+local win = library:Window("NFT",[[Hub]],[[Version : Free ]],"9606070311",Enum.KeyCode.RightControl)
 local General_Tab = win:Tab("General",[[7040391851]])
 local Quest_Tab = win:Tab("    Quest & Item",[[9606626859]])
 local PvP_Tab = win:Tab("PvP",[[9606626034]])
@@ -3904,12 +3904,14 @@ spawn(function()
 										until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Auto_Farm or Mix_Farm
 										if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+											until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm
 										end
 									end
 								end
 							elseif game.ReplicatedStorage:FindFirstChild(Ms) then
 								TP2(game.ReplicatedStorage:FindFirstChild(Ms).HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 								TelePBoss(CFrameQ)
+								TP2(CFrameMon)
 							end
 						end
 					end
@@ -6096,6 +6098,7 @@ spawn(function()
 										CFrameMon = v.HumanoidRootPart.CFrame
 										_G.PosMon = v.HumanoidRootPart.CFrame
 										StatrMagnet = true
+										_G.AutoClick = true
 										repeat wait()
 											EquipWeapon(_G.Setting_table.Weapon)
 											v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -6104,6 +6107,7 @@ spawn(function()
 											game:GetService'VirtualUser':Button1Down(Vector2.new(1280,900))
 										until v.Humanoid.Health <= 0 or not v.Parent or Bartlio_Farm ==false
 										StatrMagnet = false
+										_G.AutoClick = false
 									end
 								end
 							elseif game:GetService("ReplicatedStorage"):FindFirstChild("Swan Pirate [Lv. 775]") then
@@ -6281,12 +6285,14 @@ spawn(function()
 								if v.Name == "Urban [Lv. 1750]" then
 									repeat wait(.2)
 										EquipWeapon(_G.Setting_table.Weapon)
+										_G.AutoClick = true
 										TP(v.HumanoidRootPart.CFrame * CFrame.new(0,25,0))
 										game:GetService'VirtualUser':CaptureController()
 										game:GetService'VirtualUser':Button1Down(Vector2.new(1280,630))
 									until v.Humanoid.Health <= 0 or not v.Parent or not Auto_Elite_Hunter
 									Mix_Farm = nil
 									Auto_Elite_Hunter_Farm = nil
+									_G.AutoClick = false
 								end
 							end
 						elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") then
@@ -6295,6 +6301,7 @@ spawn(function()
 					elseif game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") then
 						Mix_Farm = true
 						Auto_Elite_Hunter_Farm = true
+						_G.AutoClick = true
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
 						if game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") then
 							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -6306,6 +6313,7 @@ spawn(function()
 										game:GetService'VirtualUser':Button1Down(Vector2.new(1280,630))
 									until v.Humanoid.Health <= 0 or not v.Parent or not Auto_Elite_Hunter
 									Mix_Farm = nil
+									_G.AutoClick = false
 									Auto_Elite_Hunter_Farm = nil
 								end
 							end
@@ -6315,6 +6323,7 @@ spawn(function()
 					elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") then
 						Mix_Farm = true
 						Auto_Elite_Hunter_Farm = true
+						_G.AutoClick = true
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
 						if game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") then
 							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -6326,6 +6335,7 @@ spawn(function()
 										game:GetService'VirtualUser':Button1Down(Vector2.new(1280,630))
 									until v.Humanoid.Health <= 0 or not v.Parent or not Auto_Elite_Hunter
 									Mix_Farm = nil
+									_G.AutoClick = false
 									Auto_Elite_Hunter_Farm = nil
 								end
 							end
