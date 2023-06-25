@@ -1924,7 +1924,7 @@ end
 spawn(function()
     while wait(.1) do
         pcall(function()
-            if _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or _G.Setting_table.Death_Step or _G.Setting_table.Sharkman_Karate or _G.Setting_table.Electric_Claw or _G.Setting_table.Dragon_Talon or _G.Setting_table.Superhuman or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or Auto_Farm_Sword or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit then
+            if _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or AutoFarm or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or _G.Setting_table.Death_Step or _G.Setting_table.Sharkman_Karate or _G.Setting_table.Electric_Claw or _G.Setting_table.Dragon_Talon or _G.Setting_table.Superhuman or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or Auto_Farm_Sword or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit then
 				if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
 					game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
 					wait(5)
@@ -3795,7 +3795,7 @@ local Hop_Tab = win:Tab("Hop",[[9608089732]])
 General_Tab:Label("Farm Level")
 
 General_Tab:Toggle("Auto Farm","9606294253",_G.Setting_table.AutoFarm,function(vu)
-	Auto_Farm = vu
+	AutoFarm = vu
 	_G.Setting_table.AutoFarm = vu
 	Update_Setting(getgenv()['MyName'])
 end)
@@ -3804,7 +3804,7 @@ end)
 spawn(function()
 	while wait(.1) do
 		pcall(function()
-			if Auto_Farm then
+			if AutoFarm then
 				if not Mix_Farm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 						if _G.Farm_Boss then
@@ -3875,7 +3875,7 @@ spawn(function()
 						else
 							if game.Workspace.Enemies:FindFirstChild(Ms) then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-									if v.Name == Ms and v.Humanoid.Health > 0 then and TP2(CFrameMon)
+									if v.Name == Ms and v.Humanoid.Health > 0 then
 										_G.PosMon = v.HumanoidRootPart.CFrame
 										StatrMagnet = true
 										_G.AutoClick = true
@@ -3916,7 +3916,7 @@ spawn(function()
 	while task.wait() do
 		pcall(function()
 			if StatrMagnet then
-				if Auto_Farm then
+				if AutoFarm then
 					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 							if v.Name == Ms and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
