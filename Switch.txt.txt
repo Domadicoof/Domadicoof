@@ -1949,16 +1949,6 @@ spawn(function()
     end
 end)
 
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.AutoClick or AttackNoCD() then
-             pcall(function()
-                game:GetService'VirtualUser':CaptureController()
-			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
-            end)
-        end
-    end)
-end)
 
 IKAI = true
 if IKAI then
@@ -3885,7 +3875,7 @@ spawn(function()
 						else
 							if game.Workspace.Enemies:FindFirstChild(Ms) then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-									if v.Name == Ms and v.Humanoid.Health > 0 then
+									if v.Name == Ms and v.Humanoid.Health > 0 then and TP2(CFrameMon)
 										_G.PosMon = v.HumanoidRootPart.CFrame
 										StatrMagnet = true
 										_G.AutoClick = true
@@ -12219,6 +12209,17 @@ spawn(function()
                     y.activeController.humanoid.AutoRotate = true
                 end)
             end
+        end
+    end)
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.Setting_table.FastAttack then
+             pcall(function()
+                game:GetService'VirtualUser':CaptureController()
+			    game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+            end)
         end
     end)
 end)
