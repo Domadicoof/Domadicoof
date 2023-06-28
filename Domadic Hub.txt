@@ -6456,39 +6456,24 @@ end)
     
     M:AddSeperator("Sea Baest")
     
-M:AddToggle("Auto Farm Sea baest",false,function(value)
-_G.AutoFarmSeabaest = value
-StopTween(_G.AutoFarmSeabaest)
-end)
+    M:AddToggle("Auto Farm Sea baest",false,function(value)
+    _G.AutoFarmSeabaest = value
+    StopTween(_G.AutoFarmSeabaest)
+    end)
 
-spawn(function()
-	while wait() do
-		if _G.AutoFarmSeabaest then
-			for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-                if v:FindFirstChild("HumanoidRootPart") then
-			        if v.Humanoid.Health > 0 then
-			            repeat wait()
-			              EquipWeapon(_G.SelectWeapon)
-			                if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-			                	local args = {
-				                	[1] = "Buso"
-			                	}
-			                	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-			               	end
-			                topos(v.HumanoidRootPart.CFrame * CFrame.new(0,0,0))
-			                v.HumanoidRootPart.CanCollide = false
-			                v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-			                _G.AutoSkill = true
-						    game:GetService("VirtualUser"):CaptureController()
-				       	    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 672), game.Workspace.CurrentCamera.CFrame)
-			            until not _G.AutoFarmSeabaest or not v.Parent or v.Humanoid.Health <= 0 
-			            _G.AutoSkill = false
-			        end
-			    end
-			end
-		end
-	end
- end)
+    spawn(function()
+        while wait() do
+            if _G.AutoFarmSeabaest then
+                pcall(function()
+                    topos(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+                end)
+            end
+        end
+    end)
+    
+    M:AddToggle("Auto Skill",false,function(value)
+    _G.AutoSkill = value
+    end)
  
  if _G.AutoSkill then 
      UseSkill("Z")
@@ -11769,10 +11754,6 @@ game.StarterGui:SetCore("SendNotification", {
       Title = "Domadic Hub", 
       Text = "made by มีดร้ายเเรง🔪🔪#6356"
   })
-
-  _G.FastAttackNormalSpeed = true
-  
-  
   
             local SeraphFrame = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework")))[2]
             local VirtualUser = game:GetService('VirtualUser')
