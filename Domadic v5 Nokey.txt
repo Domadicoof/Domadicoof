@@ -1564,15 +1564,15 @@ task.spawn(function()
   end
   end)
   
-  Main:AddToggle("Bring Mob Delta", false, function(Value)
-  _G.BringDelta = Value
+  Main:AddToggle("Bring Mob Delta", false, function(value)
+  _G.BringDelta = value
   end)
   
   function InMyNetWork(object)
 	if isnetworkowner then
 		return isnetworkowner(object)
 	else
-		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 200 then 
+		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 300 then 
 			return true
 		end
 		return false
