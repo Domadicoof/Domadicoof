@@ -6454,56 +6454,43 @@ end)
         end)
     end)
     
-    M:AddSeperator("Sea Baest")
-    
-    M:AddToggle("Auto Farm Sea baest",false,function(value)
+    M:AddSeperator(" Sea baeat ")
+ 
+    M:AddToggle('Auto Sea baeat', false, function(value)
     _G.AutoFarmSeabaest = value
     StopTween(_G.AutoFarmSeabaest)
     end)
-
-    spawn(function()
-        while wait() do
-            if _G.AutoFarmSeabaest then
-                pcall(function()
-                    topos(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-                end)
-            end
-        end
-    end)
     
-    M:AddToggle("Auto Skill",false,function(value)
-    _G.AutoSkill = value
-    end)
- 
- if _G.AutoSkill then 
-     UseSkill("Z")
-     UseSkill("X")
-     UseSkill("C")
-     UseSkill("V")
- end
- 
-function UseSkill(skill)
-    Tool = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
-    game:GetService("VirtualInputManager"):SendKeyEvent(true,skill,false,game)
-    task.wait()
-    game:GetService("VirtualInputManager"):SendKeyEvent(false,skill,false,game)
-end
-
-M:AddToggle("Auto Farm Sea baest Hop",false,function(value)
-_G.AutoFarmSeabaestHop = value
-end)
-
+    _G.MagnitudeAdd = 0
 spawn(function()
-    pcall(function()
-        while wait() do
-            if (_G.AutoFarmSeabaestHop and _G.AutoFarmSeabaest) then
-                Hop()
-            end
-        end
-    end)
+	while wait() do 
+		if _G.AutoFarmSeabaest then
+			for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+				if v.Name:find("SeaBeasts") then
+					if game:GetService("Workspace"):FindFirstChild(v.Name) then
+						if (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5000+_G.MagnitudeAdd then
+							repeat wait()
+								if game:GetService("Workspace"):FindFirstChild(v.Name) then
+									topos(v.CFrame)
+								end
+							until _G.AutoFarmSeabaest == false or not v.Parent
+							topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+							_G.MagnitudeAdd = _G.MagnitudeAdd+1500
+							break
+						end
+					end
+				end
+			end
+		end
+	end
 end)
+
+M:AddToggle('Auto Sea baeat Hop', false, function(value)
+    _G.AutoFarmSeabaestHop = value
+    end)
     
-M:AddSeperator(" Trident ")
+    
+    M:AddSeperator(" Trident ")
 	
 	M:AddToggle("Auto Dragon Trident", _G.Auto_Dragon_Trident,function(value)
          _G.Auto_Dragon_Trident = value
