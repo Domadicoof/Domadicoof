@@ -1543,7 +1543,7 @@ task.spawn(function()
   if BringMobs or _G.Auto_Farm_Level then
   pcall(function()
     for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-    if v.Name == MonFarm and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 240 then
+    if v.Name == MonFarm and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 300 then
     if InMyNetWork(v.HumanoidRootPart) then
     v.HumanoidRootPart.CFrame = FarmPos
     v.Humanoid.JumpPower = 0
@@ -1563,6 +1563,48 @@ task.spawn(function()
   end
   end
   end)
+  
+  Main:AddToggle("Bring Mob Delta", false, function(Value)
+  _G.BringDelta = Value
+  end)
+  
+  function InMyNetWork(object)
+	if isnetworkowner then
+		return isnetworkowner(object)
+	else
+		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 200 then 
+			return true
+		end
+		return false
+	end
+end
+
+task.spawn(function()
+	while task.wait() do
+		pcall(function()
+			if BringDelta and _G.BringDelta then
+				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 300 then
+						if InMyNetWork(v.HumanoidRootPart) then
+							v.HumanoidRootPart.CFrame = PosMon
+							v.Humanoid.JumpPower = 0
+							v.Humanoid.WalkSpeed = 0
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							v.HumanoidRootPart.Transparency = 1
+							v.HumanoidRootPart.CanCollide = false
+							v.Head.CanCollide = false
+							if v.Humanoid:FindFirstChild("Animator") then
+								v.Humanoid.Animator:Destroy()
+							end
+							v.Humanoid:ChangeState(11)
+							v.Humanoid:ChangeState(14)
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
 
 task.spawn(function()
   while true do wait()
@@ -3009,6 +3051,7 @@ spawn(function()
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
     Fastattack = true
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
@@ -3025,6 +3068,7 @@ spawn(function()
     end
     until not _G.Auto_Farm_Level or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
     Fastattack = false
+    BringDelta = false
     end
     end
     end
@@ -3059,6 +3103,7 @@ spawn(function()
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
     Fastattack = true
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
     v.HumanoidRootPart.Transparency = 1
@@ -3077,6 +3122,7 @@ spawn(function()
     end
     end
     Fastattack = false
+    BringDelta = false
     end
     else
       for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
@@ -3097,6 +3143,7 @@ spawn(function()
     repeat task.wait(0.0001)
     EquipTool(SelectWeapon)
     Fastattack = true
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * CFrame.new(posX, posY, posZ))
     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
     v.HumanoidRootPart.Transparency = 1
@@ -3111,6 +3158,7 @@ spawn(function()
     until not _G.Auto_Farm_Level or not v.Parent or v.Humanoid.Health <= 0 or not game.Workspace.Enemies:FindFirstChild(v.Name)
     end
     Fastattack = false
+    BringDelta = false
     end
     end
     end
@@ -3424,6 +3472,7 @@ spawn(function()
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     Fastattack = true
+                                    BringDelta = true
                                     v.HumanoidRootPart.Transparency = 1
                                     v.Humanoid.JumpPower = 0
                                     v.Humanoid.WalkSpeed = 0
@@ -3436,6 +3485,7 @@ spawn(function()
                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                 until AutoEcto == false or not v.Parent or v.Humanoid.Health == 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
                                 Fastattack = false
+                                BringDelta = false
                             end
                         end
                     end
@@ -3562,6 +3612,7 @@ spawn(function()
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
     Fastattack = true
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
@@ -3578,6 +3629,7 @@ spawn(function()
     end
     until not AutoFarmBone or not v.Parent or v.Humanoid.Health <= 0
     Fastattack = false
+    BringDelta = false
     end
     end
     end
@@ -3685,6 +3737,8 @@ spawn(function()
     if v.Name == SelectMonster then
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
+    BringDelta = true
+    Fastattack = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
@@ -3701,6 +3755,8 @@ spawn(function()
     end
     until not AutoFarmSelectMonsterQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
     end
+    BringDelta = false
+    Fastattack = false
     end
     end
     for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
@@ -3746,6 +3802,7 @@ spawn(function()
     repeat game:GetService("RunService").Heartbeat:wait()
     EquipTool(SelectWeapon)
     Fastattack = true
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
     v.HumanoidRootPart.Transparency = 1
@@ -3762,6 +3819,7 @@ spawn(function()
     end
     until not AutoFarmSelectMonsterNoQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
     Fastattack = false
+    BringDelta = false
     end
     end
     end
@@ -3829,6 +3887,7 @@ spawn(function()
     v.HumanoidRootPart.Transparency = 1
     v.Humanoid.JumpPower = 0
     Fastattack = true
+    BringDelta = true
     v.Humanoid.WalkSpeed = 0
     v.HumanoidRootPart.CanCollide = false
 --v.Humanoid:ChangeState(11)
@@ -3841,6 +3900,7 @@ spawn(function()
     end
     until not AutoFarmMaterial or not v.Parent or v.Humanoid.Health <= 0
     Fastattack = false
+    BringDelta = false
     end
     end
     end
@@ -4145,6 +4205,7 @@ spawn(function()
     else
       _G.UseSkill = false
     EquipTool(SelectWeapon)
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
     v.HumanoidRootPart.Transparency = 1
@@ -4159,6 +4220,7 @@ spawn(function()
     end
     until not AutoFarmMasDevilFruit or not v.Parent or v.Humanoid.Health == 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'Queat'
     _G.UseSkill = false
+    BringDelta = false
     end
     end
     end
@@ -4188,6 +4250,7 @@ spawn(function()
     else
       _G.UseSkill = false
     EquipTool(SelectWeapon)
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
     v.HumanoidRootPart.Transparency = 1
@@ -4203,6 +4266,7 @@ spawn(function()
 
     until not AutoFarmMasDevilFruit or not v.Parent or v.Humanoid.Health == 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'No Quest'
     _G.UseSkill = false
+    BringDelta = false
     end
     end
     else
@@ -4221,6 +4285,7 @@ spawn(function()
     else
       _G.UseSkill = false
     EquipTool(SelectWeapon)
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
     v.HumanoidRootPart.Transparency = 1
@@ -4235,6 +4300,7 @@ spawn(function()
     end
     until not AutoFarmMasDevilFruit or not MasteryType == 'Nearest' or not v.Parent or v.Humanoid.Health == 0 or not TypeMastery == 'Nearest'
     _G.UseSkill = false
+    BringDelta = false
     end
     end
     end
@@ -4335,6 +4401,7 @@ spawn(function()
     else
       _G.UseGunMastery = false
     EquipTool(SelectWeapon)
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
     v.HumanoidRootPart.Transparency = 1
@@ -4349,6 +4416,7 @@ spawn(function()
     end
     until not AutoFarmMasGun or not v.Parent or v.Humanoid.Health <= 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'Queat'
     _G.UseGunMastery = false
+    BringDelta = false
     end
     end
     end
@@ -4381,6 +4449,7 @@ spawn(function()
     else
       _G.UseGunMastery = false
     EquipTool(SelectWeapon)
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
     v.HumanoidRootPart.Transparency = 1
@@ -4395,6 +4464,7 @@ spawn(function()
     end
     until not AutoFarmMasGun or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or not TypeMastery == 'No Quest'
     end
+    BringDelta = false
     end
     else
       _G.UseGunMastery = false
@@ -4415,6 +4485,7 @@ spawn(function()
     else
       _G.UseGunMastery = false
     EquipTool(SelectWeapon)
+    BringDelta = true
     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
     v.HumanoidRootPart.Transparency = 1
@@ -4429,6 +4500,7 @@ spawn(function()
     end
     until not AutoFarmMasGun or not MasteryType == 'Nearest' or not v.Parent or v.Humanoid.Health <= 0 or not TypeMastery == 'Nearest'
     _G.UseGunMastery = false
+    BringDelta = false
     end
     end
     end
@@ -5251,6 +5323,7 @@ spawn(function()
   EquipTool(SelectWeapon)
   Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
   Fastattack = true
+  BringDelta = true
   v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
   v.HumanoidRootPart.Transparency = 1
   v.Humanoid.JumpPower = 0
@@ -5264,6 +5337,7 @@ spawn(function()
   game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
   until not AutoCakePrince or not v.Parent or v.Humanoid.Health <= 0
   Fastattack = false
+  BringDelta = false
   end
   end
   end
@@ -5388,6 +5462,7 @@ spawn(function()
                                     EquipTool(SelectWeapon)
                                     Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                     Fastattack = true
+                                    BringDelta = true
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     v.HumanoidRootPart.Transparency = 1
                                     v.Humanoid.JumpPower = 0
@@ -5401,6 +5476,7 @@ spawn(function()
                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                 until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hidden Key") or AutoRengoku == false or not v.Parent or v.Humanoid.Health <= 0
                                 Fastattack = false
+                                BringDelta = false
                             end
                         end
                     end
@@ -6708,6 +6784,7 @@ spawn(function()
                                         EquipTool(SelectWeapon)
                                         Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                         Fastattack = true
+                                        BringDelta = true
                                         v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                         v.HumanoidRootPart.Transparency = 1
                                         v.Humanoid.JumpPower = 0
@@ -6722,6 +6799,7 @@ spawn(function()
                                     end)
                                 until AutoCitizen == false or v.Humanoid.Health <= 0 or not v.Parent or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not gamr:GetService("Workspace").Enemies:FindFirstChild(v.Name)
                                 Fastattack = false
+                                BringDelta = false
                             end
                         end
                     else
@@ -6770,6 +6848,7 @@ spawn(function()
                                             EquipTool(SelectWeapon)
                                             Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                             Fastattack = true
+                                            BringDelta = true
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.Transparency = 1
                                             v.Humanoid.JumpPower = 0
@@ -6783,6 +6862,7 @@ spawn(function()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                         until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Flower 3") or not v.Parent or v.Humanoid.Health <= 0 or AutoEvoRace == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
                                         Fastattack = false
+                                        BringDelta = false
                                     end
                                 end
                             else
@@ -6821,6 +6901,7 @@ spawn(function()
                                     repeat wait(.1)
                                             EquipTool(SelectWeapon)
                                             Fastattack = true
+                                            BringDelta = true
                                             Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.Transparency = 1
@@ -6835,6 +6916,7 @@ spawn(function()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),workspace.CurrentCamera.CFrame)
                                     until not v.Parent or v.Humanoid.Health <= 0 or AutoBartilo == false or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
                                     Fastattack = false
+                                    BringDelta = false
                                 end)
                             end
                         end
