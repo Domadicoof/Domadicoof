@@ -8501,15 +8501,15 @@ end)
   end)
   
 RaceV4:AddButton("Auto Complete Angel Trial",function(t)
-        topos = game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame
+        topos(game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame
         end)
 
         RaceV4:AddButton("Auto Complete Rabbit Trial",function(t)
-        topos = game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0)
+        topos(game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0)
         end)
 
         RaceV4:AddButton("Auto Complete Cyborg Trial",function(t)
-        topos = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,300,0)
+        topos(CFrame.new(0,300,0))
         end)
     end
 
