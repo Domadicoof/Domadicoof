@@ -8501,7 +8501,7 @@ end)
   end)
   
 RaceV4:AddButton("Auto Complete Angel Trial",function(t)
-        topos(game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame
+        topos(game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame)
         end)
 
         RaceV4:AddButton("Auto Complete Rabbit Trial",function(t)
