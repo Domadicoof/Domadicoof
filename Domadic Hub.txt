@@ -8505,7 +8505,7 @@ RaceV4:AddButton("Auto Complete Angel Trial",function(t)
         end)
 
         RaceV4:AddButton("Auto Complete Rabbit Trial",function(t)
-        topos(game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0)
+        topos(game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0))
         end)
 
         RaceV4:AddButton("Auto Complete Cyborg Trial",function(t)
