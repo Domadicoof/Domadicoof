@@ -2474,7 +2474,7 @@ function UpdateRealFruitChams()
     if Distance < 25 then
         Speed = 10000
     elseif Distance < 50 then
-        Speed = 1000
+        Speed = 5000
     elseif Distance < 250 then
         Speed = 600
     elseif Distance < 500 then
@@ -2496,7 +2496,7 @@ end
         if Distance < 25 then
             Speed = 10000
         elseif Distance < 50 then
-            Speed = 1000
+            Speed = 5000
         elseif Distance < 250 then
             Speed = 600
         elseif Distance < 500 then
