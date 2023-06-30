@@ -4163,7 +4163,7 @@ M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
         end)
     end
     
-M:AddToggle("Tween Gear",_G.AutoMysticIsland,function(value)
+M:AddToggle("Tween Gear",_G.TweenMGear,function(value)
 _G.TweenMGear = value
 end)
 
@@ -8693,17 +8693,17 @@ end)
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer('UpgradeRace','Buy')
   end)
   
-  RaceV4:AddButton("Auto Complete Angel Trial",function(t)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame
-    end)
+ RaceV4:AddButton("Auto Complete Angel Trial",function(t)
+        topos(game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame)
+        end)
 
-    RaceV4:AddButton("Auto Complete Rabbit Trial",function(t)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0)
-    end)
+        RaceV4:AddButton("Auto Complete Rabbit Trial",function(t)
+        topos(game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0))
+        end)
 
-    RaceV4:AddButton("Auto Complete Cyborg Trial",function(t)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,300,0)
-    end)
+        RaceV4:AddButton("Auto Complete Cyborg Trial",function(t)
+        topos(CFrame.new(0,300,0))
+        end)
     end
 
 	
