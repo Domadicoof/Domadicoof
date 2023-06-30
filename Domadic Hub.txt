@@ -2624,20 +2624,19 @@ end
 
 
 
-local Library = DarkraiX:Window("        Domadic HUB","        Blox Fruit | 🔰 ","DarkRaiGui",Enum.KeyCode.RightControl);
-
-local H = Library:AddTab(" Home","12950870585")
-local Main = Library:AddTab(" Main","6026568198")
-local M = Library:AddTab(" Auto Item Quest","9606626859")
-local Ss = Library:AddTab(" Stats","7040410130")
-local RaceV4 = Library:AddTab(" RaceV4","11162889532")
-local P = Library:AddTab(" Player","7251993295")
-local R = Library:AddTab(" Raid","11155986081")
-local T = Library:AddTab(" Teleport","11155851001")
-local S = Library:AddTab(" Shop","6031265976")
-local D = Library:AddTab("Devil Fruit","7044233235")
-local Misc = Library:AddTab(" Misc","11156061121")
-local Esp = Library:AddTab(" Esp","12950874071")
+local SOMEXHUB = library:AddWindow("Domadic HUB | 1.0.1",Enum.KeyCode.RightControl)
+local H = SOMEXHUB:AddTab("Home","12950870585")
+local Main = SOMEXHUB:AddTab("Main","6026568198")
+local M = SOMEXHUB:AddTab("Auto Item","9606626859")
+local Ss = SOMEXHUB:AddTab("Stats","7040410130")
+local RaceV4 = SOMEXHUB:AddTab("RaceV4","11162889532")
+local P = SOMEXHUB:AddTab("Player","7251993295")
+local R = SOMEXHUB:AddTab("Raid","11155986081")
+local T = SOMEXHUB:AddTab("Teleport","11155851001")
+local S = SOMEXHUB:AddTab("Shop","6031265976")
+local D = SOMEXHUB:AddTab("Devil Fruit","7044233235")
+local Misc = SOMEXHUB:AddTab("Misc","11156061121")
+local Esp = SOMEXHUB:AddTab("Esp","12950874071")
 
 
 H:AddLabel("Script PC/Mobile")
