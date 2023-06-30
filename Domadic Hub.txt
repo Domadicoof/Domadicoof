@@ -150,7 +150,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
 	Name.Size = UDim2.new(0, 61, 0, 27)
 	Name.Font = Enum.Font.GothamSemibold
 	Name.Text = hubname
-	Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Name.TextColor3 = Color3.fromRGB(7, 236, 240)
 	Name.TextSize = 17.000
 
 	local Hub = Instance.new("TextLabel")
@@ -2656,20 +2656,20 @@ end
 
 
 
-local Library = DarkraiX:Window("Domadic HUB","Blox Fruit | ","DarkRaiGui",Enum.KeyCode.RightControl);
+local Library = DarkraiX:Window("        Domadic HUB","        Blox Fruit | ","DarkRaiGui",Enum.KeyCode.RightControl);
 
-local H = Library:AddTab("Home","12950870585")
-local Main = Library:AddTab("Main","6026568198")
-local M = Library:AddTab("Auto Item","9606626859")
-local Ss = Library:AddTab("Stats","7040410130")
-local RaceV4 = Library:AddTab("RaceV4","11162889532")
-local P = Library:AddTab("Player","7251993295")
-local R = Library:AddTab("Raid","11155986081")
-local T = Library:AddTab("Teleport","11155851001")
-local S = Library:AddTab("Shop","6031265976")
-local D = Library:AddTab("Devil Fruit","7044233235")
-local Misc = Library:AddTab("Misc","11156061121")
-local Esp = Library:AddTab("Esp","12950874071")
+local H = Library:AddTab("🎏 Home","12950870585")
+local Main = Library:AddTab("🏠 Main","6026568198")
+local M = Library:AddTab("📜 Auto Item Quest","9606626859")
+local Ss = Library:AddTab("📊 Stats","7040410130")
+local RaceV4 = Library:AddTab("🐇 RaceV4","11162889532")
+local P = Library:AddTab("👩‍💻 Player","7251993295")
+local R = Library:AddTab("🗡️ Raid","11155986081")
+local T = Library:AddTab("🧳 Teleport","11155851001")
+local S = Library:AddTab("👜 Shop","6031265976")
+local D = Library:AddTab("🍎 Devil Fruit","7044233235")
+local Misc = Library:AddTab("⚙️ Misc","11156061121")
+local Esp = Library:AddTab("🔰 Esp","12950874071")
 
 
 H:AddLabel("Script PC/Mobile")
