@@ -161,7 +161,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
 	Hub.Position = UDim2.new(0, 110, 0, 0)
 	Hub.Size = UDim2.new(0, 81, 0, 27)
 	Hub.Font = Enum.Font.GothamSemibold
-	Hub.Text = "   | "..gamename
+	Hub.Text = "     "..gamename
 	Hub.TextColor3 = Color3.fromRGB(7, 236, 240)
 	Hub.TextSize = 17.000
 	Hub.TextXAlignment = Enum.TextXAlignment.Left
@@ -2656,20 +2656,20 @@ end
 
 
 
-local Library = DarkraiX:Window("        Domadic HUB","        Blox Fruit | ","DarkRaiGui",Enum.KeyCode.RightControl);
+local Library = DarkraiX:Window("        Domadic HUB","        Blox Fruit | 🔰 ","DarkRaiGui",Enum.KeyCode.RightControl);
 
-local H = Library:AddTab("🎏 Home","12950870585")
-local Main = Library:AddTab("🏠 Main","6026568198")
-local M = Library:AddTab("📜 Auto Item Quest","9606626859")
-local Ss = Library:AddTab("📊 Stats","7040410130")
-local RaceV4 = Library:AddTab("🐇 RaceV4","11162889532")
-local P = Library:AddTab("👩‍💻 Player","7251993295")
-local R = Library:AddTab("🗡️ Raid","11155986081")
-local T = Library:AddTab("🧳 Teleport","11155851001")
-local S = Library:AddTab("👜 Shop","6031265976")
-local D = Library:AddTab("🍎 Devil Fruit","7044233235")
-local Misc = Library:AddTab("⚙️ Misc","11156061121")
-local Esp = Library:AddTab("🔰 Esp","12950874071")
+local H = Library:AddTab(" Home","12950870585")
+local Main = Library:AddTab(" Main","6026568198")
+local M = Library:AddTab(" Auto Item Quest","9606626859")
+local Ss = Library:AddTab(" Stats","7040410130")
+local RaceV4 = Library:AddTab(" RaceV4","11162889532")
+local P = Library:AddTab(" Player","7251993295")
+local R = Library:AddTab(" Raid","11155986081")
+local T = Library:AddTab(" Teleport","11155851001")
+local S = Library:AddTab(" Shop","6031265976")
+local D = Library:AddTab("Devil Fruit","7044233235")
+local Misc = Library:AddTab(" Misc","11156061121")
+local Esp = Library:AddTab(" Esp","12950874071")
 
 
 H:AddLabel("Script PC/Mobile")
@@ -3191,6 +3191,22 @@ Main:AddToggle("Auto Kaitan",false,function(value)
                 end)
             end 
         end
+    end)
+    
+    Main:AddToggle("Auto Use Awakening",_G.AutoAwakeningRace,function(value)
+    _G.AutoAwakeningRace = value
+    end)
+    
+    spawn(function()
+    while wait() do
+		pcall(function()
+			if _G.AutoAwakeningRace then
+				game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
+				wait(0.1)
+                game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
+			end
+		end)
+    end
     end)
     
     local Mons = {}
@@ -11621,22 +11637,6 @@ end)
                 end
             end
         end)
-    end)
-    
-    Misc:AddToggle("Auto Use Awakening",_G.AutoAwakeningRace,function(value)
-    _G.AutoAwakeningRace = value
-    end)
-    
-    spawn(function()
-    while wait() do
-		pcall(function()
-			if _G.AutoAwakeningRace then
-				game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
-				wait(0.1)
-                game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
-			end
-		end)
-    end
     end)
     
     Misc:AddToggle("Infinite Ability",true,function(value)
