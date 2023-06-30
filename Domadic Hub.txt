@@ -2992,24 +2992,52 @@ spawn(function()
   end
 end)
 
-            WeaponList = {}
-    
-    for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do  
-        if v:IsA("Tool") then
-            table.insert(WeaponList ,v.Name)
-        end
-    end
-    
-    local SelectWeapona = Main:AddDropdown("Select Weapon",WeaponList,function(value)
-        _G.SelectWeapon = value
+local WeaponList = {"Melee","Sword","Fruit","Gun"}
+_G.SelectWeapon = "Melee"
+Main:AddDropdown("Select Weapon",WeaponList,function(value)
+_G.SelectWeapon = value
+end)
+
+task.spawn(function()
+	while wait() do
+		pcall(function()
+			if _G.SelectWeapon == "Melee" then
+				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+					if v.ToolTip == "Melee" then
+						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+							_G.SelectWeapon = v.Name
+						end
+					end
+				end
+			elseif _G.SelectWeapon == "Sword" then
+				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+					if v.ToolTip == "Sword" then
+						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+							_G.SelectWeapon = v.Name
+						end
+					end
+				end
+			elseif _G.SelectWeapon == "Gun" then
+				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+					if v.ToolTip == "Gun" then
+						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+							_G.SelectWeapon = v.Name
+						end
+					end
+				end
+			elseif _G.SelectWeapon == "Fruit" then
+				for i ,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+					if v.ToolTip == "Blox Fruit" then
+						if game.Players.LocalPlayer.Backpack:FindFirstChild(tostring(v.Name)) then
+							_G.SelectWeapon = v.Name
+						end
+					end
+				end
+			end
+		end)
+	end
     end)
     
-    Main:AddButton("Refresh Weapon",function()
-        SelectWeapona:Clear()
-        for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do  
-            SelectWeapona:Add(v.Name)
-        end
-    end)
     Main:AddLine()
    
     Main:AddToggle("Auto Farm Level",_G.AutoFarm,function(value)
@@ -4133,8 +4161,26 @@ M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
         end)
     end
     
-    M:AddButton("Tp to Gear",function()
-      topos(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
+M:AddToggle("Tween Gear",_G.AutoMysticIsland,function(value)
+_G.TweenMGear = value
+end)
+
+spawn(function()
+    pcall(function()
+        while wait() do
+            if _G.TweenMGear then
+				if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+					for i,v in pairs(game:GetService("Workspace").Map.MysticIsland:GetChildren()) do 
+						if v:IsA("MeshPart")then 
+                            if v.Material ==  Enum.Material.Neon then  
+                                topos(v.CFrame)
+                            end
+                        end
+					end
+				end
+			end
+        end
+    end)
     end)
     
     M:AddLine()
@@ -8256,7 +8302,7 @@ end
 task.spawn(function()
 	while task.wait() do
 		pcall(function()
-			if MakoriGayMag or KillMob and _G.BringMonster then
+			if MakoriGayMag and _G.BringMonster then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
 						if InMyNetWork(v.HumanoidRootPart) then
@@ -8604,17 +8650,17 @@ end)
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer('UpgradeRace','Buy')
   end)
   
-RaceV4:AddButton("Auto Complete Angel Trial",function(t)
-        topos(game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame)
-        end)
+  RaceV4:AddButton("Auto Complete Angel Trial",function(t)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame
+    end)
 
-        RaceV4:AddButton("Auto Complete Rabbit Trial",function(t)
-        topos(game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0))
-        end)
+    RaceV4:AddButton("Auto Complete Rabbit Trial",function(t)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0)
+    end)
 
-        RaceV4:AddButton("Auto Complete Cyborg Trial",function(t)
-        topos(CFrame.new(0,300,0))
-        end)
+    RaceV4:AddButton("Auto Complete Cyborg Trial",function(t)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,300,0)
+    end)
     end
 
 	
@@ -9162,45 +9208,6 @@ spawn(function()
             end
         end
     end
-    end)
-    
-    R:AddToggle("Auto Farm Dungeon Kil Mob",nil,function(value)
-    _G.AutoFarmDungeon = value
-    StopTween(_G.AutoFarmDungeon)
-    end)
-    
-    spawn(function()
-        while wait() do
-            if _G.AutoFarmDungeon then
-                pcall(function()
-                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                        if v.Name and v:FindFirstChild("Humanoid") then
-                            if v.Name == Enemies then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        AutoHaki()
-                                        EquipWeapon(_G.SelectWeapon)
-                                        v.HumanoidRootPart.CanCollide = false
-                                        v.Humanoid.WalkSpeed = 0
-                                        KillMob = true
-                                        PosMon = v.HumanoidRootPart.CFrame
-                                        v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(2,40,2))
-                                        game:GetService("VirtualUser"):CaptureController()
-                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                    until not _G.AutoFarmMob or not v.Parent or v.Humanoid.Health <= 0
-                                    KillMob = false
-                                end
-                            end
-                        end
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild(Enemies) then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild(Enemies).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
-                        end
-                    end
-                end)
-            end
-        end
     end)
     
     R:AddLine()
