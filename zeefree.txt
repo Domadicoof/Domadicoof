@@ -5688,7 +5688,7 @@ for i, v in pairs(game:GetService("ReplicatedStorage").Remotes['CommF_']:InvokeS
 	end
 end
 table.insert(AllSwordInInventroy, GetFightingStyle("Sword"));
-local SwordMulti = Page_Mastery.MultiDropdown({
+local SwordMulti = L_14_.MultiDropdown({
 	Title = "Select Sword",
 	Item = AllSwordInInventroy,
 	Default = _G.Settings.Mastery["Select Multi Sword"],
@@ -5701,7 +5701,7 @@ local SwordMulti = Page_Mastery.MultiDropdown({
 	end,
 })
 
-Page_Mastery.Button({Title = "Refresh",callback = function()
+L_14_.Button({Title = "Refresh",callback = function()
 	SwordMulti.Clear();
 	local AllSwordInInventroy = {};
 	for i, v in pairs(game:GetService("ReplicatedStorage").Remotes['CommF_']:InvokeServer("getInventoryWeapons")) do
