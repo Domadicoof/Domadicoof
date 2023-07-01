@@ -4401,7 +4401,7 @@ end)
 local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
 CamShake:Stop()
 
-L_41_.Toggle({
+L_14_.Toggle({
 	Title = "Double Quest",
 	Default = _G.Settings.Configs["Double Quest"],
 	callback = function(value)
@@ -4410,7 +4410,7 @@ L_41_.Toggle({
 	end,
 })
 
-L_41_.Toggle({
+L_14_.Toggle({
 	Title = "Bypass TP",
 	Default = _G.Settings.Configs["Bypass TP"],
 	callback = function(value)
@@ -4420,7 +4420,7 @@ L_41_.Toggle({
 })
 
 if World1 then
-	L_41_.Toggle({
+	L_14_.Toggle({
 		Title = "Fast Auto Farm Level | ฟาร์มบนเกาะลอบฟ้า",
 		Default = _G.Settings.Main["Fast Auto Farm Level"],
 		callback = function(value)
