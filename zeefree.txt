@@ -5401,6 +5401,558 @@ L_14_.Toggle({
 	end,
 })
 
+spawn(function()
+	local gg = getrawmetatable(game)
+	local old = gg.__namecall
+	setreadonly(gg,false)
+	gg.__namecall = newcclosure(function(...)
+		local method = getnamecallmethod()
+		local args = {...}
+		if tostring(method) == "FireServer" then
+			if tostring(args[1]) == "RemoteEvent" then
+				if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
+					if UseSkillMasteryDevilFruit and _G.Settings.Mastery["Auto Farm Fruit Mastery"] then
+						if type(args[2]) == "vector" then 
+							args[2] = PositionSkillMasteryDevilFruit
+						else
+							args[2] = CFrame.new(PositionSkillMasteryDevilFruit)
+						end
+						return old(unpack(args))
+					end
+				end
+			end
+		end
+		return old(...)
+	end)
+end)
+
+spawn(function()
+	local gt = getrawmetatable(game)
+	local old = gt.__namecall
+	setreadonly(gt,false)
+	gt.__namecall = newcclosure(function(...)
+		local args = {...}
+		if getnamecallmethod() == "InvokeServer" then 
+			if _G.SelectWeaponGun then
+				if _G.SelectWeaponGun == "Soul Guitar" then
+					if tostring(args[2]) == "TAP" then
+						if _G.Settings.Mastery["Auto Farm Gun Mastery"] and UseSkillMasteryGun then
+							args[3] = PositionSkillMasteryGun
+						end
+					end
+				end
+			end
+		end
+		return old(unpack(args))
+	end)
+	setreadonly(gt,true)
+end)
+
+task.spawn(function()
+	while wait() do
+		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do  
+			if v:IsA("Tool") then
+				if v:FindFirstChild("RemoteFunctionShoot") then 
+					_G.SelectWeaponGun = v.Name
+				end
+			end
+		end
+	end
+end)
+
+function AutoFarmMasteryGun()
+	if game:GetService("Workspace").Enemies:FindFirstChild(Name) then
+		for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+			if _G.Settings.Mastery["Auto Farm Gun Mastery"] and v.Name == Name and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+				repeat wait()
+					FarmtoTarget = toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+					if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
+						if FarmtoTarget then FarmtoTarget:Stop() end
+						StartMagnet = true
+						PosMon = v.HumanoidRootPart.CFrame
+						if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 150 then
+							game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+							game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+						end
+						HealthMin = v.Humanoid.MaxHealth*_G.Settings.Mastery["Mob Health (%)"]/100
+						PositionSkillMasteryGun = v.HumanoidRootPart.Position
+						if v.Humanoid.Health <= HealthMin and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+							EquipWeapon(_G.SelectWeaponGun)
+							UseSkillMasteryGun = true
+							-- v.HumanoidRootPart.CanCollide = false
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 0)
+							if game:GetService("Players").LocalPlayer.Character:FindFirstChild(_G.SelectWeaponGun) and game:GetService("Players").LocalPlayer.Character:FindFirstChild(_G.SelectWeaponGun):FindFirstChild("RemoteFunctionShoot") then
+								Click()
+								local args = {
+									[1] = v.HumanoidRootPart.Position,
+									[2] = v.HumanoidRootPart
+								}
+								game:GetService("Players").LocalPlayer.Character[_G.SelectWeaponGun].RemoteFunctionShoot:InvokeServer(unpack(args))
+							end 
+						else
+							UseSkillMasteryGun = false
+							Click()
+							EquipWeapon(_G.Settings.Configs["Select Weapon"])
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 15, 0)
+						end
+					end
+				until not game:GetService("Workspace").Enemies:FindFirstChild(Name) or not _G.Settings.Mastery["Auto Farm Gun Mastery"] or v.Humanoid.Health <= 0 or not v.Parent
+				UseSkillMasteryGun = false
+				StartMagnet = false
+			end
+		end
+	else
+		StartMagnet = false
+		Modstween = toTarget(CFrameMon)
+		if OldWorld and (Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+		elseif OldWorld and not (Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(3864.8515625, 6.6796875, -1926.7841796875))
+		elseif OldWorld and (Name == "God's Guard [Lv. 450]" or Name == "Sky Bandit [Lv. 150]" or Name == "Dark Master [Lv. 175]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 3000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.8227539063, 872.54248046875, -1667.5568847656))
+		elseif OldWorld and (Name == "Shanda [Lv. 475]" or Name == "Royal Squad [Lv. 525]"or Name == "Royal Soldier [Lv. 550]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 5000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+		elseif NewWorld and string.find(Name, "Ship") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 30000 then
+			if Modstween then Modstween:Stop() end
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+		elseif NewWorld and not string.find(Name, "Ship") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 30000 then
+			if Modstween then Modstween:Stop() end
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6508.5581054688, 89.034996032715, -132.83953857422))
+		elseif (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+		end 
+	end
+end
+
+function AutoFarmMasteryDevilFruit()
+	if game:GetService("Workspace").Enemies:FindFirstChild(Name) then
+		for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+			if _G.Settings.Mastery["Auto Farm Fruit Mastery"] and v.Name == Name and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+				repeat wait()
+					FarmtoTarget = toTarget(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+					if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
+						if FarmtoTarget then FarmtoTarget:Stop() end
+						StartMagnet = true
+						PosMon = v.HumanoidRootPart.CFrame
+						HealthMin = v.Humanoid.MaxHealth*_G.Settings.Mastery["Mob Health (%)"]/100
+						if v.Humanoid.Health <= HealthMin and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+							EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 40, 10)
+							if game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+								PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
+								UseSkillMasteryDevilFruit = true
+								if game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value) then
+									MasteryDevilFruit = require(game:GetService("Players").LocalPlayer.Character[game.Players.LocalPlayer.Data.DevilFruit.Value].Data)
+									DevilFruitMastery = game:GetService("Players").LocalPlayer.Character[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value
+								elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value) then
+									MasteryDevilFruit = require(game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Data)
+									DevilFruitMastery = game:GetService("Players").LocalPlayer.Backpack[game.Players.LocalPlayer.Data.DevilFruit.Value].Level.Value
+								end
+								if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then
+									if _G.Settings.Configs["Skill Z"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.Z then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+									end
+									if _G.Settings.Configs["Skill X"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.X then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+									end   
+								elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
+									if _G.Settings.Configs["Skill Z"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(7.6, 7.676, 3.686) and DevilFruitMastery >= MasteryDevilFruit.Lvl.Z then
+									else
+										game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+									end
+									if _G.Settings.Configs["Skill X"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.X then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+									end
+									if _G.Settings.Configs["Skill C"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.C then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+									end  
+								elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Venom-Venom") then
+									if _G.Settings.Configs["Skill Z"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.Z then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+										wait(4)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+									end
+									if _G.Settings.Configs["Skill X"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.X then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+									end
+									if _G.Settings.Configs["Skill C"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.C then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+									end
+								elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value) then
+									game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value).MousePos.Value = v.HumanoidRootPart.Position
+									if _G.Settings.Configs["Skill Z"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.Z then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+									end
+									if _G.Settings.Configs["Skill X"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.X then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+									end
+									if _G.Settings.Configs["Skill C"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.C then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+									end
+									if _G.Settings.Configs["Skill V"] and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 and DevilFruitMastery >= MasteryDevilFruit.Lvl.V then
+										game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+										wait(.1)
+										game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+									end
+								end
+							end
+						else
+							game:GetService('VirtualUser'):CaptureController()
+							game:GetService('VirtualUser'):ClickButton1(Vector2.new(851, 158), game:GetService("Workspace").Camera.CFrame)
+							UseSkillMasteryDevilFruit = false
+							EquipWeapon(_G.Settings.Configs["Select Weapon"])
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 0)
+						end
+					end
+				until not game:GetService("Workspace").Enemies:FindFirstChild(Name) or not _G.Settings.Mastery["Auto Farm Fruit Mastery"] or v.Humanoid.Health <= 0 or not v.Parent
+				StartMagnet = false
+			end
+		end
+	else
+		StartMagnet = false
+		Modstween = toTarget(CFrameMon.Position,CFrameMon)
+		if OldWorld and (Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+		elseif OldWorld and not (Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(3864.8515625, 6.6796875, -1926.7841796875))
+		elseif OldWorld and (Name == "God's Guard [Lv. 450]" or Name == "Sky Bandit [Lv. 150]" or Name == "Dark Master [Lv. 175]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 3000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.8227539063, 872.54248046875, -1667.5568847656))
+		elseif OldWorld and (Name == "Shanda [Lv. 475]" or Name == "Royal Squad [Lv. 525]"or Name == "Royal Soldier [Lv. 550]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 5000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+		elseif NewWorld and string.find(Name, "Ship") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 30000 then
+			if Modstween then Modstween:Stop() end
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+		elseif NewWorld and not string.find(Name, "Ship") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 30000 then
+			if Modstween then Modstween:Stop() end
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6508.5581054688, 89.034996032715, -132.83953857422))
+		elseif (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+		end 
+	end
+end
+
+function CheckMasteryWeapon(NameWe,MasNum)
+	if game.Players.LocalPlayer.Backpack:FindFirstChild(NameWe) then
+		if tonumber(game.Players.LocalPlayer.Backpack:FindFirstChild(NameWe).Level.Value) < tonumber(MasNum) then
+			return "true DownTo"
+		elseif tonumber(game.Players.LocalPlayer.Backpack:FindFirstChild(NameWe).Level.Value) >= tonumber(MasNum) then
+			return "true UpTo"
+		end
+	end
+	if game.Players.LocalPlayer.Character:FindFirstChild(NameWe) then
+		if tonumber(game.Players.LocalPlayer.Character:FindFirstChild(NameWe).Level.Value) < tonumber(MasNum) then
+			return "true DownTo"
+		elseif tonumber(game.Players.LocalPlayer.Character:FindFirstChild(NameWe).Level.Value) >= tonumber(MasNum) then
+			return "true UpTo"
+		end
+	end
+	return "else"
+end
+
+local AllSwordInInventroy = {};
+for i, v in pairs(game:GetService("ReplicatedStorage").Remotes['CommF_']:InvokeServer("getInventoryWeapons")) do
+	if (type(v) ~= "table") then
+	elseif (v.Type == "Sword") then
+		table.insert(AllSwordInInventroy, v.Name);
+	end
+end
+table.insert(AllSwordInInventroy, GetFightingStyle("Sword"));
+local SwordMulti = Page_Mastery.MultiDropdown({
+	Title = "Select Sword",
+	Item = AllSwordInInventroy,
+	Default = _G.Settings.Mastery["Select Multi Sword"],
+	callback = function(value)
+		_G.Settings.Mastery["Select Multi Sword"] = value
+		if value == false then
+			toTarget(game.Players.LocalPlayer.Character.HumanoidRootPart.Position,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+		end
+		SaveSettings()
+	end,
+})
+
+Page_Mastery.Button({Title = "Refresh",callback = function()
+	SwordMulti.Clear();
+	local AllSwordInInventroy = {};
+	for i, v in pairs(game:GetService("ReplicatedStorage").Remotes['CommF_']:InvokeServer("getInventoryWeapons")) do
+		if (type(v) == "table") then
+			if (v.Type == "Sword") then
+				SwordMulti.Add(v.Name);
+			end
+		end
+	end
+	SwordMulti.Add(GetFightingStyle("Sword"));
+end
+})
+
+local function CheckQuestMasteryFarm()
+	if OldWorld then
+		Monster = "Galley Captain [Lv. 650]";
+		CFrameMon = CFrame.new(5649, 39, 4936);
+	end
+	if NewWorld then
+		Monster = "Water Fighter [Lv. 1450]";
+		CFrameMon = CFrame.new(-3385, 239, -10542);
+	end
+	if ThreeWorld then
+		Monster = "Reborn Skeleton [Lv. 1975]";
+		CFrameMon = CFrame.new(-9506.14648, 172.130661, 6101.79053);
+	end
+end
+
+function AutoFarmMasterySwordList()
+	if game:GetService("Workspace").Enemies:FindFirstChild(Monster) or (ThreeWorld and (game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]"))) then
+		for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+			if _G.Settings.Mastery["Farm Mastery SwordList"] and ((ThreeWorld and (v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]")) or v.Name == Name) and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+				repeat wait()
+					FarmtoTarget = toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1))
+					if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
+						if FarmtoTarget then FarmtoTarget:Stop() end
+						FastAttack = true
+						AutoClick = true
+						EquipWeaponSword()
+						StartMagnet = true
+						PosMon = v.HumanoidRootPart.CFrame
+						if game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") and game.Players.LocalPlayer.Character:FindFirstChild("Black Leg").Level.Value >= 150 then
+							game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+							game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+						end
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1)
+					end
+				until not game:GetService("Workspace").Enemies:FindFirstChild(Monster) and ((ThreeWorld and not (v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]")) or v.Name == Monster) or not _G.Settings.Mastery["Farm Mastery SwordList"] or v.Humanoid.Health <= 0 or not v.Parent
+				StartMagnet = false
+				AutoClick = false
+				FastAttack = false
+			end
+		end
+	else
+		StartMagnet = false
+		Modstween = toTarget(CFrameMon)
+		if OldWorld and (Monster == "Fishman Commando [Lv. 400]" or Monster == "Fishman Warrior [Lv. 375]") and (CFrameMon.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+		elseif OldWorld and not (Monster == "Fishman Commando [Lv. 400]" or Monster == "Fishman Warrior [Lv. 375]") and (CFrameMon.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(3864.8515625, 6.6796875, -1926.7841796875))
+		elseif OldWorld and (Monster == "God's Guard [Lv. 450]" or Monster == "Sky Bandit [Lv. 150]" or Monster == "Dark Master [Lv. 175]") and (CFrameMon.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 3000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.8227539063, 872.54248046875, -1667.5568847656))
+		elseif OldWorld and (Monster == "Shanda [Lv. 475]" or Monster == "Royal Squad [Lv. 525]"or Monster == "Royal Soldier [Lv. 550]") and (CFrameMon.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 5000 then
+			if Modstween then Modstween:Stop() end wait(.5)
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+		elseif NewWorld and string.find(Monster, "Ship") and (CFrameMon.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 30000 then
+			if Modstween then Modstween:Stop() end
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(923.21252441406, 126.9760055542, 32852.83203125))
+		elseif NewWorld and not string.find(Monster, "Ship") and (CFrameMon.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 30000 then
+			if Modstween then Modstween:Stop() end
+			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6508.5581054688, 89.034996032715, -132.83953857422))
+			-- elseif game.Players.LocalPlayer:DistanceFromCharacter(CFrameMon.Position) > 3500 then
+			--     if Modstween then Modstween:Stop() end
+			--     if game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):GetState() == Enum.HumanoidStateType.Dead then return end
+			--     ResetSetSpawn(CFrameMon)
+		elseif (CFrameMon.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 150 then
+			if Modstween then Modstween:Stop() end
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameMon
+		end
+	end
+end
+
+local function inmyself(name)
+	return game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(name) or game:GetService("Players").LocalPlayer.Character:FindFirstChild(name);
+end
+
+SwordListFarmComplete = {};
+Page_Mastery.Toggle({Title = "Auto Farm Sword Mastery",Default = _G.Settings.Mastery["Farm Mastery SwordList"],callback = function(x)
+	_G.Settings.Mastery["Farm Mastery SwordList"] = x
+	if x == false then
+		toTarget(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
+	end
+	SaveSettings();
+	spawn(function()
+		while wait() do
+			if _G.Settings.Mastery["Farm Mastery SwordList"] and #_G.Settings.Mastery["Select Multi Sword"] ~= 0 then
+				for i,v in pairs(_G.Settings.Mastery["Select Multi Sword"]) do
+					if _G.Settings.Mastery["Farm Mastery SwordList"] == false and table.find(SwordListFarmComplete,v) then
+						break;
+					end
+					if not game.Players.LocalPlayer.Backpack:FindFirstChild(v) and not game.Players.LocalPlayer.Character:FindFirstChild(v) and game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):GetState() ~= Enum.HumanoidStateType.Dead and game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health ~= 0 then
+						while _G.Settings.Mastery["Farm Mastery SwordList"] do wait()
+							if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health == 0 then repeat wait() until game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0; wait(0.2) end
+							if game.Players.LocalPlayer.Backpack:FindFirstChild(v) or game.Players.LocalPlayer.Character:FindFirstChild(v) or _G.Settings.Mastery["Farm Mastery SwordList"] == false or table.find(SwordListFarmComplete,v) then 
+								break;
+							end
+							wait(1)
+							Com("F_","StoreItem",tostring(GetFightingStyle("Sword")),inmyself(GetFightingStyle("Sword")))
+							wait(1)
+							Com("F_","LoadItem",tostring(v))
+							wait(0.5)
+							if game.Players.LocalPlayer.Backpack:FindFirstChild(v) or game.Players.LocalPlayer.Character:FindFirstChild(v) then
+								SelectWeaponInSwordList = v
+								break;
+							end
+							if CheckMasteryWeapon(v,600) == "true" or CheckMasteryWeapon(v,600) == "true UpTo" then
+								print("DONE "..v)     
+								table.insert(SwordListFarmComplete,v)
+								break;
+							end
+						end
+					end
+					wait(0.2)
+					if game.Players.LocalPlayer.Backpack:FindFirstChild(v) or game.Players.LocalPlayer.Character:FindFirstChild(v) then
+						while _G.Settings.Mastery["Farm Mastery SwordList"] do wait()
+							if table.find(SwordListFarmComplete,v) and #_G.Settings.Mastery["Select Multi Sword"] ~= 0 and #SwordListFarmComplete ~= 0 then
+								break
+							end
+							if _G.Settings.Mastery["Farm Mastery SwordList"] == false then
+								break;
+							end
+							if game.Players.LocalPlayer.Backpack:FindFirstChild(v) or game.Players.LocalPlayer.Character:FindFirstChild(v) then
+								SelectWeaponInSwordList = v
+							end
+							CheckQuestMasteryFarm()
+							AutoFarmMasterySwordList()
+							if CheckMasteryWeapon(v,600) == "true" or CheckMasteryWeapon(v,600) == "true UpTo" then
+								print("DONE "..v)
+								table.insert(SwordListFarmComplete,v)
+								break;
+							end
+						end
+					end
+				end
+			else 
+				break;
+			end
+		end
+	end)
+end,})
+
+L_14_.Toggle({
+	Title = "Auto Fruit Mastery",
+	Default = _G.Settings.Mastery["Auto Farm Fruit Mastery"],
+	callback = function(value)
+		_G.Settings.Mastery["Auto Farm Fruit Mastery"] = value
+		if value == false then
+			wait()
+			toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+			wait()
+		end
+		SaveSettings()
+	end,
+})
+
+L_14_.Toggle({
+	Title = "Auto Gun Mastery",
+	Default = _G.Settings.Mastery["Auto Farm Gun Mastery"],
+	callback = function(value)
+		_G.Settings.Mastery["Auto Farm Gun Mastery"] = value
+		if value == false then
+			toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+		end
+		SaveSettings()
+	end,
+})
+
+L_14_.Label({
+	Title = "Mastery Config"
+})
+
+L_14_.Slider({
+	Title = "Mob Health (%)",
+	Min = 0,
+	Default = _G.Settings.Mastery["Mob Health (%)"],
+	Max = 100,
+	callback = function(value)
+		_G.Settings.Mastery["Mob Health (%)"] = value
+		SaveSettings()
+	end,
+})
+
+L_14_.Label({Title = "Skill List"})
+
+L_14_.Toggle({
+	Title = "Skill Z",
+	Default = _G.Settings.Configs["Skill Z"],
+	callback = function(value)
+		_G.Settings.Configs["Skill Z"] = value
+		SaveSettings()
+	end,
+})
+
+L_14_.Toggle({
+	Title = "Skill X",
+	Default = _G.Settings.Configs["Skill X"],
+	callback = function(value)
+		_G.Settings.Configs["Skill X"] = value
+		SaveSettings()
+	end,
+})
+
+L_14_.Toggle({
+	Title = "Skill C",
+	Default = _G.Settings.Configs["Skill C"],
+	callback = function(value)
+		_G.Settings.Configs["Skill C"] = value
+		SaveSettings()
+	end,
+})
+
+L_14_.Toggle({
+	Title = "Skill V",
+	Default = _G.Settings.Configs["Skill V"],
+	callback = function(value)
+		_G.Settings.Configs["Skill V"] = value
+		SaveSettings()
+	end,
+})
+
+spawn(function()
+	while wait() do
+		if _G.Settings.Mastery["Auto Farm Fruit Mastery"] then
+			CheckQuest()
+			AutoFarmMasteryDevilFruit()
+		end
+	end
+end)
+
+spawn(function()
+	while wait() do
+		if _G.Settings.Mastery["Auto Farm Gun Mastery"] then
+			CheckQuest()
+			AutoFarmMasteryGun()
+		end
+	end
+end)
+
 L_14_.Label({
 	Title = "Auto Katakuri [ออโต้คาตาคูริ]"
 })
@@ -5418,7 +5970,7 @@ spawn(function()
 	end
 end)
 
-L_14_Toggle({
+L_14_.Toggle({
 		Title = "Auto Cake Prince",
 		Default = _G.Settings.Main["Auto Cake Prince"],
 		callback = function(value)
