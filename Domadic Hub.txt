@@ -4023,23 +4023,27 @@ spawn(function()
       end
     end)
     
-    
-    Umm = true
-    
-    spawn(function()
-        while wait() do
-            if Umm then
-                pcall(function()
-                    wait(0.3)
-                    PosX = 25
-                    wait(0.3)
-                    PosY = 40
-                    wait(0.3)
-                    PosZ = 25
-                end)
-            end
-        end
+    Main:AddSeperator("Setting Farm Mode")
+
+    Main:AddLabel("Pos X Front")
+    Main:AddLabel("Pos Y High and low")
+    Main:AddLabel("Pos Z Behind")
+
+    PosX = 1
+    Main:AddSlider("Pos X",0,50,1,function(value)
+    PosX = value
     end)
+
+    PosY = 40
+    Main:AddSlider("Pos Y",0,50,40,function(value)
+    PosY = value
+    end)
+
+    PosZ = 25
+    Main:AddSlider("Pos Z",0,50,40,function(value)
+    PosZ = value
+    end)
+    
 
     Main:AddSeperator("Misc Setting Mastery")
     
