@@ -3751,7 +3751,7 @@ Main:AddToggle("Bring Mob",true,function(Mag)
     
 local Bring = {"Low", "Normal", "Super Bring"}
 _G.BringMode = "Normal"
-Main:AddDropdown("Bring Mob Mode", Bring,{"Normal"},function(value)
+Main:AddDropdown("Bring Mob Mode", Bring,function(value)
     _G.BringMode = value
 end)
 spawn(function()
@@ -3826,7 +3826,7 @@ end)
 
 local AttackList = {"0", "0.1", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185"}
 _G.FastAttackDelay = "0.175"
-Main:AddDropdown("Fast Attack Delay", AttackList,{"0.175"},function(MakoGay)
+Main:AddDropdown("Fast Attack Delay", AttackList,function(MakoGay)
     _G.FastAttackDelay = MakoGay
 end)
 spawn(function()
@@ -8785,7 +8785,8 @@ end)
   end)
   RaceV4:AddToggle("Auto Trail RaceV4",false,function(v)
   _G.AutoQuestRace = v
-end)
+  StopTween(_G.AutoQuestRace)
+  end)
 spawn(function()
     pcall(function()
         while wait() do
@@ -8805,13 +8806,13 @@ spawn(function()
 				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Skypiea" then
 					for i,v in pairs(game:GetService("Workspace").Map.SkyTrial.Model:GetDescendants()) do
 						if v.Name ==  "snowisland_Cylinder.081" then
-							getgenv().ToTargets(v.CFrame* CFrame.new(0,0,0))
+							topos(v.CFrame* CFrame.new(0,0,0))
 						end
 					end
 				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Fishman" then
 					for i,v in pairs(game:GetService("Workspace").SeaBeasts.SeaBeast1:GetDescendants()) do
 						if v.Name ==  "HumanoidRootPart" then
-							getgenv().ToTargets(v.CFrame* CFrame.new(20,450,0))
+							topos(v.CFrame* CFrame.new(PosX,PosY,PosZ))
 							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 								if v:IsA("Tool") then
 									if v.ToolTip == "Melee" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
@@ -8878,7 +8879,7 @@ spawn(function()
 						end
 					end
 				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Cyborg" then
-					getgenv().ToTargets(CFrame.new(28654, 14898.7832, -30, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+					topos(CFrame.new(28654, 14898.7832, -30, 1, 0, 0, 0, 1, 0, 0, 0, 1))
 				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Ghoul" then
 					for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
 						if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
@@ -8894,7 +8895,7 @@ spawn(function()
 				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Mink" then
 					for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
 						if v.Name == "StartPoint" then
-							getgenv().ToTargets(v.CFrame* CFrame.new(0,10,0))
+							topos(v.CFrame* CFrame.new(0,10,0))
 					  	end
 				   	end
 				end
