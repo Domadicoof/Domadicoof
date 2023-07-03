@@ -4030,16 +4030,12 @@ spawn(function()
         while wait() do
             if Umm then
                 pcall(function()
-                    wait(0.5)
+                    wait(0.3)
                     PosX = 25
-                    wait(0.5)
+                    wait(0.3)
                     PosY = 40
-                    wait(0.5)
+                    wait(0.3)
                     PosZ = 25
-                    wait(0.5)
-                    PosX = 25
-                    wait(0.5)
-                    PosY = 25
                 end)
             end
         end
