@@ -3751,7 +3751,7 @@ Main:AddToggle("Bring Mob",true,function(Mag)
     
 local Bring = {"Low", "Normal", "Super Bring"}
 _G.BringMode = "Normal"
-Main:AddDropdown("Bring Mob Mode", Bring,function(value)
+Main:AddDropdown("Bring Mob Mode", Bring,{"Normal"},function(value)
     _G.BringMode = value
 end)
 spawn(function()
@@ -3824,25 +3824,35 @@ spawn(function()
     end)
 end)
 
-local AttackList = {"0.9", "0.5", "0.3", "0.1", "Fast Attack Mkori Gay Mode (Kick)"}
-_G.FastAttackDelay = "0.5"
-Main:AddDropdown("Fast Attack Delay", AttackList,function(MakoGay)
+local AttackList = {"0", "0.1", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185"}
+_G.FastAttackDelay = "0.175"
+Main:AddDropdown("Fast Attack Delay", AttackList,{"0.175"},function(MakoGay)
     _G.FastAttackDelay = MakoGay
 end)
 spawn(function()
     while wait(.1) do
         if _G.FastAttackDelay then
             pcall(function()
-                if _G.FastAttackDelay == "0.9" then
-                    _G.FastAttackDelay = 0.9
-                elseif _G.FastAttackDelay == "0.5" then
-                    _G.FastAttackDelay = 0.5
-                elseif _G.FastAttackDelay == "0.3" then
-                    _G.FastAttackDelay = 0.3
+                if _G.FastAttackDelay == "0" then
+                    _G.FastAttackDelay = 0
                 elseif _G.FastAttackDelay == "0.1" then
                     _G.FastAttackDelay = 0.1
-                elseif _G.FastAttackDelay == "Fast Attack Mkori Gay Mode (Kick)" then
-                    _G.FastAttackDelay = 0
+                elseif _G.FastAttackDelay == "0.15" then
+                    _G.FastAttackDelay = 0.15
+                elseif _G.FastAttackDelay == "0.155" then
+                    _G.FastAttackDelay = 0.155
+                elseif _G.FastAttackDelay == "0.16" then
+                    _G.FastAttackDelay = 0.16
+                elseif _G.FastAttackDelay == "0.165" then
+                    _G.FastAttackDelay = 0.165
+                elseif _G.FastAttackDelay == "0.17" then
+                    _G.FastAttackDelay = 0.17
+                elseif _G.FastAttackDelay == "0.175" then
+                    _G.FastAttackDelay = 0.175
+                elseif _G.FastAttackDelay == "0.18" then
+                    _G.FastAttackDelay = 0.18
+                elseif _G.FastAttackDelay == "0.185" then
+                    _G.FastAttackDelay = 0.185
                 end
             end)
         end
