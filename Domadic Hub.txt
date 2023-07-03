@@ -2480,200 +2480,52 @@ function UpdateRealFruitChams()
         return math.floor((target.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
     end
     
-    local function TP1(...)
-	local RealtargetPos = {...}
-	local targetPos = RealtargetPos[1]
-	local RealTarget
-	if type(targetPos) == "vector" then
-		RealTarget = CFrame.new(targetPos)
-	elseif type(targetPos) == "userdata" then
-		RealTarget = targetPos
-	elseif type(targetPos) == "number" then
-		RealTarget = CFrame.new(unpack(RealtargetPos))
-	end
-
-	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health == 0 then if tween then tween:Cancel() end repeat wait() until game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0; wait(0.2) end
-
-	local tweenfunc = {}
-	local Distance = (RealTarget.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude
-	if Distance < 1000 then
-		Speed = 315
-	elseif Distance >= 1000 then
-		Speed = 300
-	end
-
-	if _G.Settings.Configs["Bypass TP"] then
-		if Distance > 3000 and not _G.Auto_Dungeon and not _G.Settings.FightingStyle["Auto God Human"] and not _G.TweenMGear and not (game.Players.LocalPlayer.Backpack:FindFirstChild("Special Microchip") or game.Players.LocalPlayer.Character:FindFirstChild("Special Microchip") or game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") or game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") or game.Players.LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or game.Players.LocalPlayer.Character:FindFirstChild("Hallow Essence") or game.Players.LocalPlayer.Character:FindFirstChild("Sweet Chalice") or game.Players.LocalPlayer.Backpack:FindFirstChild("Sweet Chalice")) and not (Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]") then
-			pcall(function()
-				tween:Cancel()
-				fkwarp = false
-
-				if game:GetService("Players")["LocalPlayer"].Data:FindFirstChild("SpawnPoint").Value == tostring(GetIsLand(RealTarget)) then 
-					wait(.1)
-					Com("F_","TeleportToSpawn")
-				elseif game:GetService("Players")["LocalPlayer"].Data:FindFirstChild("LastSpawnPoint").Value == tostring(GetIsLand(RealTarget)) then
-					game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
-					wait(0.1)
-					repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0
-				else
-					if game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
-						if fkwarp == false then
-							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = RealTarget
-						end
-						fkwarp = true
-					end
-					wait(.08)
-					game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
-					repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0
-					wait(.1)
-					Com("F_","SetSpawnPoint")
-				end
-				wait(0.2)
-
-				return
-			end)
-		end
-	end
-
-	local tween_s = game:service"TweenService"
-	local info = TweenInfo.new((RealTarget.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude/Speed, Enum.EasingStyle.Linear)
-	local tweenw, err = pcall(function()
-		tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = RealTarget})
-		tween:Play()
-	end)
-
-	function tweenfunc:Stop()
-		tween:Cancel()
-	end 
-
-	function tweenfunc:Wait()
-		tween.Completed:Wait()
-	end 
-
-	return tweenfunc
-end
-
-function toTargetP(CFgo)
-	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0 or not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") then tween:Cancel() repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 wait(7) return end
-	if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude <= 150 then
-		pcall(function()
-			tween:Cancel()
-
-			game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = CFgo
-
-			return
-		end)
-	end
-	local tween_s = game:service"TweenService"
-	local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/325, Enum.EasingStyle.Linear)
-	tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = CFgo})
-	tween:Play()
-
-	local tweenfunc = {}
-
-	function tweenfunc:Stop()
-		tween:Cancel()
-	end
-
-	return tweenfunc
+    function TP1(Pos)
+    Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    if Distance < 25 then
+        Speed = 10000
+    elseif Distance < 50 then
+        Speed = 2000
+    elseif Distance < 150 then
+        Speed = 800
+    elseif Distance < 250 then
+        Speed = 600
+    elseif Distance < 500 then
+        Speed = 400
+    elseif Distance < 750 then
+        Speed = 250
+    elseif Distance >= 1000 then
+        Speed = 200
+    end
+    game:GetService("TweenService"):Create(
+        game.Players.LocalPlayer.Character.HumanoidRootPart,
+        TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+        {CFrame = Pos}
+    ):Play()
 end
     
-local function topos(...)
-	local RealtargetPos = {...}
-	local targetPos = RealtargetPos[1]
-	local RealTarget
-	if type(targetPos) == "vector" then
-		RealTarget = CFrame.new(targetPos)
-	elseif type(targetPos) == "userdata" then
-		RealTarget = targetPos
-	elseif type(targetPos) == "number" then
-		RealTarget = CFrame.new(unpack(RealtargetPos))
-	end
-
-	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health == 0 then if tween then tween:Cancel() end repeat wait() until game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0; wait(0.2) end
-
-	local tweenfunc = {}
-	local Distance = (RealTarget.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude
-	if Distance < 1000 then
-		Speed = 315
-	elseif Distance >= 1000 then
-		Speed = 300
-	end
-
-	if _G.Settings.Configs["Bypass TP"] then
-		if Distance > 3000 and not _G.Auto_Dungeon and not _G.Settings.FightingStyle["Auto God Human"] and not _G.Settings.Raids["Auto Raids"] and not (game.Players.LocalPlayer.Backpack:FindFirstChild("Special Microchip") or game.Players.LocalPlayer.Character:FindFirstChild("Special Microchip") or game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") or game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") or game.Players.LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or game.Players.LocalPlayer.Character:FindFirstChild("Hallow Essence") or game.Players.LocalPlayer.Character:FindFirstChild("Sweet Chalice") or game.Players.LocalPlayer.Backpack:FindFirstChild("Sweet Chalice")) and not (Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]") then
-			pcall(function()
-				tween:Cancel()
-				fkwarp = false
-
-				if game:GetService("Players")["LocalPlayer"].Data:FindFirstChild("SpawnPoint").Value == tostring(GetIsLand(RealTarget)) then 
-					wait(.1)
-					Com("F_","TeleportToSpawn")
-				elseif game:GetService("Players")["LocalPlayer"].Data:FindFirstChild("LastSpawnPoint").Value == tostring(GetIsLand(RealTarget)) then
-					game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
-					wait(0.1)
-					repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0
-				else
-					if game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
-						if fkwarp == false then
-							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = RealTarget
-						end
-						fkwarp = true
-					end
-					wait(.08)
-					game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
-					repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0
-					wait(.1)
-					Com("F_","SetSpawnPoint")
-				end
-				wait(0.2)
-
-				return
-			end)
-		end
-	end
-
-	local tween_s = game:service"TweenService"
-	local info = TweenInfo.new((RealTarget.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude/Speed, Enum.EasingStyle.Linear)
-	local tweenw, err = pcall(function()
-		tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = RealTarget})
-		tween:Play()
-	end)
-
-	function tweenfunc:Stop()
-		tween:Cancel()
-	end 
-
-	function tweenfunc:Wait()
-		tween.Completed:Wait()
-	end 
-
-	return tweenfunc
-end
-
-function toTargetP(CFgo)
-	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health <= 0 or not game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") then tween:Cancel() repeat wait() until game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 wait(7) return end
-	if (game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude <= 150 then
-		pcall(function()
-			tween:Cancel()
-
-			game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = CFgo
-
-			return
-		end)
-	end
-	local tween_s = game:service"TweenService"
-	local info = TweenInfo.new((game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.Position - CFgo.Position).Magnitude/325, Enum.EasingStyle.Linear)
-	tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = CFgo})
-	tween:Play()
-
-	local tweenfunc = {}
-
-	function tweenfunc:Stop()
-		tween:Cancel()
-	end
-
-	return tweenfunc
+        function topos(Pos)
+        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if Distance < 25 then
+            Speed = 10000
+        elseif Distance < 50 then
+            Speed = 2000
+        elseif Distance < 150 then
+            Speed = 800
+        elseif Distance < 250 then
+            Speed = 600
+        elseif Distance < 500 then
+            Speed = 300
+        elseif Distance < 750 then
+            Speed = 250
+        elseif Distance >= 1000 then
+            Speed = 200
+        end
+        game:GetService("TweenService"):Create(
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+            TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+            {CFrame = Pos}
+        ):Play()
 end
     
 getgenv().ToTargets = function(p)
@@ -3284,7 +3136,7 @@ task.spawn(function()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 AutoHaki()                                            
                                                 PosMon = v.HumanoidRootPart.CFrame
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
@@ -3910,15 +3762,11 @@ spawn(function()
                 elseif _G.BringMode == "Normal" then
                     _G.BringMode = 300
                 elseif _G.BringMode == "Super Bring" then
-                    _G.BringMode = 375
+                    _G.BringMode = 350
                 end
             end)
         end
     end
-end)
-
-Main:AddToggle("Bypass TP [BETA NAJA]",true,function(BPT)
-_G.Settings.Configs["Bypass TP"] = BPT
 end)
     
 Main:AddToggle("Auto Haki",true,function(value)
@@ -4058,6 +3906,21 @@ end)
 local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
 CamShake:Stop()
 
+PosX = 1
+Main:AddSlider("Pos X",1,25,50,function(value)
+PosX = value
+end)
+
+PosY = 40
+Main:AddSlider("Pos Y",1,40,50,function(value)
+PosY = value
+end)
+
+PosZ = 25
+Main:AddSlider("Pos Z",1,25,50,function(value)
+PosZ = value
+end)
+    
 Main:AddToggle("Auto Click",false,function(value)
 _G.AutoClick = value
 end)
@@ -4176,9 +4039,9 @@ spawn(function()
 
     Main:AddSeperator("Misc Setting Mastery")
     
-    _G.Kill_At = 35
+    _G.Kill_At = 25
 
-    Main:AddSlider("Kill At %",1,100,35,function(value)
+    Main:AddSlider("Kill At %",1,100,25,function(value)
 
         _G.Kill_At = value
     end)
