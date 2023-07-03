@@ -2688,7 +2688,7 @@ getgenv().ToTargets = function(p)
 local SOMEXHUB = library:AddWindow("Domadic HUB | 1.0.1",Enum.KeyCode.RightControl)
 local H = SOMEXHUB:AddTab("Home","12950870585")
 local Main = SOMEXHUB:AddTab("Main","6026568198")
-local M = SOMEXHUB:AddTab("Auto Item","9606626859")
+local M = SOMEXHUB:AddTab("Auto Item Quest","9606626859")
 local Ss = SOMEXHUB:AddTab("Stats","7040410130")
 local RaceV4 = SOMEXHUB:AddTab("RaceV4","11162889532")
 local P = SOMEXHUB:AddTab("Player","7251993295")
@@ -2697,7 +2697,7 @@ local T = SOMEXHUB:AddTab("Teleport","11155851001")
 local S = SOMEXHUB:AddTab("Shop","6031265976")
 local D = SOMEXHUB:AddTab("Devil Fruit","7044233235")
 local Misc = SOMEXHUB:AddTab("Misc","11156061121")
-local Esp = SOMEXHUB:AddTab("Esp","12950874071")
+local Esp = SOMEXHUB:AddTab("Esp","7044284832")
 
 
 H:AddLabel("Script PC/Mobile")
@@ -2742,6 +2742,7 @@ H:AddLabel("[+] Fixed Gui Cannot Be Closed|19/6/2566|18:23")
 H:AddLabel("[+] New Ui|23/6/2566|18:46")
 H:AddLabel("[+] Added Auto Use Awakening|30/6/2566|09:47")
 H:AddLabel("[+] Added Auto Raid Pirate|30/6/2566|10:01")
+H:AddLabel("[+] Added Menu Setting Farm Mode|30/6/2566|14:39")
 
 
 
@@ -3905,21 +3906,6 @@ end)
 
 local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
 CamShake:Stop()
-
-PosX = 1
-Main:AddSlider("Pos X",1,50,25,function(value)
-PosX = value
-end)
-
-PosY = 40
-Main:AddSlider("Pos Y",1,50,40,function(value)
-PosY = value
-end)
-
-PosZ = 25
-Main:AddSlider("Pos Z",1,50,25,function(value)
-PosZ = value
-end)
     
 Main:AddToggle("Auto Click",false,function(value)
 _G.AutoClick = value
@@ -4035,6 +4021,27 @@ spawn(function()
           end)
         end
       end
+    end)
+    
+    Main:AddSeperator("Setting Farm Mode")
+    
+    Main:AddLabel("Pos X Front")
+    Main:AddLabel("Pos Y High and low")
+    Main:AddLabel("Pos Z Behind")
+    
+    PosX = 1
+    Main:AddSlider("Pos X",0,50,1,function(value)
+    PosX = value
+    end)
+
+    PosY = 40
+    Main:AddSlider("Pos Y",0,50,40,function(value)
+    PosY = value
+    end)
+
+    PosZ = 25
+    Main:AddSlider("Pos Z",0,50,25,function(value)
+    PosZ = value
     end)
 
     Main:AddSeperator("Misc Setting Mastery")
