@@ -3838,8 +3838,6 @@ task.spawn(function()
 					end
 				elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 					CheckQuest()
-					KaiBring = true
-					Fastattack = true
 					if game.Workspace.Enemies:FindFirstChild(Mon) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 							if v.Name == Mon and v:FindFirstChild('HumanoidRootPart') and v.Humanoid.Health > 0 then
@@ -3847,13 +3845,15 @@ task.spawn(function()
 								v.Head.CanCollide = false
 								PosMon = v.HumanoidRootPart.CFrame
 								_G.Mon = v.Name
+								KaiBring = true
+					            Fastattack = true
 								v.HumanoidRootPart.Size = Vector3.new(70,70,70)
 								repeat wait()
 									KaiT(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
 									EquipWeapon(_G.SelectWeapon)
                                             game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-								until v.Humanoid.Health <= 0 or not v.Parent or not getgenv().AutoFarm or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+								until not getgenv().AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
 								Fastattack = false
 							end
 						end
