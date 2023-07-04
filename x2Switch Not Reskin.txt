@@ -2107,15 +2107,15 @@ local serv = win:Server("Blox Fruit","")
 
 local win = SomeLib:Window("Domadic X Hub", _G.Color, _G.Toggle)
 
-local S= Library:Channel("Setting","rbxassetid://11156061121")
-local Main = Library:Channel("Main","rbxassetid://6026568198")
-local Stats = Library:Channel("Stats","rbxassetid://11155953071")
-local P = Library:Channel("Player","rbxassetid://7251993295")
-local JaiGayRay = Library:Channel("Teleport","rbxassetid://11155851001")
-local YedHee = Library:Channel("Raid","rbxassetid://11155986081")
-local Esus = Library:Channel("Devifruit","rbxassetid://11156000139")
-local Shop = Library:Channel("Shop","rbxassetid://6031265976")
-local Misc = Library:Channel("Misc","rbxassetid://11156061121")
+local S= serv:Channel("Setting","rbxassetid://11156061121")
+local Main = serv:Channel("Main","rbxassetid://6026568198")
+local Stats = serv:Channel("Stats","rbxassetid://11155953071")
+local P = serv:Channel("Player","rbxassetid://7251993295")
+local JaiGayRay = serv:Channel("Teleport","rbxassetid://11155851001")
+local YedHee = serv:Channel("Raid","rbxassetid://11155986081")
+local Esus = serv:Channel("Devifruit","rbxassetid://11156000139")
+local Shop = serv:Channel("Shop","rbxassetid://6031265976")
+local Misc = serv:Channel("Misc","rbxassetid://11156061121")
 
 -- function Main --
 
