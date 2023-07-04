@@ -115,7 +115,7 @@ end
 wait(1)
 
 local Discord = Instance.new("ScreenGui")
-Discord.Name = "Playback No1"
+Discord.Name = "Playback No1" --ห้ามยุ่ง
 Discord.Parent = game:GetService("CoreGui")
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -11433,6 +11433,8 @@ function UpdateRealFruitChams()
 	end
     end
 	
+	print("Scr By Domadic Hub Top1 Script Bf Scr Free For Everyone")
+	
 	Esus:Toggle("ESP Player",false,function(a)
         ESPPlayer = a
 	UpdatePlayerChams()
@@ -11719,7 +11721,6 @@ Misc:Button("Devil Fruit Shop",function()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 		game.Players.localPlayer.PlayerGui.Main.FruitShop.Visible = true
 end)
-
 
 Misc:Button("Title Name",function()
  local args = {
@@ -12034,4 +12035,5 @@ game.StarterGui:SetCore("SendNotification", {
       Title = "Domadic Hub", 
       Text = "✅Script Loaded Successfully!"
   })
+  
   
