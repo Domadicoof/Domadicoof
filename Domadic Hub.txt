@@ -1680,7 +1680,16 @@ if game.PlaceId == 2753915549 then
         Teleport()
     end       
             
-    function BTP(P)
+    function TP1(P)
+	    repeat wait(1)
+		    game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
+		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+		    task.wait()
+		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+	    until (P.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500
+    end
+    
+    function topos(P)
 	    repeat wait(1)
 		    game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
 		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
