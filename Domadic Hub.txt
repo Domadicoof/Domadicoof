@@ -3787,7 +3787,7 @@ task.spawn(function()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 AutoHaki()                                            
                                                 PosMon = v.HumanoidRootPart.CFrame
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
@@ -3827,7 +3827,7 @@ task.spawn(function()
 				end
 
 				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-					StartMagnet = false
+					KaiBring = false
 					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
 						BTP(CFrameQuest)
 					else
@@ -3838,16 +3838,16 @@ task.spawn(function()
 					end
 				elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 					CheckQuest()
-					StartMagnet = true
+					KaiBring = true
 					Fastattack = true
 					if game.Workspace.Enemies:FindFirstChild(Mon) then
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 							if v.Name == Mon and v:FindFirstChild('HumanoidRootPart') and v.Humanoid.Health > 0 then
 								v.HumanoidRootPart.CanCollide = false
 								v.Head.CanCollide = false
-								Pos = v.HumanoidRootPart.CFrame
+								PosMon = v.HumanoidRootPart.CFrame
 								_G.Mon = v.Name
-								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+								v.HumanoidRootPart.Size = Vector3.new(70,70,70)
 								repeat wait()
 									KaiT(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
 									EquipWeapon(_G.SelectWeapon)
@@ -3859,6 +3859,7 @@ task.spawn(function()
 						end
 					else
 						TP1(MonPos)
+						KaiBring = false
 					end
 				end
 			end
@@ -4422,7 +4423,7 @@ Main:AddToggle("Bring Mob",true,function(Mag)
                 if _G.BringMonster then
                     CheckQuest()
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                        if getgenv().AutoFarm or _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff [Lv. 800]" or Mon == "Monkey [Lv. 14]" or Mon == "Dragon Crew Warrior [Lv. 1575]" or Mon == "Dragon Crew Archer [Lv. 1600]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 220 then
+                        if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff [Lv. 800]" or Mon == "Monkey [Lv. 14]" or Mon == "Dragon Crew Warrior [Lv. 1575]" or Mon == "Dragon Crew Archer [Lv. 1600]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 220 then
                             v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                             v.HumanoidRootPart.CFrame = PosMon
                             v.Humanoid:ChangeState(14)
@@ -4432,7 +4433,7 @@ Main:AddToggle("Bring Mob",true,function(Mag)
                                 v.Humanoid.Animator:Destroy()
                             end
                             sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-                        elseif getgenv().AutoFarm or _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
+                        elseif _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
                             v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                             v.HumanoidRootPart.CFrame = PosMon
                             v.Humanoid:ChangeState(14)
@@ -8887,7 +8888,7 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                 if _G.BringMonster then
                     CheckQuest()
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                        if getgenv().AutoFarm or _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff [Lv. 800]" or Mon == "Monkey [Lv. 14]" or Mon == "Dragon Crew Warrior [Lv. 1575]" or Mon == "Dragon Crew Archer [Lv. 1600]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
+                        if _G.AutoFarm and StartMagnet and v.Name == Mon and (Mon == "Factory Staff [Lv. 800]" or Mon == "Monkey [Lv. 14]" or Mon == "Dragon Crew Warrior [Lv. 1575]" or Mon == "Dragon Crew Archer [Lv. 1600]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
                             v.HumanoidRootPart.Size = Vector3.new(150,150,150)
                             v.HumanoidRootPart.CFrame = PosMon
                             v.Humanoid:ChangeState(14)
@@ -8897,7 +8898,7 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                                 v.Humanoid.Animator:Destroy()
                             end
                             sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-                        elseif getgenv().AutoFarm or _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
+                        elseif _G.AutoFarm and StartMagnet and v.Name == Mon and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
                             v.HumanoidRootPart.Size = Vector3.new(150,150,150)
                             v.HumanoidRootPart.CFrame = PosMon
                             v.Humanoid:ChangeState(14)
@@ -9141,6 +9142,44 @@ task.spawn(function()
 					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
 						if InMyNetWork(v.HumanoidRootPart) then
 							v.HumanoidRootPart.CFrame = PosGay
+							v.Humanoid.JumpPower = 0
+							v.Humanoid.WalkSpeed = 0
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							v.HumanoidRootPart.Transparency = 1
+							v.HumanoidRootPart.CanCollide = false
+							v.Head.CanCollide = false
+							if v.Humanoid:FindFirstChild("Animator") then
+								v.Humanoid.Animator:Destroy()
+							end
+							v.Humanoid:ChangeState(11)
+							v.Humanoid:ChangeState(14)
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
+
+function InMyNetWork(object)
+	if isnetworkowner then
+		return isnetworkowner(object)
+	else
+		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then 
+			return true
+		end
+		return false
+	end
+end
+
+task.spawn(function()
+	while task.wait() do
+		pcall(function()
+			if KaiBring and _G.BringMonster then
+				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
+						if InMyNetWork(v.HumanoidRootPart) then
+							v.HumanoidRootPart.CFrame = PosMon
 							v.Humanoid.JumpPower = 0
 							v.Humanoid.WalkSpeed = 0
 							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
