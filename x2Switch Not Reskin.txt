@@ -1048,7 +1048,7 @@ function SomeLib:Window(text,mainclr,cls)
 				MainToggle_3.Position = UDim2.new(0, 365, 0.5, 0)
 				MainToggle_3.Size = UDim2.new(0, 25, 0, 25)
 				MainToggle_3.ZIndex = 16
-				MainToggle_3.Image = "http://www.roblox.com/asset/?id=6035047409"
+				MainToggle_3.Image = "http://www.roblox.com/asset/?id=0"
 				MainToggle_3.ImageColor3 = PresetColor
 				MainToggle_3.Visible = true
 
@@ -1097,7 +1097,7 @@ function SomeLib:Window(text,mainclr,cls)
 					else
 						Tgo = false
 						MainToggle_3.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-						MainToggle_3.Image = "http://www.roblox.com/asset/?id=6035047409"
+						MainToggle_3.Image = "http://www.roblox.com/asset/?id=0"
 						MainToggle_3:TweenSize(UDim2.new(0, 25, 0, 25),"In","Quad",0.2,true)
                         UICorner_3.CornerRadius = UDim.new(0, 2)
 					end
@@ -2103,9 +2103,8 @@ game.StarterGui:SetCore("SendNotification", {
       Text = "Run script and wait for the function to appear"
   })
   
+local win = SomeLib:Window("Domadic Hub", _G.Color, _G.Toggle)
 local serv = win:Server("Blox Fruit","")
-
-local win = SomeLib:Window("Domadic X Hub", _G.Color, _G.Toggle)
 
 local S= serv:Channel("Setting","rbxassetid://11156061121")
 local Main = serv:Channel("Main","rbxassetid://6026568198")
