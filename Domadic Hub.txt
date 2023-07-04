@@ -1679,24 +1679,6 @@ if game.PlaceId == 2753915549 then
         end
         Teleport()
     end       
-            
-    function TP1(P)
-	    repeat wait(1)
-		    game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
-		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
-		    task.wait()
-		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
-	    until (P.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500
-    end
-    
-    function topos(P)
-	    repeat wait(1)
-		    game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
-		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
-		    task.wait()
-		    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
-	    until (P.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500
-    end
 
     function UpdateIslandESP() 
         for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
@@ -3142,7 +3124,7 @@ task.spawn(function()
                         StartMagnet = false
                         CheckQuest()
                         repeat wait() TP1(CFrameQuest) until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not _G.AutoFarm
-                        if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 25 then
+                        if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
                             wait(0.1)
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
                             wait(0.1)
@@ -5352,10 +5334,10 @@ spawn(function()
                         repeat wait()
                             TP1(CFrameQuest)
                         until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not _G.AutoFarmFruitMastery
-                        if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then
-                            wait(1.2)
+                        if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+                            wait(0.1)
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
-                            wait(0.5)
+                            wait(0.1)
                         end
                     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                         CheckQuest()
@@ -5369,7 +5351,7 @@ spawn(function()
                                                 if v.Humanoid.Health <= HealthMs then
                                                     AutoHaki()
                                                     EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
-                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,5))
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
                                                     v.HumanoidRootPart.CanCollide = false
                                                     PosMonMasteryFruit = v.HumanoidRootPart.CFrame
                                                     v.Humanoid.WalkSpeed = 0
@@ -5379,7 +5361,7 @@ spawn(function()
                                                     UseSkill = false 
                                                     AutoHaki()
                                                     EquipWeapon(_G.SelectWeapon)
-                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                                     PosMonMasteryFruit = v.HumanoidRootPart.CFrame
@@ -5399,6 +5381,7 @@ spawn(function()
                                 end
                             end
                         else
+                            TP1(CFrameMon)
                             StartMasteryFruitMagnet = false   
                             UseSkill = false 
                             local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Mon) 
@@ -5602,7 +5585,7 @@ spawn(function()
                         CheckQuest()
                         TP1(CFrameQuest)
                         if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 then
-                            wait(1.2)
+                            wait(0.5)
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, LevelQuest)
                         end
                     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
@@ -5616,7 +5599,7 @@ spawn(function()
                                                 HealthMin = v.Humanoid.MaxHealth * _G.Kill_At/100
                                                 if v.Humanoid.Health <= HealthMin then                                                
                                                     EquipWeapon(SelectWeaponGun)
-                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,5))
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,))
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.HumanoidRootPart.Size = Vector3.new(2,2,1)
@@ -5633,7 +5616,7 @@ spawn(function()
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.Head.CanCollide = false               
                                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
                                                     game:GetService'VirtualUser':CaptureController()
                                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                                 end
