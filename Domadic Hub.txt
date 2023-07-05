@@ -2747,7 +2747,8 @@ H:AddLabel("[+] New Ui|23/6/2566|18:46")
 H:AddLabel("[+] Added Auto Use Awakening|30/6/2566|09:47")
 H:AddLabel("[+] Added Auto Raid Pirate|30/6/2566|10:01")
 H:AddLabel("[+] Added Menu Setting Farm Mode|30/6/2566|14:39")
-H:AddLabel("[+] BY Pass Tp Kaitan|4/7/2566|15:31")
+H:AddLabel("[+] Added Job Id|5/7/2566|20:19")
+H:AddLabel("[+] Added Pray Auto Try Luck|5/7/2566|20:20")
 
 
 
