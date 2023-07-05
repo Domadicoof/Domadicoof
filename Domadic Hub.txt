@@ -7150,35 +7150,38 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
         end)
     end)
     
-    M:AddToggle("Auto Try Luck", TryLuck, function(gravefunc)
-        TryLuck = gravefunc
-    
-    end)
-    M:AddToggle("Auto Pray", TryLuck, function(prayfunc)
-        Pray = prayfunc
-    
-    end)
-    spawn(function()
-        while wait(.1) do
-            if TryLuck then
-                topos(CFrame.new(-8652.99707, 143.450119, 6170.50879, -0.983064115, -2.48005533e-10, 0.18326205, -1.78910387e-09, 1, -8.24392288e-09, -0.18326205, -8.43218029e-09, -0.983064115))
-                wait()
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("gravestoneEvent",1)
-            end
-        end
+    M:AddToggle("Auto Pray",pry,function(value)
+    _G.Pray = value
     end)
     
     spawn(function()
-        while wait(.1) do
-            if Pray then
-                topos(CFrame.new(-8652.99707, 143.450119, 6170.50879, -0.983064115, -2.48005533e-10, 0.18326205, -1.78910387e-09, 1, -8.24392288e-09, -0.18326205, -8.43218029e-09, -0.983064115))
-                wait()
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("gravestoneEvent",2)
+        pcall(function()
+            while wait(.1) do
+                if _G.Pray then    
+                    TP1(CFrame.new(-8652.99707, 143.450119, 6170.50879, -0.983064115, -2.48005533e-10, 0.18326205, -1.78910387e-09, 1, -8.24392288e-09, -0.18326205, -8.43218029e-09, -0.983064115))
+                    wait()
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("gravestoneEvent",1)
+                end
             end
-        end
+        end)
     end)
-    end
-        
+    
+    
+    M:AddToggle("Auto Try Luck",Trylux,function(value)
+    _G.Trylux = value
+    end)
+    
+    spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if _G.Trylux then    
+                    TP1(CFrame.new(-8652.99707, 143.450119, 6170.50879, -0.983064115, -2.48005533e-10, 0.18326205, -1.78910387e-09, 1, -8.24392288e-09, -0.18326205, -8.43218029e-09, -0.983064115))
+                    wait()
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("gravestoneEvent",2)
+                end
+            end
+        end)
+    end)
                 
     M:AddSeperator("Observation")
     
@@ -10954,18 +10957,18 @@ spawn(function()
         end
     end)
     
-    Misc:AddButton('Copy Job', function()
+    Misc:AddButton("Copy Job Id",function()
 	setclipboard(tostring(game.JobId))
 	end)
 	
-Misc:AddTextbox("Place Job Id", "Place Here!!", true, function(vu)
-		_G.Job = vu
+    Misc:AddTextbox("Place Job Id", "Place Here!!", true, function(value)
+	_G.Job = value
 	end)
 
-	Misc:AddButton('Join Server Job [ Beta ]', function()
-	game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId, _G.Job, game.Players.LocalPlayer)
+	Misc:AddButton("Join Sever [BETA]",function()
+	game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId,_G.Job, game.Players.LocalPlayer)
 	end)
-    
+	
     Misc:AddSeperator("Misc")
     
     Misc:AddButton("Open Devil Shop",function()
