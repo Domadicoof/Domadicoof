@@ -3842,7 +3842,7 @@ H:Label("[+] New Ui|30/6/2566|14:39")
 
 
 
-H:Lable("Status")
+H:Label("Status")
     
     local locallv = H:Label("Level")
     
