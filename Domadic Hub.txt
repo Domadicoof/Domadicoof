@@ -7149,6 +7149,35 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
             end
         end)
     end)
+    
+    M:AddToggle("Auto Try Luck", TryLuck, function(gravefunc)
+        TryLuck = gravefunc
+    
+    end)
+    M:AddToggle("Auto Pray", TryLuck, function(prayfunc)
+        Pray = prayfunc
+    
+    end)
+    spawn(function()
+        while wait(.1) do
+            if TryLuck then
+                topos(CFrame.new(-8652.99707, 143.450119, 6170.50879, -0.983064115, -2.48005533e-10, 0.18326205, -1.78910387e-09, 1, -8.24392288e-09, -0.18326205, -8.43218029e-09, -0.983064115))
+                wait()
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("gravestoneEvent",1)
+            end
+        end
+    end)
+    
+    spawn(function()
+        while wait(.1) do
+            if Pray then
+                topos(CFrame.new(-8652.99707, 143.450119, 6170.50879, -0.983064115, -2.48005533e-10, 0.18326205, -1.78910387e-09, 1, -8.24392288e-09, -0.18326205, -8.43218029e-09, -0.983064115))
+                wait()
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("gravestoneEvent",2)
+            end
+        end
+    end)
+    end
         
                 
     M:AddSeperator("Observation")
@@ -10924,6 +10953,18 @@ spawn(function()
             game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, goodserver)
         end
     end)
+    
+    Misc:AddButton('Copy Job', function()
+	setclipboard(tostring(game.JobId))
+	end)
+	
+Misc:AddTextbox("Place Job Id", "Place Here!!", true, function(vu)
+		_G.Job = vu
+	end)
+
+	Misc:AddButton('Join Server Job [ Beta ]', function()
+	game:GetService("TeleportService"):TeleportToPlaceInstance(game.placeId, _G.Job, game.Players.LocalPlayer)
+	end)
     
     Misc:AddSeperator("Misc")
     
