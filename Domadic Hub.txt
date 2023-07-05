@@ -20,7 +20,7 @@ ImageButton1.MouseButton1Down:connect(function()
 end)
 UICorner.Parent = ImageButton1
 
-_G.Color = Color3.fromRGB(255, 255, 255)
+_G.Color = Color3.fromRGB(7, 236, 240)
 
 
 if game:GetService("CoreGui"):FindFirstChild("Playback No1") then
@@ -3773,21 +3773,21 @@ getgenv().ToTargets = function(p)
 local win = SomeLib:Window("Domadic Hub", _G.Color, _G.Toggle)
 local serv = win:Server("Blox Fruit","")
 
-local H = serv:Channel("Home","12950870585")
-local Main = serv:Channel("Main","6026568198")
-local M = serv:Channel("Auto Item Quest","9606626859")
-local Ss = serv:Channel("Stats","7040410130")
-local RaceV4 = serv:Channel("RaceV4","11162889532")
-local P = serv:Channel("Player","7251993295")
-local R = serv:Channel("Raid","11155986081")
-local T = serv:Channel("Teleport","11155851001")
-local S = serv:Channel("Shop","6031265976")
-local D = serv:Channel("Devil Fruit","7044233235")
-local Misc = serv:Channel("Misc","11156061121")
-local Esp = serv:Channel("Esp","7044284832")
+local H = serv:Channel("Home","http://www.roblox.com/asset/?id=12950870585")
+local Main = serv:Channel("Main","http://www.roblox.com/asset/?id=6026568198")
+local M = serv:Channel("Auto Item Quest","http://www.roblox.com/asset/?id=9606626859")
+local Ss = serv:Channel("Stats","http://www.roblox.com/asset/?id=7040410130")
+local RaceV4 = serv:Channel("RaceV4","http://www.roblox.com/asset/?id=11162889532")
+local P = serv:Channel("Player","http://www.roblox.com/asset/?id=7251993295")
+local R = serv:Channel("Raid","http://www.roblox.com/asset/?id=11155986081")
+local T = serv:Channel("Teleport","http://www.roblox.com/asset/?id=11155851001")
+local S = serv:Channel("Shop","http://www.roblox.com/asset/?id=6031265976")
+local D = serv:Channel("Devil Fruit","http://www.roblox.com/asset/?id=7044233235")
+local Misc = serv:Channel("Misc","http://www.roblox.com/asset/?id=11156061121")
+local Esp = serv:Channel("Esp","http://www.roblox.com/asset/?id=7044284832")
 
 
-H:AddLabel("Script PC/Mobile")
+H:Label("Script PC/Mobile")
  
 H:Label("UpdLog")
 
