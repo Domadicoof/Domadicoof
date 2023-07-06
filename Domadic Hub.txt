@@ -2686,7 +2686,7 @@ getgenv().ToTargets = function(p)
 
 
 
-local SOMEXHUB = library:AddWindow("Domadic HUB | 1.0.2",Enum.KeyCode.RightControl)
+local SOMEXHUB = library:AddWindow("Domadic HUB | 1.0.3",Enum.KeyCode.RightControl)
 local H = SOMEXHUB:AddTab("Home","12950870585")
 local Main = SOMEXHUB:AddTab("Main","6026568198")
 local M = SOMEXHUB:AddTab("Auto Item Quest","9606626859")
@@ -2749,6 +2749,7 @@ H:AddLabel("[+] Added Auto Raid Pirate|30/6/2566|10:01")
 H:AddLabel("[+] Added Menu Setting Farm Mode|30/6/2566|14:39")
 H:AddLabel("[+] Added Job Id|5/7/2566|20:19")
 H:AddLabel("[+] Added Pray Auto Try Luck|5/7/2566|20:20")
+H:AddLabel("[+] Added Auto Elite Player|6/7/2566|20:16")
 
 
 
