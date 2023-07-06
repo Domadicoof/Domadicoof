@@ -2717,11 +2717,11 @@ H:AddLabel("Owner Domadic Hub @miidraayeerng มีร้ายแรงคน�
 H:AddLabel("Devloper Domadic Hub @onweremeraldhub Cxllme Namfon Script Creator V2")
  
 H:AddButton("Copy Youtube Emerald Hub",function()
-setclipboard(https://youtube.com/@EmeraldHub-NewScripter)
+setclipboard("https://youtube.com/@EmeraldHub-NewScripter")
 end)
 
 H:AddButton("Copy Youtube Domadic Hub",function()
-setclipboard(https://youtube.com/@nomadicoof789)
+setclipboard("https://youtube.com/@nomadicoof789")
 end)
 
 H:AddLine()
@@ -9091,12 +9091,84 @@ end)
     
     spawn(function()
 		while wait() do
-			if _G.AutoPlayerHunter then
+			if _G.AutoPlayerHunter and World3 then
 				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					repeat 
 						topos(CFrame.new(-5560.00390625, 313.74130249023, -2838.4792480469)) 
 						wait() 
 					until not _G.AutoPlayerHunter or (Vector3.new(-5560.00390625, 313.74130249023, -2838.4792480469)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3
+					wait(.5)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
+				elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+					for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
+						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) then
+							repeat wait()
+								if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+									local args = {
+										[1] = "Buso"
+									}
+									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+								end
+								EquipWeapon(_G.SelectWeapon)
+								Useskill = true
+								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,0,2))								
+								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+								game:GetService'VirtualUser':CaptureController()
+								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+							until _G.AutoPlayerHunter == false or v.Humanoid.Health <= 0
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+							Useskill = false
+						end
+					end
+				end
+			end
+		end
+	end)
+	
+	spawn(function()
+		while wait() do
+			if _G.AutoPlayerHunter and World1 then
+				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+					repeat 
+						topos(CFrame.new(972.4349975585938, 16.27355194091797, 1412.172607421875)) 
+						wait() 
+					until not _G.AutoPlayerHunter or (Vector3.new(972.4349975585938, 16.27355194091797, 1412.172607421875)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3
+					wait(.5)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
+				elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+					for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
+						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) then
+							repeat wait()
+								if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+									local args = {
+										[1] = "Buso"
+									}
+									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+								end
+								EquipWeapon(_G.SelectWeapon)
+								Useskill = true
+								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,0,2))								
+								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+								game:GetService'VirtualUser':CaptureController()
+								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+							until _G.AutoPlayerHunter == false or v.Humanoid.Health <= 0
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+							Useskill = false
+						end
+					end
+				end
+			end
+		end
+	end)
+	
+	spawn(function()
+		while wait() do
+			if _G.AutoPlayerHunter and World2 then
+				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+					repeat 
+						topos(CFrame.new(-375.8029479980469, 73.36331939697266, 351.3997497558594)) 
+						wait() 
+					until not _G.AutoPlayerHunter or (Vector3.new(-375.8029479980469, 73.36331939697266, 351.3997497558594)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3
 					wait(.5)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
 				elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
