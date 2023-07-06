@@ -9088,7 +9088,7 @@ end)
 									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 								end
 								EquipWeapon(_G.SelectWeapon)
-								topos(v.HumanoidRootPart.CFrame * CFrame.new(1,10,1))								
+								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,0,2))								
 								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 								game:GetService'VirtualUser':CaptureController()
 								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
