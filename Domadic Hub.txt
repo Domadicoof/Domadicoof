@@ -9089,18 +9089,44 @@ end)
 									game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 								end
 								EquipWeapon(_G.SelectWeapon)
+								Useskill = true
 								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,0,2))								
 								v.HumanoidRootPart.Size = Vector3.new(60,60,60)
 								game:GetService'VirtualUser':CaptureController()
 								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 							until _G.AutoPlayerHunter == false or v.Humanoid.Health <= 0
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+							Useskill = false
 						end
 					end
 				end
 			end
 		end
 	end)
+	
+	spawn(function()
+    while wait() do
+		pcall(function()
+			if Useskill then
+				game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
+				wait(0.1)
+                game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
+                wait(0.1)
+                game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
+				wait(0.1)
+                game:GetService("VirtualInputManager"):SendKeyEvent(false,"X",false,game)
+                wait(0.1)
+                game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",false,game)
+				wait(0.1)
+                game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game)
+                wait(0.1)
+                game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game)
+				wait(0.1)
+                game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
+			end
+		end)
+    end
+    end)
 
     
     P:AddSeperator("Aimbot")
