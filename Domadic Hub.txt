@@ -9077,7 +9077,7 @@ end)
 					until not _G.AutoPlayerHunter or (Vector3.new(-5560.00390625, 313.74130249023, -2838.4792480469)-game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3
 					wait(.5)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
-				else
+				elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 					for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
 						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) then
 							repeat wait()
