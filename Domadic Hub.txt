@@ -2703,10 +2703,31 @@ local Esp = SOMEXHUB:AddTab("Esp","7044284832")
 local Time = H:AddLabel("Executor Time");spawn(function() getgenv().Time = true;while true do wait(.1) UpdateTime() end end);function UpdateTime() local date = os.date("*t");local hour = (date.hour) % 24;local ampm = hour < 12 and "AM" or "PM";local timezone = string.format("%02i:%02i:%02i %s", ((hour -1) % 12) + 1, date.min, date.sec, ampm);local datetime = string.format("%02d/%02d/%04d", date.day, date.month, date.year);local LocalizationService = game:GetService("LocalizationService");local Players = game:GetService("Players");local player = Players.LocalPlayer;local name = player.Name;local result, code = pcall(function()   return LocalizationService:GetCountryRegionForPlayerAsync(player)  end);Time:Set(" : " .. timezone);Time:Set("Executor Time: " .. datetime .. " [ " .. code .. " ]");spawn(function() if getgenv().Time then pcall(function()  while wait() do  Time()  end end) end end) end
 
 H:AddLabel("Script PC/Mobile")
+
+H:AddSeperator("Credit")
+
+H:AddLabel("Domadic Hub Discord")
+H:AddLabel("https://discord.gg/8pdDV5By")
  
-H:AddLabel("Devloper Discort Name @miidraayeerng มีร้ายแรงคนเดิม")
  
+H:AddLabel("Emereld Hub Discord")
+H:AddLabel("https://discord.gg/fgxqZjVj")
+
+H:AddLabel("Owner Domadic Hub @miidraayeerng มีร้ายแรงคนเดิม Script Creator V1")
+H:AddLabel("Devloper Domadic Hub @onweremeraldhub Cxllme Namfon Script Creator V2")
+ 
+H:AddButton("Copy Youtube Emerald Hub",function()
+setclipboard(https://youtube.com/@EmeraldHub-NewScripter)
+end)
+
+H:AddButton("Copy Youtube Domadic Hub",function()
+setclipboard(https://youtube.com/@nomadicoof789)
+end)
+
+H:AddLine()
+
 H:AddSeperator("UpdLog")
+
 
 H:AddLabel("[+] Reduce Tween Speed | 5/4/2566|10:02")
 H:AddLabel("[+] Added Super Fast Attack | 8/4/2566|00:30")
