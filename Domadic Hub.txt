@@ -10072,7 +10072,7 @@ spawn(function()
         end)
     end
 
-    T:AddButton("Teleport",function(value)
+    T:AddToggle("Teleport",function(value)
         _G.BypassIsland = value
         if _G.BypassIsland == true then
             repeat wait()
