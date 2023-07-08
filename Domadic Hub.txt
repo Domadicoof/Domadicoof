@@ -1,18 +1,4 @@
 
-game.StarterGui:SetCore("SendNotification", {
-      Icon = "http://www.roblox.com/asset/?id=12523036534";
-      Title = "Domadic Hub", 
-      Text = "🔃Loading...🔃";
-notification:Play()
-})
-wait(5)
-game.StarterGui:SetCore("SendNotification", {
-      Icon = "http://www.roblox.com/asset/?id=12523036534";
-      Title = "Domadic Hub", 
-      Text = "✅Complete✅";
-notification:Play()
-})
-
 local ScreenGui1 = Instance.new("ScreenGui")
 local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
@@ -1025,6 +1011,20 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
         end
         return uitab
     end
+
+game.StarterGui:SetCore("SendNotification", {
+      Icon = "http://www.roblox.com/asset/?id=12523036534";
+      Title = "Domadic Hub", 
+      Text = "🔃Loading...🔃";
+notification:Play()
+})
+wait(5)
+game.StarterGui:SetCore("SendNotification", {
+      Icon = "http://www.roblox.com/asset/?id=12523036534";
+      Title = "Domadic Hub", 
+      Text = "✅Complete✅";
+notification:Play()
+})
 
 if game.PlaceId == 2753915549 then
         World1 = true
