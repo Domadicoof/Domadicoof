@@ -1012,20 +1012,6 @@ game:GetService("Players").LocalPlayer.Idled:connect(function()
         return uitab
     end
 
-game.StarterGui:SetCore("SendNotification", {
-      Icon = "http://www.roblox.com/asset/?id=12523036534";
-      Title = "Domadic Hub", 
-      Text = "🔃Loading...🔃";
-notification:Play()
-})
-wait(5)
-game.StarterGui:SetCore("SendNotification", {
-      Icon = "http://www.roblox.com/asset/?id=12523036534";
-      Title = "Domadic Hub", 
-      Text = "✅Complete✅";
-notification:Play()
-})
-
 if game.PlaceId == 2753915549 then
         World1 = true
     elseif game.PlaceId == 4442272183 then
@@ -1631,11 +1617,6 @@ if game.PlaceId == 2753915549 then
             end
         end
     end
-    --Notfication-Sound  
-    local notification = Instance.new("Sound")
-    notification.Parent = game:GetService("SoundService")
-    notification.SoundId = "rbxassetid://9086208751"
-    notification.Volume = 10
    
     function Hop()
         local PlaceID = game.PlaceId
@@ -12389,13 +12370,11 @@ game.StarterGui:SetCore("SendNotification", {
       Icon = "http://www.roblox.com/asset/?id=12523036534";
       Title = "Domadic Hub", 
       Text = "Welcome To Script!!";
-notification:Play()
 })
-wait(1)
+wait(3)
 game.StarterGui:SetCore("SendNotification", {
       Icon = "http://www.roblox.com/asset/?id=12523036534";
       Title = "Domadic Hub", 
       Text = "made by @miidraayeerng มีดร้ายแรงคนเดิม";
-notification:Play()
 })
    
