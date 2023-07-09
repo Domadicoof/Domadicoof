@@ -4145,8 +4145,6 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
                                 else
                                     MagnetDought = false
                                     topos(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
-                                    wait(10)
-                                    BTP(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
                                     if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter [Lv. 2200]") then
                                         topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter [Lv. 2200]").HumanoidRootPart.CFrame * CFrame.new(2,20,2)) 
                                     else
@@ -4227,6 +4225,10 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
                 end)
             end
         end
+    end)
+    
+    Main:AddButton("Bypass TP",function()
+    BTP(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
     end)
     
     Main:AddSeperator("Boss")
@@ -7641,8 +7643,6 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                     else
                         StartMagnetBoneMon = false
 						topos(CFrame.new(-9466.72949, 171.162918, 6132.01514))
-						wait(10)
-						BTP(CFrame.new(-9466.72949, 171.162918, 6132.01514))
                         for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
                             if v.Name == "Reborn Skeleton [Lv. 1975]" then
                                 topos(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7662,6 +7662,10 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
 
     M:AddToggle("Auto Random Surprise",_G.Auto_Random_Bone,function(value)
         _G.Auto_Random_Bone = value
+    end)
+    
+    Main:AddButton("Bypass Tp",function()
+    BTP(CFrame.new(-9466.72949, 171.162918, 6132.01514))
     end)
     
     spawn(function()
