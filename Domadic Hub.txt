@@ -2480,6 +2480,19 @@ function UpdateRealFruitChams()
         return math.floor((target.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
     end
     
+    function BTP(P)
+	repeat wait(1)
+		game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+		task.wait()
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+	until (P.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500
+end
+
+function TelePPlayer(P)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+end
+    
     function TP(Pos)
     Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance < 25 then
@@ -2551,7 +2564,15 @@ end
             {CFrame = Pos}
         ):Play()
 end
-    
+
+function BTP(P1)
+game.Players.LocalPlayer.Character.Head:Destroy()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
+game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+end
+
 getgenv().ToTargets = function(p)
     task.spawn(function()
         pcall(function()
@@ -7615,6 +7636,7 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                         end
                     else
                     topos(CFrame.new(-9466.72949, 171.162918, 6132.01514))
+                    TelePBoss(CFrame.new(-9466.72949, 171.162918, 6132.01514))
                         StartMagnetBoneMon = false
                         for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
                             if v.Name == "Reborn Skeleton [Lv. 1975]" then
