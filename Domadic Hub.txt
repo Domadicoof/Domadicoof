@@ -4144,6 +4144,8 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
                                     end
                                 else
                                     topos(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
+                                    wait(5)
+                                    BTP(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
                                     MagnetDought = false
                                     if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter [Lv. 2200]") then
                                         topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter [Lv. 2200]").HumanoidRootPart.CFrame * CFrame.new(2,20,2)) 
