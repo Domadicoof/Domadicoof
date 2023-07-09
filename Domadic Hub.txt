@@ -7637,9 +7637,8 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                             end
                         end
                     else
-                    topos(CFrame.new(-9466.72949, 171.162918, 6132.01514))
-                    BTP(CFrame.new(-9466.72949, 171.162918, 6132.01514))
-                        StartMagnetBoneMon = false
+						topos(CFrame.new(-9466.72949, 171.162918, 6132.01514))
+						BTP(CFrame.new(-9466.72949, 171.162918, 6132.01514))
                         for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
                             if v.Name == "Reborn Skeleton [Lv. 1975]" then
                                 topos(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))
