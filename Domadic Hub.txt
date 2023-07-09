@@ -4226,10 +4226,7 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
             end
         end
     end)
-    
-    Main:AddButton("Bypass TP",function()
-    BTP(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
-    end)
+   
     
     Main:AddSeperator("Boss")
     
@@ -7662,10 +7659,6 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
 
     M:AddToggle("Auto Random Surprise",_G.Auto_Random_Bone,function(value)
         _G.Auto_Random_Bone = value
-    end)
-    
-    Main:AddButton("Bypass Tp",function()
-    BTP(CFrame.new(-9466.72949, 171.162918, 6132.01514))
     end)
     
     spawn(function()
