@@ -3471,6 +3471,16 @@ for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
   end
 end)
 
+spawn(function()
+while task.wait() do
+if _G.ChestBypass then
+        local ohString1 = "SetTeam"
+        local ohString2 = "Pirates"
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(ohString1, ohString2)
+     end
+end
+end)
+
 Main:AddToggle("Auto Chest Stop Torch",_G.STP,function(vu)
 	Grab_Chest = vu
     StopTween(Grab_Chest)
