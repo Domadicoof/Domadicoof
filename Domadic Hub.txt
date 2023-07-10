@@ -2816,6 +2816,7 @@ H:AddLabel("[+] Added Menu Setting Farm Mode|30/6/2566|14:39")
 H:AddLabel("[+] Added Job Id|5/7/2566|20:19")
 H:AddLabel("[+] Added Pray Auto Try Luck|5/7/2566|20:20")
 H:AddLabel("[+] Added Auto Elite Player|6/7/2566|20:16")
+H:AddLabel("[+] Fixes Auto Sniper Fruit Not Working|10/7/2566|20:16")
 
 
 
@@ -11407,8 +11408,7 @@ end)
         pcall(function()
             while wait(.1) do
                 if _G.AutoBuyFruitSniper then
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit",_G.SelectFruit)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit","_G.SelectFruit",false)
                 end 
             end
         end)
