@@ -11357,8 +11357,18 @@ end)
         "Leopard-Leopard"
     }
     
+    local Remote_GetFruits = game.ReplicatedStorage:FindFirstChild("Remotes").CommF_:InvokeServer("GetFruits");
+	Table_DevilFruitSniper = {}
+	ShopDevilSell = {}
+	for i,v in next,Remote_GetFruits do
+		table.insert(Table_DevilFruitSniper,v.Name)
+		if v.OnSale then 
+			table.insert(ShopDevilSell,v.Name)
+		end
+	end
+	
     _G.SelectFruit = ""
-    D:AddDropdown("Select Fruits Sniper",FruitList,function(value)
+    D:AddDropdown("Select Fruits Sniper",Table_DevilFruitSniper,function(value)
         _G.SelectFruit = value
     end)
     
