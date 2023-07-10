@@ -11408,6 +11408,7 @@ end)
         pcall(function()
             while wait(.1) do
                 if _G.AutoBuyFruitSniper then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetFruits")
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PurchaseRawFruit","_G.SelectFruit",false)
                 end 
             end
