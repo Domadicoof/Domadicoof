@@ -2779,7 +2779,7 @@ getgenv().ToTargets = function(p)
 
 
 
-local SOMEXHUB = library:AddWindow("Domadic HUB | 1.0.3",Enum.KeyCode.RightControl)
+local SOMEXHUB = library:AddWindow("Domadic HUB| 1.0.3",Enum.KeyCode.RightControl)
 local H = SOMEXHUB:AddTab("Home","12950870585")
 local Main = SOMEXHUB:AddTab("Main","6026568198")
 local M = SOMEXHUB:AddTab("Auto Item Quest","9606626859")
@@ -2798,6 +2798,10 @@ local Time = H:AddLabel("Executor Time");spawn(function() getgenv().Time = true;
 H:AddLabel("Script PC/Mobile")
 
 H:AddSeperator("Credit")
+
+H:AddButton("Namfon Hub By Dev Makori Hub",function()
+setclipboard("https://discord.gg/JVGrJ4JU")
+end)
 
 H:AddLabel("Domadic Hub Discord")
 H:AddLabel("https://discord.gg/8pdDV5By")
