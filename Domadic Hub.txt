@@ -1,24 +1,4 @@
 
-local ScreenGui1 = Instance.new("ScreenGui")
-local ImageButton1 = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-
-ScreenGui1.Name = "ImageButton"
-ScreenGui1.Parent = game.CoreGui
-ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-ImageButton1.Parent = ScreenGui1
-ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton1.BorderSizePixel = 0
-ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton1.Size = UDim2.new(0, 50, 0, 50)
-ImageButton1.Draggable = true
-ImageButton1.Image = "http://www.roblox.com/asset/?id=12523036534"
-ImageButton1.MouseButton1Down:connect(function()
-  game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
-  game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
-end)
-UICorner.Parent = ImageButton1
 
 do
     local gui = game:GetService("CoreGui"):FindFirstChild("HovxrzGui")
@@ -1097,6 +1077,27 @@ function library:CreateWindow(text,maincolor,text2,logo)
     end
     return uitab
 end
+
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
+
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Draggable = true
+ImageButton1.Image = "http://www.roblox.com/asset/?id=12523036534"
+ImageButton1.MouseButton1Down:connect(function()
+  game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+end)
+UICorner.Parent = ImageButton1
 
 if game.PlaceId == 2753915549 then
         World1 = true
@@ -2817,7 +2818,7 @@ getgenv().ToTargets = function(p)
 
 
 
-local RenUi = library:CreateWindow("Domadic อ้อย ",Color3.fromRGB(0,255,255),"Blox Fruits")
+local RenUi = library:CreateWindow("Domadic",Color3.fromRGB(0,255,255),"Blox Fruits")
 local H = RenUi:AddTab("Home","12950870585")
 local Main = RenUi:AddTab("Main","6026568198")
 local M = RenUi:AddTab("Auto Item Quest","9606626859")
@@ -2837,9 +2838,6 @@ H:AddLabel("Script PC/Mobile")
 
 H:AddSeperator("Credit")
 
-H:AddButton("Namfon Hub By Dev Makori Hub",function()
-setclipboard("https://discord.gg/JVGrJ4JU")
-end)
 
 H:AddLabel("Domadic Hub Discord")
 H:AddLabel("https://discord.gg/8pdDV5By")
@@ -2847,6 +2845,12 @@ H:AddLabel("https://discord.gg/8pdDV5By")
  
 H:AddLabel("Emereld Hub Discord")
 H:AddLabel("https://discord.gg/fgxqZjVj")
+
+H:AddLabel("Hub BF My Friend ")
+
+H:AddButton("Namfon Hub By Dev Makori Hub",function()
+setclipboard("https://discord.gg/JVGrJ4JU")
+end)
 
 H:AddLabel("Owner Domadic Hub @miidraayeerng มีร้ายแรงคนเดิม Script Creator V1")
 H:AddLabel("Devloper Domadic Hub @onweremeraldhub Cxllme Namfon Script Creator V2")
@@ -2906,7 +2910,7 @@ H:AddLabel("[+] Added Menu Setting Farm Mode|30/6/2566|14:39")
 H:AddLabel("[+] Added Job Id|5/7/2566|20:19")
 H:AddLabel("[+] Added Pray Auto Try Luck|5/7/2566|20:20")
 H:AddLabel("[+] Added Auto Elite Player|6/7/2566|20:16")
-H:AddLabel("[+] Smoot Tween|11/7/2566|11:27")
+H:AddLabel("[+] New Ui|11/7/2566|11:27")
 
 
 
