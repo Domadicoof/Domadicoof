@@ -2517,7 +2517,7 @@ end
     ):Play()
 end
     
-TP1 = function(p)
+TP1 = function(_G.TweenMode)
     task.spawn(function()
         pcall(function()
             if game:GetService("Players").LocalPlayer:DistanceFromCharacter(p.Position) <= 250 then 
@@ -2565,7 +2565,55 @@ TP1 = function(p)
     end)
 end
 
-topos = function(p)
+function TP1(_G.TweenMode)
+        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if Distance < 25 then
+            Speed = 5000
+        elseif Distance < 50 then
+            Speed = 2000
+        elseif Distance < 150 then
+            Speed = 800
+        elseif Distance < 250 then
+            Speed = 600
+        elseif Distance < 500 then
+            Speed = 300
+        elseif Distance < 750 then
+            Speed = 250
+        elseif Distance >= 1000 then
+            Speed = 200
+        end
+        game:GetService("TweenService"):Create(
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+            TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+            {CFrame = Pos}
+        ):Play()
+end
+
+function topos(_G.TweenMode)
+        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if Distance < 25 then
+            Speed = 5000
+        elseif Distance < 50 then
+            Speed = 2000
+        elseif Distance < 150 then
+            Speed = 800
+        elseif Distance < 250 then
+            Speed = 600
+        elseif Distance < 500 then
+            Speed = 300
+        elseif Distance < 750 then
+            Speed = 250
+        elseif Distance >= 1000 then
+            Speed = 200
+        end
+        game:GetService("TweenService"):Create(
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
+            TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear),
+            {CFrame = Pos}
+        ):Play()
+end
+
+topos = function(_G.TweenMode)
     task.spawn(function()
         pcall(function()
             if game:GetService("Players").LocalPlayer:DistanceFromCharacter(p.Position) <= 250 then 
@@ -4438,6 +4486,25 @@ spawn(function()
                     _G.BringMode = 300
                 elseif _G.BringMode == "Super Bring" then
                     _G.BringMode = 350
+                end
+            end)
+        end
+    end
+end)
+
+local Tween = {"Normal", "Smoot"}
+_G.TweenMode = "Normal"
+Main:AddDropdown("Tween Mode", Tween,function(value)
+    _G.TweenMode = value
+end)
+spawn(function()
+    while wait(.1) do
+        if _G.TweenMode then
+            pcall(function()
+                if _G.TweenMode == "Normal" then
+                    _G.TweenMode = Pos
+                elseif _G.BringMode == "Smoot" then
+                    _G.TweenMode = P
                 end
             end)
         end
