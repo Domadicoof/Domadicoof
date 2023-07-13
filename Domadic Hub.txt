@@ -4752,12 +4752,12 @@ end)
     PosX = value
     end)
 
-    PosY = 40
-    Main:AddSlider("Pos Y",0,50,40,function(value)
+    PosY = 45
+    Main:AddSlider("Pos Y",0,50,45,function(value)
     PosY = value
     end)
 
-    PosZ = 25
+    PosZ = 40
     Main:AddSlider("Pos Z",0,50,40,function(value)
     PosZ = value
     end)
