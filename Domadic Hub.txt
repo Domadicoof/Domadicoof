@@ -1,4 +1,23 @@
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
+local UICorner = Instance.new("UICorner")
 
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Draggable = true
+ImageButton1.Image = "http://www.roblox.com/asset/?id=12523036534"
+ImageButton1.MouseButton1Down:connect(function()
+  game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+end)
+UICorner.Parent = ImageButton1
 
 do
     local gui = game:GetService("CoreGui"):FindFirstChild("HovxrzGui")
@@ -116,7 +135,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
     Hub.Position = UDim2.new(0, 75, 0, 0)
     Hub.Size = UDim2.new(0, 60, 0, 20)
     Hub.Font = Enum.Font.GothamSemibold
-    Hub.Text = "HUB"
+    Hub.Text = "     HUB"
     Hub.TextColor3 = maincolor
     Hub.TextSize = 15.000
     Hub.TextXAlignment = Enum.TextXAlignment.Left
@@ -225,7 +244,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
     ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
     ImageButton.Size = UDim2.new(0, 50, 0, 50)
     ImageButton.BorderSizePixel = 0
-    ImageButton.Image = "rbxassetid://0" -- LOGO
+    ImageButton.Image = "rbxassetid://12523036534" -- LOGO
     ImageButton.MouseButton1Down:connect(function()
         if uihide == false then
             uihide = true
@@ -1078,26 +1097,6 @@ function library:CreateWindow(text,maincolor,text2,logo)
     return uitab
 end
 
-local ScreenGui1 = Instance.new("ScreenGui")
-local ImageButton1 = Instance.new("ImageButton")
-local UICorner = Instance.new("UICorner")
-
-ScreenGui1.Name = "ImageButton"
-ScreenGui1.Parent = game.CoreGui
-ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-ImageButton1.Parent = ScreenGui1
-ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton1.BorderSizePixel = 0
-ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton1.Size = UDim2.new(0, 50, 0, 50)
-ImageButton1.Draggable = true
-ImageButton1.Image = "http://www.roblox.com/asset/?id=12523036534"
-ImageButton1.MouseButton1Down:connect(function()
-  game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
-  game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
-end)
-UICorner.Parent = ImageButton1
 
 if game.PlaceId == 2753915549 then
         World1 = true
@@ -4574,6 +4573,33 @@ spawn(function()
         end
     end
 end)
+
+    local Client = game.Players.LocalPlayer
+    local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
+    local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
+    spawn(function()
+        while task.wait() do
+            pcall(function()
+                if not shared.orl then shared.orl = STOPRL.wrapAttackAnimationAsync end
+                if not shared.cpc then shared.cpc = STOP.play end
+                    STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
+                    local Hits = STOPRL.getBladeHits(b,c,d)
+                    if Hits then
+                        if _G.FastAttack then
+                            STOP.play = function() end
+                            a:Play(0.01,0.01,0.01)
+                            func(Hits)
+                            STOP.play = shared.cpc
+                            wait(a.length * 0.5)
+                            a:Stop()
+                        else
+                            a:Play()
+                        end
+                    end
+                end
+            end)
+        end
+    end)
 
 function GetBladeHit()
     local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
