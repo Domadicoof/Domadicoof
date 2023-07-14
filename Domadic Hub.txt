@@ -5466,7 +5466,7 @@ Main:AddToggle("Auto Click",false,function(value)
 _G.AutoClick = value
 end)
 
-Misc:AddToggle("Remove Notifications Text",false,function(NamfonGay)
+Main:AddToggle("Remove Notifications Text",false,function(NamfonGay)
 _G.Remove_trct = NamfonGay
 end)
 
@@ -5478,13 +5478,13 @@ spawn(function()
     end)
 end)
 
-Misc:AddToggle("Remove Hit Sound And Level Up",false,function(Remo)
+Main:AddToggle("Remove Hit Sound And Level Up",false,function(Remo)
 _G.RemoveHit = Remo
 end)
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.Remove_trct == true then
+        if _G.RemoveHit == true then
             game:GetService("ReplicatedStorage").Effect.Container.LevelUp:Destroy()
             game:GetService("ReplicatedStorage").Util.Sound:Destroy()
             game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp_Proxy"):Destroy()
