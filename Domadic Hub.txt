@@ -410,7 +410,7 @@ function Update:Window(text,logo,keybind)
         BtnStroke.Name = "BtnStroke"
         BtnStroke.Parent = TabButton
         BtnStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-        BtnStroke.Color = Color3.fromRGB(255, 128,0)
+        BtnStroke.Color = Color3.fromRGB(7, 236, 240)
         BtnStroke.LineJoinMode = Enum.LineJoinMode.Round
         BtnStroke.Thickness = 1
         BtnStroke.Transparency = 0
