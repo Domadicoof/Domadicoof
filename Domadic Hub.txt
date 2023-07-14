@@ -276,13 +276,13 @@ function Update:Window(text,logo,keybind)
 	Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Logo.BackgroundTransparency = 1.000
 	Logo.Position = UDim2.new(0, -5, 0, -5)
-	Logo.Size = UDim2.new(0, 160, 0, 160)
+	Logo.Size = UDim2.new(0, 100, 0, 100)
 	Logo.Image = "rbxassetid://12523036534"
     local Tab = Instance.new("Frame")
     Tab.Name = "Tab"
     Tab.Parent = Main
     Tab.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    Tab.Position = UDim2.new(0, 5, 0, 100)
+    Tab.Position = UDim2.new(0, 5, 0, 135)
     Tab.Size = UDim2.new(0, 0, 0, 0)
 
     local TabCorner = Instance.new("UIListLayout")
@@ -679,7 +679,7 @@ function Update:Window(text,logo,keybind)
         ImageButton.BorderSizePixel = 0
         ImageButton.Position = UDim2.new(0, 350, 0, 6)
         ImageButton.Size = UDim2.new(0, 24, 0, 20)
-        ImageButton.Image = "rbxassetid://13994391599"
+        ImageButton.Image = "rbxassetid://12523036534"
         ImageButton.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
         UICorner_2.CornerRadius = UDim.new(0, 5)
@@ -694,12 +694,12 @@ function Update:Window(text,logo,keybind)
         Space.Font = Enum.Font.GothamSemibold
         Space.Text = "|"
         Space.TextSize = 15.000
-        Space.TextColor3 = Color3.fromRGB(255, 128,0)
+        Space.TextColor3 = Color3.fromRGB(7, 236, 240)
         Space.TextXAlignment = Enum.TextXAlignment.Right
 
         Black.Name = "Black"
         Black.Parent = Button
-        Black.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        Black.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         Black.BackgroundTransparency = 1.000
         Black.BorderSizePixel = 0
         Black.Position = UDim2.new(0, 1, 0, 1)
@@ -789,7 +789,7 @@ function Update:Window(text,logo,keybind)
         ImageLabel.BorderSizePixel = 0
         ImageLabel.Position = UDim2.new(0, 5, 0, 6)
         ImageLabel.Size = UDim2.new(0, 24, 0, 20)
-        ImageLabel.Image = "rbxassetid://13994391599"
+        ImageLabel.Image = "rbxassetid://12523036534"
         ImageLabel.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
         Space.Name = "Space"
@@ -801,7 +801,7 @@ function Update:Window(text,logo,keybind)
         Space.Font = Enum.Font.GothamSemibold
         Space.Text = "|"
         Space.TextSize = 15.000
-        Space.TextColor3 = Color3.fromRGB(255, 128,0)
+        Space.TextColor3 = Color3.fromRGB(7, 236, 240)
         Space.TextXAlignment = Enum.TextXAlignment.Center
 
         Title.Name = "Title"
@@ -835,7 +835,7 @@ function Update:Window(text,logo,keybind)
             game.TweenService:Create(
                 ImageButton,
                 TweenInfo.new(0.08, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),
-                {ImageColor3 = Color3.fromRGB(255, 128,0)}
+                {ImageColor3 = Color3.fromRGB(7, 236, 240)}
             ):Play()
             toggle = not toggle
             pcall(callback, toggle)
@@ -847,7 +847,7 @@ function Update:Window(text,logo,keybind)
                     game.TweenService:Create(
                         ImageButton,
                         TweenInfo.new(0.08, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut),
-                        {ImageColor3 = Color3.fromRGB(255, 128,0)}
+                        {ImageColor3 = Color3.fromRGB(7, 236, 240)}
                     ):Play()
                     ImageButton.ImageRectOffset = Vector2.new(4, 836)
                 else
@@ -885,7 +885,7 @@ function Update:Window(text,logo,keybind)
         UIStroke.Name = "UIStroke"
         UIStroke.Parent = Dropdown
         UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-        UIStroke.Color = Color3.fromRGB(255, 128,0)
+        UIStroke.Color = Color3.fromRGB(7, 236, 240)
         UIStroke.LineJoinMode = Enum.LineJoinMode.Round
         UIStroke.Thickness = 1
         UIStroke.Transparency = 0
@@ -1110,7 +1110,7 @@ function Update:Window(text,logo,keybind)
         -- Prop --
         SliderFrame.Name = slidertitle or "SliderFrame"
         SliderFrame.Parent = MainFramePage
-        SliderFrame.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        SliderFrame.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         SliderFrame.BackgroundTransparency = 1.000
         SliderFrame.BorderSizePixel = 0
         SliderFrame.Size = UDim2.new(0, 387, 0, 60)
@@ -1126,7 +1126,7 @@ function Update:Window(text,logo,keybind)
         UIStroke.Name = "UIStroke"
         UIStroke.Parent = SliderFrame_2
         UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-        UIStroke.Color = Color3.fromRGB(255, 128,0)
+        UIStroke.Color = Color3.fromRGB(7, 236, 240)
         UIStroke.LineJoinMode = Enum.LineJoinMode.Round
         UIStroke.Thickness = 1
         UIStroke.Transparency = 0
@@ -1138,12 +1138,12 @@ function Update:Window(text,logo,keybind)
         
         ImageLabel.Name = "ImageLabel"
         ImageLabel.Parent = SliderFrame_2
-        ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        ImageLabel.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         ImageLabel.BackgroundTransparency = 1.000
         ImageLabel.BorderSizePixel = 0
         ImageLabel.Position = UDim2.new(0, 7.5, 0, 7.5)
         ImageLabel.Size = UDim2.new(0, 30, 0, 30)
-        ImageLabel.Image = "rbxassetid://13994391599"
+        ImageLabel.Image = "rbxassetid://12523036534"
             
         Title.Parent = SliderFrame_2
         Title.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
@@ -1158,7 +1158,7 @@ function Update:Window(text,logo,keybind)
                 
         SliderInput.Name = "SliderInput"
         SliderInput.Parent = SliderFrame_2
-        SliderInput.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        SliderInput.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         SliderInput.BackgroundTransparency = 0.7
         SliderInput.BorderSizePixel = 0
         SliderInput.Position = UDim2.new(0, 8, 0, 42)
@@ -1169,7 +1169,7 @@ function Update:Window(text,logo,keybind)
         
         SliderButton.Name = "SliderButton"
         SliderButton.Parent = SliderInput
-        SliderButton.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        SliderButton.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         SliderButton.BackgroundTransparency = 1.000
         SliderButton.BorderSizePixel = 0
         SliderButton.Position = UDim2.new(0, 0, 0, -7)
@@ -1177,7 +1177,7 @@ function Update:Window(text,logo,keybind)
     
         SliderCount.Name = "SliderCount"
         SliderCount.Parent = SliderButton
-        SliderCount.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        SliderCount.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         SliderCount.BackgroundTransparency = 0.3
         SliderCount.BorderSizePixel = 0
         SliderCount.Position = UDim2.new(0,start,0,0)
@@ -1186,7 +1186,7 @@ function Update:Window(text,logo,keybind)
         Title_2.Name = "Title_2"
         Title_2.Parent = SliderButton
         Title_2.AnchorPoint = Vector2.new(0, 0)
-        Title_2.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        Title_2.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         Title_2.AutoButtonColor = false
         Title_2.BackgroundTransparency = 1.000
         Title_2.Position = UDim2.new(0,start,0,0)
@@ -1206,7 +1206,7 @@ function Update:Window(text,logo,keybind)
         SliderStroke.Name = "SliderStroke"
         SliderStroke.Parent = BoxFrame
         SliderStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-        SliderStroke.Color = Color3.fromRGB(255, 128,0)
+        SliderStroke.Color = Color3.fromRGB(7, 236, 240)
         SliderStroke.LineJoinMode = Enum.LineJoinMode.Round
         SliderStroke.Thickness = 1
         SliderStroke.Transparency = 0.5
@@ -1215,7 +1215,7 @@ function Update:Window(text,logo,keybind)
         
         BoxFrame.Name = "BoxFrame"
         BoxFrame.Parent = SliderFrame_2
-        BoxFrame.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        BoxFrame.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         BoxFrame.BackgroundTransparency = 1.000
         BoxFrame.Size = UDim2.new(0, 50, 0, 15)
         BoxFrame.Position = UDim2.new(0, 323, 0, 8)
@@ -1428,7 +1428,7 @@ function Update:Window(text,logo,keybind)
 
         Textbox.Name = "Textbox"
         Textbox.Parent = MainFramePage
-        Textbox.BackgroundColor3 = Color3.new(255, 128,0)
+        Textbox.BackgroundColor3 = Color3.new(7, 236, 240)
         Textbox.BackgroundTransparency = 0
         Textbox.Size = UDim2.new(0, 387, 0, 31)
 
@@ -1557,7 +1557,7 @@ function Update:Window(text,logo,keybind)
         
         Textbox.Name = "Textbox"
         Textbox.Parent = MainFramePage
-        Textbox.BackgroundColor3 = Color3.new(255, 128,0)
+        Textbox.BackgroundColor3 = Color3.new(7, 236, 240)
         Textbox.BackgroundTransparency = 0
         Textbox.Size = UDim2.new(0, 387, 0, 31)
         
@@ -1577,7 +1577,7 @@ function Update:Window(text,logo,keybind)
         
         TextboxLabel.Name = "TextboxLabel"
         TextboxLabel.Parent = Textbox
-        TextboxLabel.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        TextboxLabel.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         TextboxLabel.BackgroundTransparency = 1.000
         TextboxLabel.Position = UDim2.new(0, 15, 0, 0)
         TextboxLabel.Text = text
@@ -1590,7 +1590,7 @@ function Update:Window(text,logo,keybind)
         
         txtbtn.Name = "txtbtn"
         txtbtn.Parent = Textbox
-        txtbtn.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        txtbtn.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         txtbtn.BackgroundTransparency = 1.000
         txtbtn.Position = UDim2.new(0, 1, 0, 1)
         txtbtn.Size = UDim2.new(0, 387, 0, 29)
@@ -1697,7 +1697,7 @@ function Update:Window(text,logo,keybind)
         Labeld.BackgroundTransparency = 1.000
         Labeld.Size = UDim2.new(0, 410, 0, 20)
         Labeld.Font = Enum.Font.GothamSemibold
-        Labeld.TextColor3 = Color3.fromRGB(255, 128,0)
+        Labeld.TextColor3 = Color3.fromRGB(7, 236, 240)
         Labeld.TextSize = 15.000
         Labeld.Text = display or ""
         Labeld.TextXAlignment = Enum.TextXAlignment.Left
