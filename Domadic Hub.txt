@@ -5466,6 +5466,29 @@ Main:AddToggle("Auto Click",false,function(value)
 _G.AutoClick = value
 end)
 
+Misc:AddToggle("Remove Notifications Text",false,function(value)
+        if value == true then
+            game:GetService("ReplicatedStorage").Notification:Destroy = false
+        else
+            game:GetService("ReplicatedStorage").Notification:Destroy = true
+        end
+    end)
+    
+Main:AddToggle("Remove Hit Sound And Level Up Sound",false,function(value)
+spawn(function()
+    game:GetService('RunService').Stepped:Connect(function()
+-- game:GetService("ReplicatedStorage").Notification:Destroy()
+game:GetService("ReplicatedStorage").Effect.Container.LevelUp:Destroy()
+game:GetService("ReplicatedStorage").Util.Sound:Destroy()
+game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp_Proxy"):Destroy()
+game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp"):Destroy()
+            for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
+                if v.Name == "CurvedRing" or v.Name == "SwordSlash" or v.Name == "Sounds" or v.Name == "SlashHit" or v.Name == "DamageCounter" then--or v.Name == "SlashHit"
+                    v:Destroy() 
+                end
+            end
+    end)
+end)
 
     Main:AddToggle("Remove Attack",false,function(value)
     getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync 
