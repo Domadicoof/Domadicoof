@@ -5466,29 +5466,34 @@ Main:AddToggle("Auto Click",false,function(value)
 _G.AutoClick = value
 end)
 
-Misc:AddToggle("Remove Notifications Text",false,function(value)
-        if value == true then
-            game:GetService("ReplicatedStorage").Notification:Destroy = false
-        else
-            game:GetService("ReplicatedStorage").Notification:Destroy = true
+Misc:AddToggle("Remove Notifications Text",false,function(NamfonGay)
+_G.Remove_trct = NamfonGay
+end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.Remove_trct == true then
+            game:GetService("ReplicatedStorage").Notification:Destroy()        
         end
     end)
-    
-Main:AddToggle("Remove Hit Sound And Level Up Sound",false,function(value)
+end)
+
+Misc:AddToggle("Remove Hit Sound And Level Up",false,function(Remo)
+_G.RemoveHit = Remo
+end)
+
 spawn(function()
-    game:GetService('RunService').Stepped:Connect(function()
--- game:GetService("ReplicatedStorage").Notification:Destroy()
-game:GetService("ReplicatedStorage").Effect.Container.LevelUp:Destroy()
-game:GetService("ReplicatedStorage").Util.Sound:Destroy()
-game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp_Proxy"):Destroy()
-game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp"):Destroy()
-            for i, v in pairs(game.Workspace["_WorldOrigin"]:GetChildren()) do
-                if v.Name == "CurvedRing" or v.Name == "SwordSlash" or v.Name == "Sounds" or v.Name == "SlashHit" or v.Name == "DamageCounter" then--or v.Name == "SlashHit"
-                    v:Destroy() 
-                end
-            end
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.Remove_trct == true then
+            game:GetService("ReplicatedStorage").Effect.Container.LevelUp:Destroy()
+            game:GetService("ReplicatedStorage").Util.Sound:Destroy()
+            game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp_Proxy"):Destroy()
+            game:GetService("ReplicatedStorage").Util.Sound.Storage.Other:FindFirstChild("LevelUp"):Destroy()
+            game:GetService("ReplicatedStorage").Effect.Container.Respawn:Destroy()        
+        end
     end)
 end)
+
 
     Main:AddToggle("Remove Attack",false,function(value)
     getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync 
@@ -10201,23 +10206,23 @@ spawn(function()
 	
 	Ss:AddSeperator("Fake Mode")
 	
-	Ss:AddTextbox("Fake Level", "Please Type", true, function(value)
+	Ss:AddTextbox("Fake Level", true, function(value)
         game:GetService("Players").LocalPlayer.Data.Level.Value = value
     end)
     
-    Ss:AddTextbox("Fake Exp", "Please Type", true, function(value)
+    Ss:AddTextbox("Fake Exp", true, function(value)
         game:GetService("Players").LocalPlayer.Data.Exp.Value = value
     end)
     
-    Ss:AddTextbox("Fake Money", "Please Type", true, function(value)
+    Ss:AddTextbox("Fake Money", true, function(value)
         game:GetService("Players").LocalPlayer.Data.Beli.Value = value
     end)
     
-    Ss:AddTextbox("Fake Points", "Please Type", true, function(value)
+    Ss:AddTextbox("Fake Points", true, function(value)
         game:GetService("Players").LocalPlayer.Data.Points.Value = value
     end)
     
-    Ss:AddTextbox("Fake Bounty", "Please Type", true, function(value)
+    Ss:AddTextbox("Fake Bounty", true, function(value)
         game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value = value
     end)
     
@@ -12757,7 +12762,7 @@ spawn(function()
 	setclipboard(tostring(game.JobId))
 	end)
 	
-    Misc:AddTextbox("Place Job Id", "Place Here!!", true, function(value)
+    Misc:AddTextbox("Place Job Id", true, function(value)
 	_G.Job = value
 	end)
 
