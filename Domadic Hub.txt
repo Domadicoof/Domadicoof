@@ -135,7 +135,7 @@ function Update:Window(text,logo,keybind)
     BtnStroke.Name = "BtnStroke"
     BtnStroke.Parent = Main
     BtnStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-    BtnStroke.Color = Color3.fromRGB(255, 128,0)
+    BtnStroke.Color = Color3.fromRGB(7, 236, 240)
     BtnStroke.LineJoinMode = Enum.LineJoinMode.Round
     BtnStroke.Thickness = 1
     BtnStroke.Transparency = 0
@@ -276,7 +276,7 @@ function Update:Window(text,logo,keybind)
 	Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 	Logo.BackgroundTransparency = 1.000
 	Logo.Position = UDim2.new(0, -5, 0, -5)
-	Logo.Size = UDim2.new(0, 100, 0, 100)
+	Logo.Size = UDim2.new(0, 50, 0, 50)
 	Logo.Image = "rbxassetid://12523036534"
     local Tab = Instance.new("Frame")
     Tab.Name = "Tab"
@@ -655,7 +655,7 @@ function Update:Window(text,logo,keybind)
 
         Button.Name = "Button"
         Button.Parent = MainFramePage
-        Button.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        Button.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         Button.Size = UDim2.new(0, 387, 0, 31)
 
         UICorner.CornerRadius = UDim.new(0, 5)
@@ -678,7 +678,7 @@ function Update:Window(text,logo,keybind)
         ImageButton.BackgroundTransparency = 1.000
         ImageButton.BorderSizePixel = 0
         ImageButton.Position = UDim2.new(0, 350, 0, 6)
-        ImageButton.Size = UDim2.new(0, 24, 0, 20)
+        ImageButton.Size = UDim2.new(0, 20, 0, 20)
         ImageButton.Image = "rbxassetid://12523036534"
         ImageButton.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
@@ -772,7 +772,7 @@ function Update:Window(text,logo,keybind)
         UIStroke.Name = "UIStroke"
         UIStroke.Parent = CheckFrame2
         UIStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-        UIStroke.Color = Color3.fromRGB(255, 128,0)
+        UIStroke.Color = Color3.fromRGB(7, 236, 240)
         UIStroke.LineJoinMode = Enum.LineJoinMode.Round
         UIStroke.Thickness = 1
         UIStroke.Transparency = 0
@@ -788,7 +788,7 @@ function Update:Window(text,logo,keybind)
         ImageLabel.BackgroundTransparency = 1.000
         ImageLabel.BorderSizePixel = 0
         ImageLabel.Position = UDim2.new(0, 5, 0, 6)
-        ImageLabel.Size = UDim2.new(0, 24, 0, 20)
+        ImageLabel.Size = UDim2.new(0, 20, 0, 20)
         ImageLabel.Image = "rbxassetid://12523036534"
         ImageLabel.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
