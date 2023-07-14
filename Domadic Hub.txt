@@ -19,11 +19,9 @@ ImageButton1.MouseButton1Down:connect(function()
 end)
 UICorner.Parent = ImageButton1
 
-do
-    local gui = game:GetService("CoreGui"):FindFirstChild("HovxrzGui")
-    if gui then
-        gui:Destroy()
-    end
+do local GUI = game.CoreGui:FindFirstChild("Darkrai");if GUI then GUI:Destroy();end;if _G.Color == nil then
+       _G.Color = Color3.fromRGB(7, 236, 240)
+   end 
 end
 
 local UserInputService = game:GetService("UserInputService")
@@ -37,14 +35,8 @@ local function MakeDraggable(topbarobject, object)
 
 	local function Update(input)
 		local Delta = input.Position - DragStart
-		local pos =
-			UDim2.new(
-				StartPosition.X.Scale,
-				StartPosition.X.Offset + Delta.X,
-				StartPosition.Y.Scale,
-				StartPosition.Y.Offset + Delta.Y
-			)
-		local Tween = TweenService:Create(object, TweenInfo.new(0.2), {Position = pos})
+		local pos = UDim2.new(StartPosition.X.Scale, StartPosition.X.Offset + Delta.X, StartPosition.Y.Scale, StartPosition.Y.Offset + Delta.Y)
+		local Tween = TweenService:Create(object, TweenInfo.new(0.15), {Position = pos})
 		Tween:Play()
 	end
 
@@ -86,478 +78,438 @@ local function MakeDraggable(topbarobject, object)
 	)
 end
 
-local library = {}
+local DarkraiX = {}
 
-function library:CreateWindow(text,maincolor,text2,logo)
-    logo = logo or 0
-    maincolor = maincolor or Color3.fromRGB(7, 236, 240)
-    local isselected = false
+function DarkraiX:ToggleUi()
+if game.CoreGui:FindFirstChild("Darkrai").Enabled == true then -- oh am dumb
+game.CoreGui:FindFirstChild("Darkrai").Enabled = false
+else
+game.CoreGui:FindFirstChild("Darkrai").Enabled = true
+end
+end
 
-    local HovxrzGui = Instance.new("ScreenGui")
-    HovxrzGui.Name = "HovxrzGui"
-    HovxrzGui.Parent = game:GetService("CoreGui")
-    HovxrzGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+function DarkraiX:Window(text,gamenme,logo,keybind)
+    local hubname = text
+    local gamename = gamenme
+	local uihide = false
+	local abc = false
+	local logo = logo or 12523036534
+	local currentpage = ""
+	local keybind = keybind or Enum.KeyCode.RightControl
+	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
+	if gamename == "" then 
+	    gamename = ""..PlaceName.Name
+    end
+	
+	local Darkrai = Instance.new("ScreenGui") -- guess i am using hubname wrong
+	Darkrai.Name = "Darkrai" -- wait
+	Darkrai.Parent = game.CoreGui
+	Darkrai.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-    local Main = Instance.new("Frame")
-    Main.Name = "Main"
-    Main.Parent = HovxrzGui
-    Main.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-    Main.BorderColor3 = Color3.fromRGB(25, 25, 25)
-    Main.Position = UDim2.new(0.5, 0,0.499, 0)
-    -- Main.Size = UDim2.new(0, 375, 0, 460)
-    Main.AnchorPoint = Vector2.new(0.5,0.5)
+	local Main = Instance.new("Frame")
+	Main.Name = "Main"
+	Main.Parent = Darkrai
+	Main.ClipsDescendants = true
+	Main.AnchorPoint = Vector2.new(0.5,0.5)
+	Main.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+	Main.Position = UDim2.new(0.5, 0, 0.5, 0)
+	Main.Size = UDim2.new(0, 0, 0, 0)
+	
+	Main:TweenSize(UDim2.new(0, 656, 0, 400),"Out","Quad",0.4,true)
 
-    local Top = Instance.new("Frame")
-    Top.Name = "Top"
-    Top.Parent = Main
-    Top.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-    Top.BorderSizePixel = 0
-    -- Top.Size = UDim2.new(0, 375, 0, 20)
-    Top.ClipsDescendants = true
-    
-    local NameHub = Instance.new("TextLabel")
-    NameHub.Name = "NameHub"
-    NameHub.Parent = Top
-    NameHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    NameHub.BackgroundTransparency = 1.000
-    NameHub.Position = UDim2.new(0, 25, 0, 0)
-    NameHub.Size = UDim2.new(0, 50, 0, 20)
-    NameHub.Font = Enum.Font.GothamSemibold
-    NameHub.Text = string.upper(text)
-    NameHub.TextColor3 = Color3.fromRGB(225, 225, 225)
-    NameHub.TextSize = 15.000
-    
-    local Hub = Instance.new("TextLabel")
-    Hub.Name = "Hub"
-    Hub.Parent = Top
-    Hub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Hub.BackgroundTransparency = 1.000
-    Hub.Position = UDim2.new(0, 75, 0, 0)
-    Hub.Size = UDim2.new(0, 60, 0, 20)
-    Hub.Font = Enum.Font.GothamSemibold
-    Hub.Text = "     HUB"
-    Hub.TextColor3 = maincolor
-    Hub.TextSize = 15.000
-    Hub.TextXAlignment = Enum.TextXAlignment.Left
-    
-    local Logo = Instance.new("ImageLabel")
-    Logo.Name = "Logo"
-    Logo.Parent = Top
-    Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Logo.BackgroundTransparency = 1.000
-    Logo.BorderSizePixel = 0
-    Logo.Position = UDim2.new(0, 5, 0, 0)
-    Logo.Size = UDim2.new(0, 20, 0, 20)
-    Logo.Image = "rbxassetid://"..tostring(logo)
+	local MCNR = Instance.new("UICorner")
+	MCNR.Name = "MCNR"
+	MCNR.Parent = Main
 
-    local Barrier = Instance.new("Frame")
-    Barrier.Name = "Barrier"
-    Barrier.Parent = Top
-    Barrier.BackgroundColor3 = Color3.fromRGB(225, 225, 225)
-    Barrier.BorderColor3 = Color3.fromRGB(27, 42, 53)
-    Barrier.BorderSizePixel = 0
-    Barrier.Position = UDim2.new(0, 115, 0, 3)
-    Barrier.Size = UDim2.new(0, 2, 0, 14)
+	local Top = Instance.new("Frame")
+	Top.Name = "Top"
+	Top.Parent = Main
+	Top.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+	Top.Size = UDim2.new(0, 656, 0, 27)
 
-    local Description = Instance.new("TextLabel")
-    Description.Name = "Description"
-    Description.Parent = Top
-    Description.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    Description.BackgroundTransparency = 1.000
-    Description.Position = UDim2.new(0, 125, 0, 0)
-    Description.Size = UDim2.new(0, 250, 0, 20)
-    Description.Font = Enum.Font.GothamSemibold
-    Description.Text = text2
-    Description.TextColor3 = Color3.fromRGB(225, 225, 225)
-    Description.TextSize = 15.000
-    Description.TextXAlignment = Enum.TextXAlignment.Left
+	local TCNR = Instance.new("UICorner")
+	TCNR.Name = "TCNR"
+	TCNR.Parent = Top
 
-    local Tab = Instance.new("Frame")
-    Tab.Name = "Tab"
-    Tab.Parent = Main
-    Tab.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-    Tab.BorderSizePixel = 0
-    Tab.Position = UDim2.new(0, 5, 0, 25)
-    Tab.Size = UDim2.new(0, 365, 0, 25)
+	local Logo = Instance.new("ImageLabel")
+	Logo.Name = "Logo"
+	Logo.Parent = Top
+	Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Logo.BackgroundTransparency = 1.000
+	Logo.Position = UDim2.new(0, 10, 0, 1)
+	Logo.Size = UDim2.new(0, 25, 0, 25)
+	Logo.Image = "http://www.roblox.com/asset/?id=12523036534"
 
-    local ScrollTab = Instance.new("ScrollingFrame")
-    ScrollTab.Name = "ScrollTab"
-    ScrollTab.Parent = Tab
-    ScrollTab.Active = true
-    ScrollTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    ScrollTab.BackgroundTransparency = 1.000
-    ScrollTab.BorderSizePixel = 0
-    ScrollTab.Size = UDim2.new(0, 365, 0, 25)
-    ScrollTab.CanvasSize = UDim2.new(0, 0, 0, 0)
-    ScrollTab.ScrollBarThickness = 0
+	local Name = Instance.new("TextLabel")
+	Name.Name = "Name"
+	Name.Parent = Top
+	Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Name.BackgroundTransparency = 1.000
+	Name.Position = UDim2.new(0.0609756112, 0, 0, 0)
+	Name.Size = UDim2.new(0, 61, 0, 27)
+	Name.Font = Enum.Font.GothamSemibold
+	Name.Text = hubname
+	Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Name.TextSize = 17.000
 
-    local TabListLayout = Instance.new("UIListLayout")
-    TabListLayout.Name = "TabListLayout"
-    TabListLayout.Parent = ScrollTab
-    TabListLayout.FillDirection = Enum.FillDirection.Horizontal
-    TabListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    TabListLayout.Padding = UDim.new(0, 5)
+	local Hub = Instance.new("TextLabel")
+	Hub.Name = "Hub"
+	Hub.Parent = Top
+	Hub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Hub.BackgroundTransparency = 1.000
+	Hub.Position = UDim2.new(0, 110, 0, 0)
+	Hub.Size = UDim2.new(0, 81, 0, 27)
+	Hub.Font = Enum.Font.GothamSemibold
+	Hub.Text = "   | "..gamename
+	Hub.TextColor3 = Color3.fromRGB(255,255,255)
+	Hub.TextSize = 17.000
+	Hub.TextXAlignment = Enum.TextXAlignment.Left
 
-    local Page = Instance.new("Frame")
-    Page.Name = "Page"
-    Page.Parent = Main
-    Page.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-    Page.BorderSizePixel = 0
-    Page.Position = UDim2.new(0.0133333337, 0, 0.130434781, 0)
-    Page.Size = UDim2.new(0, 365, 0, 395)
+	local BindButton = Instance.new("TextButton")
+	BindButton.Name = "BindButton"
+	BindButton.Parent = Top
+	BindButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	BindButton.BackgroundTransparency = 1.000
+	BindButton.Position = UDim2.new(0.847561002, 0, 0, 0)
+	BindButton.Size = UDim2.new(0, 100, 0, 27)
+	BindButton.Font = Enum.Font.GothamSemibold
+	BindButton.Text = "[1.0.4]"
+	BindButton.TextColor3 = Color3.fromGB(7, 236, 240)
+	BindButton.TextSize = 13.000
 
-    local pagesFolder = Instance.new("Folder")
-    pagesFolder.Name = "pagesFolder"
-    pagesFolder.Parent = Page
+	local Tab = Instance.new("Frame")
+	Tab.Name = "Tab"
+	Tab.Parent = Main
+	Tab.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+	Tab.Position = UDim2.new(0, 5, 0, 30)
+	Tab.Size = UDim2.new(0, 150, 0, 365)
 
-    MakeDraggable(Top,Main)
-    
-    Main.BackgroundTransparency = 1
-    Tab.Visible = false
-    Page.Visible = false
-    Main.Size = UDim2.new(0,375,0,0)
-    Top.Size = UDim2.new(0,0,0,20)
-    TweenService:Create(
-        Top,
-        TweenInfo.new(1,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-        {Size = UDim2.new(0, 375, 0, 20)}
-    ):Play()
-    repeat wait() until Top.Size == UDim2.new(0, 375, 0, 20)
-    Main.BackgroundTransparency = 0
-    TweenService:Create(
-        Main,
-        TweenInfo.new(1,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-        {Size = UDim2.new(0, 375, 0, 460)}
-    ):Play()
-    repeat wait() until Main.Size == UDim2.new(0, 375, 0, 460)
-    Tab.Visible = true
-    Page.Visible = true
+	local TCNR = Instance.new("UICorner")
+	TCNR.Name = "TCNR"
+	TCNR.Parent = Tab
 
-    local uihide = false
-    local ScreenGui = Instance.new("ScreenGui")
-    local ImageButton = Instance.new("ImageButton")
+	local ScrollTab = Instance.new("ScrollingFrame")
+	ScrollTab.Name = "ScrollTab"
+	ScrollTab.Parent = Tab
+	ScrollTab.Active = true
+	ScrollTab.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	ScrollTab.BackgroundTransparency = 1.000
+	ScrollTab.Size = UDim2.new(0, 150, 0, 365)
+	ScrollTab.CanvasSize = UDim2.new(0, 0, 0, 0)
+	ScrollTab.ScrollBarThickness = 0
 
-    ScreenGui.Parent = game.CoreGui
+	local PLL = Instance.new("UIListLayout")
+	PLL.Name = "PLL"
+	PLL.Parent = ScrollTab
+	PLL.SortOrder = Enum.SortOrder.LayoutOrder
+	PLL.Padding = UDim.new(0, 15)
 
-    ImageButton.Parent = ScreenGui
-    ImageButton.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
-    ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-    ImageButton.Size = UDim2.new(0, 50, 0, 50)
-    ImageButton.BorderSizePixel = 0
-    ImageButton.Image = "rbxassetid://12523036534" -- LOGO
-    ImageButton.MouseButton1Down:connect(function()
-        if uihide == false then
-            uihide = true
-            Tab.Visible = false
-            Page.Visible = false
-            TweenService:Create(
-                Main,
-                TweenInfo.new(1,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                {Size = UDim2.new(0,375,0,0)}
-            ):Play()
-            repeat wait() until Main.Size == UDim2.new(0,375,0,0)
-            Main.BackgroundTransparency = 1
-            TweenService:Create(
-                Top,
-                TweenInfo.new(1,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                {Size = UDim2.new(0,0,0,20)}
-            ):Play()
-        else
-            uihide = false
-            TweenService:Create(
-                Top,
-                TweenInfo.new(1,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                {Size = UDim2.new(0, 375, 0, 20)}
-            ):Play()
-            repeat wait() until Top.Size == UDim2.new(0, 375, 0, 20)
-            Main.BackgroundTransparency = 0
-            TweenService:Create(
-                Main,
-                TweenInfo.new(1,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                {Size = UDim2.new(0, 375, 0, 460)}
-            ):Play()
-            repeat wait() until Main.Size == UDim2.new(0, 375, 0, 460)
-            Tab.Visible = true
-            Page.Visible = true
-        end
-    end)
+	local PPD = Instance.new("UIPadding")
+	PPD.Name = "PPD"
+	PPD.Parent = ScrollTab
+	PPD.PaddingLeft = UDim.new(0, 10)
+	PPD.PaddingTop = UDim.new(0, 10)
 
-    local uitab = {}
-    function uitab:AddTab(text)
-        local TabButton = Instance.new("TextButton")
-        TabButton.Name = "TabButton"
-        TabButton.Parent = ScrollTab
-        TabButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        TabButton.BackgroundTransparency = 1.000
-        TabButton.Size = UDim2.new(0, 80, 0, 25)
-        TabButton.Font = Enum.Font.GothamSemibold
-        TabButton.Text = text
-        TabButton.TextColor3 = Color3.fromRGB(225, 225, 225)
-        TabButton.TextSize = 14.000
-        TabButton.TextTransparency = 0.5
+	local Page = Instance.new("Frame")
+	Page.Name = "Page"
+	Page.Parent = Main
+	Page.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+	Page.Position = UDim2.new(0.245426834, 0, 0.075000003, 0)
+	Page.Size = UDim2.new(0, 490, 0, 365)
 
-        local MainPage = Instance.new("Frame")
-        MainPage.Name = "MainPage"
-        MainPage.Parent = pagesFolder
-        MainPage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        MainPage.BackgroundTransparency = 1.000
-        MainPage.Size = UDim2.new(0, 365, 0, 395)
-        MainPage.Visible = false
+	local PCNR = Instance.new("UICorner")
+	PCNR.Name = "PCNR"
+	PCNR.Parent = Page
 
-        local MainFramePage = Instance.new("ScrollingFrame")
-        MainFramePage.Name = "MainFramePage"
-        MainFramePage.Parent = MainPage
-        MainFramePage.Active = true
-        MainFramePage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        MainFramePage.BackgroundTransparency = 1.000
-        MainFramePage.BorderSizePixel = 0
-        MainFramePage.Size = UDim2.new(0, 365, 0, 395)
-        MainFramePage.CanvasSize = UDim2.new(0, 0, 0, 0)
-        MainFramePage.ScrollBarThickness = 0
+	local MainPage = Instance.new("Frame")
+	MainPage.Name = "MainPage"
+	MainPage.Parent = Page
+	MainPage.ClipsDescendants = true
+	MainPage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	MainPage.BackgroundTransparency = 1.000
+	MainPage.Size = UDim2.new(0, 490, 0, 365)
 
-        local PageListLayout = Instance.new("UIListLayout")
-        PageListLayout.Name = "PageListLayout"
-        PageListLayout.Padding = UDim.new(0, 15)
-        PageListLayout.Parent = MainFramePage
-        PageListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	local PageList = Instance.new("Folder")
+	PageList.Name = "PageList"
+	PageList.Parent = MainPage
 
-        local PagePadding = Instance.new("UIPadding")
-        PagePadding.Name = "PagePadding"
-        PagePadding.Parent = MainFramePage
-        PagePadding.PaddingLeft = UDim.new(0,15)
-        PagePadding.PaddingTop = UDim.new(0,15)
+	local UIPageLayout = Instance.new("UIPageLayout")
 
-        TabButton.MouseButton1Click:Connect(function()
-            for i,v in next,pagesFolder:GetChildren() do
-                if v.Name == "MainPage" then
-                    v.Visible = false
-                end
-                MainPage.Visible = true
-            end
-            for i,v in next,ScrollTab:GetChildren() do
-                if v:IsA("TextButton") then
-                    TweenService:Create(
-                        v,
-                        TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                        {TextTransparency = 0.5}
-                    ):Play()
-                end
-                TweenService:Create(
-                    TabButton,
-                    TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                    {TextTransparency = 0}
-                ):Play()
-            end
-        end)
+	UIPageLayout.Parent = PageList
+	UIPageLayout.SortOrder = Enum.SortOrder.LayoutOrder
+	UIPageLayout.EasingDirection = Enum.EasingDirection.InOut
+	UIPageLayout.EasingStyle = Enum.EasingStyle.Quad
+	UIPageLayout.FillDirection = Enum.FillDirection.Vertical
+	UIPageLayout.Padding = UDim.new(0, 15)
+	UIPageLayout.TweenTime = 0.400
+	UIPageLayout.GamepadInputEnabled = false
+	UIPageLayout.ScrollWheelInputEnabled = false
+	UIPageLayout.TouchInputEnabled = false
+	
+	MakeDraggable(Top,Main)
 
-        if isselected == false then
-            for i,v in next,pagesFolder:GetChildren() do
-                if v.Name == "MainPage" then
-                    v.Visible = false
-                end
-                MainPage.Visible = true
-            end
-            for i,v in next,ScrollTab:GetChildren() do
-                if v:IsA("TextButton") then
-                    TweenService:Create(
-                        v,
-                        TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                        {TextTransparency = 0.5}
-                    ):Play()
-                end
-                TweenService:Create(
-                    TabButton,
-                    TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                    {TextTransparency = 0}
-                ):Play()
-            end
-            isselected = true
-        end
-
-        game:GetService("RunService").Stepped:Connect(function()
-            ScrollTab.CanvasSize = UDim2.new(0, TabListLayout.AbsoluteContentSize.X + 10, 0, 0)
-            MainFramePage.CanvasSize = UDim2.new(0, 0, 0, PageListLayout.AbsoluteContentSize.Y + 30)
-        end)
-
-        local main = {}
-        function main:AddButton(text,callback)
-            local ButtonFrame = Instance.new("Frame")
-            ButtonFrame.Name = "ButtonFrame"
-            ButtonFrame.Parent = MainFramePage
-            ButtonFrame.BackgroundColor3 = maincolor
-            ButtonFrame.BorderSizePixel = 0
-            ButtonFrame.Size = UDim2.new(0, 335, 0, 30)
-            
-            local UICorner = Instance.new("UICorner")
-            UICorner.Parent = ButtonFrame
-            UICorner.CornerRadius = UDim.new(0,5)
-            
-            local Button = Instance.new("TextButton")
-            Button.Name = "Button"
-            Button.Parent = ButtonFrame
-            Button.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
-            Button.BorderSizePixel = 0
-            Button.Position = UDim2.new(0, 1, 0, 1)
-            Button.Size = UDim2.new(0, 333, 0, 28)
-            Button.AutoButtonColor = false
-            Button.Font = Enum.Font.GothamSemibold
-            Button.Text = text
-            Button.TextColor3 = Color3.fromRGB(225, 225, 225)
-            Button.TextSize = 14.000
-
-            local UICorner_2 = Instance.new("UICorner")
-            UICorner_2.Parent = Button
-            UICorner_2.CornerRadius = UDim.new(0,5)
-            
-            local Black = Instance.new("Frame")
-            Black.Name = "Black"
-            Black.Parent = Button
-            Black.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-            Black.BackgroundTransparency = 1.000
-            Black.Size = UDim2.new(0, 335, 0, 28)
-
-            Button.MouseEnter:Connect(function()
-                TweenService:Create(
-                    Button,
-                    TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                    {TextColor3 = maincolor}
-                ):Play()
-                TweenService:Create(
-                    Black,
-                    TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                    {BackgroundTransparency = 0.7}
-                ):Play()
-            end)
-
-            Button.MouseLeave:Connect(function()
-                TweenService:Create(
-                    Button,
-                    TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                    {TextColor3 = Color3.fromRGB(225, 225, 225)}
-                ):Play()
-                TweenService:Create(
-                    Black,
-                    TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                    {BackgroundTransparency = 1}
-                ):Play()
-            end)
-
-            Button.MouseButton1Click:Connect(function()
-                callback()
-                Button.TextSize = 0
-				TweenService:Create(
-					Button,
-					TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-					{TextSize = 14}
-				):Play()
-            end)
-        end
-
-        function main:AddToggle(text,config,callback)
-            config = config or false
-            local istoggled = config
-
-            local ToggleFrame = Instance.new("Frame")
-            ToggleFrame.Name = "ToggleFrame"
-            ToggleFrame.Parent = MainFramePage
-            ToggleFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            ToggleFrame.BackgroundTransparency = 1.000
-            ToggleFrame.Size = UDim2.new(0, 335, 0, 25)
-
-            local ToggleButton = Instance.new("TextButton")
-            ToggleButton.Name = "ToggleButton"
-            ToggleButton.Parent = ToggleFrame
-            ToggleButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            ToggleButton.BackgroundTransparency = 1.000
-            ToggleButton.Size = UDim2.new(0, 335, 0, 25)
-            ToggleButton.Font = Enum.Font.SourceSans
-            ToggleButton.Text = ""
-            ToggleButton.TextColor3 = Color3.fromRGB(0, 0, 0)
-            ToggleButton.TextSize = 14.000
-
-            local ToggleLabel = Instance.new("TextLabel")
-            ToggleLabel.Name = "ToggleLabel"
-            ToggleLabel.Parent = ToggleFrame
-            ToggleLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-            ToggleLabel.BackgroundTransparency = 1.000
-            ToggleLabel.Position = UDim2.new(0.0447761193, 0, 0, 0)
-            ToggleLabel.Size = UDim2.new(0, 276, 0, 25)
-            ToggleLabel.Font = Enum.Font.GothamSemibold
-            ToggleLabel.Text = text
-            ToggleLabel.TextColor3 = Color3.fromRGB(225, 225, 225)
-            ToggleLabel.TextSize = 15.000
-            ToggleLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-            local ToggleImage = Instance.new("Frame")
-            ToggleImage.Name = "ToggleImage"
-            ToggleImage.Parent = ToggleFrame
-            ToggleImage.BackgroundColor3 = Color3.fromRGB(225, 225, 225)
-            ToggleImage.Position = UDim2.new(0, 290, 0, 1)
-            ToggleImage.Size = UDim2.new(0, 46, 0, 21)
-
-            local UICorner = Instance.new("UICorner")
-            UICorner.CornerRadius = UDim.new(0, 10)
-            UICorner.Parent = ToggleImage
-
-            local Circle = Instance.new("Frame")
-            Circle.Name = "Circle"
-            Circle.Parent = ToggleImage
-            Circle.BackgroundColor3 = Color3.fromRGB(233, 63, 63)
-            Circle.Position = UDim2.new(0, 2, 0, 1)
-            Circle.Size = UDim2.new(0, 19, 0, 19)
-
-            local UICorner_2 = Instance.new("UICorner")
-            UICorner_2.CornerRadius = UDim.new(0, 10)
-            UICorner_2.Parent = Circle
-
-            ToggleButton.MouseButton1Click:Connect(function()
-                if istoggled == false then
-                    istoggled = true
-                    TweenService:Create(
-                        Circle,
-                        TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                        {Position = UDim2.new(0, 24, 0, 1)}
-                    ):Play()
-                    TweenService:Create(
-                        Circle,
-                        TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                        {BackgroundColor3 = maincolor}
-                    ):Play()
-                else
-                    istoggled = false
-                    TweenService:Create(
-                        Circle,
-                        TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                        {Position = UDim2.new(0, 2, 0, 1)}
-                    ):Play()
-                    TweenService:Create(
-                        Circle,
-                        TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                        {BackgroundColor3 = Color3.fromRGB(233, 63, 63)}
-                    ):Play()
-                end
-                pcall(callback,istoggled)
-            end)
-
-            if config == true then
-                if istoggled == false then
-                    istoggled = true
-                end
-                TweenService:Create(
-                    Circle,
-                    TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                    {Position = UDim2.new(0, 24, 0, 1)}
-                ):Play()
-                TweenService:Create(
-                    Circle,
-                    TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
-                    {BackgroundColor3 = maincolor}
-                ):Play()
-                pcall(callback,istoggled)
-            end
+	UserInputService.InputBegan:Connect(function(input)
+		if input.KeyCode == Enum.KeyCode[yoo] then
+			if uihide == false then
+				uihide = true
+				Main:TweenSize(UDim2.new(0, 0, 0, 0),"In","Quad",0.4,true)
+			else
+				uihide = false
+				Main:TweenSize(UDim2.new(0, 656, 0, 400),"Out","Quad",0.4,true)
+			end
 		end
+	end)
+	
+	local uitab = {}
+	
+	function uitab:AddTab(text)
+		local TabButton = Instance.new("TextButton")
+		TabButton.Parent = ScrollTab
+		TabButton.Name = text.."Server"
+		TabButton.Text = text
+		TabButton.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
+	    TabButton.BorderColor3 = Color3.fromRGB(255,255,255)
+        TabButton.BorderSizePixel = 3
+		TabButton.Size = UDim2.new(0, 130, 0, 23)
+		TabButton.Font = Enum.Font.GothamSemibold
+		TabButton.TextColor3 = Color3.fromRGB(225, 225, 225)
+		TabButton.TextSize = 15.000
+		TabButton.TextTransparency = 0.500
 
-        function main:AddDropdown(text,option,callback)
+		local MainFramePage = Instance.new("ScrollingFrame")
+		MainFramePage.Name = text.."_Page"
+		MainFramePage.Parent = PageList
+		MainFramePage.Active = true
+		MainFramePage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		MainFramePage.BackgroundTransparency = 1.000
+		MainFramePage.BorderSizePixel = 0
+		MainFramePage.Size = UDim2.new(0, 490, 0, 365)
+		MainFramePage.CanvasSize = UDim2.new(0, 0, 0, 0)
+		MainFramePage.ScrollBarThickness = 0
+		
+		local UIPadding = Instance.new("UIPadding")
+		local UIListLayout = Instance.new("UIListLayout")
+		
+		UIPadding.Parent = MainFramePage
+		UIPadding.PaddingLeft = UDim.new(0, 10)
+		UIPadding.PaddingTop = UDim.new(0, 10)
+
+		UIListLayout.Padding = UDim.new(0,15)
+		UIListLayout.Parent = MainFramePage
+		UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+		
+		TabButton.MouseButton1Click:Connect(function()
+			for i,v in next, ScrollTab:GetChildren() do
+				if v:IsA("TextButton") then
+					TweenService:Create(
+						v,
+						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+						{TextTransparency = 0.5}
+					):Play()
+				end
+				TweenService:Create(
+					TabButton,
+					TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+					{TextTransparency = 0}
+				):Play()
+			end
+			for i,v in next, PageList:GetChildren() do
+				currentpage = string.gsub(TabButton.Name,"Server","").."_Page"
+				if v.Name == currentpage then
+					UIPageLayout:JumpTo(v)
+				end
+			end
+		end)
+
+		if abc == false then
+			for i,v in next, ScrollTab:GetChildren() do
+				if v:IsA("TextButton") then
+					TweenService:Create(
+						v,
+						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+						{TextTransparency = 0.5}
+					):Play()
+				end
+				TweenService:Create(
+					TabButton,
+					TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+					{TextTransparency = 0}
+				):Play()
+			end
+			UIPageLayout:JumpToIndex(1)
+			abc = true
+		end
+		
+		game:GetService("RunService").Stepped:Connect(function()
+			pcall(function()
+				MainFramePage.CanvasSize = UDim2.new(0,0,0,UIListLayout.AbsoluteContentSize.Y + 20)
+				ScrollTab.CanvasSize = UDim2.new(0,0,0,PLL.AbsoluteContentSize.Y + 20)
+			end)
+		end)
+		
+		local main = {}
+		function main:AddButton(text,callback)
+			local Button = Instance.new("Frame")
+			local UICorner = Instance.new("UICorner")
+			local TextBtn = Instance.new("TextButton")
+			local UICorner_2 = Instance.new("UICorner")
+			local Black = Instance.new("Frame")
+			local UICorner_3 = Instance.new("UICorner")
+			
+			Button.Name = "Button"
+			Button.Parent = MainFramePage
+			Button.BackgroundColor3 = _G.Color
+			Button.Size = UDim2.new(0, 470, 0, 31)
+			
+			UICorner.CornerRadius = UDim.new(0, 5)
+			UICorner.Parent = Button
+			
+			TextBtn.Name = "TextBtn"
+			TextBtn.Parent = Button
+			TextBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+			TextBtn.Position = UDim2.new(0, 1, 0, 1)
+			TextBtn.Size = UDim2.new(0, 468, 0, 29)
+			TextBtn.AutoButtonColor = false
+			TextBtn.Font = Enum.Font.GothamSemibold
+			TextBtn.Text = text
+			TextBtn.TextColor3 = Color3.fromRGB(225, 225, 225)
+			TextBtn.TextSize = 15.000
+			
+			UICorner_2.CornerRadius = UDim.new(0, 5)
+			UICorner_2.Parent = TextBtn
+			
+			Black.Name = "Black"
+			Black.Parent = Button
+			Black.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+			Black.BackgroundTransparency = 1.000
+			Black.BorderSizePixel = 0
+			Black.Position = UDim2.new(0, 1, 0, 1)
+			Black.Size = UDim2.new(0, 468, 0, 29)
+			
+			UICorner_3.CornerRadius = UDim.new(0, 5)
+			UICorner_3.Parent = Black
+
+			TextBtn.MouseEnter:Connect(function()
+				TweenService:Create(
+					Black,
+					TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+					{BackgroundTransparency = 0.7}
+				):Play()
+			end)
+			TextBtn.MouseLeave:Connect(function()
+				TweenService:Create(
+					Black,
+					TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+					{BackgroundTransparency = 1}
+				):Play()
+			end)
+			TextBtn.MouseButton1Click:Connect(function()
+				TextBtn.TextSize = 0
+				TweenService:Create(
+					TextBtn,
+					TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+					{TextSize = 15}
+				):Play()
+				callback()
+			end)
+		end
+		function main:AddToggle(text,config,callback)
+			config = config or false
+			local toggled = config
+			local Toggle = Instance.new("Frame")
+			local UICorner = Instance.new("UICorner")
+			local Button = Instance.new("TextButton")
+			local UICorner_2 = Instance.new("UICorner")
+			local Label = Instance.new("TextLabel")
+			local ToggleImage = Instance.new("Frame")
+			local UICorner_3 = Instance.new("UICorner")
+			local Circle = Instance.new("Frame")
+			local UICorner_4 = Instance.new("UICorner")
+
+			Toggle.Name = "Toggle"
+			Toggle.Parent = MainFramePage
+			Toggle.BackgroundColor3 = _G.Color
+			Toggle.Size = UDim2.new(0, 470, 0, 31)
+
+			UICorner.CornerRadius = UDim.new(0, 5)
+			UICorner.Parent = Toggle
+
+			Button.Name = "Button"
+			Button.Parent = Toggle
+			Button.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+			Button.Position = UDim2.new(0, 1, 0, 1)
+			Button.Size = UDim2.new(0, 468, 0, 29)
+			Button.AutoButtonColor = false
+			Button.Font = Enum.Font.SourceSans
+			Button.Text = ""
+			Button.TextColor3 = Color3.fromRGB(0, 0, 0)
+			Button.TextSize = 11.000
+
+			UICorner_2.CornerRadius = UDim.new(0, 5)
+			UICorner_2.Parent = Button
+
+			Label.Name = "Label"
+			Label.Parent = Toggle
+			Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			Label.BackgroundTransparency = 1.000
+			Label.Position = UDim2.new(0, 1, 0, 1)
+			Label.Size = UDim2.new(0, 468, 0, 29)
+			Label.Font = Enum.Font.GothamSemibold
+			Label.Text = text
+			Label.TextColor3 = Color3.fromRGB(225, 225, 225)
+			Label.TextSize = 15.000
+
+			ToggleImage.Name = "ToggleImage"
+			ToggleImage.Parent = Toggle
+			ToggleImage.BackgroundColor3 = Color3.fromRGB(225, 225, 225)
+			ToggleImage.Position = UDim2.new(0, 415, 0, 5)
+			ToggleImage.Size = UDim2.new(0, 45, 0, 20)
+
+			UICorner_3.CornerRadius = UDim.new(0, 10)
+			UICorner_3.Parent = ToggleImage
+
+			Circle.Name = "Circle"
+			Circle.Parent = ToggleImage
+			Circle.BackgroundColor3 = Color3.fromRGB(227, 60, 60)
+			Circle.Position = UDim2.new(0, 2, 0, 2)
+			Circle.Size = UDim2.new(0, 16, 0, 16)
+
+			UICorner_4.CornerRadius = UDim.new(0, 10)
+			UICorner_4.Parent = Circle
+
+			Button.MouseButton1Click:Connect(function()
+				if toggled == false then
+					toggled = true
+					Circle:TweenPosition(UDim2.new(0,27,0,2),"Out","Sine",0.2,true)
+					TweenService:Create(
+						Circle,
+						TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+						{BackgroundColor3 = Color3.fromRGB(0,255,0) }
+					):Play()
+				else
+					toggled = false
+					Circle:TweenPosition(UDim2.new(0,2,0,2),"Out","Sine",0.2,true)
+					TweenService:Create(
+						Circle,
+						TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+						{BackgroundColor3 = Color3.fromRGB(227, 60, 110)}
+					):Play()
+				end
+				pcall(callback,toggled)
+			end)
+
+			if config == true then
+				toggled = true
+				Circle:TweenPosition(UDim2.new(0,27,0,2),"Out","Sine",0.4,true)
+				TweenService:Create(
+					Circle,
+					TweenInfo.new(0.4,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
+					{BackgroundColor3 = Color3.fromRGB(0,255,0) }
+				):Play()
+				pcall(callback,toggled)
+			end
+		end
+		function main:AddDropdown(text,option,callback)
 			local isdropping = false
 			local Dropdown = Instance.new("Frame")
 			local UICorner = Instance.new("UICorner")
@@ -572,7 +524,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			Dropdown.Parent = MainFramePage
 			Dropdown.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 			Dropdown.ClipsDescendants = true
-			Dropdown.Size = UDim2.new(0, 335, 0, 30)
+			Dropdown.Size = UDim2.new(0, 470, 0, 31)
 			
 			UICorner.CornerRadius = UDim.new(0, 5)
 			UICorner.Parent = Dropdown
@@ -581,26 +533,20 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			DropTitle.Parent = Dropdown
 			DropTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			DropTitle.BackgroundTransparency = 1.000
-			DropTitle.Size = UDim2.new(0, 335, 0, 30)
+			DropTitle.Size = UDim2.new(0, 470, 0, 31)
 			DropTitle.Font = Enum.Font.GothamSemibold
 			DropTitle.Text = text.. " : "
 			DropTitle.TextColor3 = Color3.fromRGB(225, 225, 225)
 			DropTitle.TextSize = 15.000
-            DropTitle.TextXAlignment = Enum.TextXAlignment.Left
-
-            local UIPaddingHAHA = Instance.new("UIPadding")
-            UIPaddingHAHA.Parent = DropTitle
-            UIPaddingHAHA.Name = "UIPaddingHAHA"
-            UIPaddingHAHA.PaddingLeft = UDim.new(0,15)
 			
 			DropScroll.Name = "DropScroll"
-			DropScroll.Parent = Dropdown
+			DropScroll.Parent = DropTitle
 			DropScroll.Active = true
 			DropScroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			DropScroll.BackgroundTransparency = 1.000
 			DropScroll.BorderSizePixel = 0
 			DropScroll.Position = UDim2.new(0, 0, 0, 31)
-			DropScroll.Size = UDim2.new(0, 335, 0, 70)
+			DropScroll.Size = UDim2.new(0, 470, 0, 100)
 			DropScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
 			DropScroll.ScrollBarThickness = 3
 			
@@ -616,7 +562,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			DropImage.Parent = Dropdown
 			DropImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			DropImage.BackgroundTransparency = 1.000
-			DropImage.Position = UDim2.new(0, 305, 0, 5)
+			DropImage.Position = UDim2.new(0, 445, 0, 6)
 			DropImage.Rotation = 180.000
 			DropImage.Size = UDim2.new(0, 20, 0, 20)
 			DropImage.Image = "rbxassetid://6031090990"
@@ -625,7 +571,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			DropButton.Parent = Dropdown
 			DropButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			DropButton.BackgroundTransparency = 1.000
-			DropButton.Size = UDim2.new(0, 335, 0, 30)
+			DropButton.Size = UDim2.new(0, 470, 0, 31)
 			DropButton.Font = Enum.Font.SourceSans
 			DropButton.Text = ""
 			DropButton.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -638,7 +584,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 				Item.Parent = DropScroll
 				Item.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Item.BackgroundTransparency = 1.000
-				Item.Size = UDim2.new(0, 335, 0, 26)
+				Item.Size = UDim2.new(0, 460, 0, 26)
 				Item.Font = Enum.Font.GothamSemibold
 				Item.Text = tostring(v)
 				Item.TextColor3 = Color3.fromRGB(225, 225, 225)
@@ -663,7 +609,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 
 				Item.MouseButton1Click:Connect(function()
 					isdropping = false
-					Dropdown:TweenSize(UDim2.new(0,335,0,30),"Out","Quad",0.3,true)
+					Dropdown:TweenSize(UDim2.new(0,470,0,31),"Out","Quad",0.3,true)
 					TweenService:Create(
 						DropImage,
 						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -679,7 +625,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			DropButton.MouseButton1Click:Connect(function()
 				if isdropping == false then
 					isdropping = true
-					Dropdown:TweenSize(UDim2.new(0,335,0,100),"Out","Quad",0.3,true)
+					Dropdown:TweenSize(UDim2.new(0,470,0,131),"Out","Quad",0.3,true)
 					TweenService:Create(
 						DropImage,
 						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -687,7 +633,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 					):Play()
 				else
 					isdropping = false
-					Dropdown:TweenSize(UDim2.new(0,335,0,30),"Out","Quad",0.3,true)
+					Dropdown:TweenSize(UDim2.new(0,470,0,31),"Out","Quad",0.3,true)
 					TweenService:Create(
 						DropImage,
 						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -703,7 +649,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 				Item.Parent = DropScroll
 				Item.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 				Item.BackgroundTransparency = 1.000
-				Item.Size = UDim2.new(0, 335, 0, 26)
+				Item.Size = UDim2.new(0, 470, 0, 26)
 				Item.Font = Enum.Font.GothamSemibold
 				Item.Text = tostring(t)
 				Item.TextColor3 = Color3.fromRGB(225, 225, 225)
@@ -728,7 +674,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 
 				Item.MouseButton1Click:Connect(function()
 					isdropping = false
-					Dropdown:TweenSize(UDim2.new(0,335,0,30),"Out","Quad",0.3,true)
+					Dropdown:TweenSize(UDim2.new(0,470,0,31),"Out","Quad",0.3,true)
 					TweenService:Create(
 						DropImage,
 						TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -741,7 +687,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			function dropfunc:Clear()
 				DropTitle.Text = tostring(text).." : "
 				isdropping = false
-				Dropdown:TweenSize(UDim2.new(0,335,0,30),"Out","Quad",0.3,true)
+				Dropdown:TweenSize(UDim2.new(0,470,0,31),"Out","Quad",0.3,true)
 				TweenService:Create(
 					DropImage,
 					TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),
@@ -755,7 +701,8 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			end
 			return dropfunc
 		end
-        function main:AddSlider(text,min,max,set,callback)
+
+		function main:AddSlider(text,min,max,set,callback)
 			local Slider = Instance.new("Frame")
 			local slidercorner = Instance.new("UICorner")
 			local sliderr = Instance.new("Frame")
@@ -776,9 +723,9 @@ function library:CreateWindow(text,maincolor,text2,logo)
 
 			Slider.Name = "Slider"
 			Slider.Parent = MainFramePage
-			Slider.BackgroundColor3 = maincolor
+			Slider.BackgroundColor3 = _G.Color
 			Slider.BackgroundTransparency = 0
-			Slider.Size = UDim2.new(0, 335, 0, 51)
+			Slider.Size = UDim2.new(0, 470, 0, 51)
 
 			slidercorner.CornerRadius = UDim.new(0, 5)
 			slidercorner.Name = "slidercorner"
@@ -788,7 +735,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			sliderr.Parent = Slider
 			sliderr.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 			sliderr.Position = UDim2.new(0, 1, 0, 1)
-			sliderr.Size = UDim2.new(0, 333, 0, 49)
+			sliderr.Size = UDim2.new(0, 468, 0, 49)
 
 			sliderrcorner.CornerRadius = UDim.new(0, 5)
 			sliderrcorner.Name = "sliderrcorner"
@@ -811,14 +758,14 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			HAHA.Parent = sliderr
 			HAHA.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			HAHA.BackgroundTransparency = 1.000
-			HAHA.Size = UDim2.new(0, 333, 0, 29)
+			HAHA.Size = UDim2.new(0, 468, 0, 29)
 
 			AHEHE.Name = "AHEHE"
 			AHEHE.Parent = sliderr
 			AHEHE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			AHEHE.BackgroundTransparency = 1.000
 			AHEHE.Position = UDim2.new(0, 10, 0, 35)
-			AHEHE.Size = UDim2.new(0, 313, 0, 5)
+			AHEHE.Size = UDim2.new(0, 448, 0, 5)
 			AHEHE.Font = Enum.Font.SourceSans
 			AHEHE.Text = ""
 			AHEHE.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -827,11 +774,11 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			bar.Name = "bar"
 			bar.Parent = AHEHE
 			bar.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-			bar.Size = UDim2.new(0, 313, 0, 5)
+			bar.Size = UDim2.new(0, 448, 0, 5)
 
 			bar1.Name = "bar1"
 			bar1.Parent = bar
-			bar1.BackgroundColor3 = maincolor
+			bar1.BackgroundColor3 = _G.Color
 			bar1.BackgroundTransparency = 0
 			bar1.Size = UDim2.new(set/max, 0, 0, 5)
 
@@ -854,9 +801,9 @@ function library:CreateWindow(text,maincolor,text2,logo)
 
 			slidervalue.Name = "slidervalue"
 			slidervalue.Parent = sliderr
-			slidervalue.BackgroundColor3 = maincolor
+			slidervalue.BackgroundColor3 = _G.Color
 			slidervalue.BackgroundTransparency = 0
-			slidervalue.Position = UDim2.new(0, 265, 0, 5)
+			slidervalue.Position = UDim2.new(0, 395, 0, 5)
 			slidervalue.Size = UDim2.new(0, 65, 0, 18)
 
 			valuecorner.CornerRadius = UDim.new(0, 5)
@@ -887,37 +834,37 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			end
 			
 			AHEHE.MouseButton1Down:Connect(function()
-				Value = math.floor((((tonumber(max) - tonumber(min)) / 315) * bar1.AbsoluteSize.X) + tonumber(min)) or 0
+				Value = math.floor((((tonumber(max) - tonumber(min)) / 448) * bar1.AbsoluteSize.X) + tonumber(min)) or 0
 				pcall(function()
 					callback(Value)
 				end)
-				bar1.Size = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X, 0, 315), 0, 5)
-				circlebar.Position = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X - 2, 0, 305), 0, -3)
+				bar1.Size = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X, 0, 448), 0, 5)
+				circlebar.Position = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X - 2, 0, 438), 0, -3)
 				moveconnection = mouse.Move:Connect(function()
 					TextBox.Text = Value
-					Value = math.floor((((tonumber(max) - tonumber(min)) / 315) * bar1.AbsoluteSize.X) + tonumber(min))
+					Value = math.floor((((tonumber(max) - tonumber(min)) / 448) * bar1.AbsoluteSize.X) + tonumber(min))
 					pcall(function()
 						callback(Value)
 					end)
-					bar1.Size = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X, 0, 315), 0, 5)
-					circlebar.Position = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X - 2, 0, 305), 0, -3)
+					bar1.Size = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X, 0, 448), 0, 5)
+					circlebar.Position = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X - 2, 0, 438), 0, -3)
 				end)
 				releaseconnection = uis.InputEnded:Connect(function(Mouse)
-					if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-						Value = math.floor((((tonumber(max) - tonumber(min)) / 315) * bar1.AbsoluteSize.X) + tonumber(min))
+					if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or Mouse.UserInputType == Enum.UserInputType.Touch then
+						Value = math.floor((((tonumber(max) - tonumber(min)) / 448) * bar1.AbsoluteSize.X) + tonumber(min))
 						pcall(function()
 							callback(Value)
 						end)
-						bar1.Size = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X, 0, 315), 0, 5)
-						circlebar.Position = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X - 2, 0, 305), 0, -3)
+						bar1.Size = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X, 0, 448), 0, 5)
+						circlebar.Position = UDim2.new(0, math.clamp(mouse.X - bar1.AbsolutePosition.X - 2, 0, 438), 0, -3)
 						moveconnection:Disconnect()
 						releaseconnection:Disconnect()
 					end
 				end)
 			end)
 			releaseconnection = uis.InputEnded:Connect(function(Mouse)
-				if Mouse.UserInputType == Enum.UserInputType.MouseButton1 then
-					Value = math.floor((((tonumber(max) - tonumber(min)) / 315) * bar1.AbsoluteSize.X) + tonumber(min))
+				if Mouse.UserInputType == Enum.UserInputType.MouseButton1 or Mouse.UserInputType == Enum.UserInputType.Touch  then
+					Value = math.floor((((tonumber(max) - tonumber(min)) / 448) * bar1.AbsoluteSize.X) + tonumber(min))
 					TextBox.Text = Value
 				end
 			end)
@@ -933,7 +880,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			end)
 		end
 
-        function main:AddTextbox(text,disappear,callback)
+		function main:AddTextbox(text,disappear,callback)
 			local Textbox = Instance.new("Frame")
 			local TextboxCorner = Instance.new("UICorner")
 			local Textboxx = Instance.new("Frame")
@@ -945,9 +892,9 @@ function library:CreateWindow(text,maincolor,text2,logo)
 
 			Textbox.Name = "Textbox"
 			Textbox.Parent = MainFramePage
-			Textbox.BackgroundColor3 = maincolor
+			Textbox.BackgroundColor3 = _G.Color
 			Textbox.BackgroundTransparency = 0
-			Textbox.Size = UDim2.new(0, 335, 0, 31)
+			Textbox.Size = UDim2.new(0, 470, 0, 31)
 
 			TextboxCorner.CornerRadius = UDim.new(0, 5)
 			TextboxCorner.Name = "TextboxCorner"
@@ -957,7 +904,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			Textboxx.Parent = Textbox
 			Textboxx.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 			Textboxx.Position = UDim2.new(0, 1, 0, 1)
-			Textboxx.Size = UDim2.new(0, 333, 0, 29)
+			Textboxx.Size = UDim2.new(0, 468, 0, 29)
 
 			TextboxxCorner.CornerRadius = UDim.new(0, 5)
 			TextboxxCorner.Name = "TextboxxCorner"
@@ -981,7 +928,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			txtbtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			txtbtn.BackgroundTransparency = 1.000
 			txtbtn.Position = UDim2.new(0, 1, 0, 1)
-			txtbtn.Size = UDim2.new(0, 333, 0, 29)
+			txtbtn.Size = UDim2.new(0, 468, 0, 29)
 			txtbtn.Font = Enum.Font.SourceSans
 			txtbtn.Text = ""
 			txtbtn.TextColor3 = Color3.fromRGB(0, 0, 0)
@@ -989,11 +936,10 @@ function library:CreateWindow(text,maincolor,text2,logo)
 
 			RealTextbox.Name = "RealTextbox"
 			RealTextbox.Parent = Textbox
-            RealTextbox.ClipsDescendants = true
 			RealTextbox.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
 			RealTextbox.BackgroundTransparency = 0
-			RealTextbox.Position = UDim2.new(0, 255, 0, 6)
-			RealTextbox.Size = UDim2.new(0, 75, 0, 20)
+			RealTextbox.Position = UDim2.new(0, 360, 0, 4)
+			RealTextbox.Size = UDim2.new(0, 100, 0, 24)
 			RealTextbox.Font = Enum.Font.GothamSemibold
 			RealTextbox.Text = ""
 			RealTextbox.TextColor3 = Color3.fromRGB(225, 225, 225)
@@ -1013,13 +959,13 @@ function library:CreateWindow(text,maincolor,text2,logo)
 		function main:AddLabel(text)
 			local Label = Instance.new("TextLabel")
 			local PaddingLabel = Instance.new("UIPadding")
-			local labell = {}
+			local labelfunc = {}
 	
 			Label.Name = "Label"
 			Label.Parent = MainFramePage
 			Label.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Label.BackgroundTransparency = 1.000
-			Label.Size = UDim2.new(0, 335, 0, 20)
+			Label.Size = UDim2.new(0, 470, 0, 20)
 			Label.Font = Enum.Font.GothamSemibold
 			Label.TextColor3 = Color3.fromRGB(225, 225, 225)
 			Label.TextSize = 16.000
@@ -1030,12 +976,12 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			PaddingLabel.Parent = Label
 			PaddingLabel.Name = "PaddingLabel"
 	
-			function labell:Set(newtext)
+			function labelfunc:Set(newtext)
 				Label.Text = newtext
 			end
-
-			return labell
+			return labelfunc
 		end
+
 		function main:AddSeperator(text)
 			local Seperator = Instance.new("Frame")
 			local Sep1 = Instance.new("Frame")
@@ -1046,11 +992,11 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			Seperator.Parent = MainFramePage
 			Seperator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Seperator.BackgroundTransparency = 1.000
-			Seperator.Size = UDim2.new(0, 335, 0, 20)
+			Seperator.Size = UDim2.new(0, 470, 0, 20)
 			
 			Sep1.Name = "Sep1"
 			Sep1.Parent = Seperator
-			Sep1.BackgroundColor3 = maincolor
+			Sep1.BackgroundColor3 = _G.Color
 			Sep1.BorderSizePixel = 0
 			Sep1.Position = UDim2.new(0, 0, 0, 10)
 			Sep1.Size = UDim2.new(0, 80, 0, 1)
@@ -1059,7 +1005,7 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			Sep2.Parent = Seperator
 			Sep2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Sep2.BackgroundTransparency = 1.000
-			Sep2.Position = UDim2.new(0, 120, 0, 0)
+			Sep2.Position = UDim2.new(0, 185, 0, 0)
 			Sep2.Size = UDim2.new(0, 100, 0, 20)
 			Sep2.Font = Enum.Font.GothamSemibold
 			Sep2.Text = text
@@ -1068,9 +1014,9 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			
 			Sep3.Name = "Sep3"
 			Sep3.Parent = Seperator
-			Sep3.BackgroundColor3 = maincolor
+			Sep3.BackgroundColor3 = _G.Color
 			Sep3.BorderSizePixel = 0
-			Sep3.Position = UDim2.new(0, 255, 0, 10)
+			Sep3.Position = UDim2.new(0, 390, 0, 10)
 			Sep3.Size = UDim2.new(0, 80, 0, 1)
 		end
 
@@ -1083,18 +1029,18 @@ function library:CreateWindow(text,maincolor,text2,logo)
 			Linee.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			Linee.BackgroundTransparency = 1.000
 			Linee.Position = UDim2.new(0, 0, 0.119999997, 0)
-			Linee.Size = UDim2.new(0, 335, 0, 20)
+			Linee.Size = UDim2.new(0, 470, 0, 20)
 			
 			Line.Name = "Line"
 			Line.Parent = Linee
-			Line.BackgroundColor3 = maincolor
+			Line.BackgroundColor3 = _G.Color
 			Line.BorderSizePixel = 0
 			Line.Position = UDim2.new(0, 0, 0, 10)
-			Line.Size = UDim2.new(0, 335, 0, 1)
+			Line.Size = UDim2.new(0, 470, 0, 1)
 		end
-        return main
-    end
-    return uitab
+		return main
+	end
+	return uitab
 end
 
 
@@ -2350,7 +2296,134 @@ function UpdateRealFruitChams()
 			end 
 		end
 	end
+end
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if MobESP then
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if v:FindFirstChild('HumanoidRootPart') then
+                        if not v:FindFirstChild("MobEap") then
+                            local BillboardGui = Instance.new("BillboardGui")
+                            local TextLabel = Instance.new("TextLabel")
+
+                            BillboardGui.Parent = v
+                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+                            BillboardGui.Active = true
+                            BillboardGui.Name = "MobEap"
+                            BillboardGui.AlwaysOnTop = true
+                            BillboardGui.LightInfluence = 1.000
+                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
+                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
+
+                            TextLabel.Parent = BillboardGui
+                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                            TextLabel.BackgroundTransparency = 1.000
+                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
+                            TextLabel.Font = Enum.Font.GothamBold
+                            TextLabel.TextColor3 = Color3.fromRGB(7, 236, 240)
+                            TextLabel.Text.Size = 35
+                        end
+                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
+                        v.MobEap.TextLabel.Text = v.Name.." - "..Dis.." Distance"
+                    end
+                end
+            else
+                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    if v:FindFirstChild("MobEap") then
+                        v.MobEap:Destroy()
+                    end
+                end
+            end
+        end)
     end
+end)
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if SeaESP then
+                for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+                    if v:FindFirstChild('HumanoidRootPart') then
+                        if not v:FindFirstChild("Seaesps") then
+                            local BillboardGui = Instance.new("BillboardGui")
+                            local TextLabel = Instance.new("TextLabel")
+
+                            BillboardGui.Parent = v
+                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+                            BillboardGui.Active = true
+                            BillboardGui.Name = "Seaesps"
+                            BillboardGui.AlwaysOnTop = true
+                            BillboardGui.LightInfluence = 1.000
+                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
+                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
+
+                            TextLabel.Parent = BillboardGui
+                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                            TextLabel.BackgroundTransparency = 1.000
+                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
+                            TextLabel.Font = Enum.Font.GothamBold
+                            TextLabel.TextColor3 = Color3.fromRGB(7, 236, 240)
+                            TextLabel.Text.Size = 35
+                        end
+                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
+                        v.Seaesps.TextLabel.Text = v.Name.." - "..Dis.." Distance"
+                    end
+                end
+            else
+                for i,v in pairs (game:GetService("Workspace").SeaBeasts:GetChildren()) do
+                    if v:FindFirstChild("Seaesps") then
+                        v.Seaesps:Destroy()
+                    end
+                end
+            end
+        end)
+    end
+end)
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if NpcESP then
+                for i,v in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
+                    if v:FindFirstChild('HumanoidRootPart') then
+                        if not v:FindFirstChild("NpcEspes") then
+                            local BillboardGui = Instance.new("BillboardGui")
+                            local TextLabel = Instance.new("TextLabel")
+
+                            BillboardGui.Parent = v
+                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+                            BillboardGui.Active = true
+                            BillboardGui.Name = "NpcEspes"
+                            BillboardGui.AlwaysOnTop = true
+                            BillboardGui.LightInfluence = 1.000
+                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
+                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
+
+                            TextLabel.Parent = BillboardGui
+                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                            TextLabel.BackgroundTransparency = 1.000
+                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
+                            TextLabel.Font = Enum.Font.GothamBold
+                            TextLabel.TextColor3 = Color3.fromRGB(7, 236, 240)
+                            TextLabel.Text.Size = 35
+                        end
+                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
+                        v.NpcEspes.TextLabel.Text = v.Name.." - "..Dis.." Distance"
+                    end
+                end
+            else
+                for i,v in pairs (game:GetService("Workspace").NPCs:GetChildren()) do
+                    if v:FindFirstChild("NpcEspes") then
+                        v.NpcEspes:Destroy()
+                    end
+                end
+            end
+        end)
+    end
+end)
+
     
     function InfAb()
         if InfAbility then
@@ -2817,19 +2890,18 @@ getgenv().ToTargets = function(p)
 
 
 
-local RenUi = library:CreateWindow("Domadic",Color3.fromRGB(0,255,255),"Blox Fruits")
-local H = RenUi:AddTab("Home","12950870585")
-local Main = RenUi:AddTab("Main","6026568198")
-local M = RenUi:AddTab("Auto Item Quest","9606626859")
-local Ss = RenUi:AddTab("Stats","7040410130")
-local RaceV4 = RenUi:AddTab("RaceV4","11162889532")
-local P = RenUi:AddTab("Player","7251993295")
-local R = RenUi:AddTab("Raid","11155986081")
-local T = RenUi:AddTab("Teleport","11155851001")
-local S = RenUi:AddTab("Shop","6031265976")
-local D = RenUi:AddTab("Devil Fruit","7044233235")
-local Misc = RenUi:AddTab("Misc","11156061121")
-local Esp = RenUi:AddTab("Esp","7044284832")
+local Library = DarkraiX:Window("        Domadic HUB","Blox Fruit | Version Free","DarkRaiGui",Enum.KeyCode.RightControl);
+local H = Library:AddTab("Home","12950870585")
+local Main = Library:AddTab("Main","6026568198")
+local M = Library:AddTab("Auto Item Quest","9606626859")
+local Ss = Library:AddTab("Stats","7040410130")
+local RaceV4 = Library:AddTab("RaceV4","11162889532")
+local P = Library:AddTab("Player","7251993295")
+local R = Library:AddTab("Raid","11155986081")
+local T = Library:AddTab("Teleport","11155851001")
+local S = Library:AddTab("Shop","6031265976")
+local D = Library:AddTab("Devil Fruit","7044233235")
+local Misc = Library:AddTab("Misc","11156061121")
 
 local Time = H:AddLabel("Executor Time");spawn(function() getgenv().Time = true;while true do wait(.1) UpdateTime() end end);function UpdateTime() local date = os.date("*t");local hour = (date.hour) % 24;local ampm = hour < 12 and "AM" or "PM";local timezone = string.format("%02i:%02i:%02i %s", ((hour -1) % 12) + 1, date.min, date.sec, ampm);local datetime = string.format("%02d/%02d/%04d", date.day, date.month, date.year);local LocalizationService = game:GetService("LocalizationService");local Players = game:GetService("Players");local player = Players.LocalPlayer;local name = player.Name;local result, code = pcall(function()   return LocalizationService:GetCountryRegionForPlayerAsync(player)  end);Time:Set(" : " .. timezone);Time:Set("Executor Time: " .. datetime .. " [ " .. code .. " ]");spawn(function() if getgenv().Time then pcall(function()  while wait() do  Time()  end end) end end) end
 
@@ -3289,7 +3361,7 @@ task.spawn(function()
                         if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
 						BTP(CFrameQuest)
 					else
-						topos(CFrameQuest)
+						TP1(CFrameQuest)
 					end
 					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude <= 20 then
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
@@ -4528,12 +4600,10 @@ spawn(function()
         end
     end)
 end)
-
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
         if _G.FastAttack == true then
             game.Players.LocalPlayer.Character.Stun.Value = 0
-            game.Players.LocalPlayer.Character.Humanoid.Sit = false
             game.Players.LocalPlayer.Character.Busy.Value = false        
         end
     end)
@@ -12809,6 +12879,72 @@ Misc:AddToggle("Remove Fog",RemoveFog,function(value)
     game.Players.LocalPlayer.Character.Animate.Disabled = true 
 end)
 
+Misc:AddSeperator("ESP MENU")
+    
+    Misc:AddToggle("ESP Player",false,function(a)
+        ESPPlayer = a
+	UpdatePlayerChams()
+    end)
+    
+    Misc:AddToggle("ESP Chest",false,function(a)
+        ChestESP = a
+	UpdateChestChams() 
+    end)
+    
+    Misc:AddToggle("ESP Fruit",false,function(a)
+        DevilFruitESP = a
+        while DevilFruitESP do wait()
+            UpdateDevilChams() 
+        end
+    end)
+    
+    Misc:AddToggle("ESP Real Fruit",RealFruitESP,function(a)
+        RealFruitESP = a
+	UpdateRealFruitChams() 
+    end)
+    
+    Misc:AddToggle("ESP Flower",false,function(a)
+        FlowerESP = a
+	UpdateFlowerChams() 
+    end)
+    spawn(function()
+	    while wait(2) do
+		    if FlowerESP then
+			    UpdateFlowerChams() 
+		    end
+		    if DevilFruitESP then
+			    UpdateDevilChams() 
+		    end
+		    if ChestESP then
+			    UpdateChestChams() 
+		    end
+		    if ESPPlayer then
+			    UpdatePlayerChams()
+		    end
+		    if RealFruitESP then
+			    UpdateRealFruitChams()
+		    end
+	    end
+    end)
+Misc:AddToggle("ESP Island",IslandESP,function(value)
+        IslandESP = value
+        while IslandESP do wait()
+            UpdateIslandESP() 
+        end
+    end)
+    Misc:AddToggle("Esp Npc", false, function(nec)
+    NpcESP = nec
+end)
+
+Misc:AddToggle("Esp Sea Beast", false, function(nec)
+    SeaESP = nec
+end)
+
+
+Misc:AddToggle("Esp Mob", false, function(nec)
+    MobESP = nec
+end)
+
     Misc:AddSeperator("Abilities")
     
     Misc:AddToggle("Dodge No Cooldown",false,function(value)
@@ -12996,193 +13132,6 @@ spawn(function()
     end)
     end)
 
-    Esp:AddSeperator("ESP MENU")
-    
-    Esp:AddToggle("ESP Player",false,function(a)
-        ESPPlayer = a
-	UpdatePlayerChams()
-    end)
-    
-    Esp:AddToggle("ESP Chest",false,function(a)
-        ChestESP = a
-	UpdateChestChams() 
-    end)
-    
-    Esp:AddToggle("ESP Fruit",false,function(a)
-        DevilFruitESP = a
-        while DevilFruitESP do wait()
-            UpdateDevilChams() 
-        end
-    end)
-    
-    Esp:AddToggle("ESP Real Fruit",RealFruitESP,function(a)
-        RealFruitESP = a
-	UpdateRealFruitChams() 
-    end)
-    
-    Esp:AddToggle("ESP Flower",false,function(a)
-        FlowerESP = a
-	UpdateFlowerChams() 
-    end)
-    spawn(function()
-	    while wait(2) do
-		    if FlowerESP then
-			    UpdateFlowerChams() 
-		    end
-		    if DevilFruitESP then
-			    UpdateDevilChams() 
-		    end
-		    if ChestESP then
-			    UpdateChestChams() 
-		    end
-		    if ESPPlayer then
-			    UpdatePlayerChams()
-		    end
-		    if RealFruitESP then
-			    UpdateRealFruitChams()
-		    end
-	    end
-    end)
-Esp:AddToggle("ESP Island",IslandESP,function(value)
-        IslandESP = value
-        while IslandESP do wait()
-            UpdateIslandESP() 
-        end
-    end)
-    Esp:AddToggle("Esp Npc", false, function(nec)
-    NpcESP = nec
-end)
-spawn(function()
-    while wait() do
-        pcall(function()
-            if NpcESP then
-                for i,v in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
-                    if v:FindFirstChild('HumanoidRootPart') then
-                        if not v:FindFirstChild("NpcEspes") then
-                            local BillboardGui = Instance.new("BillboardGui")
-                            local TextLabel = Instance.new("TextLabel")
-
-                            BillboardGui.Parent = v
-                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-                            BillboardGui.Active = true
-                            BillboardGui.Name = "NpcEspes"
-                            BillboardGui.AlwaysOnTop = true
-                            BillboardGui.LightInfluence = 1.000
-                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
-                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
-
-                            TextLabel.Parent = BillboardGui
-                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                            TextLabel.BackgroundTransparency = 1.000
-                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
-                            TextLabel.Font = Enum.Font.GothamBold
-                            TextLabel.TextColor3 = Color3.fromRGB(7, 236, 240)
-                            TextLabel.Text.Size = 35
-                        end
-                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
-                        v.NpcEspes.TextLabel.Text = v.Name.." - "..Dis.." Distance"
-                    end
-                end
-            else
-                for i,v in pairs (game:GetService("Workspace").NPCs:GetChildren()) do
-                    if v:FindFirstChild("NpcEspes") then
-                        v.NpcEspes:Destroy()
-                    end
-                end
-            end
-        end)
-    end
-end)
-
-Esp:AddToggle("Esp Sea Beast", false, function(nec)
-    SeaESP = nec
-end)
-spawn(function()
-    while wait() do
-        pcall(function()
-            if SeaESP then
-                for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-                    if v:FindFirstChild('HumanoidRootPart') then
-                        if not v:FindFirstChild("Seaesps") then
-                            local BillboardGui = Instance.new("BillboardGui")
-                            local TextLabel = Instance.new("TextLabel")
-
-                            BillboardGui.Parent = v
-                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-                            BillboardGui.Active = true
-                            BillboardGui.Name = "Seaesps"
-                            BillboardGui.AlwaysOnTop = true
-                            BillboardGui.LightInfluence = 1.000
-                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
-                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
-
-                            TextLabel.Parent = BillboardGui
-                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                            TextLabel.BackgroundTransparency = 1.000
-                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
-                            TextLabel.Font = Enum.Font.GothamBold
-                            TextLabel.TextColor3 = Color3.fromRGB(7, 236, 240)
-                            TextLabel.Text.Size = 35
-                        end
-                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
-                        v.Seaesps.TextLabel.Text = v.Name.." - "..Dis.." Distance"
-                    end
-                end
-            else
-                for i,v in pairs (game:GetService("Workspace").SeaBeasts:GetChildren()) do
-                    if v:FindFirstChild("Seaesps") then
-                        v.Seaesps:Destroy()
-                    end
-                end
-            end
-        end)
-    end
-end)
-
-Esp:AddToggle("Esp Mob", false, function(nec)
-    MobESP = nec
-end)
-spawn(function()
-    while wait() do
-        pcall(function()
-            if MobESP then
-                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if v:FindFirstChild('HumanoidRootPart') then
-                        if not v:FindFirstChild("MobEap") then
-                            local BillboardGui = Instance.new("BillboardGui")
-                            local TextLabel = Instance.new("TextLabel")
-
-                            BillboardGui.Parent = v
-                            BillboardGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-                            BillboardGui.Active = true
-                            BillboardGui.Name = "MobEap"
-                            BillboardGui.AlwaysOnTop = true
-                            BillboardGui.LightInfluence = 1.000
-                            BillboardGui.Size = UDim2.new(0, 200, 0, 50)
-                            BillboardGui.StudsOffset = Vector3.new(0, 2.5, 0)
-
-                            TextLabel.Parent = BillboardGui
-                            TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-                            TextLabel.BackgroundTransparency = 1.000
-                            TextLabel.Size = UDim2.new(0, 200, 0, 50)
-                            TextLabel.Font = Enum.Font.GothamBold
-                            TextLabel.TextColor3 = Color3.fromRGB(7, 236, 240)
-                            TextLabel.Text.Size = 35
-                        end
-                        local Dis = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.HumanoidRootPart.Position).Magnitude)
-                        v.MobEap.TextLabel.Text = v.Name.." - "..Dis.." Distance"
-                    end
-                end
-            else
-                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                    if v:FindFirstChild("MobEap") then
-                        v.MobEap:Destroy()
-                    end
-                end
-            end
-        end)
-    end
-end)
 
 game.StarterGui:SetCore("SendNotification", {
       Icon = "http://www.roblox.com/asset/?id=12523036534";
