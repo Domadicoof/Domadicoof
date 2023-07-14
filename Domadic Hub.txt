@@ -138,7 +138,7 @@ function DarkraiX:Window(text,gamenme,logo,keybind)
 	Logo.BackgroundTransparency = 1.000
 	Logo.Position = UDim2.new(0, 10, 0, 1)
 	Logo.Size = UDim2.new(0, 25, 0, 25)
-	Logo.Image = "http://www.roblox.com/asset/?id=12523036534"
+	Logo.Image = "rbxassetid://12523036534"
 
 	local Name = Instance.new("TextLabel")
 	Name.Name = "Name"
