@@ -3715,6 +3715,7 @@ H:AddLabel("[+] Added Job Id|5/7/2566|20:19")
 H:AddLabel("[+] Added Pray Auto Try Luck|5/7/2566|20:20")
 H:AddLabel("[+] Added Auto Elite Player|6/7/2566|20:16")
 H:AddLabel("[+] New Ui|11/7/2566|11:27")
+H:AddLabel("[+] Auto Mirage|17/7/2566|11:27")
 
 
 
@@ -5795,7 +5796,7 @@ M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
             end)
         end)
     end
-    M:AddToggle("Auto Summon Mirage Island",_G.dao,function(state)
+    M:AddToggle("Auto Drive Boat",_G.dao,function(state)
     if state then
         _G.dao = true
     else
@@ -5860,7 +5861,16 @@ for _,v in next, workspace.Boats.PirateBrigade:GetDescendants() do
 end
 end
 end) 
-    
+
+spawn(function()
+    while wait() do
+		pcall(function()
+			if _G.dao then
+				game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
+			end
+		end)
+    end
+end)
 M:AddToggle("Tween Gear",_G.TweenMGear,function(value)
 _G.TweenMGear = value
 StopTween(_G.TweenMGear)
