@@ -7584,13 +7584,25 @@ elseif game.PlaceId == 4520749081 or game.PlaceId == 6381829480 or game.PlaceId 
     
     if level == 1 or level <= 9 then
         LevelQuest = CFrame.new(-1961.6085205078125, 49.1392936706543, -4496.1240234375)
-        _G.Mon = "Soldier [Lv. 1]"
+        Mon = "Soldier [Lv. 1]"
     elseif level == 10 or level <= 19 then
         LevelQuest = CFrame.new(-1891.3680419921875, 53.15900421142578, -4524.48486328125)
         Mon = "Clown Pirate [Lv. 10]"
-    elseif level == 20 or level <= 30 then
+    elseif level == 20 or level <= 29 then
         LevelQuest = CFrame.new(-1964.0906982421875, 48.32536315917969, -4616.8125)
-        Mon = "Clown Pirate [Lv. 10]"
+        Mon = "Smoky [Lv. 20]"
+    elseif level == 30 or level <= 50 then
+        LevelQuest = CFrame.new()
+        Mon = " [Lv. ]"
+    elseif level == 20 or level <= 30 then
+        LevelQuest = CFrame.new()
+        Mon = " [Lv. ]"
+    elseif level == 20 or level <= 30 then
+        LevelQuest = CFrame.new()
+        Mon = " [Lv. ]"
+    elseif level == 20 or level <= 30 then
+        LevelQuest = CFrame.new()
+        Mon = " [Lv. ]"
     end
 end
     
