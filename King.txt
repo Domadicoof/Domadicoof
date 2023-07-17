@@ -8052,7 +8052,7 @@ end
         Quest()
         if _G.AutoFarm then
             if game:GetService("Players").LocalPlayer.PlayerGui.Quest.QuestBoard.Visible == false then
-                TP(LevelQuest)
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = LevelQuest
                 wait(.5)
                 vu:ClickButton1(Vector2.new(500,0))
                 wait(1.5)
@@ -8078,7 +8078,7 @@ end
             end
         end
     end)
-    end;
+    end
     
     Main:AddToggle("Auto Second Sea",_G.AutoSecondSea,function(value)
         _G.AutoSecondSea = value
