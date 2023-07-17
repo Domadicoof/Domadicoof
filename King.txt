@@ -7579,29 +7579,20 @@ elseif game.PlaceId == 4520749081 or game.PlaceId == 6381829480 or game.PlaceId 
     elseif game.PlaceId == 5931540094 then
        Dungeon_Sea = true
     end
-    function CheckQuest()
-        QUEST = {}
-        LVLREAL = {}
-        local MyLevel = game.Players.LocalPlayer.PlayerStats.lvl.Value
-        for i,v in pairs(game:GetService("Workspace").AntiTPNPC:GetChildren()) do 
-            if string.find(v.Name,"Quest Lvl") then
-                table.insert(QUEST,v.Name)
-            end
-        end
-        for i,v in pairs(game:GetService("ReplicatedStorage").MAP:GetChildren()) do 
-            if string.find(v.Name,"QuestLvl") then
-                table.insert(QUEST,v.Name)
-            end
-        end
-        for i,v in pairs(QUEST) do
-            values = v:split("Quest Lvl")
-            LVL = values[2]
-            if MyLevel >= tonumber(LVL) then
-                table.insert(LVLREAL,LVL)
-            end
-        end
-        LevelQuest = math.max(unpack(LVLREAL))
+    function Quest()
+   local level = game:GetService("Players").LocalPlayer.PlayerStats.lvl.Value
+    
+    if level == 1 or level <= 9 then
+        LevelQuest = CFrame.new(-1961.6085205078125, 49.1392936706543, -4496.1240234375)
+        _G.Mon = "Soldier [Lv. 1]"
+    elseif level == 10 or level <= 19 then
+        LevelQuest = CFrame.new(-1891.3680419921875, 53.15900421142578, -4524.48486328125)
+        Mon = "Clown Pirate [Lv. 10]"
+    elseif level == 20 or level <= 30 then
+        LevelQuest = CFrame.new(-1964.0906982421875, 48.32536315917969, -4616.8125)
+        Mon = "Clown Pirate [Lv. 10]"
     end
+end
     
     function fly()
         local mouse=game.Players.LocalPlayer:GetMouse''
