@@ -8068,7 +8068,6 @@ end
                 for i,v in pairs(game:GetService("Workspace").Monster.Mon:GetChildren()) do
                     if v.Name == Mon and v.Humanoid.Health > 0 then
                         repeat wait()
-                        AutoHaki()
                         EquipWeapon(_G.SelectWeapon)
                        TP(v.HumanoidRootPart.CFrame * MethodFarm)
                        vu:ClickButton1(Vector2.new(500,0))
