@@ -19,8 +19,8 @@ ImageButton1.MouseButton1Down:connect(function()
 end)
 UICorner.Parent = ImageButton1
 
-if game:GetService("CoreGui"):FindFirstChild("THUNDERZHUB") then
-    game:GetService("CoreGui"):FindFirstChild("THUNDERZHUB"):Destroy()
+if game:GetService("CoreGui"):FindFirstChild("Domadiclib") then
+    game:GetService("CoreGui"):FindFirstChild("Domadiclib"):Destroy()
 end
 
 repeat wait(1) until game:IsLoaded()
@@ -114,14 +114,14 @@ function Update:Window(text,logo,keybind)
     local keybind = keybind or Enum.KeyCode.RightControl
     local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 
-    local THUNDERZHUB = Instance.new("ScreenGui")
-    THUNDERZHUB.Name = "THUNDERZHUB"
-    THUNDERZHUB.Parent = game.CoreGui
-    THUNDERZHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    local Domadiclib = Instance.new("ScreenGui")
+    Domadiclib.Name = "Domadiclib"
+    Domadiclib.Parent = game.CoreGui
+    Domadiclib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
     local Main = Instance.new("Frame")
     Main.Name = "Main"
-    Main.Parent = THUNDERZHUB
+    Main.Parent = Domadiclib
     Main.ClipsDescendants = true
     Main.AnchorPoint = Vector2.new(0.5,0.5)
     Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
@@ -3620,7 +3620,7 @@ getgenv().ToTargets = function(p)
 
 
 
-print("For Namfon Hub Gay Dark Dum Pom Sob Mak")
+print("Load Script")
 
 local Library = Update:Window("Domadic HUB","",Enum.KeyCode.RightControl);
 
@@ -14012,7 +14012,7 @@ spawn(function()
     end)
     end)
 
-print("Domadic Hub")
+print("Domadic Hub Load Complete")
 
 game.StarterGui:SetCore("SendNotification", {
       Icon = "http://www.roblox.com/asset/?id=12523036534";
