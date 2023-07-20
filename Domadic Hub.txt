@@ -3716,7 +3716,8 @@ H:AddLabel("[+] Added Job Id|5/7/2566|20:19")
 H:AddLabel("[+] Added Pray Auto Try Luck|5/7/2566|20:20")
 H:AddLabel("[+] Added Auto Elite Player|6/7/2566|20:16")
 H:AddLabel("[+] New Ui|11/7/2566|11:27")
-H:AddLabel("[+] Auto Mirage|17/7/2566|11:27")
+H:AddLabel("[+] Auto Drive Boat|17/7/2566|11:27")
+H:AddLabel("[+] Aimbot Nearest|19/7/2566|20:43")
 
 
 
@@ -10856,6 +10857,41 @@ end)
         end
     end)
     
+    P:AddToggle("Aimbot Skill Nearest",false,function(MakoriGG)
+    AimSkillNearest = MakoriGG
+
+end)
+
+spawn(function()
+	while wait(.1) do
+		pcall(function()
+			local MaxDistance = math.huge
+			for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+				if v.Name ~= game.Players.LocalPlayer.Name then
+					local Distance = v:DistanceFromCharacter(game.Players.LocalPlayer.Character.HumanoidRootPart.Position)
+					if Distance < MaxDistance then
+						MaxDistance = Distance
+						TargetPlayerAim = v.Name
+					end
+				end
+			end
+		end)
+	end
+end)
+
+spawn(function()
+	pcall(function()
+		game:GetService("RunService").RenderStepped:connect(function()
+			if AimSkillNearest and TargetPlayerAim ~= nil and game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool") and game.Players.LocalPlayer.Character[game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name]:FindFirstChild("MousePos") then
+				local args = {
+					[1] = game:GetService("Players"):FindFirstChild(TargetPlayerAim).Character.HumanoidRootPart.Position
+				}
+				game:GetService("Players").LocalPlayer.Character[game.Players.LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))
+			end
+		end)
+	end)
+end)
+
     P:AddToggle("Aimbot Skill",false,function(value)
         _G.Aimbot_Skill = value
     end)
