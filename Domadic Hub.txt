@@ -11904,7 +11904,7 @@ end)
     
 
 if World1 then
-	T:Dropdown("Select Island Bypass Tp",{
+	T:AddDropdown("Select Island Bypass Tp",{
 		"WindMill",
 		"Marine",
 		"Middle Town",
@@ -11925,7 +11925,7 @@ if World1 then
 end
 
 if World2 then
-	T:Dropdown("Select Island Bypass Tp",{
+	T:AddDropdown("Select Island Bypass Tp",{
 		"The Cafe",
 		"Frist Spot",
 		"Flamingo Room",
@@ -11942,7 +11942,7 @@ if World2 then
 end
 
 if World3 then
-	T:Dropdown("Select Island Bypass Tp",{
+	T:AddDropdown("Select Island Bypass Tp",{
 		"Mansion",
 		"Port Town",
 		"Great Tree",
@@ -11959,7 +11959,7 @@ if World3 then
 	end)
 end
 
-T:Button("Bypass Tp",function(value)
+T:AddButton("Bypass Tp",function(value)
 	if _G.TeleportWarp == "Manslon" then
 	elseif _G.SelectWarp == "WindMill" then
 		wait(.1)
