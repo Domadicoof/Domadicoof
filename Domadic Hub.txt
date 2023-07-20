@@ -4094,7 +4094,8 @@ task.spawn(function()
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         StartMagnet = false
                         CheckQuest()
-                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
+                        if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
 						BTP(CFrameQuest)
 					else
 						TP1(CFrameQuest)
@@ -5235,6 +5236,11 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
     end)
     
     Main:AddSeperator("Setting")
+    
+Main:AddToggle("Bypass Tp",true,function(BTP)
+BypassTP = BTP
+end)
+
     
 Main:AddToggle("Bring Mob",true,function(Mag)
     _G.BringMonster = Mag
@@ -8641,7 +8647,7 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
         _G.Auto_Bone = value
         StopTween(_G.Auto_Bone)
     end)
-    
+   local BonePos = CFrame.new(-9508.5673828125, 142.1398468017578, 5737.3603515625)
     spawn(function()
         while wait() do 
             if _G.Auto_Bone and World3 then
@@ -8666,6 +8672,12 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BonePos.Position).Magnitude > 1500 then
+						BTP(BonePos)
+					else
+						topos(BonePos)
+					end
                         StartMagnetBoneMon = false
 						topos(CFrame.new(-9506.234375, 172.130615234375, 6117.0771484375))
                         for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
