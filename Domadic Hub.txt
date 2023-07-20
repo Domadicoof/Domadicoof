@@ -4996,6 +4996,7 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
         end
     end)
     
+    local CakePos = CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375)
     spawn(function()
         while wait() do
             if _G.AutoDoughtBoss then
@@ -5046,6 +5047,12 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
                                         end
                                     end
                                 else
+                                if BypassTP then
+                                elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CakePos.Position).Magnitude > 1500 then
+						        BTP(CakePos)
+					        else
+						         topos(CakePos)
+					        end
                                     MagnetDought = false
                                     topos(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
                                     if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter [Lv. 2200]") then
@@ -5237,8 +5244,8 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
     
     Main:AddSeperator("Setting")
     
-Main:AddToggle("Bypass Tp",true,function(BTP)
-BypassTP = BTP
+Main:AddToggle('Bypass TP', BypassTP, function(vale)
+  BypassTP = vale
 end)
 
     
@@ -6245,6 +6252,7 @@ Radioactive = value
 StopTween(Radioactive)
 end)
 
+local MaterialsPos1 = CFrame.new(-507.7895202636719, 72.99479675292969, -126.45632934570312)
 spawn(function()
         while wait() do
             if Radioactive and World2 then
@@ -6270,6 +6278,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos1.Position).Magnitude > 1500 then
+						BTP(MaterialsPos1)
+					else
+						topos(MaterialsPos1)
+					end
                     topos(CFrame.new(-507.7895202636719, 72.99479675292969, -126.45632934570312))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Factory Staff [Lv. 800]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Factory Staff [Lv. 800]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6289,6 +6303,7 @@ _G.Makori_gay = value
 StopTween(_G.Makori_gay)
 end)
 
+local MaterialsPos2 = CFrame.new(-3352.9013671875, 285.01556396484375, -10534.841796875)
 spawn(function()
         while wait() do
             if _G.Makori_gay and World2 then
@@ -6314,6 +6329,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos2.Position).Magnitude > 1500 then
+						BTP(MaterialsPos2)
+					else
+						topos(MaterialsPos2)
+					end
                     topos(CFrame.new(-3352.9013671875, 285.01556396484375, -10534.841796875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Water Fighter [Lv. 1450]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Water Fighter [Lv. 1450]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6333,6 +6354,7 @@ _G.Umm = value
 StopTween(_G.Umm)
 end)
 
+local MaterialsPos3 = CFrame.new(-5850.2802734375, 77.28675079345703, 8848.6748046875)
 spawn(function()
         while wait() do
             if _G.Umm and World1 then
@@ -6358,6 +6380,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos3.Position).Magnitude > 1500 then
+						BTP(MaterialsPos3)
+					else
+						topos(MaterialsPos3)
+					end
                     topos(CFrame.new(-5850.2802734375, 77.28675079345703, 8848.6748046875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Military Spy [Lv. 325]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Military Spy [Lv. 325]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6372,7 +6400,7 @@ spawn(function()
         end
     end)
    
-
+local MaterialsPos4 = CFrame.new(-5234.60595703125, 51.953372955322266, -4732.27880859375)
 spawn(function()
         while wait() do
             if _G.Umm and World2 then
@@ -6398,6 +6426,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos4.Position).Magnitude > 1500 then
+						BTP(MaterialsPos4)
+					else
+						topos(MaterialsPos4)
+					end
                     topos(CFrame.new(-5234.60595703125, 51.953372955322266, -4732.27880859375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Lava Pirate [Lv. 1200]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Lava Pirate [Lv. 1200]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6417,6 +6451,7 @@ _G.Auto_Wing = value
 StopTween(_G.Auto_Wing)
 end)
 
+local MaterialsPos5 = CFrame.new(-7827.15625, 5606.912109375, -1705.5833740234375)
 spawn(function()
         while wait() do
             if _G.Auto_Wing and World1 then
@@ -6442,6 +6477,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos5.Position).Magnitude > 1500 then
+						BTP(MaterialsPos5)
+					else
+						topos(MaterialsPos5)
+					end
                     topos(CFrame.new(-7827.15625, 5606.912109375, -1705.5833740234375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Royal Soldier [Lv. 550]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Royal Soldier [Lv. 550]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6461,6 +6502,7 @@ _G.Leather = value
 StopTween(_G.Leather)
 end)
 
+local MaterialsPos6 = CFrame.new(-1211.8792724609375, 4.787090301513672, 3916.83056640625)
 spawn(function()
         while wait() do
             if _G.Leather and World1 then
@@ -6486,6 +6528,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos6.Position).Magnitude > 1500 then
+						BTP(MaterialsPos6)
+					else
+						topos(MaterialsPos6)
+					end
                     topos(CFrame.new(-1211.8792724609375, 4.787090301513672, 3916.83056640625))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Pirate [Lv. 36]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Pirate [Lv. 36]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6500,6 +6548,7 @@ spawn(function()
         end
     end)
     
+    local MaterialsPos7 = CFrame.new(-2010.5059814453125, 73.00115966796875, -3326.620849609375)
     spawn(function()
         while wait() do
             if _G.Leather and World2 then
@@ -6525,6 +6574,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos7.Position).Magnitude > 1500 then
+						BTP(MaterialsPos7)
+					else
+						topos(MaterialsPos7)
+					end
                     topos(CFrame.new(-2010.5059814453125, 73.00115966796875, -3326.620849609375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Marine Captain [Lv. 900]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Marine Captain [Lv. 900]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6539,6 +6594,7 @@ spawn(function()
         end
     end)
     
+    local MaterialsPos8 = CFrame.new(-11975.78515625, 331.7734069824219, -10620.0302734375)
     spawn(function()
         while wait() do
             if _G.Leather and World3 then
@@ -6564,6 +6620,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos8.Position).Magnitude > 1500 then
+						BTP(MaterialsPos8)
+					else
+						topos(MaterialsPos8)
+					end
                     topos(CFrame.new(-11975.78515625, 331.7734069824219, -10620.0302734375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Jungle Pirate [Lv. 1900]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Jungle Pirate [Lv. 1900]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6583,6 +6645,7 @@ Scrap = value
 StopTween(Scrap)
 end)
 
+local MaterialsPos9 = CFrame.new(-1132.4202880859375, 14.844913482666016, 4293.30517578125)
 spawn(function()
         while wait() do
             if Scrap and World1 then
@@ -6608,6 +6671,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos9.Position).Magnitude > 1500 then
+						BTP(MaterialsPos9)
+					else
+						topos(MaterialsPos9)
+					end
                     topos(CFrame.new(-1132.4202880859375, 14.844913482666016, 4293.30517578125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Brute [Lv. 45]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Brute [Lv. 45]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6622,6 +6691,7 @@ spawn(function()
         end
     end)
     
+    local MaterialsPos10 = CFrame.new(-972.307373046875, 73.04473876953125, 1419.2901611328125)
     spawn(function()
         while wait() do
             if Scrap and World2 then
@@ -6647,6 +6717,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos10.Position).Magnitude > 1500 then
+						BTP(MaterialsPos10)
+					else
+						topos(MaterialsPos10)
+					end
                     topos(CFrame.new(-972.307373046875, 73.04473876953125, 1419.2901611328125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Mercenary [Lv. 725]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Mercenary [Lv. 725]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6661,6 +6737,7 @@ spawn(function()
         end
     end)
     
+    local MaterialsPos11 = CFrame.new(-289.6311950683594, 43.8282470703125, 5583.66357421875)
     spawn(function()
         while wait() do
             if Scrap and World3 then
@@ -6686,6 +6763,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos11.Position).Magnitude > 1500 then
+						BTP(MaterialsPos11)
+					else
+						topos(MaterialsPos11)
+					end
                     topos(CFrame.new(-289.6311950683594, 43.8282470703125, 5583.66357421875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Pirate Millionaire [Lv. 1500]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Pirate Millionaire [Lv. 1500]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6705,6 +6788,7 @@ Cocoafarm = value
 StopTween(Cocoafarm)
 end)
 
+local MaterialsPos12 = CFrame.new(744.7930908203125, 24.76934242248535, -12637.7255859375)
 spawn(function()
         while wait() do
             if Cocoafarm and World3 then
@@ -6730,6 +6814,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos12.Position).Magnitude > 1500 then
+						BTP(MaterialsPos12)
+					else
+						topos(MaterialsPos12)
+					end
                     topos(CFrame.new(744.7930908203125, 24.76934242248535, -12637.7255859375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Chocolate Bar Battler [Lv. 2325]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Chocolate Bar Battler [Lv. 2325]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6749,6 +6839,7 @@ Dragon_Scale = value
 StopTween(Dragon_Scale)
 end)
 
+local MaterialsPos13 = CFrame.new(5824.06982421875, 51.38640213012695, -1106.694580078125)
 spawn(function()
         while wait() do
             if Dragon_Scale and World3 then
@@ -6774,6 +6865,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos13.Position).Magnitude > 1500 then
+						BTP(MaterialsPos13)
+					else
+						topos(MaterialsPos13)
+					end
                     topos(CFrame.new(5824.06982421875, 51.38640213012695, -1106.694580078125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Dragon Crew Warrior [Lv. 1575]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Dragon Crew Warrior [Lv. 1575]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6793,6 +6890,7 @@ Gunpowder = value
 StopTween(Gunpowder)
 end)
 
+local MaterialsPos14 = CFrame.new(-379.6134338378906, 73.84449768066406, 5928.5263671875)
 spawn(function()
         while wait() do
             if Gunpowder and World3 then
@@ -6818,6 +6916,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos14.Position).Magnitude > 1500 then
+						BTP(MaterialsPos14)
+					else
+						topos(MaterialsPos14)
+					end
                     topos(CFrame.new(-379.6134338378906, 73.84449768066406, 5928.5263671875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Pistol Billionaire [Lv. 1525]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Pistol Billionaire [Lv. 1525]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6837,6 +6941,7 @@ Fish = value
 StopTween(Fish)
 end)
 
+local MaterialsPos15 = CFrame.new(-10961.0126953125, 331.7977600097656, -8914.29296875)
 spawn(function()
         while wait() do
             if Fish and World3 then
@@ -6862,6 +6967,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos15.Position).Magnitude > 1500 then
+						BTP(MaterialsPos15)
+					else
+						topos(MaterialsPos15)
+					end
                     topos(CFrame.new(-10961.0126953125, 331.7977600097656, -8914.29296875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Fishman Captain [Lv. 1800]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Fishman Captain [Lv. 1800]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6881,6 +6992,7 @@ MiniHee = value
 StopTween(MiniHee)
 end)
 
+local MaterialsPos16 = CFrame.new(-13516.0458984375, 469.8182373046875, -6899.16064453125)
 spawn(function()
         while wait() do
             if MiniHee and World3 then
@@ -6906,6 +7018,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos16.Position).Magnitude > 1500 then
+						BTP(MaterialsPos16)
+					else
+						topos(MaterialsPos16)
+					end
                     topos(CFrame.new(-13516.0458984375, 469.8182373046875, -6899.16064453125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Mythological Pirate [Lv. 1850]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Mythological Pirate [Lv. 1850]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7281,6 +7399,7 @@ spawn(function()
         _G.AutoBudySwordHop = value
     end)
     
+    local BigMomPos = CFrame.new(-731.2034301757812, 381.5658874511719, -11198.4951171875)
     spawn(function()
         while wait() do
             if _G.AutoBudySword and World3 then
@@ -7304,6 +7423,12 @@ spawn(function()
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BigMomPos.Position).Magnitude > 1500 then
+						BTP(BigMomPos)
+					else
+						topos(BigMomPos)
+					end
                     topos(CFrame.new(-731.2034301757812, 381.5658874511719, -11198.4951171875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Queen [Lv. 2175] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Queen [Lv. 2175] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7939,6 +8064,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
          _G.Autotushitahop = value
     end)
     
+    local TushitaPos = CFrame.new(-10238.875976563, 389.7912902832, -9549.7939453125)
     spawn(function()
         while wait() do
             if  _G.Autotushita and World3 then
@@ -7962,6 +8088,12 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - TushitaPos.Position).Magnitude > 1500 then
+						BTP(TushitaPos)
+					else
+						topos(TushitaPos)
+					end
                     topos(CFrame.new(-10238.875976563, 389.7912902832, -9549.7939453125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Longma [Lv. 2000] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Longma [Lv. 2000] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7987,6 +8119,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
          _G.AutoCarvenderhop = value
     end)
     
+    local CavandisPos = CFrame.new(5311.07421875, 426.0243835449219, 165.12762451171875)
     spawn(function()
         while wait() do
             if  _G.AutoCarvender and World3 then
@@ -8010,6 +8143,12 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CavandisPos.Position).Magnitude > 1500 then
+						BTP(CavandisPos)
+					else
+						topos(CavandisPos)
+					end
                     topos(CFrame.new(5311.07421875, 426.0243835449219, 165.12762451171875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Beautiful Pirate [Lv. 1950] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Beautiful Pirate [Lv. 1950] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -8078,6 +8217,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
          _G.AutoTwinHook_Hop = value
     end)
     
+    local ElephantPos = CFrame.new(-13348.0654296875, 405.8904113769531, -8570.62890625)
     spawn(function()
         while wait() do
             if  _G.AutoTwinHook and World3 then
@@ -8101,6 +8241,12 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - ElephantPos.Position).Magnitude > 1500 then
+						BTP(ElephantPos)
+					else
+						topos(ElephantPos)
+					end
                     topos(CFrame.new(-13348.0654296875, 405.8904113769531, -8570.62890625))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Captain Elephant [Lv. 1875] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Captain Elephant [Lv. 1875] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -8148,6 +8294,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
         StopTween(_G.AutoElitehunter)
     end)
     
+    local ElitePos = CFrame.new(-5418.892578125, 313.74130249023, -2826.2260742188)
     spawn(function()
         while wait() do
             if _G.AutoElitehunter and World3 then
@@ -8183,6 +8330,12 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                     end
                                 end
                             else
+                            if BypassTP then
+                                elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - ElitePos.Position).Magnitude > 1500 then
+						        BTP(ElitePos)
+					        else
+						        topos(ElitePos)
+					        end
                                 if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") then
                                     topos(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                                 elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") then
@@ -8262,6 +8415,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
         StopTween(_G.AutoDarkDagger)
     end)
         
+    local AdminPos = CFrame.new(-5344.822265625, 423.98541259766, -2725.0930175781)
     spawn(function()
         pcall(function()
             while wait() do
@@ -8283,6 +8437,12 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - AdminPos.Position).Magnitude > 1500 then
+						BTP(AdminPos)
+					else
+						topos(AdminPos)
+					end
                         topos(CFrame.new(-5344.822265625, 423.98541259766, -2725.0930175781))
                     end
                 end
@@ -8304,7 +8464,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
         end)
     end)
     
-    M:AddSeperator(" Sea baeat Fixed ")
+    M:AddSeperator(" Sea baeat  ")
  
     M:AddToggle('Auto Sea baeat', false, function(value)
     _G.AutoSeaBest = value
@@ -8349,6 +8509,7 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
          _G.Auto_Dragon_Trident_Hop = value
     end)
     
+    local TridentPos = CFrame.new(-3914.830322265625, 123.29389190673828, -11516.8642578125)
     spawn(function()
         while wait() do
             if  _G.Auto_Dragon_Trident and World2 then
@@ -8372,6 +8533,12 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - TridentPos.Position).Magnitude > 1500 then
+						BTP(TridentPos)
+					else
+						topos(TridentPos)
+					end
                     topos(CFrame.new(-3914.830322265625, 123.29389190673828, -11516.8642578125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Tide Keeper [Lv. 1475] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Tide Keeper [Lv. 1475] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -8397,6 +8564,7 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
          _G.Autowadenhop = value
     end)
     
+    local NamfonPos = CFrame.new(5186.14697265625, 24.86684226989746, 832.1885375976562)
     spawn(function()
         while wait() do
             if  _G.Autowaden and World1 then
@@ -8420,6 +8588,12 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - NamfonPos.Position).Magnitude > 1500 then
+						BTP(NamfonPos)
+					else
+						topos(NamfonPos)
+					end
                     topos(CFrame.new(5186.14697265625, 24.86684226989746, 832.1885375976562))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Chief Warden [Lv. 230] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Chief Warden [Lv. 230] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -8445,6 +8619,7 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
          _G.Autogayhop = value
     end)
     
+    local GayMakPos = CFrame.new(-5023.38330078125, 28.65203285217285, 4332.3818359375)
     spawn(function()
         while wait() do
             if  _G.Autogay and World1 then
@@ -8468,6 +8643,12 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - GayMakPos.Position).Magnitude > 1500 then
+						BTP(GayMakPos)
+					else
+						topos(GayMakPos)
+					end
                     topos(CFrame.new(-5023.38330078125, 28.65203285217285, 4332.3818359375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Greybeard [Lv. 750] [Raid Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Greybeard [Lv. 750] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -8493,6 +8674,7 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
          _G.Autopolehop = value
     end)
     
+    local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.898681640625)
     spawn(function()
         while wait() do
             if  _G.Autopole and World1 then
@@ -8516,6 +8698,12 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - PolePos.Position).Magnitude > 1500 then
+						BTP(PolePos)
+					else
+						topos(PolePos)
+					end
                     topos(CFrame.new(-7748.0185546875, 5606.80615234375, -2305.898681640625))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Thunder God [Lv. 575] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Thunder God [Lv. 575] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -8576,13 +8764,14 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
     
     M:AddToggle("Auto Sharks saw", _G.Autodoughking,function(value)
          _G.Autosaw = value
-        StopTween( _G.Autopole)
+        StopTween( _G.Autosaw)
     end)
     
     M:AddToggle("Auto Shark Saw Hop", _G.AutodoughkingHop,function(value)
          _G.Autosawhop = value
     end)
     
+    local SharkPos = CFrame.new(-690.33081054688, 15.09425163269, 1582.2380371094)
     spawn(function()
         while wait() do
             if  _G.Autosaw and World1 then
@@ -8606,6 +8795,12 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - SharkPos.Position).Magnitude > 1500 then
+						BTP(SharkPos)
+					else
+						topos(SharkPos)
+					end
                     topos(CFrame.new(-690.33081054688, 15.09425163269, 1582.2380371094))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("The Saw [Lv. 100] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("The Saw [Lv. 100] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,40,2))
@@ -8647,7 +8842,7 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
         _G.Auto_Bone = value
         StopTween(_G.Auto_Bone)
     end)
-   local BonePos = CFrame.new(-9508.5673828125, 142.1398468017578, 5737.3603515625)
+   local BonePos = CFrame.new(-9506.234375, 172.130615234375, 6117.0771484375)
     spawn(function()
         while wait() do 
             if _G.Auto_Bone and World3 then
