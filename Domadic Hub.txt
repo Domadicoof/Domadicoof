@@ -3718,6 +3718,7 @@ H:AddLabel("[+] Added Auto Elite Player|6/7/2566|20:16")
 H:AddLabel("[+] New Ui|11/7/2566|11:27")
 H:AddLabel("[+] Auto Drive Boat|17/7/2566|11:27")
 H:AddLabel("[+] Aimbot Nearest|19/7/2566|20:43")
+H:AddLabel("[+] Auto ArenaTrainer|21/7/2566|19:44")
 
 
 
@@ -8358,12 +8359,13 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
     M:AddSeperator("ArenaTrainer")
     
     M:AddToggle("Auto ArenaTrainer",_G.AutoArenaTrainer,function(value)
-        _G.Namfon = value
+    _G.Namfon = value
+    StopTween(_G.Namfon)
     end)
     
     spawn(function()
 		while wait() do
-			if _G.Namfon then
+			if _G.Namfon and World3 then
 				pcall(function()
 					if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Training Dummy") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Training Dummy") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Training Dummy") then
