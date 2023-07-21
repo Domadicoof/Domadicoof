@@ -5244,26 +5244,10 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
     
     Main:AddSeperator("Setting")
     
-    local BPT = {"Tween", "ByPsaa TP"}
-_G.FarmMode = "Tween"
-Main:AddDropdown("Fast Mode", BPT,function(value)
-    _G.FarmMode = value
-end)
-spawn(function()
-    while wait(.1) do
-        if _G.BringMode then
-            pcall(function()
-                if _G.FarmMode == "Tween" then
-                    _G.FarmMode = true
-                elseif _G.FarmMode == "ByPsaa TP" then
-                    _G.BringMode = false
-                end
-            end)
-        end
-    end
-end)
     
-BypassTP = _G.FarmMode
+Main:AddToggle("Trun Off Bypass tp",false,function(Fast)
+BypassTP = Fast
+end)
 
     
 Main:AddToggle("Bring Mob",true,function(Mag)
