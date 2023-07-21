@@ -8367,7 +8367,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
 				pcall(function()
 					if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Training Dummy") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Training Dummy") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Training Dummy") then
-							if game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
+							if game:GetService("Workspace").Enemies:FindFirstChild("Training Dummy [Lv. 1500]") or game:GetService("Workspace").Enemies:FindFirstChild("Training Dummy [Lv. 1500]") or game:GetService("Workspace").Enemies:FindFirstChild("Training Dummy [Lv. 1500]") then
 								for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 									if v.Name == "Training Dummy [Lv. 1500]" or v.Name == "Training Dummy [Lv. 1500]" or v.Name == "Training Dummy [Lv. 1500]" then
 										if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
@@ -8383,11 +8383,11 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
 												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 											until _G.Namfon == false or v.Humanoid.Health <= 0 or not v.Parent
 											Usefastattack = false
-											topos(CFrame.new(3500.2919921875, 91.19071960449219, 284.0450439453125))
 										end
 									end
 								end
 							else
+							    topos(CFrame.new(3500.2919921875, 91.19071960449219, 284.0450439453125))
 								if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") then
 									topos(game:GetService("ReplicatedStorage"):FindFirstChild("Training Dummy [Lv. 1500]").HumanoidRootPart.CFrame * MethodFarm)
 								elseif game:GetService("ReplicatedStorage"):FindFirstChild("Training Dummy [Lv. 1500]") then
