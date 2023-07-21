@@ -8363,6 +8363,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
     StopTween(_G.Namfon)
     end)
     
+    local GGPos = CFrame.new(3757.732421875, 91.99540710449219, 253.65066528320312)
     spawn(function()
 		while wait() do
 			if _G.Namfon and World3 then
@@ -8389,6 +8390,12 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
 									end
 								end
 							else
+							if BypassTP then
+                            elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - GGPos.Position).Magnitude > 1500 then
+						        BTP(GGPos)
+					        else
+						        topos(GGPos)
+					        end
 							    topos(CFrame.new(3757.732421875, 91.99540710449219, 253.65066528320312))
 								if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") then
 									topos(game:GetService("ReplicatedStorage"):FindFirstChild("Training Dummy [Lv. 1500]").HumanoidRootPart.CFrame * MethodFarm)
