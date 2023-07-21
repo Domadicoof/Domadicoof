@@ -8374,7 +8374,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
 											repeat wait()
 												AutoHaki()
 												EquipWeapon(_G.SelectWeapon)
-												Usefastattack = true
+												Fastattack = true
 												v.HumanoidRootPart.CanCollide = false
 												v.Humanoid.WalkSpeed = 0
 												v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -8382,12 +8382,12 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
 												game:GetService("VirtualUser"):CaptureController()
 												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 											until _G.Namfon == false or v.Humanoid.Health <= 0 or not v.Parent
-											Usefastattack = false
+											Fastattack = false
 										end
 									end
 								end
 							else
-							    topos(CFrame.new(3500.2919921875, 91.19071960449219, 284.0450439453125))
+							    topos(CFrame.new(3757.732421875, 91.99540710449219, 253.65066528320312))
 								if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") then
 									topos(game:GetService("ReplicatedStorage"):FindFirstChild("Training Dummy [Lv. 1500]").HumanoidRootPart.CFrame * MethodFarm)
 								elseif game:GetService("ReplicatedStorage"):FindFirstChild("Training Dummy [Lv. 1500]") then
