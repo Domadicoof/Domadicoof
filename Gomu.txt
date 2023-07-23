@@ -4756,6 +4756,22 @@ Main:Toggle("Auto Farm Select",_G.Auto_Farm_Level,function(value)
  StopTween(_G.Auto_Farm_Level)
 end)
 
+Main:Toggle("Auto Use Awakening",_G.AutoAwakeningRace,function(value)
+    _G.AutoAwakeningRace = value
+    end)
+    
+spawn(function()
+    while wait() do
+		pcall(function()
+			if _G.AutoAwakeningRace then
+				game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
+				wait(0.1)
+                game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
+			end
+		end)
+    end
+end)
+
 
 function EquipWeaponSword()
 	pcall(function()
@@ -8771,7 +8787,7 @@ if World3 then
 
 Weapon:Seperator(" Eletric Claw ")
 
-Weapon:Toggle("Pegar Eletric Claw",_G.Auto_Electric_Claw,function(value)
+Weapon:Toggle("Auto Eletric Claw",_G.Auto_Electric_Claw,function(value)
  _G.Auto_Electric_Claw = value
 end)
 
@@ -8800,7 +8816,7 @@ end)
 
 Weapon:Seperator(" Dragon Talon ")
 
-Weapon:Toggle("Pegar Dragon Talon",_G.Auto_Dragon_Talon,function(value)
+Weapon:Toggle("Auto Dragon Talon",_G.Auto_Dragon_Talon,function(value)
  _G.Auto_Dragon_Talon = value
 end)
 
