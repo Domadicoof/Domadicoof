@@ -4987,6 +4987,7 @@ spawn(function()
 											AttackNoCD()
 										until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm_Melee
 										StatrMagnet = false
+										TP(CFrameMon)
 									end
 								end
 							end
