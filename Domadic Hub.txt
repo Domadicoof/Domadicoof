@@ -1142,7 +1142,53 @@ function library:Window(text,text2,text3,logo,keybind)
 				Item.Size = UDim2.new(0, 460, 0, 26)
 				Item.Font = Enum.Font.GothamSemibold
 				Item.Text = tostring(v)
-				Item.TextColor3 = Color3.fromRGB(225, 225, 225)
+		    spawn(function()
+            while wait() do
+                pcall(function()
+                    wait(0.1) 
+                    game:GetService('TweenService'):Create(
+                        Item,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(255, 0, 0)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        Item,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(255, 155, 0)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        Item,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(255, 255, 0)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        Item,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(0, 255, 0)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        Item,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(0, 255, 255)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        Item,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(0, 155, 255)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        Item,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(255, 0, 255)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        Item,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(255, 0, 155)}
+                    ):Play() 
+                    wait(.5)
+                end)
+            end
+            end)
 				Item.TextSize = 13.000
 				Item.TextTransparency = 0.500
 				Item.ClipsDescendants = true
@@ -3690,16 +3736,6 @@ H:AddSeperator("Credit")
 
 H:AddLabel("Domadic Hub Discord")
 H:AddLabel("https://discord.gg/8pdDV5By")
- 
- 
-H:AddLabel("Emereld Hub Discord")
-H:AddLabel("https://discord.gg/fgxqZjVj")
-
-H:AddLabel("Hub BF My Friend ")
-
-H:AddButton("Namfon Hub By Dev Makori Hub",function()
-setclipboard("https://discord.gg/JVGrJ4JU")
-end)
 
 H:AddLabel("Owner Domadic Hub @miidraayeerng มีร้ายแรงคนเดิม Script Creator V1")
 H:AddLabel("Devloper Domadic Hub @onweremeraldhub Cxllme Namfon Script Creator V2")
@@ -3764,6 +3800,7 @@ H:AddLabel("[+] Auto Drive Boat|17/7/2566|11:27")
 H:AddLabel("[+] Aimbot Nearest|19/7/2566|20:43")
 H:AddLabel("[+] Auto ArenaTrainer|21/7/2566|19:44")
 H:AddLabel("[+] Ui Ripple|25/7/2566|20:01")
+H:AddLabel("[+] Auto Sword Mas|29/7/2566|10:03")
 
 
 
@@ -7481,7 +7518,7 @@ function EquipWeaponSword()
 	end)
 end
 
-    M:AddToggle("Auto Farm Sword Mastery",_G.AutoFarmGunMastery,function(value)
+    M:AddToggle("Auto Farm Sword Mastery",_G.AutoSwordMastery,function(value)
         _G.AutoSwordMastery = value
         StopTween(_G.AutoSwordMastery)
     end)
@@ -7515,7 +7552,7 @@ end
                                                 HealthMin = v.Humanoid.MaxHealth * _G.Kill_At/100
                                                 if v.Humanoid.Health <= HealthMin then                                                
                                                     EquipWeaponSword()
-                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
