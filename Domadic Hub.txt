@@ -7126,9 +7126,9 @@ spawn(function()
     _G.StardHop = value
     end)
 
-    Main:AddSeperator("Advance Dungeon")
+    M:AddSeperator("Advance Dungeon")
     
-    Main:AddToggle("Auto Phoenix Raid",_G.AutoAdvanceDungeon,function(value)
+    M:AddToggle("Auto Phoenix Raid",_G.AutoAdvanceDungeon,function(value)
         _G.AutoAdvanceDungeon = value
         StopTween(_G.AutoAdvanceDungeon)
     end)
@@ -7137,7 +7137,7 @@ spawn(function()
         while wait() do
             if _G.AutoAdvanceDungeon then
                 pcall(function()
-                    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Bird-Bird: Phoenix") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Bird-Bird: Phoenix") then
+                    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Bird: Phoenix") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Bird: Phoenix") then
                         if game.Players.LocalPlayer.Backpack:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value) then
                             if game.Players.LocalPlayer.Backpack:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value).Level.Value >= 400 then
                                 topos(CFrame.new(-2812.76708984375, 254.803466796875, -12595.560546875))
