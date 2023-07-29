@@ -7470,6 +7470,17 @@ spawn(function()
         end)
     end)
     
+function EquipWeaponSword()
+	pcall(function()
+		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+			if v.ToolTip == "Sword" and v:IsA('Tool') then
+				local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(v.Name) 
+				game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
+			end
+		end
+	end)
+end
+
     M:AddToggle("Auto Farm Sword Mastery",_G.AutoFarmGunMastery,function(value)
         _G.AutoSwordMastery = value
         StopTween(_G.AutoSwordMastery)
@@ -7502,17 +7513,12 @@ spawn(function()
                                             if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
                                                 HealthMin = v.Humanoid.MaxHealth * _G.Kill_At/100
                                                 if v.Humanoid.Health <= HealthMin then                                                
-                                                    EquipWeapon(SelectWeaponSword)
+                                                    EquipWeaponSword()
                                                     TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.HumanoidRootPart.Size = Vector3.new(2,2,1)
                                                     v.Head.CanCollide = false                                                
-                                                    local args = {
-                                                        [1] = v.HumanoidRootPart.Position,
-                                                        [2] = v.HumanoidRootPart
-                                                    }
-                                                    game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(game:GetService("Players").LocalPlayer.Data.Sword.Value)
                                                 else
                                                     AutoHaki()
                                                     EquipWeapon(_G.SelectWeapon)
