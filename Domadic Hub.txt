@@ -7471,8 +7471,8 @@ spawn(function()
     end)
     
     M:AddToggle("Auto Farm Sword Mastery",_G.AutoFarmGunMastery,function(value)
-        _G.AutoFarmSwordMastery = value
-        StopTween(_G.AutoFarmSwordMastery)
+        _G.AutoSwordMastery = value
+        StopTween(_G.AutoSwordMastery)
     end)
     
     spawn(function()
@@ -7530,7 +7530,7 @@ spawn(function()
                                                 AutoFarmNearestMagnet = false
                                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                             end
-                                        until v.Humanoid.Health <= 0 or _G.AutoFarmGunMastery == false or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                        until v.Humanoid.Health <= 0 or _G.AutoSwordMastery == false or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                         AutoFarmNearestMagnet = false
                                     end
                                 end
