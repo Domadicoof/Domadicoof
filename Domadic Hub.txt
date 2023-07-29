@@ -7486,6 +7486,7 @@ end
         StopTween(_G.AutoSwordMastery)
     end)
     
+    --Domadic_Auto_Sword_Mastery
     spawn(function()
         pcall(function()
             while wait() do
@@ -7496,7 +7497,7 @@ end
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                     end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                        AutoFarmNearestMagnet = false
+                        AutoSwordMasteryMag = false
                         CheckQuest()
                         TP1(CFrameQuest)
                         if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 then
@@ -7517,7 +7518,9 @@ end
                                                     TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.HumanoidRootPart.CanCollide = false
-                                                    v.HumanoidRootPart.Size = Vector3.new(2,2,1)
+                                                    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                                    game:GetService'VirtualUser':CaptureController()
+                                                    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                                     v.Head.CanCollide = false                                                
                                                 else
                                                     AutoHaki()
@@ -7530,20 +7533,20 @@ end
                                                     game:GetService'VirtualUser':CaptureController()
                                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                                 end
-                                                AutoFarmNearestMagnet = true 
+                                                AutoSwordMasteryMag = true 
                                                 PosMon = v.HumanoidRootPart.CFrame
                                             else
-                                                AutoFarmNearestMagnet = false
+                                                AutoSwordMasteryMag = false
                                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                             end
                                         until v.Humanoid.Health <= 0 or _G.AutoSwordMastery == false or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                        AutoFarmNearestMagnet = false
+                                        AutoSwordMasteryMag = false
                                     end
                                 end
                             end)
                         else
                            TP1(CFrameMon)
-                            StartMasteryGunMagnet = false
+                            AutoSwordMasteryMag = false
                             local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Mon) 
                             if Mob then
                                 TP1(Mob.HumanoidRootPart.CFrame * CFrame.new(0,0,10))
@@ -10500,6 +10503,44 @@ function InMyNetWork(object)
 	end
 end
 
+function InMyNetWork(object)
+	if isnetworkowner then
+		return isnetworkowner(object)
+	else
+		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then 
+			return true
+		end
+		return false
+	end
+end
+
+task.spawn(function()
+	while task.wait() do
+		pcall(function()
+			if _G.AutoSwordMastery and AutoSwordMasteryMag and _G.BringMonster then
+				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
+						if InMyNetWork(v.HumanoidRootPart) then
+							v.HumanoidRootPart.CFrame = PosMon
+							v.Humanoid.JumpPower = 0
+							v.Humanoid.WalkSpeed = 0
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							v.HumanoidRootPart.Transparency = 1
+							v.HumanoidRootPart.CanCollide = false
+							v.Head.CanCollide = false
+							if v.Humanoid:FindFirstChild("Animator") then
+								v.Humanoid.Animator:Destroy()
+							end
+							v.Humanoid:ChangeState(11)
+							v.Humanoid:ChangeState(14)
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
+    
 task.spawn(function()
 	while task.wait() do
 		pcall(function()
