@@ -6529,7 +6529,6 @@ local L_18_ = UI.tab({
 	ColorUI = _G.Settings.UI["Color"]
 })
 
-
 L_18_Label.Color(_G.Settings.UI["Color"])
 
 local L_19_ = UI.tab({
@@ -6537,7 +6536,7 @@ local L_19_ = UI.tab({
 	ColorUI = _G.Settings.UI["Color"]
 })
 
-L_18_Label.Color(_G.Settings.UI["Color"])
+L_19_Label.Color(_G.Settings.UI["Color"])
 
 local L_20_ = UI.tab({
 	Logo = 11155842453,
