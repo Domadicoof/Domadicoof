@@ -3901,7 +3901,7 @@ LoadButton.Position = UDim2.new(0.5, 0, 0.5, 0)
 LoadButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 LoadButton.BackgroundTransparency = 1.000
 LoadButton.Size = UDim2.new(0, 70, 0, 70)
-LoadButton.Image = "http://www.roblox.com/asset/?id=".._G.Settings.UI["Logo"]
+LoadButton.Image = "http://www.roblox.com/asset/?id="5456910821
 LoadButton.ImageTransparency = 1
 
 local ClickFrame = Instance.new("Frame")
@@ -6483,53 +6483,82 @@ function Library.new()
 	return LibraryTab
 end
 
+local UI = Library.new()
+
+local PlayerInfo = UI.tab({
+	Logo = 6022668898,
+	ColorUI = _G.Settings.UI["Color"]
+})
+
+local Page_PlayerInfo = PlayerInfo.page()
+
+-- [Properties PlayerInfo Page]
+
+Page_PlayerInfo.PlayerInfo()
+
 local L_14_ = UI.tab({
 	Logo = 13075651575,
 	ColorUI = _G.Settings.UI["Color"]
 })
+
+L_14_Label.Color(_G.Settings.UI["Color"])
 
 local L_15_ = UI.tab({
 	Logo = 13075622619,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+L_15_Label.Color(_G.Settings.UI["Color"])
+
 local L_16_ = UI.tab({
 	Logo = 7040410130,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+L_16_Label.Color(_G.Settings.UI["Color"])
 
 local L_17_ = UI.tab({
 	Logo = 11155851001,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+L_17_Label.Color(_G.Settings.UI["Color"])
+
 local L_18_ = UI.tab({
 	Logo = 11155842453,
 	ColorUI = _G.Settings.UI["Color"]
 })
+
+
+L_18_Label.Color(_G.Settings.UI["Color"])
 
 local L_19_ = UI.tab({
 	Logo = 11155842453,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+L_18_Label.Color(_G.Settings.UI["Color"])
 
 local L_20_ = UI.tab({
 	Logo = 11155842453,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+L_20_Label.Color(_G.Settings.UI["Color"])
 
 local L_21_ = UI.tab({
 	Logo = 7044233235,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+L_21_Label.Color(_G.Settings.UI["Color"])
+
 local L_22_ = UI.tab({
 	Logo = 11155842453,
 	ColorUI = _G.Settings.UI["Color"]
 })
+
+L_22_Label.Color(_G.Settings.UI["Color"])
 
 L_14_.Label({
 	Title = "Auto Farm Level [ออโต้ฟาร์มเลเวล]"
