@@ -6496,45 +6496,57 @@ local Page_PlayerInfo = PlayerInfo.page()
 
 Page_PlayerInfo.PlayerInfo()
 
-local L_14_ = UI.tab({
+local Main = UI.tab({
 	Logo = 13075651575,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+local L_14_ = Main.page()
+
 L_14_Label.Color(_G.Settings.UI["Color"])
 
-local L_15_ = UI.tab({
+local Auto = UI.tab({
 	Logo = 13075622619,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+local L_15_ = Auto.page()
+
 L_15_Label.Color(_G.Settings.UI["Color"])
 
-local L_16_ = UI.tab({
+local Stats = UI.tab({
 	Logo = 7040410130,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+local L_16_ = Stats.page()
+
 L_16_Label.Color(_G.Settings.UI["Color"])
 
-local L_17_ = UI.tab({
+local Teleport = UI.tab({
 	Logo = 11155851001,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+local L_17_ = Teleport.page()
+
 L_17_Label.Color(_G.Settings.UI["Color"])
 
-local L_18_ = UI.tab({
+local Fruit = UI.tab({
 	Logo = 11155842453,
 	ColorUI = _G.Settings.UI["Color"]
 })
+
+local L_18_ = Fruit.page()
 
 L_18_Label.Color(_G.Settings.UI["Color"])
 
-local L_19_ = UI.tab({
+local Raid = UI.tab({
 	Logo = 11155842453,
 	ColorUI = _G.Settings.UI["Color"]
 })
+
+local L_19_ = Raid.page()
 
 L_19_Label.Color(_G.Settings.UI["Color"])
 
@@ -6543,19 +6555,25 @@ local L_20_ = UI.tab({
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+local L_20_ = Raid.page()
+
 L_20_Label.Color(_G.Settings.UI["Color"])
 
-local L_21_ = UI.tab({
+local Shop = UI.tab({
 	Logo = 7044233235,
 	ColorUI = _G.Settings.UI["Color"]
 })
 
+local L_21_ = Shop.page()
+
 L_21_Label.Color(_G.Settings.UI["Color"])
 
-local L_22_ = UI.tab({
+local Misc = UI.tab({
 	Logo = 11155842453,
 	ColorUI = _G.Settings.UI["Color"]
 })
+
+local L_22_ = Misc.page()
 
 L_22_Label.Color(_G.Settings.UI["Color"])
 
