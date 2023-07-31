@@ -8782,7 +8782,7 @@ M:AddToggle('Auto Sea baeat Hop', false, function(value)
         while wait() do
             if _G.AutoBoat then
                    pcall(function()
-                     for i,v in pairs(game:GetService("Workspace").SeaEvents:GetChildren()) do
+                     for i,v in pairs(game:GetService("Workspace").VehicleSeat:GetChildren()) do
                          if v:FindFirstChild("HumanoidRootPart") then
                             AutoHaki()
                             EquipWeapon(_G.SelectWeapon)
