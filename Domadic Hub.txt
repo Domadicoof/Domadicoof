@@ -8632,8 +8632,8 @@ end
             end
         end)
         
-M:AddToggle("Auto Sea Baest [Fully]",_G.set.Auto_Seabest,function(value)
-_G.set.Auto_Seabest = value
+M:AddToggle("Auto Sea Baest [Fully]",_G.Auto_Seabest,function(value)
+_G.Auto_Seabest = value
 end)
 
 local gg = getrawmetatable(game)
@@ -8690,11 +8690,10 @@ spawn(function()
     end
 end)
 
-
 task.spawn(function()
     while wait() do
         pcall(function()
-            if _G.set.Auto_Seabest then
+            if _G.Auto_Seabest then
                 if not game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
                     if not game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") then 
                         if not game:GetService("Workspace").Enemies:FindFirstChild("PirateBasic") then
@@ -8717,7 +8716,7 @@ task.spawn(function()
                                         if (game:GetService("Workspace").Boats.MarineBrigade.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
                                             TPB(CFrame.new(35.04552459716797, 17.750778198242188, 4819.267578125))
                                         end
-                                    until game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or _G.set.Auto_Seabest == false
+                                    until game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or _G.Auto_Seabest == false
                                 end
                             end
                         elseif game:GetService("Workspace").Enemies:FindFirstChild("PirateBasic") then
@@ -8731,7 +8730,7 @@ task.spawn(function()
                                             AutoSkill = true
                                             AimBotSkillPosition = vs.VehicleSeat
                                             Skillaimbot = true
-                                        until not game:GetService("Workspace").Enemies:FindFirstChild("PirateBasic") or _G.set.Auto_Seabest == false
+                                        until not game:GetService("Workspace").Enemies:FindFirstChild("PirateBasic") or _G.Auto_Seabest == false
                                         AutoSkill = false
                                         Skillaimbot = false
                                     end
@@ -8749,7 +8748,7 @@ task.spawn(function()
                                         AutoSkill = true
                                         AimBotSkillPosition = vss.VehicleSeat
                                         Skillaimbot = true
-                                    until not game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or _G.set.Auto_Seabest == false
+                                    until not game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or _G.Auto_Seabest == false
                                     AutoSkill = false
                                     Skillaimbot = false
                                 end
@@ -8766,7 +8765,7 @@ task.spawn(function()
                                 AutoSkill = true
                                 AimBotSkillPosition = v.HumanoidRootPart
                                 Skillaimbot = true
-                            until not v:FindFirstChild("HumanoidRootPart") or _G.set.Auto_Seabest == false
+                            until not v:FindFirstChild("HumanoidRootPart") or _G.Auto_Seabest == false
                             AutoSkill = false
                             Skillaimbot = false
                         end
