@@ -3650,6 +3650,9 @@ H:AddLabel("[+] Aimbot Nearest|19/7/2566|20:43")
 H:AddLabel("[+] Auto ArenaTrainer|21/7/2566|19:44")
 H:AddLabel("[+] Ui Ripple|25/7/2566|20:01")
 H:AddLabel("[+] Auto Sword Mas|29/7/2566|10:03")
+H:AddLabel("[+] Newui|1/8/2566|--:--")
+H:AddLabel("[+] Esp Mystic Island|1/8/2566|16:11")
+H:AddLabel("[+] Auto Sea Baest Fully|1/8/2566|16:11")
 
 
 
@@ -8629,7 +8632,7 @@ end
             end
         end)
         
-M:AddToggle('Auto Sea baeat [Fully]', false, function(value)
+M:AddToggle("Auto Sea Baest [Fully]",_G.set.Auto_Seabest,function(value)
 _G.set.Auto_Seabest = value
 end)
 
