@@ -11134,7 +11134,10 @@ spawn(function()
         end
     end)
 end)
-  
+RaceV4:AddToggle("Auto Kill Player in Trail Fully [Beta]",false,function(v)
+  _G.AutoKillTial = v
+  StopTween(_G.AutoKillTial)
+  end)
  RaceV4:AddButton("Auto Complete Angel Trial",function(t)
         topos(game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame)
         end)
@@ -11147,11 +11150,6 @@ end)
         topos(CFrame.new(0,300,0))
         end)
     end
-    
-RaceV4:AddToggle("Auto Kill Player in Trail Fully [Beta]",false,function(v)
-  _G.AutoKillTial = v
-  StopTween(_G.AutoKillTial)
-  end)
     
     spawn(function()
 	while wait() do
