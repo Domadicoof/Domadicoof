@@ -3697,6 +3697,7 @@ H:AddLabel("[+] Auto Sword Mas|29/7/2566|10:03")
 H:AddLabel("[+] Newui|1/8/2566|--:--")
 H:AddLabel("[+] Esp Mystic Island|1/8/2566|16:11")
 H:AddLabel("[+] Auto Sea Baest Fully|1/8/2566|16:11")
+H:AddLabel("[+] Esp Advanced Fruit Dealer|2/8/2566|14:46")
 
 
 
