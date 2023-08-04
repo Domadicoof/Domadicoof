@@ -1655,7 +1655,7 @@ if game.PlaceId == 2753915549 then
     elseif game.PlaceId == 7449423635 then
         World3 = true
     end
-    --CheckQuest
+    
 	function CheckQuest() 
         MyLevel = game:GetService("Players").LocalPlayer.Data.Level.Value
         if World1 then
@@ -2315,7 +2315,7 @@ if game.PlaceId == 2753915549 then
         end
         Teleport()
     end       
---Esp
+
     function UpdateIslandESP() 
         for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
             pcall(function()
@@ -3113,7 +3113,7 @@ function UpdateAfdESP()
 end
     
 
-    --ScrAbility
+    
     function InfAb()
         if InfAbility then
             if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("Agility") then
@@ -3280,7 +3280,7 @@ end
         end)
         start()
     end
-    --AutoClick
+    
     function Click()
         game:GetService'VirtualUser':CaptureController()
         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -3327,7 +3327,7 @@ end
     function GetDistance(target)
         return math.floor((target.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
     end
-    --BypassTp
+    
     function BTP(P)
 	repeat wait(1)
 		game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
@@ -3340,7 +3340,7 @@ end
 function TelePPlayer(P)
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
 end
-    --Tweencheststop
+    
     function TP(Pos)
     Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
     if Distance < 25 then
@@ -3364,7 +3364,7 @@ end
         {CFrame = Pos}
     ):Play()
 end
-    --TweenFarm
+    
     function TP1(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if Distance < 25 then
@@ -3388,7 +3388,7 @@ end
             {CFrame = Pos}
         ):Play()
 end
---TweenTpandQuest
+
     function topos(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if Distance < 25 then
@@ -3413,7 +3413,7 @@ end
         ):Play()
 end
 
---TweenSeabaeatFull
+
 function TPB(CFgo)
 	local tween_s = game:service"TweenService"
 	local info = TweenInfo.new((game:GetService("Workspace").Boats.MarineBrigade.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
@@ -3497,7 +3497,7 @@ getgenv().ToTargets = function(p)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
     end
     
-    --Parttaiteen
+
     spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
         if _G.AutoAdvanceDungeon or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFactory or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or _G.Autodoughking or _G.AutoFarmMaterial or _G.AutoNevaSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.AutoKai or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or _G.Namfon or _G.AutoSwordMastery or _G.AutoSeaBest or _G.AutoKillTial then
@@ -3518,7 +3518,7 @@ getgenv().ToTargets = function(p)
         end
     end)
     end)
---lockbody
+
     spawn(function()
         pcall(function()
             while wait() do
@@ -3534,7 +3534,7 @@ getgenv().ToTargets = function(p)
             end
         end)
     end)
-    --Clipbody
+
     spawn(function()
         pcall(function()
             game:GetService("RunService").Stepped:Connect(function()
@@ -3548,7 +3548,7 @@ getgenv().ToTargets = function(p)
             end)
         end)
     end)
-    --Activate_Ken
+
     spawn(function()
         while wait() do
             if _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFarmBossHallow or _G.AutoFactory or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or _G.Autodoughking or _G.d or _G.Autowaden or _G.Autogay or _G.AutoObservationHakiV2 or _G.AutoFarmMaterial or _G.AutoFarmNearest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoRaidPirate or getgenv().AutoFarm or _G.AutoPlayerHunter or _G.AutoFactory or _G.AttackDummy or _G.AutoSwordMastery or _G.Auto_Seabest or _G.AutoSeaBest or _G.AutoKillTial == true then
@@ -3558,7 +3558,7 @@ getgenv().ToTargets = function(p)
             end    
         end
     end)
-    --AutoClick
+
     spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
         if _G.AutoClick or Fastattack then
@@ -3569,7 +3569,7 @@ getgenv().ToTargets = function(p)
         end
     end)
    end)
---Cofigstoptween
+
     function StopTween(target)
         if not target then
             _G.StopTween = true
@@ -3583,7 +3583,7 @@ getgenv().ToTargets = function(p)
             _G.Clip = false
         end
     end
-    --lockSkillgun
+
     spawn(function()
         pcall(function()
             while wait() do
@@ -3607,7 +3607,7 @@ getgenv().ToTargets = function(p)
 
 
 print("Load Script")
---Library
+
 local Library = Update:Window("Domadic","Ver : RgbTex",Enum.KeyCode.RightControl);
 
 local H = Library:AddTab("Home","6026568198")
