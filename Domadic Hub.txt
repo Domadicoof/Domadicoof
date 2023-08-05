@@ -5848,13 +5848,6 @@ spawn(function()
         end)
     end
 end)
-spawn(function()
-    while wait() do
-		pcall(function()
-			if _G.DriveMytic then
-				game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
-			end
-		end)
 M:AddToggle("Tween Gear",_G.TweenMGear,function(value)
 _G.TweenMGear = value
 StopTween(_G.TweenMGear)
