@@ -5490,30 +5490,19 @@ spawn(function()
     end)
 end)
 
-
-    Main:AddToggle("Remove Attack",false,function(value)
-    getgenv().A = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync 
-getgenv().B = require(game.Players.LocalPlayer.PlayerScripts.CombatFramework.Particle).play
-spawn(function()
-
-    while wait() do
-            pcall(function()
-                require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).wrapAttackAnimationAsync =function(a1,a2,a3,a4,a5)
-                    local GetBladeHits = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).getBladeHits(a2,a3,a4)
-                    if GetBladeHits then
-                         require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).play = function() end
-                        a1:Play(0.2, 0.2, 0.2)
-                        a5(GetBladeHits)
-                         require(game:GetService("ReplicatedStorage").CombatFramework.RigLib).play = getgenv().B 
-                        wait(.5)
-                        a1:Stop()
-                    end
-                end
-            end)
-        
-    end
+Main:AddToggle("Black Screen",false,function(Umm)
+_G.StartBlackScreen = Umm
 end)
-   end)
+
+spawn(function()
+	while wait() do
+		if _G.StartBlackScreen then
+			game:GetService("Players").LocalPlayer.PlayerGui.Main.Blackscreen.Size = UDim2.new(500, 0, 500, 500)
+		else
+			game:GetService("Players").LocalPlayer.PlayerGui.Main.Blackscreen.Size = UDim2.new(1, 0, 500, 500)
+		end
+	end
+end)
    
     
     spawn(function()
@@ -5790,6 +5779,18 @@ M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
             end)
         end)
     end
+    M:AddToggle("Auto W",AutoW,function(W)
+    AutoW = W
+    end)
+    spawn(function()
+    while wait() do
+		pcall(function()
+			if AutoW then
+				game:GetService("VirtualInputManager"):SendKeyEvent(true,"W",false,game)
+			end
+		end)
+    end
+    end)
     M:AddToggle("Auto Drive Boat",_G.DriveMytic,function(state)
     _G.DriveMytic = state
     end)
@@ -5800,8 +5801,8 @@ spawn(function()
             if _G.DriveMytic then
                 if not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Mirage Island") then
                     if not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then
-                        buyb = TPP(CFrame.new(-375.1658935546875, 6.755728244781494, 5217.19970703125))
-                        if (CFrame.new(-375.1658935546875, 6.755728244781494, 5217.19970703125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+                        buyb = TPP(CFrame.new(-4513.90087890625, 16.76398277282715, -2658.820556640625))
+                        if (CFrame.new(-4513.90087890625, 16.76398277282715, -2658.820556640625).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
                             if buyb then buyb:Stop() end wait(.1)
                             local args = {
                                 [1] = "BuyBoat",
@@ -12849,7 +12850,7 @@ spawn(function()
                         if SelectBoat == "PirateBasic" then
                             _G.SelectBoat = "PirateBasic"
                         else
-                            if SelectBoat == "PirateBrigade" then
+                            if SelectBoat == "Pirate Brigade" then
                                 _G.SelectBoat = "PirateBrigade"
                             end
                         end
