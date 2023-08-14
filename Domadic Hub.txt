@@ -4074,8 +4074,11 @@ task.spawn(function()
                         StartMagnet = false
                         CheckQuest()
                         if BypassTP then
-                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
 						BTP(CFrameQuest)
+						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude < 1500 then
+						TP1(CFrameQuest)
+						end
 					else
 						TP1(CFrameQuest)
 					end
@@ -5027,10 +5030,13 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
                                     end
                                 else
                                 if BypassTP then
-                                elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CakePos.Position).Magnitude > 1500 then
+                                if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CakePos.Position).Magnitude > 1500 then
 						        BTP(CakePos)
+						        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CakePos.Position).Magnitude < 1500 then
+						        topos(CakePos)
+						        end
 					        else
-						         topos(CakePos)
+						        topos(CakePos)
 					        end
                                     MagnetDought = false
                                     topos(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
@@ -5224,7 +5230,7 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
     Main:AddSeperator("Setting")
     
     
-Main:AddToggle("Trun Off Bypass tp",false,function(Fast)
+Main:AddToggle("Fast Tp",false,function(Fast)
 BypassTP = Fast
 end)
 
@@ -6243,11 +6249,14 @@ spawn(function()
                         end
                     else
                     if BypassTP then
-                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos1.Position).Magnitude > 1500 then
-						BTP(MaterialsPos1)
-					else
-						topos(MaterialsPos1)
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos1.Position).Magnitude > 1500 then
+			        BTP(MaterialsPos1)
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos1.Position).Magnitude < 1500 then
+				    topos(MaterialsPos1)
 					end
+				else
+				    topos(MaterialsPos1)
+				end
                     topos(CFrame.new(-507.7895202636719, 72.99479675292969, -126.45632934570312))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Factory Staff [Lv. 800]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Factory Staff [Lv. 800]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6294,11 +6303,14 @@ spawn(function()
                         end
                     else
                     if BypassTP then
-                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos2.Position).Magnitude > 1500 then
-						BTP(MaterialsPos2)
-					else
-						topos(MaterialsPos2)
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos2.Position).Magnitude > 1500 then
+			        BTP(MaterialsPos2)
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos2.Position).Magnitude < 1500 then
+				    topos(MaterialsPos2)
 					end
+				else
+				    topos(MaterialsPos2)
+				end
                     topos(CFrame.new(-3352.9013671875, 285.01556396484375, -10534.841796875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Water Fighter [Lv. 1450]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Water Fighter [Lv. 1450]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6345,11 +6357,14 @@ spawn(function()
                         end
                     else
                     if BypassTP then
-                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos3.Position).Magnitude > 1500 then
-						BTP(MaterialsPos3)
-					else
-						topos(MaterialsPos3)
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos3.Position).Magnitude > 1500 then
+			        BTP(MaterialsPos3)
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos3.Position).Magnitude < 1500 then
+				    topos(MaterialsPos3)
 					end
+				else
+				    topos(MaterialsPos3)
+				end
                     topos(CFrame.new(-5850.2802734375, 77.28675079345703, 8848.6748046875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Military Spy [Lv. 325]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Military Spy [Lv. 325]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
