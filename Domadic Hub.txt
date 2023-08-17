@@ -3552,9 +3552,9 @@ spawn(function()
   QuestStatus:Set("[Quest] : ...".." | [Level] : ...")
   elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
   pcall(function()
-    CheckLevel()
-    MonsterStatus:Set("[Monster] : "..Ms)
-    QuestStatus:Set("[Quest] : "..NameQuest.." | [Level] : "..QuestLv)
+    CheckQuest()
+    MonsterStatus:Set("[Monster] : "..Mon)
+    QuestStatus:Set("[Quest] : "..NameQuest.." | [Level] : "..LevelQuest)
     end)
   end
   end
