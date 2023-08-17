@@ -3094,7 +3094,7 @@ getgenv().ToTargets = function(p)
 
 print("Load Script")
 
-local Library = DarkraiX:Window("        Domadic HUB","        Blox Fruit | Version Free ","DarkRaiGui",Enum.KeyCode.RightControl);
+local Library = DarkraiX:Window("        Domadic HUB","Blox Fruit | Version Free ","DarkRaiGui",Enum.KeyCode.RightControl);
 
 local H = Library:AddTab("Home","6026568198")
 local Main = Library:AddTab("Level Farm","13075651575")
@@ -3107,7 +3107,6 @@ local T = Library:AddTab("Teleport","11155851001")
 local S = Library:AddTab("Shop","6031265976")
 local D = Library:AddTab("Devil Fruit","7044233235")
 local Misc = Library:AddTab("Misc","11156061121")
-local TES = Library:AddTab("Nothing Here","")
 
 local Time = H:AddLabel("Executor Time");spawn(function() getgenv().Time = true;while true do wait(.1) UpdateTime() end end);function UpdateTime() local date = os.date("*t");local hour = (date.hour) % 24;local ampm = hour < 12 and "AM" or "PM";local timezone = string.format("%02i:%02i:%02i %s", ((hour -1) % 12) + 1, date.min, date.sec, ampm);local datetime = string.format("%02d/%02d/%04d", date.day, date.month, date.year);local LocalizationService = game:GetService("LocalizationService");local Players = game:GetService("Players");local player = Players.LocalPlayer;local name = player.Name;local result, code = pcall(function()   return LocalizationService:GetCountryRegionForPlayerAsync(player)  end);Time:Set(" : " .. timezone);Time:Set("Executor Time: " .. datetime .. " [ " .. code .. " ]");spawn(function() if getgenv().Time then pcall(function()  while wait() do  Time()  end end) end end) end
 
@@ -3183,6 +3182,7 @@ H:AddLabel("[+] Esp Mystic Island|1/8/2566|16:11")
 H:AddLabel("[+] Auto Sea Baest Fully|1/8/2566|16:11")
 H:AddLabel("[+] Esp Advanced Fruit Dealer|2/8/2566|14:46")
 H:AddLabel("[+] Fix Farm Chest Bypass|5/8/2566|13:19")
+H:AddLabel("[+] Fix Bypasstp|17/8/2566|16:59")
 
 
 
@@ -14220,7 +14220,6 @@ Misc:AddToggle("Esp Advanced Fruit Dealer", false, function(value)
 		end
 	end)
 	
-TES:AddLabel("ทําไว้เพือให้ Tab Misc โผล่ขึ้นมา")
 
 _G.Remove_Effect = true
 
