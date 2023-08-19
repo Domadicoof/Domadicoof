@@ -3094,7 +3094,7 @@ getgenv().ToTargets = function(p)
 
 print("Load Script")
 
-local Library = DarkraiX:Window("        Domadic HUB","Blox Fruit | Version Free ","DarkRaiGui",Enum.KeyCode.RightControl);
+local Library = DarkraiX:Window("        เบื่อแล้ว X HUB","Blox Fruit | Version Free ","DarkRaiGui",Enum.KeyCode.RightControl);
 
 local H = Library:AddTab("Home","6026568198")
 local Main = Library:AddTab("Level Farm","13075651575")
