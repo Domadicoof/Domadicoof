@@ -5375,13 +5375,6 @@ spawn(function()
         end
     end)
 end)
-M:AddButton("Teleport to Advanced Fruit Dealer",function()
-        if game:GetService("Workspace").NPCs:FindFirstChild("Advanced Fruit Dealer") then
-            if v:FindFirstChild("HumanoidRootPart") then
-                topos(v.HumanoidRootPart.CFrame*CFrame.new(0,5,0))
-            end
-        end
-    end)
 M:AddToggle("Tween Gear",_G.TweenMGear,function(value)
 _G.TweenMGear = value
 StopTween(_G.TweenMGear)
