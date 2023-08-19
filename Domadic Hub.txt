@@ -5359,6 +5359,29 @@ spawn(function()
         end)
     end
 end)
+M:AddToggle("Teleport Advanced Fruit Dealer",_G.TPNPC,function(value)
+             _G.Miragenpc = value
+             StopTween(_G.Miragenpc)
+        end)
+
+spawn(function()
+    pcall(function()
+    while wait() do
+        if _G.Miragenpc then
+            if game:GetService("Workspace").NPCs:FindFirstChild("Advanced Fruit Dealer") then
+                topos(CFrame.new(game:GetService("Workspace").NPCs["Advanced Fruit Dealer"].HumanoidRootPart.Position))
+                end
+            end
+        end
+    end)
+end)
+M:AddButton("Teleport to Advanced Fruit Dealer",function()
+        if game:GetService("Workspace").NPCs:FindFirstChild("Advanced Fruit Dealer") then
+            if v:FindFirstChild("HumanoidRootPart") then
+                topos(v.HumanoidRootPart.CFrame*CFrame.new(0,5,0))
+            end
+        end
+    end)
 M:AddToggle("Tween Gear",_G.TweenMGear,function(value)
 _G.TweenMGear = value
 StopTween(_G.TweenMGear)
@@ -8302,7 +8325,7 @@ task.spawn(function()
                 if not game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
                     if not game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") then 
                         if not game:GetService("Workspace").Enemies:FindFirstChild("PirateBasic") then
-                            if not game:GetService("Workspace").Boats:FindFirstChild("MarineBrigade") then
+                            if not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then
                                 buyb = TPP(CFrame.new(-11.78054428100586, 10.302456855773926, 2927.2255859375))
                                 if (CFrame.new(-11.78054428100586, 10.302456855773926, 2927.2255859375).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
                                     if buyb then buyb:Stop() end
@@ -8324,8 +8347,8 @@ task.spawn(function()
                                     until game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or _G.Auto_Seabest == false
                                 end
                             end
-                        elseif game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") then
-                            for is,vs in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        elseif game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then
+                            for is,vs in pairs(game:GetService("Workspace").Boats:GetChildren()) do
                                 if vs.Name == "PirateBrigade" then
                                     if v:FindFirstChild("VehicleSeat") then
                                         repeat wait()
@@ -8342,8 +8365,8 @@ task.spawn(function()
                                 end
                             end
                         end
-                    elseif game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") then
-                        for iss,vss in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                    elseif game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then
+                        for iss,vss in pairs(game:GetService("Workspace").Boats:GetChildren()) do
                             if vss.Name == "PirateBrigade" then
                                 if v:FindFirstChild("VehicleSeat") then
                                     repeat wait()
