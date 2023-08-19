@@ -8331,7 +8331,7 @@ task.spawn(function()
                                 end
                             elseif game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then
                                 if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                    TPP(game:GetService("Workspace").Boats.MarineBrigade.VehicleSeat.CFrame * CFrame.new(0,1,0))
+                                    TPP(game:GetService("Workspace").Boats.PirateBrigade.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                 elseif game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
                                     repeat wait()
                                         if (game:GetService("Workspace").Boats.PirateBrigade.VehicleSeat.CFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
