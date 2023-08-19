@@ -8316,8 +8316,8 @@ task.spawn(function()
         pcall(function()
             if _G.Auto_Seabest then
                 if not game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
-                    if not game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") then 
-                        if not game:GetService("Workspace").Enemies:FindFirstChild("PirateBasic") then
+                    if not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then 
+                        if not game:GetService("Workspace").Boats:FindFirstChild("PirateBasic") then
                             if not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then
                                 buyb = TPP(CFrame.new(-11.78054428100586, 10.302456855773926, 2927.2255859375))
                                 if (CFrame.new(-11.78054428100586, 10.302456855773926, 2927.2255859375).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
@@ -8351,7 +8351,7 @@ task.spawn(function()
                                             AutoSkill = true
                                             AimBotSkillPosition = vs.VehicleSeat
                                             Skillaimbot = true
-                                        until not game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or _G.Auto_Seabest == false
+                                        until not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") or _G.Auto_Seabest == false
                                         AutoSkill = false
                                         Skillaimbot = false
                                     end
@@ -8369,7 +8369,7 @@ task.spawn(function()
                                         AutoSkill = true
                                         AimBotSkillPosition = vss.VehicleSeat
                                         Skillaimbot = true
-                                    until not game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") or _G.Auto_Seabest == false
+                                    until not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") or _G.Auto_Seabest == false
                                     AutoSkill = false
                                     Skillaimbot = false
                                 end
