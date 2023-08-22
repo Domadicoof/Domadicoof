@@ -143,7 +143,7 @@ Logo.Parent = Top
 Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Logo.BackgroundTransparency = 1.000
 Logo.Position = UDim2.new(-0.01, 0,-0.319, 0)
-Logo.Size = UDim2.new(0, 56,0, 46)
+Logo.Size = UDim2.new(0, 25,0, 25)
 Logo.Image = "rbxassetid://"..tostring(logo)
 
 local Name = Instance.new("TextLabel")
@@ -166,7 +166,7 @@ Hub.BackgroundTransparency = 1.000
 Hub.Position = UDim2.new(0, 130, 0, 0)
 Hub.Size = UDim2.new(0, 81, 0, 27)
 Hub.Font = Enum.Font.GothamSemibold
-Hub.Text = "| BLOX FRUIT "
+Hub.Text = "  | BLOX FRUIT "
 Hub.TextColor3 = Color3.fromRGB(255, 255, 255)
 Hub.TextSize = 14.000
 Hub.TextXAlignment = Enum.TextXAlignment.Left
@@ -1242,7 +1242,7 @@ RealTextbox.FocusLost:Connect(function()
 UICorner.CornerRadius = UDim.new(0, 5)
 UICorner.Parent = RealTextbox
 end
-function main:Label(text)
+function main:AddLabel(text)
 local Label = Instance.new("TextLabel")
 local PaddingLabel = Instance.new("UIPadding")
 local labelfunc = {}
@@ -3349,7 +3349,7 @@ local H = Library:AddTab("Home","rbxassetid://6026568198")
 local Main = Library:AddTab("Level Farm","rbxassetid://13075651575")
 local M = Library:AddTab("Auto Item Quest","rbxassetid://13075622619")
 local Ss = Library:AddTab("Stats","rbxassetid://7040410130")
-local RaceV4 = win:AddTab("RaceV4","rbxassetid://11162889532")
+local RaceV4 = Library:AddTab("RaceV4","rbxassetid://11162889532")
 local P = Library:AddTab("Player","rbxassetid://7251993295")
 local R = Library:AddTab("Teleport","rbxassetid://11155851001")
 local S = Library:AddTab("Shop","rbxassetid://6031265976")
