@@ -143,7 +143,7 @@ Logo.Parent = Top
 Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Logo.BackgroundTransparency = 1.000
 Logo.Position = UDim2.new(-0.01, 0,-0.319, 0)
-Logo.Size = UDim2.new(0, 35,0, 35)
+Logo.Size = UDim2.new(0, 40,0, 40)
 Logo.Image = "rbxassetid://"..tostring(logo)
 
 local Name = Instance.new("TextLabel")
@@ -697,7 +697,7 @@ ImageLabel.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
 ImageLabel.BackgroundTransparency = 1.000
 ImageLabel.BorderSizePixel = 0
 ImageLabel.Position = UDim2.new(-0.018, 0,-0.252, 0)
-ImageLabel.Size = UDim2.new(0, 35,0, 35)
+ImageLabel.Size = UDim2.new(0, 40,0, 40)
 ImageLabel.Image = "rbxassetid://12523036534"
 ImageLabel.ImageColor3 = Color3.fromRGB(255, 255, 255)
 
@@ -3343,7 +3343,7 @@ getgenv().ToTargets = function(p)
 
 print("Load Script")
 
-local Library = Update:Window("Domadic HUB","12523036534")
+local Library = Update:Window("    Domadic HUB","12523036534")
 
 local H = Library:AddTab("Home","rbxassetid://6026568198")
 local Main = Library:AddTab("Level Farm","rbxassetid://13075651575")
