@@ -2976,6 +2976,17 @@ function GetWeaponInventory(Weaponname)
 	return false
 end
 
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if ClickFast then
+             pcall(function()
+                game:GetService'VirtualUser':CaptureController()
+			    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+            end)
+        end
+    end)
+   end)
+   
 function Click()
         game:GetService'VirtualUser':CaptureController()
         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -3311,7 +3322,7 @@ Main:Seperator("\\\\\  Farm Config  //")
 _G.Select_Mode_Farm = "Level Farm"
 
 Main:Dropdown("Select Mode Farm", {
- "Level Farm","Fast Mode","No Quest"},function(value)
+ "Level Farm","Fast Mode","No Quest","Hard Mode"},function(value)
  _G.Select_Mode_Farm = value
 end)
 
@@ -3414,6 +3425,7 @@ end)
                                                     if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
                                                         EquipWeapon(_G.SelectWeapon)
                                                         AutoHaki()
+                                                        ClickFast = true
                                                         PosMon = v.HumanoidRootPart.CFrame
                                                         v.HumanoidRootPart.CanCollide = false
 							                            v.Humanoid.WalkSpeed = 0
@@ -3429,6 +3441,7 @@ end)
                                                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                                     end
                                                 until not _G.Auto_Farm_Level or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                                ClickFast = false
                                             end
                                         end
                                     end
@@ -3462,6 +3475,7 @@ end)
                                             repeat task.wait()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 AutoHaki()
+                                                ClickFast = true
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 v.HumanoidRootPart.CanCollide = false
 							                    v.Humanoid.WalkSpeed = 0
@@ -3473,6 +3487,7 @@ end)
                                                 StartMagnet = true
                                                 TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                             until not _G.Auto_Farm_Level or v.Humanoid.Health <= 0 or not v.Parent
+                                            ClickFast = false
                                         end
                                     end
                                 end
@@ -3718,6 +3733,7 @@ spawn(function()
 												EquipWeapon(_G.SelectWeapon)
 												PosMon = v.HumanoidRootPart.CFrame
 												AutoHaki()
+												ClickFast = true
 												v.HumanoidRootPart.CanCollide = false
 												v.Humanoid.WalkSpeed = 0
 												v.Head.CanCollide = false
@@ -3731,6 +3747,7 @@ spawn(function()
 												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 											end
 										until not _G.Auto_Farm_Level or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+										ClickFast = false
 									end
 								end
 							end
@@ -3765,6 +3782,7 @@ spawn(function()
 												if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 													EquipWeapon(_G.SelectWeapon)
 													AutoHaki()
+													ClickFast = true
 													PosMon = v.HumanoidRootPart.CFrame
 													v.HumanoidRootPart.CanCollide = false
 													v.Humanoid.WalkSpeed = 0
@@ -3779,6 +3797,7 @@ spawn(function()
 													game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 												end
 											until not _G.Auto_Farm_Level or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+											ClickFast = false
 										end
 									end
 								end
@@ -3811,6 +3830,7 @@ spawn(function()
 										repeat wait()
 											EquipWeapon(_G.SelectWeapon)
 											AutoHaki()
+											ClickFast = true
 											PosMon = v.HumanoidRootPart.CFrame
 											v.HumanoidRootPart.CanCollide = false
 											v.Humanoid.WalkSpeed = 0
@@ -3821,6 +3841,7 @@ spawn(function()
 											game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 										until not _G.Auto_Farm_Level or v.Humanoid.Health <= 0 or not v.Parent
+										ClickFast = false
 									end
 								end
 							end
@@ -3911,6 +3932,7 @@ spawn(function()
 											if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 												EquipWeaponMelee()
 												AutoHaki()
+												ClickFast = true
 												PosMon = v.HumanoidRootPart.CFrame
 												v.HumanoidRootPart.CanCollide = false
 												v.Humanoid.WalkSpeed = 0
@@ -3925,6 +3947,7 @@ spawn(function()
 												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 											end
 										until not _G.MeleeFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+										ClickFast = false
 									end
 								end
 							end
@@ -3973,6 +3996,7 @@ spawn(function()
 											if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 												EquipWeaponSword()
 												AutoHaki()
+												ClickFast = true
 												PosMon = v.HumanoidRootPart.CFrame
 												v.HumanoidRootPart.CanCollide = false
 												v.Humanoid.WalkSpeed = 0
@@ -3987,6 +4011,7 @@ spawn(function()
 												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
 											end
 										until not _G.Auto_Farm_Sword or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+										ClickFast = false
 									end
 								end
 							end
@@ -4147,6 +4172,7 @@ spawn(function() -- AutoFarm
 										if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
 											if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 												EquipWeapon(_G.SelectWeapon)
+												ClickFast = true
 												TP(v.HumanoidRootPart.CFrame * MethodFarm)
 												v.HumanoidRootPart.CanCollide = false
 												v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
@@ -4164,6 +4190,7 @@ spawn(function() -- AutoFarm
 											TP(CFrameMon)
 										end
 									until not v.Parent or v.Humanoid.Health <= 0 or _G.AutoFarmKaitan == false or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
+									ClickFast = false
 								end
 							end
 						end
@@ -4675,12 +4702,14 @@ end)
                                                 EquipWeapon(_G.SelectWeapon)
                                                 TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                                 Click()
+                                                ClickFast = true
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                                                 v.HumanoidRootPart.Transparency = .8
                                                 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
                                             end)
                                         until not _G.AutoBuddySwordK or not v.Parent or v.Humanoid.Health <= 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or game.Players.LocalPlayer.Character.Humanoid.Health == 0 or game:GetService("Workspace").Enemies:FindFirstChild("Cake Queen [Lv. 2175] [Boss]")
+                                        ClickFast = false
                                     end
                                 end
                             else
@@ -4775,10 +4804,12 @@ spawn( -- Auto Fruit Drop
                                     repeat task.wait()
                                         AutoHaki()
                                         Click()
+                                        ClickFast = true
                                         TP(CFrame.new(448.46756, 199.356781, -441.389252))                                  
 										game:GetService("VirtualUser"):CaptureController()
 										game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
                                     until v.Humanoid.Health <= 0 or _G.AutoKaitan == false
+                                    ClickFast = false
                                 end
                             end
                         end
@@ -4910,6 +4941,7 @@ spawn( -- Auto Fruit Drop
                                             repeat task.wait()
                                                 AutoHaki()
                                                 EquipWeapon(_G.SelectWeapon)
+                                                ClickFast = true
                                                 TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                                 v.HumanoidRootPart.CFrame = OldCFrameThird
                                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -4920,6 +4952,7 @@ spawn( -- Auto Fruit Drop
                                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
                                                 sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                                             until _G.AutoThirdSea == false or v.Humanoid.Health <= 0 or not v.Parent
+                                            ClickFast = false
                                         end
                                     end
                                 elseif not game:GetService("Workspace").Enemies:FindFirstChild("rip_indra [Lv. 1500] [Boss]") and (CFrame.new(-26880.93359375, 22.848554611206, 473.18951416016).Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1000 then
@@ -4949,10 +4982,12 @@ spawn( -- Auto Fruit Drop
                                     repeat task.wait()
                                         AutoHaki()         
                                         EquipWeapon(_G.SelectWeapon)           
+                                        ClickFast = true
                                         TP(CFrame.new(448.46756, 199.356781, -441.389252))                                  
 										game:GetService("VirtualUser"):CaptureController()
 										game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
                                     until v.Humanoid.Health <= 0 or _G.AutoFactory == false
+                                    ClickFast = false
                                 end
                             end
                         else
@@ -4990,12 +5025,14 @@ spawn(function()
  v.Head.CanCollide = false
  v.HumanoidRootPart.Size = Vector3.new(60,60,60)
  StartMagnet = false
+ ClickFast = true
  TP(v.HumanoidRootPart.CFrame * MethodFarm)
  game:GetService'VirtualUser':CaptureController()
  game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
   StartMagnet = true
   PosMon = v.HumanoidRootPart.CFrame
   until not _G.NeareastFarm or not v.Parent or v.Humanoid.Health == 0 or not game.Workspace.Enemies:FindFirstChild(v.Name)
+  ClickFast = false
   end
 		end
     end
@@ -5061,6 +5098,7 @@ Duration = 5;
                                     if v.Name == SelectMonster then
                                         repeat game:GetService("RunService").Heartbeat:wait()
                                             EquipWeapon(_G.SelectWeapon)
+                                            ClickFast = true
                                             TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.Transparency = 1
@@ -5076,6 +5114,7 @@ Duration = 5;
                                                 v.Humanoid.Animator:Destroy()
                                             end                                    
                                         until not AutoFarmSelectMonsterQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                        ClickFast = false
                                     end
                                 end
                             end
@@ -5130,6 +5169,7 @@ Duration = 5;
                                     if v.Name == SelectMonster then
                                         repeat game:GetService("RunService").Heartbeat:wait()
                                             EquipWeapon(_G.SelectWeapon)
+                                            ClickFast = true
                                             TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.Transparency = 1
@@ -5145,6 +5185,7 @@ Duration = 5;
                                                 v.Humanoid.Animator:Destroy()
                                             end
                                         until not AutoFarmSelectMonsterNoQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
+                                        ClickFast = false
                                     end
                                 end
                             end
@@ -5204,6 +5245,7 @@ Duration = 5;
                                                     EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                                     v.HumanoidRootPart.CanCollide = false
+                                                    ClickFast = false
                                                     PosMonMasteryFruit = v.HumanoidRootPart.CFrame
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.Head.CanCollide = false
@@ -5212,6 +5254,7 @@ Duration = 5;
                                                     UseSkill = false 
                                                     AutoHaki()
                                                     EquipWeapon(_G.SelectWeapon)
+                                                    ClickFast = true
                                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.HumanoidRootPart.Size = Vector3.new(60,60,60)
@@ -5223,6 +5266,7 @@ Duration = 5;
 												game:GetService("VirtualUser"):CaptureController()
 												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
                                             until not _G.AutoFarmFruitMastery or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                            ClickFast = false
                                         else
                                             UseSkill = false
                                             StartMasteryFruitMagnet = false
@@ -5494,6 +5538,7 @@ Duration = 5;
                                                 HealthMin = v.Humanoid.MaxHealth * _G.Kill_At/100
                                                 if v.Humanoid.Health <= HealthMin then         
                                                     EquipWeapon(SelectToolWeaponGun)
+                                                    ClickFast = false
                                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
 							                        v.Humanoid.JumpPower = 0
 							                        v.Humanoid.WalkSpeed = 0                                                    
@@ -5510,6 +5555,7 @@ Duration = 5;
 												    UseSkillGun = false 
                                                     AutoHaki()
                                                     EquipWeapon(_G.SelectWeapon)
+                                                    ClickFast = true
 							                        v.Humanoid.JumpPower = 0
 							                        v.Humanoid.WalkSpeed = 0         
 												    v.HumanoidRootPart.CanCollide = false
@@ -5531,6 +5577,7 @@ Duration = 5;
                                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                             end
                                         until v.Humanoid.Health <= 0 or _G.AutoFarmGunMastery == false or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                        ClickFast = false
                                         StartMasteryGunMagnet = false
 					                   	UseSkillGun = false 
                                     end
@@ -5694,6 +5741,7 @@ Duration = 5;
                                     repeat task.wait()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
+                                        ClickFast = true
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
@@ -5702,6 +5750,7 @@ Duration = 5;
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.AutoFarmBoss or not v.Parent or v.Humanoid.Health <= 0
+                                    ClickFast = false
                                 end
                             end
                         end
@@ -5740,6 +5789,7 @@ Main:Toggle("Auto Fram Boss Quest",false,function(Value)
                           v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                           TP(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame * MethodFarm)
                           EquipWeapon(_G.SelectWeapon)
+                          ClickFast = true
                           RigC.activeController.hitboxMagnitude = 80
                           Rig.CameraShakeInstance.CameraShakeState = {FadingIn = 3,FadingOut =  2,Sustained = 0,Inactive = 1} 
                           RigC.activeController.timeToNextAttack = .5
@@ -5748,6 +5798,7 @@ Main:Toggle("Auto Fram Boss Quest",false,function(Value)
                        end)
                     end
                  until not FarmBoss or not v.Parent or v.Humanoid.Health <= 0
+                 ClickFast = false
               end
            end
         else
@@ -5767,11 +5818,13 @@ Main:Toggle("Auto Fram Boss Quest",false,function(Value)
                        v.HumanoidRootPart.Size = Vector3.new(80, 80, 80)
                        TP(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame * MethodFarm)
                        EquipWeapon(_G.SelectWeapon)
+                       ClickFast = true
                        RigC.activeController.hitboxMagnitude = 80
                        Rig.CameraShakeInstance.CameraShakeState = {FadingIn = 3,FadingOut =  2,Sustained = 0,Inactive = 1} 
                        RigC.activeController.timeToNextAttack = .5
                     end)
                  until not FarmBoss or not v.Parent or v.Humanoid.Health <= 0
+                 ClickFast = false
               end
            end
         else
@@ -5786,6 +5839,7 @@ Main:Toggle("Auto Fram Boss Quest",false,function(Value)
                        wait() 
                        pcall(function() 
                           AutoHaki()
+                          ClickFast = true
                           v.HumanoidRootPart.Transparency = 1
                           v.HumanoidRootPart.CanCollide = false
                           v.HumanoidRootPart.Size = Vector3.new(80, 80, 80)
@@ -5793,6 +5847,7 @@ Main:Toggle("Auto Fram Boss Quest",false,function(Value)
                           EquipWeapon(_G.SelectWeapon)
                        end)
                     until not FarmBoss or not v.Parent or v.Humanoid.Health <= 0
+                    ClickFast = false
                  end
               end
            else
@@ -5807,6 +5862,7 @@ Main:Toggle("Auto Fram Boss Quest",false,function(Value)
                        wait() 
                        pcall(function() 
                           AutoHaki()
+                          ClickFast = true
                           v.HumanoidRootPart.Transparency = 1
                           v.HumanoidRootPart.CanCollide = false
                           v.HumanoidRootPart.Size = Vector3.new(80, 80, 80)
@@ -5814,6 +5870,7 @@ Main:Toggle("Auto Fram Boss Quest",false,function(Value)
                           EquipWeapon(_G.SelectWeapon)
                        end)
                     until not FarmBoss or not v.Parent or v.Humanoid.Health <= 0
+                    ClickFast = false
                  end
               end
            else
@@ -5836,6 +5893,7 @@ Main:Toggle("Auto Fram Boss Quest",false,function(Value)
                        wait() 
                        pcall(function() 
                        AutoHaki()
+                       ClickFast = true
                        v.HumanoidRootPart.Transparency = 1
                           v.HumanoidRootPart.CanCollide = false
                           v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
@@ -5843,6 +5901,7 @@ Main:Toggle("Auto Fram Boss Quest",false,function(Value)
                           EquipWeapon(_G.SelectWeapon)
                        end)
                     until not FarmBoss or v.Humanoid.Health <= 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                    ClickFast = false
                  end
               end
               TP(CFrameBoss,TweenSpeed)
@@ -5871,6 +5930,7 @@ end)
                                 repeat task.wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
+                                    ClickFast = true
                                     v.Humanoid.WalkSpeed = 0
                                     v.HumanoidRootPart.CanCollide = false
                                     v.Head.CanCollide = false
@@ -5880,6 +5940,7 @@ end)
                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                     sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                 until v.Humanoid.Health <= 0 or _G.AutoAllBoss == false or not v.Parent
+                                ClickFast = false
                             end
                         else
                             if _G.AutoAllBossHop then
@@ -6545,6 +6606,7 @@ spawn(function()
                                     repeat task.wait()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
+                                        ClickFast = true
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
@@ -6554,6 +6616,7 @@ spawn(function()
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.AutoEctoplasm or not v.Parent or v.Humanoid.Health <= 0
+                                    ClickFast = false
                                 end
                             end
 						end
@@ -6647,12 +6710,14 @@ spawn(function()
 							repeat task.wait()
 								AutoHaki()
 								EquipWeapon(_G.SelectWeapon)
+								ClickFast = true
 								v.HumanoidRootPart.CanCollide = false
 								v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 								TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 								game:GetService'VirtualUser':CaptureController()
 								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 							until not _G.Auto_Kill_Law or v.Humanoid.Health <= 0 or not v.Parent
+							ClickFast = false
 						end
 					end
 				end 
@@ -6763,7 +6828,7 @@ wait(1)
 Notification:Notify(
    {Title = "Quame HUB", Description = "You Have Max Observation"},
    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "option"},
-   {Image = "http://www.roblox.com/asset/?id=6023426923", ImageColor = Color3.fromRGB(255, 84, 84), Callback = function(State) print(tostring(State)) end}
+   {Image = "http://www.roblox.com/asset/?id=3631652068", ImageColor = Color3.fromRGB(255, 84, 84), Callback = function(State) print(tostring(State)) end}
 )
                     else
                         if World2 then
@@ -6972,12 +7037,14 @@ spawn(function()
 												v.Head.CanCollide = false
 												v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 												StartMagnet = true
+												ClickFast = true
 												TP(v.HumanoidRootPart.CFrame * MethodFarm)
 												game:GetService'VirtualUser':CaptureController()
 												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 											MatMon = v.Name
 											MatPos = v.HumanoidRootPart.CFrame
 										until not _G.AutoFarmMaterial or not v.Parent or v.Humanoid.Health <= 0
+										ClickFast = false
 									end
 								end
 							end
@@ -7061,8 +7128,27 @@ Main:Toggle("Auto Mirage Island [HOP]",false,function(value)
   _G.MirageHop = value
   end)
 Main:Toggle("Teleport To Gear",false,function(value)
-  TP(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
+_G.TweenMGear = value
+StopTween(_G.TweenMGear)
 end)
+
+spawn(function()
+    pcall(function()
+        while wait() do
+            if _G.TweenMGear then
+				if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+					for i,v in pairs(game:GetService("Workspace").Map.MysticIsland:GetChildren()) do 
+						if v:IsA("MeshPart")then 
+                            if v.Material ==  Enum.Material.Neon then  
+                                TP(v.CFrame)
+                            end
+                        end
+					end
+				end
+			end
+        end
+    end)
+    end)
 
 spawn(function()
         pcall(function()
@@ -7298,6 +7384,27 @@ spawn(function()
             end)
         end
     end
+end)
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack then
+            if typeof(y) == "table" then
+                pcall(function()
+                    CameraShaker:Stop()
+                    y.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
+                    y.activeController.timeToNextAttack = 0
+                    y.activeController.hitboxMagnitude = 60
+                    y.activeController.active = false
+                    y.activeController.timeToNextBlock = 0
+                    y.activeController.focusStart = 1655503339.0980349
+                    y.activeController.increment = 1
+                    y.activeController.blocking = false
+                    y.activeController.attacking = false
+                    y.activeController.humanoid.AutoRotate = true
+                end)
+            end
+        end
+    end)
 end)
 AutoMisc3:Seperator("Others")
  
@@ -8256,10 +8363,12 @@ Swords:Toggle("Auto Farm Cake Prince",_G.AutoDoughtBoss,function(value)
                                             EquipWeapon(_G.SelectWeapon)
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                             v.HumanoidRootPart.CanCollide = false
+                                            ClickFast = true
                                             TP(v.HumanoidRootPart.CFrame * MethodFarm)                         
                                             game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                         until _G.AutoDoughtBoss == false or not v.Parent or v.Humanoid.Health <= 0
+                                        ClickFast = false
                                     end    
                                 end    
                             else
@@ -8273,12 +8382,14 @@ Swords:Toggle("Auto Farm Cake Prince",_G.AutoDoughtBoss,function(value)
                                             AutoHaki()
                                             EquipWeapon(_G.SelectWeapon)
                                             StartCakeMagnet = true
+                                            ClickFast = true
                                             v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)  
                                             POSCAKE = v.HumanoidRootPart.CFrame
                                             TP(v.HumanoidRootPart.CFrame * MethodFarm)                         
                                             game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                         until _G.AutoDoughtBoss == false or game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") or not v.Parent or v.Humanoid.Health <= 0
+                                        ClickFast = false
                                     end
                                 end
                             else
@@ -8339,12 +8450,14 @@ end)
 											AutoHaki()
 											EquipWeapon(_G.SelectWeapon)
 											StartCakeMagnet = true
+											ClickFast = true
 											v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)  
 											POSCAKE = v.HumanoidRootPart.CFrame
 											TP(v.HumanoidRootPart.CFrame * MethodFarm)
 											game:GetService'VirtualUser':CaptureController()
 											game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 										until _G.Auto_Open_Dough_Dungeon == false or game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") or not v.Parent or v.Humanoid.Health <= 0
+										ClickFast = false
 									end
 								end
 							else
@@ -8359,12 +8472,14 @@ end)
 									repeat wait()
 										AutoHaki()
 										EquipWeapon(_G.SelectWeapon)
+										ClickFast = true
 										v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
 										v.HumanoidRootPart.CanCollide = false
 										TP(v.HumanoidRootPart.CFrame * MethodFarm)
 										game:GetService'VirtualUser':CaptureController()
 										game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 									until _G.Auto_Open_Dough_Dungeon == false or not v.Parent or v.Humanoid.Health <= 0
+									ClickFast = false
 								end    
 							end    
 						else
@@ -8387,6 +8502,7 @@ end)
 												repeat wait()
 													AutoHaki()
 													EquipWeapon(_G.SelectWeapon)
+													ClickFast = true
 													v.HumanoidRootPart.CanCollide = false
 													v.Humanoid.WalkSpeed = 0
 													v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -8395,6 +8511,7 @@ end)
 													game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 													sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
 												until _G.Auto_Open_Dough_Dungeon == false or v.Humanoid.Health <= 0 or not v.Parent or game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") or game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice")
+												ClickFast = false
 											end
 										end
 									end
@@ -8917,6 +9034,7 @@ Swords:Toggle("Auto Pole V.1",_G.AutoPole,function(value)
                                     repeat task.wait()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
+                                        ClickFast = true
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -8925,6 +9043,7 @@ Swords:Toggle("Auto Pole V.1",_G.AutoPole,function(value)
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.AutoPole or not v.Parent or v.Humanoid.Health <= 0
+                                    ClickFast = false
                                 end
                             end
                         end
@@ -8976,6 +9095,7 @@ if World3 then
                                     pcall(function()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
+                                        ClickFast = true
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -8985,6 +9105,7 @@ if World3 then
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                                     end)
                                 until _G.AutoSerpentBow == false or v.Humanoid.Health <= 0
+                                ClickFast = false
                             end
                         end
 						  else 
@@ -9049,6 +9170,7 @@ if World3 then
                                     repeat task.wait()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
+                                        ClickFast = true
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(55,55,55)
@@ -9057,6 +9179,7 @@ if World3 then
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not _G.AutoBudySword or not v.Parent or v.Humanoid.Health <= 0
+                                    ClickFast = false
                                 end
                             end
                         end
@@ -9155,6 +9278,7 @@ if World3 then
 											Farmtween:Stop()
 										end
 										EquipWeapon(_G.SelectWeapon)
+										ClickFast = true
 										if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
 											local args = {
 												[1] = "Buso"
@@ -9165,6 +9289,7 @@ if World3 then
 										Click()
 									end
 								until not _G.AutoEliteHunter or not v.Parent or v.Humanoid.Health <= 0
+								ClickFast = false
 							end
 							if _G.AutoEliteHunter and string.find(v.Name,"Urban") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
 								repeat wait()
@@ -9175,6 +9300,7 @@ if World3 then
 											Farmtween:Stop()
 										end
 										EquipWeapon(_G.SelectWeapon)
+										ClickFast = true
 										if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
 											local args = {
 												[1] = "Buso"
@@ -9185,6 +9311,7 @@ if World3 then
 										Click()
 									end 
 								until not _G.AutoEliteHunter or not v.Parent or v.Humanoid.Health <= 0
+								ClickFast = false
 							end
 							if _G.AutoEliteHunter and string.find(v.Name,"Deandre") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
 								repeat wait()
@@ -9195,6 +9322,7 @@ if World3 then
 											Farmtween:Stop()
 										end
 										EquipWeapon(_G.SelectWeapon)
+										ClickFast = true
 										if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
 											local args = {
 												[1] = "Buso"
@@ -9205,6 +9333,7 @@ if World3 then
 										Click()
 									end 
 								until not _G.AutoEliteHunter or not v.Parent or v.Humanoid.Health <= 0
+								ClickFast = false
 							end
 						end
 					else
@@ -9388,10 +9517,12 @@ if World3 then
                                         repeat wait()
                                             AutoHaki()
                                             EquipWeapon(_G.SelectWeapon)
+                                            ClickFast = true
                                             TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                             game:GetService'VirtualUser':CaptureController()
                                             game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                         until _G.Auto_Twin_Hook or v.Humanoid.Health <= 0 or not v.Parent
+                                        ClickFast = false
                                     end
                                 end
                             else
@@ -9444,6 +9575,7 @@ if World3 then
                                 repeat task.wait()
                                     EquipWeapon(_G.SelectWeapon)
                                     AutoHaki()
+                                    ClickFast = true
                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                     game:GetService("VirtualUser"):CaptureController()
@@ -9451,6 +9583,7 @@ if World3 then
                                     v.HumanoidRootPart.Transparency = 1
                                     sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                 until v.Humanoid.Health <= 0 or _G.AutoFarmBossHallow == false
+                                ClickFast = false
                             end
                         end
                     elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hallow Essence") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Hallow Essence") then
@@ -9503,6 +9636,7 @@ end
                                     pcall(function()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
+                                        ClickFast = true
                                         v.HumanoidRootPart.CanCollide = false
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                         TP(v.HumanoidRootPart.CFrame * MethodFarm)
@@ -9510,6 +9644,7 @@ end
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 670),workspace.CurrentCamera.CFrame)
                                     end)
                                 until _G.AutoDarkDagger == false or v.Humanoid.Health <= 0
+                                ClickFast = false
                             end
                         end
                     end
@@ -9567,6 +9702,7 @@ Swords:Toggle("Auto Dark Coat",_G.BlackBeard,function(value)
                             if string.find(v.Name , "Fist of Darkness") then
                                 repeat task.wait()
                                     EquipWeapon(_G.SelectWeapon)
+                                    ClickFast = true
                                     AutoHaki()
                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
@@ -9575,6 +9711,7 @@ Swords:Toggle("Auto Dark Coat",_G.BlackBeard,function(value)
                                     v.HumanoidRootPart.Transparency = 1
                                     sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                 until v.Humanoid.Health <= 0 or _G.BlackBeard == false
+                                ClickFast = false
                             end
                         end
                     elseif game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Fist of Darkness") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Fist of Darkness") then
@@ -9624,6 +9761,7 @@ Swords:Toggle("Auto Dark Coat",_G.BlackBeard,function(value)
                                     pcall(function()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
+                                        ClickFast = true
                                         v.HumanoidRootPart.CanCollide = false
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                         TP(v.HumanoidRootPart.CFrame * MethodFarm)
@@ -9632,6 +9770,7 @@ Swords:Toggle("Auto Dark Coat",_G.BlackBeard,function(value)
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                                     end)
                                 until _G.AutoFarmSwanGlasses == false or v.Humanoid.Health <= 0
+                                ClickFast = false
                             end
                         end
 						  else 
@@ -9692,6 +9831,7 @@ Swords:Toggle("Auto Dark Coat",_G.BlackBeard,function(value)
                                     pcall(function()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
+                                        ClickFast = true
                                         v.HumanoidRootPart.CanCollide = false
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                         TP(v.HumanoidRootPart.CFrame * MethodFarm)
@@ -9700,6 +9840,7 @@ Swords:Toggle("Auto Dark Coat",_G.BlackBeard,function(value)
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                                     end)
                                 until _G.AutoFarmCavander == false or v.Humanoid.Health <= 0
+                                ClickFast = false
                             end
                         end
 						  else 
@@ -9756,6 +9897,7 @@ spawn(function()
                                     repeat task.wait()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
+                                        ClickFast = true
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
@@ -9765,6 +9907,7 @@ spawn(function()
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Auto_Bone or not v.Parent or v.Humanoid.Health <= 0
+                                    ClickFast = false
                                 end
                             end
                         end
@@ -9870,7 +10013,7 @@ spawn(function()
                                                     game:GetService'VirtualUser':CaptureController()
                                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                                 end
-                                            until not _G.Auto_Saber or not v.Parent or v.Humanoid.Health <= 0
+                                            until not _G.AutoSaber or not v.Parent or v.Humanoid.Health <= 0
                                         end
                                     end
                                 else
@@ -10530,6 +10673,7 @@ end
                                 repeat task.wait()
                                     EquipWeapon(_G.SelectWeapon)
                                     AutoHaki()
+                                    ClickFast = true
                                     v.HumanoidRootPart.CanCollide = false
                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                     RengokuMon = v.HumanoidRootPart.CFrame
@@ -10539,6 +10683,7 @@ end
                                     StartRengokuMagnet = true
                                 until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Hidden Key") or _G.AutoRengoku == false or not v.Parent or v.Humanoid.Health <= 0
                                 StartRengokuMagnet = false
+                                ClickFast = false
                             end
                         end
                     else
@@ -10581,6 +10726,7 @@ end
                                                 repeat task.wait()
                                                     AutoHaki()
                                                     EquipWeapon(_G.SelectWeapon)
+                                                    ClickFast = true
                                                     TP(v.HumanoidRootPart.CFrame * MethodFarm)
                                                     v.HumanoidRootPart.CanCollide = false
                                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -10590,6 +10736,7 @@ end
                                                     StartEvoMagnet = true
                                                 until game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Flower 3") or not v.Parent or v.Humanoid.Health <= 0 or _G.Auto_EvoRace == false
                                                 StartEvoMagnet = false
+                                                ClickFast = false
                                             end
                                         end
                                     else
@@ -10629,6 +10776,7 @@ end
                                                 sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
                                                 EquipWeapon(_G.SelectWeapon)
                                                 AutoHaki()
+                                                ClickFast = true
                                                 v.HumanoidRootPart.Transparency = 1
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -10639,6 +10787,7 @@ end
                                                 AutoBartiloBring = true
                                             until not v.Parent or v.Humanoid.Health <= 0 or _G.AutoBartilo == false or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                             AutoBartiloBring = false
+                                            ClickFast = false
                                         end)
                                     end
                                 end
@@ -10660,6 +10809,7 @@ end
                                         sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
                                         EquipWeapon(_G.SelectWeapon)
                                         AutoHaki()
+                                        ClickFast = true
                                         v.HumanoidRootPart.Transparency = 1
                                         v.HumanoidRootPart.CanCollide = false
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -10669,6 +10819,7 @@ end
                                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                                     until not v.Parent or v.Humanoid.Health <= 0 or _G.AutoBartilo == false
+                                    ClickFast = false
                                 end
                             end
                         elseif game:GetService("ReplicatedStorage"):FindFirstChild("Jeremy [Lv. 850] [Boss]") then
@@ -11926,6 +12077,7 @@ end)
                                 repeat task.wait()
                                     EquipWeapon(_G.SelectWeapon)
                                     AutoHaki()
+                                    ClickFast = true
                                     game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CanCollide = false
                                     TP(game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CFrame * MethodFarm_pvp)
                                     spawn(function()
@@ -11943,6 +12095,7 @@ end)
                                         end)
                                     end)
                                 until game.Players:FindFirstChild(_G.SelectPly).Character.Humanoid.Health <= 0 or not game.Players:FindFirstChild(_G.SelectPly) or not _G.Auto_Kill_Ply
+                                ClickFast = false
                             end
                         end
                     end
@@ -13671,10 +13824,12 @@ Dungeon:Toggle("Auto Farm Kill Mob",_G.Raid,function(kill)
                               v.Humanoid.WalkSpeed = 0
                               v.Humanoid.JumpPower = 0 
                               EquipWeapon(_G.SelectWeapon)
+                              ClickFast = true
                               TPDOUN(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame*CFrame.new(0,45,0))
                              game:GetService'VirtualUser':CaptureController()
                              game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                           until not _G.Raid or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1")
+                          ClickFast = false
                       end)
                      end
                  else
@@ -13904,7 +14059,7 @@ wait(1);
 
 Notify({
 Description = "There are no devil fruits left.";
-Title = "ZEN HUB";
+Title = "Quame HUB";
 Duration = 5;
 });
 						end
