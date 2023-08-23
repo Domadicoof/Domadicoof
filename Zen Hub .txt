@@ -7394,7 +7394,14 @@ spawn(function()
         end
     end)
 end)
-
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.FastAttack == true then
+            game.Players.LocalPlayer.Character.Stun.Value = 0
+            game.Players.LocalPlayer.Character.Busy.Value = false        
+        end
+    end)
+end)
     function GetBladeHit()
     local CombatFrameworkLib = debug.getupvalues(require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework))
     local CmrFwLib = CombatFrameworkLib[2]
