@@ -704,7 +704,7 @@ local postog12 = Instance.new("UIStroke")
  ImageLabel.BorderSizePixel = 0
  ImageLabel.Position = UDim2.new(-0.018, 0,-0.252, 0)
  ImageLabel.Size = UDim2.new(0, 45,0, 45)
- ImageLabel.Image = "rbxassetid://11354741327"
+ ImageLabel.Image = "rbxassetid://3631652068"
  ImageLabel.ImageColor3 = Color3.fromRGB(224,224,224)
  
  Space.Name = "Space"
@@ -738,7 +738,7 @@ local postog12 = Instance.new("UIStroke")
  ImageButton.Position = UDim2.new(0, 215, 0, 4)
  ImageButton.Size = UDim2.new(0, 23, 0, 23)
  ImageButton.ZIndex = 2
- ImageButton.Image = "rbxassetid://3631652068"
+ ImageButton.Image = "rbxassetid://3926311105"
  ImageButton.ImageColor3 = Color3.fromRGB(224,224,224)
  ImageButton.ImageRectOffset = Vector2.new(940, 784)
  ImageButton.ImageRectSize = Vector2.new(48, 48)
@@ -2977,10 +2977,9 @@ function GetWeaponInventory(Weaponname)
 end
 
 function Click()
-	local VirtualUser = game:GetService('VirtualUser')
-	VirtualUser:CaptureController()
-	VirtualUser:ClickButton1(Vector2.new(851, 158), game:GetService("Workspace").Camera.CFrame)
-end
+        game:GetService'VirtualUser':CaptureController()
+        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+    end
 
  function attack()
       require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework.CameraShaker).CameraShakeInstance.CameraShakeState = {FadingIn = 3,FadingOut = 2,Sustained = 0,Inactive =1}
