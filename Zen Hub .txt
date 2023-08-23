@@ -3703,9 +3703,9 @@ spawn(function()
 						CheckLevel()
 						repeat wait() TP(CFrameQuest) until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not _G.Auto_Farm_Level
 						if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then
-							wait(1.2)
+							wait(0.1)
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
-							wait(0.5)
+							wait(0.1)
 						end
 					elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						CheckLevel()
@@ -3725,7 +3725,7 @@ spawn(function()
 												StartMagnet = true
 												TP(v.HumanoidRootPart.CFrame * MethodFarm)
 												game:GetService'VirtualUser':CaptureController()
-												game:GetService'VirtualUser':Button1Down(Vector2.new(0,1,0,1))
+                                                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 											else
 												StartMagnet = false
 												game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
@@ -3773,7 +3773,7 @@ spawn(function()
 													StartMagnet = true
 													TP(v.HumanoidRootPart.CFrame * MethodFarm)
 													game:GetService'VirtualUser':CaptureController()
-													game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                                                    game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 												else
 													StartMagnet = false
 													game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
@@ -3819,7 +3819,7 @@ spawn(function()
 											StartMagnet = true
 											TP(v.HumanoidRootPart.CFrame * MethodFarm)
 											game:GetService'VirtualUser':CaptureController()
-											game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                                            game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
 										until not _G.Auto_Farm_Level or v.Humanoid.Health <= 0 or not v.Parent
 									end
 								end
