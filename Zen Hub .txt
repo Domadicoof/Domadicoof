@@ -7144,7 +7144,7 @@ spawn(function()
                 pcall(function()
                     xShadowx.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
                     xShadowx.activeController.timeToNextAttack = 0
-                    xShadowx.activeController.hitboxMagnitude = 200
+                    xShadowx.activeController.hitboxMagnitude = 60
                     xShadowx.activeController.active = false
                     xShadowx.activeController.timeToNextBlock = 0
                     xShadowx.activeController.focusStart = 0
@@ -7341,8 +7341,8 @@ end)
 			STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
 				local Hits = STOPRL.getBladeHits(b,c,d)
 				if Hits then
-					if _G.RemoveAnimation or _G.AutoKaitan or _G.Auto_Farm_Level then
-					       if _G.AutoKaitan or _G.Auto_Farm_Level then
+					if _G.RemoveAnimation then
+					       if _G.RemoveAnimation then
 						STOP.play = function() end
 						a:Play(0.01,0.01,0.01)
 						func(Hits)
