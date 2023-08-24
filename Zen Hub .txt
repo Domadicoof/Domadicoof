@@ -2274,7 +2274,7 @@ function CheckLevel()
                 NameMon = "Candy Pirate"
                 CFrameQuest = CFrame.new(-1147.2296142578125, 14.133421897888184, -14445.1162109375)
                 CFrameMon = CFrame.new(-1488.756103515625, 131.76937866210938, -14374.365234375)
-                SPAWNPOINT = "CandyCane"  
+                SPAWNPOINT = "Candy Island"  
             elseif MyLevel >= 2425 or _G.SelectMonster == "Snow Demon [Lv. 2425]" then
                 Ms = "Snow Demon [Lv. 2425]"
                 NameQuest = "CandyQuest1"
@@ -2282,7 +2282,7 @@ function CheckLevel()
                 NameMon = "Snow Demon"
                 CFrameQuest = CFrame.new(-1147.2296142578125, 14.133421897888184, -14445.1162109375)
                 CFrameMon = CFrame.new(-923.905029296875, 100.98135375976562, -14330.78125)
-                SPAWNPOINT = "CandyCane"   
+                SPAWNPOINT = "Candy Island"   
 			end
         end
     end
@@ -3702,15 +3702,15 @@ spawn(function()
 					end
 					if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 						StartMagnet = false
-						CheckQuest()
+						CheckLevel()
 						repeat wait() TP(CFrameQuest) until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 or not _G.Auto_Farm_Level
 						if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 then
-							wait(1.2)
+							wait(0.1)
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
-							wait(0.5)
+							wait(0.1)
 						end
 					elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-						CheckQuest()
+						CheckLevel()
 						if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
 							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 								if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
@@ -3757,10 +3757,10 @@ spawn(function()
 						end
 						if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 							StartMagnet = false
-							CheckQuest()
+							CheckLevel()
 							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
 						elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-							CheckQuest()
+							CheckLevel()
 							if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
 								for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 									if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
@@ -3808,7 +3808,7 @@ spawn(function()
                 end)
             elseif _G.Select_Mode_Farm == "No Quest" then
 				pcall(function()
-                	CheckQuest()
+                	CheckLevel()
 					if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 							if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
@@ -7172,7 +7172,7 @@ spawn(function()
 game.StarterGui:SetCore("SendNotification", {
         Title = "Quame hub"; -- the title (ofc)
         Text = "Mirage not Found!"; -- what the text says (ofc)
-        Icon = "rbxassetid://11354741327"; -- the image if u want. 
+        Icon = "rbxassetid://3631652068"; -- the image if u want. 
         Duration = 3; -- how long the notification should in secounds
         })
                 if _G.MirageHop then
@@ -7342,7 +7342,6 @@ AutoMisc2:Toggle("Fast Attack [Pc]", true, function(value)
 _G.FastAttackPc = value
 end)
 
-require(game.ReplicatedStorage.Util.CameraShaker):Stop()
 
 xShadowFastAttackx = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 
