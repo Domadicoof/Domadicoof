@@ -3324,6 +3324,18 @@ Main:Dropdown("Select Mode Farm", {
  _G.Select_Mode_Farm = value
 end)
 
+    --// Select Monster
+        if World1 then
+            tableMon = {"Bandit [Lv. 5]","Monkey [Lv. 14]","Gorilla [Lv. 20]","Pirate [Lv. 35]","Brute [Lv. 45]","Desert Bandit [Lv. 60]","Desert Officer [Lv. 70]","Snow Bandit [Lv. 90]","Snowman [Lv. 100]","Chief Petty Officer [Lv. 120]","Sky Bandit [Lv. 150]","Dark Master [Lv. 175]","Prisoner [Lv. 190]", "Dangerous Prisoner [Lv. 210]","Toga Warrior [Lv. 250]","Gladiator [Lv. 275]","Military Soldier [Lv. 300]","Military Spy [Lv. 325]","Fishman Warrior [Lv. 375]","Fishman Commando [Lv. 400]","God's Guard [Lv. 450]","Shanda [Lv. 475]","Royal Squad [Lv. 525]","Royal Soldier [Lv. 550]","Galley Pirate [Lv. 625]","Galley Captain [Lv. 650]"}
+        elseif World2 then
+            tableMon = {"Raider [Lv. 700]","Mercenary [Lv. 725]","Swan Pirate [Lv. 775]","Factory Staff [Lv. 800]","Marine Lieutenant [Lv. 875]","Marine Captain [Lv. 900]","Zombie [Lv. 950]","Vampire [Lv. 975]","Snow Trooper [Lv. 1000]","Winter Warrior [Lv. 1050]","Lab Subordinate [Lv. 1100]","Horned Warrior [Lv. 1125]","Magma Ninja [Lv. 1175]","Lava Pirate [Lv. 1200]","Ship Deckhand [Lv. 1250]","Ship Engineer [Lv. 1275]","Ship Steward [Lv. 1300]","Ship Officer [Lv. 1325]","Arctic Warrior [Lv. 1350]","Snow Lurker [Lv. 1375]","Sea Soldier [Lv. 1425]","Water Fighter [Lv. 1450]"}
+        elseif World3 then
+            tableMon = {"Pirate Millionaire [Lv. 1500]","Dragon Crew Warrior [Lv. 1575]","Dragon Crew Archer [Lv. 1600]","Female Islander [Lv. 1625]","Giant Islander [Lv. 1650]","Marine Commodore [Lv. 1700]","Marine Rear Admiral [Lv. 1725]","Fishman Raider [Lv. 1775]","Fishman Captain [Lv. 1800]","Forest Pirate [Lv. 1825]","Mythological Pirate [Lv. 1850]","Jungle Pirate [Lv. 1900]","Musketeer Pirate [Lv. 1925]","Reborn Skeleton [Lv. 1975]","Living Zombie [Lv. 2000]","Demonic Soul [Lv. 2025]","Posessed Mummy [Lv. 2050]", "Peanut Scout [Lv. 2075]", "Peanut President [Lv. 2100]", "Ice Cream Chef [Lv. 2125]", "Ice Cream Commander [Lv. 2150]", "Cookie Crafter [Lv. 2200]", "Cake Guard [Lv. 2225]", "Baking Staff [Lv. 2250]", "Head Baker [Lv. 2275]", "Cocoa Warrior [Lv. 2300]", "Chocolate Bar Battler [Lv. 2325]", "Sweet Thief [Lv. 2350]", "Candy Rebel [Lv. 2375]", "Candy Pirate [Lv. 2400]", "Snow Demon [Lv. 2425]"}
+        end
+        Main:Dropdown("Select Monster",tableMon, function(monsterlistfunc)
+            _G.SelectMonster = monsterlistfunc
+        end)
+
 WeaponList = {
 	"Melee",
 	"Sword",
@@ -5026,170 +5038,6 @@ spawn( -- Auto Fruit Drop
         end)
     end
 
-
-Main:Seperator("Mob Farm")
-
-    --// Select Monster
-        if World1 then
-            tableMon = {"Bandit [Lv. 5]","Monkey [Lv. 14]","Gorilla [Lv. 20]","Pirate [Lv. 35]","Brute [Lv. 45]","Desert Bandit [Lv. 60]","Desert Officer [Lv. 70]","Snow Bandit [Lv. 90]","Snowman [Lv. 100]","Chief Petty Officer [Lv. 120]","Sky Bandit [Lv. 150]","Dark Master [Lv. 175]","Prisoner [Lv. 190]", "Dangerous Prisoner [Lv. 210]","Toga Warrior [Lv. 250]","Gladiator [Lv. 275]","Military Soldier [Lv. 300]","Military Spy [Lv. 325]","Fishman Warrior [Lv. 375]","Fishman Commando [Lv. 400]","God's Guard [Lv. 450]","Shanda [Lv. 475]","Royal Squad [Lv. 525]","Royal Soldier [Lv. 550]","Galley Pirate [Lv. 625]","Galley Captain [Lv. 650]"}
-        elseif World2 then
-            tableMon = {"Raider [Lv. 700]","Mercenary [Lv. 725]","Swan Pirate [Lv. 775]","Factory Staff [Lv. 800]","Marine Lieutenant [Lv. 875]","Marine Captain [Lv. 900]","Zombie [Lv. 950]","Vampire [Lv. 975]","Snow Trooper [Lv. 1000]","Winter Warrior [Lv. 1050]","Lab Subordinate [Lv. 1100]","Horned Warrior [Lv. 1125]","Magma Ninja [Lv. 1175]","Lava Pirate [Lv. 1200]","Ship Deckhand [Lv. 1250]","Ship Engineer [Lv. 1275]","Ship Steward [Lv. 1300]","Ship Officer [Lv. 1325]","Arctic Warrior [Lv. 1350]","Snow Lurker [Lv. 1375]","Sea Soldier [Lv. 1425]","Water Fighter [Lv. 1450]"}
-        elseif World3 then
-            tableMon = {"Pirate Millionaire [Lv. 1500]","Dragon Crew Warrior [Lv. 1575]","Dragon Crew Archer [Lv. 1600]","Female Islander [Lv. 1625]","Giant Islander [Lv. 1650]","Marine Commodore [Lv. 1700]","Marine Rear Admiral [Lv. 1725]","Fishman Raider [Lv. 1775]","Fishman Captain [Lv. 1800]","Forest Pirate [Lv. 1825]","Mythological Pirate [Lv. 1850]","Jungle Pirate [Lv. 1900]","Musketeer Pirate [Lv. 1925]","Reborn Skeleton [Lv. 1975]","Living Zombie [Lv. 2000]","Demonic Soul [Lv. 2025]","Posessed Mummy [Lv. 2050]", "Peanut Scout [Lv. 2075]", "Peanut President [Lv. 2100]", "Ice Cream Chef [Lv. 2125]", "Ice Cream Commander [Lv. 2150]", "Cookie Crafter [Lv. 2200]", "Cake Guard [Lv. 2225]", "Baking Staff [Lv. 2250]", "Head Baker [Lv. 2275]", "Cocoa Warrior [Lv. 2300]", "Chocolate Bar Battler [Lv. 2325]", "Sweet Thief [Lv. 2350]", "Candy Rebel [Lv. 2375]", "Candy Pirate [Lv. 2400]", "Snow Demon [Lv. 2425]"}
-        end
-        Main:Dropdown("Select Monster",tableMon, function(monsterlistfunc)
-            _G.SelectMonster = monsterlistfunc
-        end)
-
-        Main:Toggle("Auto Farm Select Monster (Quest)",AutoFarmSelectMonsterQuest, function(smq)
-            AutoFarmSelectMonsterQuest = smq
-            StopTween(AutoFarmSelectMonsterQuest)
-            if AutoFarmSelectMonsterQuest and SelectWeapon == nil then
-                local AkaliNotif = loadstring(game:HttpGet("https://pst.klgrth.io/paste/kvtu4/raw"))();
-local Notify = AkaliNotif.Notify;
-
-wait(1);
-
-Notify({
-Description = "Select Weapon First!";
-Title = "Quame HUB";
-Duration = 5;
-});
-            end
-        end)
-
-        spawn(function()
-            while task.wait() do
-                if AutoFarmSelectMonsterQuest then
-                    pcall(function()
-                        CheckLevel()
-                        if not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                            if BypassTP then
-                                if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 2000 then
-                                    BTP(CFrameQuest)
-                                    wait(3)
-                                elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude < 2000 then
-                                    TP(CFrameQuest)
-                                end
-                            else
-                                TP(CFrameQuest)
-                            end
-                            if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
-                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",LevelQuest,LevelQuest)
-                            end
-                        elseif string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    if v.Name == _G.SelectMonster then
-                                        repeat game:GetService("RunService").Heartbeat:wait()
-                                            EquipWeapon(_G.SelectWeapon)
-                                            ClickFast = true
-                                            StartMagnet = true
-                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,20,0))
-                                            v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                            v.HumanoidRootPart.Transparency = 1
-                                            v.Humanoid.JumpPower = 0
-                                            v.Humanoid.WalkSpeed = 0
-                                            v.HumanoidRootPart.CanCollide = false
-                                            v.Humanoid:ChangeState(11)
-                                            v.Humanoid:ChangeState(14)
-                                            PosMon = v.HumanoidRootPart.CFrame
-                                            MonFarm = v.Name
-                                            if v.Humanoid.Health <= 0 and v.Humanoid:FindFirstChild("Animator") then
-                                                v.Humanoid.Animator:Destroy()
-                                            end                                    
-                                        until not AutoFarmSelectMonsterQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
-                                        ClickFast = false
-                                        StartMagnet = false
-                                    end
-                                end
-                            end
-                            for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
-                                if string.find(v.Name,NameMon) then
-                                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
-                                        TP(v.CFrame * CFrame.new(0,20,0))
-                                    end
-                                end
-                            end
-                        end
-                    end)
-                end
-            end
-        end)
-
-        Main:Toggle("Auto Farm Select Monster (No Quest)", AutoFarmSelectMonsterNoQuest, function(smnq)
-            AutoFarmSelectMonsterNoQuest = smnq
-            CancelTP(AutoFarmSelectMonsterNoQuest)
-            if AutoFarmSelectMonsterNoQuest and SelectWeapon == nil then
-                local AkaliNotif = loadstring(game:HttpGet("https://pst.klgrth.io/paste/kvtu4/raw"))();
-local Notify = AkaliNotif.Notify;
-
-wait(1);
-
-Notify({
-Description = "Select Weapon First!";
-Title = "Quane HUB";
-Duration = 5;
-});
-            end
-        end)
-
-        spawn(function()
-            while task.wait(.1) do
-                if AutoFarmSelectMonsterNoQuest then
-                    pcall(function()
-                        if BypassTP then
-                            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude > 2000 then
-                                BTP(CFrameMon)
-                                wait(3)
-                            elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude < 2000 then
-                                TP(CFrameMon)
-                            end
-                        else
-                            TP(CFrameMon)
-                        end
-                        CheckLevel()
-                        if game:GetService("Workspace").Enemies:FindFirstChild(_G.SelectMonster) then
-                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    if v.Name == _G.SelectMonster then
-                                        repeat game:GetService("RunService").Heartbeat:wait()
-                                            EquipWeapon(_G.SelectWeapon)
-                                            ClickFast = true
-                                            StartMagnet = true
-                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                            v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                            v.HumanoidRootPart.Transparency = 1
-                                            v.Humanoid.JumpPower = 0
-                                            v.Humanoid.WalkSpeed = 0
-                                            v.HumanoidRootPart.CanCollide = false
-                                            v.Humanoid:ChangeState(11)
-                                            v.Humanoid:ChangeState(14)
-                                            PosMon = v.HumanoidRootPart.CFrame
-                                            MonFarm = v.Name
-                                            if v.Humanoid.Health <= 0 and v.Humanoid:FindFirstChild("Animator") then
-                                                v.Humanoid.Animator:Destroy()
-                                            end
-                                        until not AutoFarmSelectMonsterNoQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
-                                        ClickFast = false
-                                        StartMagnet = false
-                                    end
-                                end
-                            end
-                        else
-                            for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
-                                if string.find(v.Name,NameMon) then
-                                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
-                                        TP(v.CFrame * CFrame.new(0,30,0))
-                                    end
-                                end
-                            end
-                        end
-                    end)
-                end
-            end
-        end)
         
   Main:Seperator("\\\\\  Mastery  //")
     
