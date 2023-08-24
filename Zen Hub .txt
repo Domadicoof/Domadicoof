@@ -3256,24 +3256,21 @@ function TP(Pos)
         end)
     end)
 
-spawn(function()
-	while task.wait() do
-		pcall(function()
-			if StartMagnet then
-				for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
-					if v:IsA('Part') and v:IsA('MeshPart') then
-						v.Transparency = 1
-					end
-				end
-			end
-		end)
+function InMyNetWork(object)
+	if isnetworkowner then
+		return isnetworkowner(object)
+	else
+		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 375 then 
+			return true
+		end
+		return false
 	end
-end)
+end
 
 spawn(function()
 	while wait() do
 		pcall(function()
-			if StartMagnet then
+			if StartMagnet and _G.BringMonster then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 375 then
 						if InMyNetWork(v.HumanoidRootPart) then
@@ -6449,24 +6446,6 @@ spawn(function()
                                  end
                              end)
 
-spawn(function()
- game:GetService("RunService").Heartbeat:Connect(function()
-  pcall(function()
-   for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-   if _G.AutoEctoplasm and StartEctoplasmMagnet and and _G.BringMonster and string.find(v.Name, "Ship") and (v.HumanoidRootPart.Position - PosMonEctoplasm.Position).magnitude <= 350 then
-   v.HumanoidRootPart.CFrame = PosMonEctoplasm
-   v.HumanoidRootPart.CanCollide = false
-   v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-   if v.Humanoid:FindFirstChild("Animator") then
-   v.Humanoid.Animator:Destroy()
-   end
-   sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-   end
-   end
-   end)
-  end)
- end)
- 
 	Main:Toggle("Auto Buy Bizarre Rifle",_G.AutoBuyBizarreRifle,function(A)
 		if World2 then
 			AutoBuyBizarreRifle = A
@@ -6881,7 +6860,7 @@ end)
 
 spawn(function()
 			while task.wait() do
-				if _G.AutoFarmMaterial and _G.BringMonster then
+				if _G.AutoFarmMaterial then
 					pcall(function()
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 							if v.Name == MMon and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 400 then
@@ -7322,7 +7301,7 @@ end)
 spawn(function()
 	while task.wait() do
 		pcall(function()
-			if _G.Auto_Farm_Level and _G.Select_Mode_Farm == "Level Farm" and _G.Select_Mode_Farm == "Easy Mode" and _G.Select_Mode_Farm == "Hard Mode" and _G.Select_Mode_Farm == "Fast Mode" and _G.Select_Mode_Farm == "No Quest" and _G.BringMonster then
+			if _G.Auto_Farm_Level and _G.Select_Mode_Farm == "Level Farm" and _G.Select_Mode_Farm == "Easy Mode" and _G.Select_Mode_Farm == "Hard Mode" and _G.Select_Mode_Farm == "Fast Mode" and _G.Select_Mode_Farm == "No Quest" then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 					if v.Name == Ms and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 350 then
 						v.Humanoid.WalkSpeed = 0
@@ -7344,7 +7323,7 @@ spawn(function()
 	end
 end)
 
-  AutoMisc3:Toggle("Remove Attack",true,function(value)
+  AutoMisc3:Toggle("Remove Attack",_G.RemoveAnimation,function(value)
          _G.RemoveAnimation = value
 	end)
 	
@@ -8302,41 +8281,6 @@ end)
 		end
 	end)
 
-spawn(function()
-		game:GetService("RunService").Heartbeat:Connect(function()
-			pcall(function()
-				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-					if _G.AutoDoughtBoss and StartCakeMagnet and _G.BringMonster and (v.Name == "Cookie Crafter [Lv. 2200]" or v.Name == "Cake Guard [Lv. 2225]" or v.Name == "Baking Staff [Lv. 2250]" or v.Name == "Head Baker [Lv. 2275]") and (v.HumanoidRootPart.Position - POSCAKE.Position).magnitude <= 350 then
-						v.HumanoidRootPart.CFrame = POSCAKE
-						v.HumanoidRootPart.CanCollide = false
-						v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-						if v.Humanoid:FindFirstChild("Animator") then
-							v.Humanoid.Animator:Destroy()
-						end
-						sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
-					end
-				end
-			end)
-		end)
-	end)
-	
-    spawn(function()
-		game:GetService("RunService").Heartbeat:Connect(function()
-			pcall(function()
-				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-					if _G.Auto_Open_Dough_Dungeon and StartCakeMagnet and _G.BringMonster and (v.Name == "Cookie Crafter [Lv. 2200]" or v.Name == "Cake Guard [Lv. 2225]" or v.Name == "Baking Staff [Lv. 2250]" or v.Name == "Head Baker [Lv. 2275]") and (v.HumanoidRootPart.Position - POSCAKE.Position).magnitude <= 350 then
-						v.HumanoidRootPart.CFrame = POSCAKE
-						v.HumanoidRootPart.CanCollide = false
-						v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-						if v.Humanoid:FindFirstChild("Animator") then
-							v.Humanoid.Animator:Destroy()
-						end
-						sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
-					end
-				end
-			end)
-		end)
-	end) 
 if World3 then
 	Swords:Seperator("\\\\\  Tushita  //")
 
@@ -9747,24 +9691,6 @@ spawn(function()
         end)
     end)
     
-spawn(function()
- game:GetService("RunService").Heartbeat:Connect(function()
-  pcall(function()
-   for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-   if _G.Auto_Bone and StartMagnetBoneMon and _G.BringMonster and (v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]") and (v.HumanoidRootPart.Position - PosMonBone.Position).magnitude <= 350 then
-   v.HumanoidRootPart.CFrame = PosMonBone
-   v.HumanoidRootPart.CanCollide = false
-   v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-   if v.Humanoid:FindFirstChild("Animator") then
-   v.Humanoid.Animator:Destroy()
-   end
-   sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-   end
-   end
-   end)
-  end)
- end)
- 
  function TP(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
@@ -10575,24 +10501,6 @@ end
     end)
 end
 
-    spawn(function()
-		game:GetService("RunService").Heartbeat:Connect(function()
-			pcall(function()
-				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-					if _G.Auto_EvoRace and StartEvoMagnet and _G.BringMonster and v.Name == "Zombie [Lv. 950]" and (v.HumanoidRootPart.Position - PosMonEvo.Position).magnitude <= 350 then
-						v.HumanoidRootPart.CFrame = PosMonEvo
-						v.HumanoidRootPart.CanCollide = false
-						v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-						if v.Humanoid:FindFirstChild("Animator") then
-							v.Humanoid.Animator:Destroy()
-						end
-						sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
-					end
-				end
-			end)
-		end)
-	end)
-	
     if World2 then
     Swords1:Toggle("Auto Bartlio Quest",_G.AutoBartilo,function(value)
         _G.AutoBartilo = value
@@ -10692,24 +10600,6 @@ end
         end)
     end)
     end
-    
-    spawn(function()
-		game:GetService("RunService").Heartbeat:Connect(function()
-			pcall(function()
-				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-					if _G.AutoBartilo and AutoBartiloBring and _G.BringMonster and v.Name == "Swan Pirate [Lv. 775]" and (v.HumanoidRootPart.Position - PosMonBarto.Position).magnitude <= 350 then
-						v.HumanoidRootPart.CFrame = PosMonBarto
-						v.HumanoidRootPart.CanCollide = false
-						v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-						if v.Humanoid:FindFirstChild("Animator") then
-							v.Humanoid.Animator:Destroy()
-						end
-						sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
-					end
-				end
-			end)
-		end)
-	end)
 
 	if World3 then
 Swords1:Toggle("Auto Open Color Haki",_G.Farm_Ob_Color,function(vu)
@@ -10977,6 +10867,251 @@ spawn(function()
     end)
 	end)
 
+    spawn(function()
+        while wait(.2) do
+            pcall(function()
+                if _G.BringMonster then
+                    CheckLevel()
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if _G.Auto_Farm_Level and StartMagnet and v.Name == Ms and (Ms == "Factory Staff [Lv. 800]" or Ms == "Monkey [Lv. 14]" or Ms == "Dragon Crew Warrior [Lv. 1575]" or Ms == "Dragon Crew Archer [Lv. 1600]" or Ms == "Snow Demon [Lv. 2425]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 275 then
+                            v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                            v.HumanoidRootPart.CFrame = PosMon
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                               sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                         elseif _G.Auto_Farm_Level and StartMagnet and v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 300 then
+                            v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                            v.HumanoidRootPart.CFrame = PosMon
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                               sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                        end	
+                        if _G.AutoFarmKaitan and StartMagnet and v.Name == Ms and (Ms == "Factory Staff [Lv. 800]" or Ms == "Monkey [Lv. 14]" or Ms == "Dragon Crew Warrior [Lv. 1575]" or Ms == "Dragon Crew Archer [Lv. 1600]" or Ms == "Snow Demon [Lv. 2425]") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 275 then
+                            v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                            v.HumanoidRootPart.CFrame = PosMon
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                               sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                         elseif _G.AutoFarmKaitan and StartMagnet and v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 300 then
+                            v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                            v.HumanoidRootPart.CFrame = PosMon
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                               sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                        end		
+						if _G.AutoEctoplasm and StartEctoplasmMagnet then
+                            if string.find(v.Name, "Ship") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - EctoplasmMon.Position).Magnitude <= 300 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CFrame = EctoplasmMon
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                   sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                            end
+                        end
+                        if _G.AutoRengoku and StartRengokuMagnet then
+                            if (v.Name == "Snow Lurker [Lv. 1375]" or v.Name == "Arctic Warrior [Lv. 1350]") and (v.HumanoidRootPart.Position - RengokuMon.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = RengokuMon
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                   sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                            end
+                        end
+                        if _G.AutoMusketeerHat and StartMagnetMusketeerhat then
+                            if v.Name == "Forest Pirate [Lv. 1825]" and (v.HumanoidRootPart.Position - MusketeerHatMon.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = MusketeerHatMon
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                   sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                            end
+                        end
+                        if _G.Auto_EvoRace and StartEvoMagnet then
+                            if v.Name == "Zombie [Lv. 950]" and (v.HumanoidRootPart.Position - PosMonEvo.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = PosMonEvo
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                   sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                            end
+                        end
+                        if _G.AutoBartilo and AutoBartiloBring then
+                            if v.Name == "Swan Pirate [Lv. 775]" and (v.HumanoidRootPart.Position - PosMonBarto.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = PosMonBarto
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                   sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                            end
+                        end
+                        if _G.AutoFarmFruitMastery and StartMasteryFruitMagnet then
+                            if v.Name == "Monkey [Lv. 14]" then
+                                if (v.HumanoidRootPart.Position - PosMonMasteryFruit.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Head.CanCollide = false
+                                    v.HumanoidRootPart.CFrame = PosMonMasteryFruit
+                                    if v.Humanoid:FindFirstChild("Animator") then
+                                        v.Humanoid.Animator:Destroy()
+                                    end
+                                       sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                                end
+                            elseif v.Name == "Factory Staff [Lv. 800]" then
+                                if (v.HumanoidRootPart.Position - PosMonMasteryFruit.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Head.CanCollide = false
+                                    v.HumanoidRootPart.CFrame = PosMonMasteryFruit
+                                    if v.Humanoid:FindFirstChild("Animator") then
+                                        v.Humanoid.Animator:Destroy()
+                                    end
+                                       sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                                end
+                            elseif v.Name == Ms then
+                                if (v.HumanoidRootPart.Position - PosMonMasteryFruit.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Head.CanCollide = false
+                                    v.HumanoidRootPart.CFrame = PosMonMasteryFruit
+                                    if v.Humanoid:FindFirstChild("Animator") then
+                                        v.Humanoid.Animator:Destroy()
+                                    end
+                                       sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                                end
+                            end
+                        end
+                        if _G.AutoFarmGunMastery and StartMasteryGunMagnet then
+                            if v.Name == "Monkey [Lv. 14]" then
+                                if (v.HumanoidRootPart.Position - PosMonMasteryGun.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Head.CanCollide = false
+                                    v.HumanoidRootPart.CFrame = PosMonMasteryGun
+                                    if v.Humanoid:FindFirstChild("Animator") then
+                                        v.Humanoid.Animator:Destroy()
+                                    end
+                                       sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                                end
+                            elseif v.Name == "Factory Staff [Lv. 800]" then
+                                if (v.HumanoidRootPart.Position - PosMonMasteryGun.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Head.CanCollide = false
+                                    v.HumanoidRootPart.CFrame = PosMonMasteryGun
+                                    if v.Humanoid:FindFirstChild("Animator") then
+                                        v.Humanoid.Animator:Destroy()
+                                    end
+                                       sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                                end
+                            elseif v.Name == Ms then
+                                if (v.HumanoidRootPart.Position - PosMonMasteryGun.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.Head.CanCollide = false
+                                    v.HumanoidRootPart.CFrame = PosMonMasteryGun
+                                    if v.Humanoid:FindFirstChild("Animator") then
+                                        v.Humanoid.Animator:Destroy()
+                                    end
+                                       sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                                end
+                            end
+                        end
+                        if _G.Auto_Bone and StartMagnetBoneMon then
+                            if (v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]") and (v.HumanoidRootPart.Position - PosMonBone.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = PosMonBone
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                   sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                            end
+                        end
+                        if _G.AutoDoughtBoss and StartCakeMagnet then
+                            if (v.Name == "Cookie Crafter [Lv. 2200]" or v.Name == "Cake Guard [Lv. 2225]" or v.Name == "Baking Staff [Lv. 2250]" or v.Name == "Head Baker [Lv. 2275]") and (v.HumanoidRootPart.Position - POSCAKE.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = POSCAKE
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                   sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                            end
+                        end
+                        if _G.AutoCandy and StartMagnetCandy then
+                            if (v.HumanoidRootPart.Position - PosMonCandy.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = PosMonCandy
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                   sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                            end
+						end
+				          if _G.AutoMobAura and StartMagnetKill then
+                            if (v.HumanoidRootPart.Position - PosMonAura.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.HumanoidRootPart.CFrame = PosMonAura
+                                v.Humanoid:ChangeState(14)
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                             end
+                                sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+							end
+						end
+				          if _G.Raid and StartMagnetRaid then
+                            if (v.HumanoidRootPart.Position - PosMonRaid.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = PosMonRaid
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                               end
+                                  sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end)
    Swords1:Seperator("\\\\\  Fighting Style  //")
     
     Swords1:Toggle("Auto Superhuman",_G.Auto_Fully_Superhuman,function(value)
