@@ -8312,7 +8312,7 @@ if World3 then
 			for i,v in pairs(mobs) do
 				if v.Name == "rip_indra True Form [Lv. 5000] [Raid Boss]" and v:IsA("Model") and v:FindFirstChild("Humanoid") and
 					v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-					ClickFast = false
+					ClickFast = true
 					return v
 				end
 			end
@@ -8325,7 +8325,7 @@ if World3 then
 			for i,v in pairs(mobs) do
 				if v.Name == "Deandre [Lv. 1750]" or v.Name == "Diablo [Lv. 1750]" or v.Name == "Urban [Lv. 1750]"  and v:IsA("Model") and v:FindFirstChild("Humanoid") and
 					v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-					ClickFast = false
+					ClickFast = true
 					return v
 				end
 			end
@@ -8342,7 +8342,7 @@ if World3 then
 			for i,v in pairs(mobs) do
 				if v.Name == "Longma [Lv. 2000] [Boss]" and v:IsA("Model") and v:FindFirstChild("Humanoid") and
 					v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-					ClickFast = false
+					ClickFast = true
 					return v
 				end
 			end
@@ -8366,7 +8366,7 @@ if World3 then
 					CheckLevel()
 					pcall(function()
 						EquipWeapon(_G.SelectWeapon)
-						ClickFast = true
+						ClickFast = false
 						pcall(function()
 							local v = enemyEliteBoss()
 							v.HumanoidRootPart.CanCollide = false
@@ -8456,7 +8456,7 @@ if World3 then
 		elseif game.Workspace.Enemies:FindFirstChild("Longma [Lv. 2000] [Boss]") or game.ReplicatedStorage:FindFirstChild("Longma [Lv. 2000] [Boss]") then
 			pcall(function()
 				EquipWeapon(_G.SelectWeapon)
-				ClickFast = true
+				ClickFast = false
 				pcall(function()
 					local v = enemylongma()
 					v.HumanoidRootPart.CanCollide = false
@@ -8467,7 +8467,7 @@ if World3 then
 		elseif game.Workspace.Enemies:FindFirstChild("rip_indra True Form [Lv. 5000] [Raid Boss]")  or game.ReplicatedStorage:FindFirstChild("rip_indra True Form [Lv. 5000] [Raid Boss]") then
 			pcall(function()
 				EquipWeapon(_G.SelectWeapon)
-				ClickFast = true
+				ClickFast = false
 				pcall(function()
 					local v = enemyrip()
 					v.HumanoidRootPart.CanCollide = false
