@@ -3270,7 +3270,7 @@ end
 spawn(function()
 	while wait() do
 		pcall(function()
-			if StartMagnet and _G.BringMonster then
+			if StartMagnet then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 375 then
 						if InMyNetWork(v.HumanoidRootPart) then
@@ -6860,7 +6860,7 @@ end)
 
 spawn(function()
 			while task.wait() do
-				if _G.AutoFarmMaterial and _G.BringMonster then
+				if _G.AutoFarmMaterial then
 					pcall(function()
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 							if v.Name == MMon and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 400 then
@@ -7237,7 +7237,7 @@ end)
 end
 end)
 
- AutoMisc3:Toggle("Auto Set Spawn Points",true,function(value)
+ AutoMisc3:Toggle("Auto Set Spawn Points",false,function(value)
         _G.AutoSetSpawn = value
     end)
     
@@ -7262,7 +7262,7 @@ else
 end
 end)
 
-	AutoMisc3:Toggle("Auto Observation haki", true,function(Value)
+	AutoMisc3:Toggle("Auto Observation haki", false,function(Value)
 		AUTOHAKIObs = Value  
 	end)
 
@@ -8977,7 +8977,7 @@ if World3 then
 	end)
 
 	Swords:Toggle("Auto Elite Hunter Hop",_G.AutoEliteHunterHop,function(a)
-	    _G.AutoEliteHunterHOP = a
+	    _G.Auto_Elite_Hunter_Hop = a
 	end)
 
 	spawn(function()
@@ -9001,7 +9001,7 @@ if World3 then
 												game:GetService("VirtualUser"):CaptureController()
 												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
 												sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-											until _G.AutoEliteHunter == false or v.Humanoid.Health <= 0 or not v.Parent
+											until not _G.AutoEliteHunter or not v.Parent or v.Humanoid.Health <= 0
 											ClickFast = false
 										end
 									end
@@ -9027,6 +9027,7 @@ if World3 then
 			end
 		end
 	end)
+end
 
 if World3 then
     Swords:Seperator("\\\\\  Twin Hook  //")
@@ -10670,6 +10671,7 @@ spawn(function()
     end)
 	end)
 
+    
     spawn(function()
         while wait(.2) do
             pcall(function()
@@ -10898,11 +10900,11 @@ spawn(function()
                                    sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                             end
 						end
-				          if _G.Auto_Farm_Level and StartMagnetKill then
-                            if (v.HumanoidRootPart.Position - PosMonAura.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+				          if _G.Auto_Farm_Level and _G.Select_Mode_Farm == "Near Farm Mode" and StartMagnetKill then
+                            if (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                                 v.HumanoidRootPart.CanCollide = false
-                                v.HumanoidRootPart.CFrame = PosMonAura
+                                v.HumanoidRootPart.CFrame = PosMon
                                 v.Humanoid:ChangeState(14)
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
@@ -10927,6 +10929,8 @@ spawn(function()
             end)
         end
     end)
+    
+	
    Swords1:Seperator("\\\\\  Fighting Style  //")
     
     Swords1:Toggle("Auto Superhuman",_G.Auto_Fully_Superhuman,function(value)
