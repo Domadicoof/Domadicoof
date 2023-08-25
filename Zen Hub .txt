@@ -8992,7 +8992,7 @@ if World3 then
 										if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
 											repeat wait()
 												AutoHaki()
-												EquipWeapon(_G.Select_Weapon)
+												EquipWeapon(_G.SelectWeapon)
 												ClickFast = true
 												v.HumanoidRootPart.CanCollide = false
 												v.Humanoid.WalkSpeed = 0
