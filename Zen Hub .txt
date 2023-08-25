@@ -3948,10 +3948,10 @@ elseif _G.Select_Mode_Farm == "Near Farm Mode" then
  ClickFast = true
  game:GetService'VirtualUser':CaptureController()
  game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-  StartMagnet = true
+  StartMagnetKill = true
   PosMon = v.HumanoidRootPart.CFrame
   until not _G.Auto_Farm_Level or not v.Parent or v.Humanoid.Health == 0 or not game.Workspace.Enemies:FindFirstChild(v.Name)
-  StartMagnet = false
+  StartMagnetKill = false
   ClickFast = false
   end
 		end
@@ -6860,7 +6860,7 @@ end)
 
 spawn(function()
 			while task.wait() do
-				if _G.AutoFarmMaterial then
+				if _G.AutoFarmMaterial and _G.BringMonster then
 					pcall(function()
 						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 							if v.Name == MMon and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 400 then
@@ -7237,7 +7237,7 @@ end)
 end
 end)
 
- AutoMisc3:Toggle("Auto Set Spawn Points",false,function(value)
+ AutoMisc3:Toggle("Auto Set Spawn Points",true,function(value)
         _G.AutoSetSpawn = value
     end)
     
@@ -7262,7 +7262,7 @@ else
 end
 end)
 
-	AutoMisc3:Toggle("Auto Observation haki", false,function(Value)
+	AutoMisc3:Toggle("Auto Observation haki", true,function(Value)
 		AUTOHAKIObs = Value  
 	end)
 
@@ -7323,7 +7323,7 @@ spawn(function()
 	end
 end)
 
-  AutoMisc3:Toggle("Remove Attack",_G.RemoveAnimation,function(value)
+  AutoMisc3:Toggle("Remove Attack",true,function(value)
          _G.RemoveAnimation = value
 	end)
 	
@@ -8983,247 +8983,50 @@ if World3 then
 	spawn(function()
 		while wait() do
 			if _G.AutoEliteHunter then
-				if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-					if string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Diablo") or string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Urban") or string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Deandre") then
-						for i,v in pairs(game.ReplicatedStorage:GetChildren()) do
-							if string.find(v.Name,"Diablo") then
-								EliteHunter = TP(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame)
-								if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
-									if EliteHunter then
-										EliteHunter:Stop()
-									end
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
-								end
-							end
-							if string.find(v.Name,"Urban") then
-								EliteHunter = TP(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame)
-								if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
-									if EliteHunter then
-										EliteHunter:Stop()
-									end
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
-								end
-							end	
-							if string.find(v.Name,"Deandre") then
-								EliteHunter = TP(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame)
-								if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
-									if EliteHunter then
-										EliteHunter:Stop()
-									end
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame
-								end
-							end	
-						end
-						for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-							if _G.AutoEliteHunter and string.find(v.Name,"Diablo") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-								repeat wait()
-									if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 300 then
-										Farmtween = TP(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame)
-									elseif (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
-										if Farmtween then
-											Farmtween:Stop()
-										end
-										EquipWeapon(_G.SelectWeapon)
-										ClickFast = true
-										if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-											local args = {
-												[1] = "Buso"
-											}
-											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-										end
-										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
-										Click()
-									end
-								until not _G.AutoEliteHunter or not v.Parent or v.Humanoid.Health <= 0
-								ClickFast = false
-							end
-							if _G.AutoEliteHunter and string.find(v.Name,"Urban") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-								repeat wait()
-									if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 300 then
-										Farmtween = TP(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame)
-									elseif (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
-										if Farmtween then
-											Farmtween:Stop()
-										end
-										EquipWeapon(_G.SelectWeapon)
-										ClickFast = true
-										if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-											local args = {
-												[1] = "Buso"
-											}
-											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-										end
-										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
-										Click()
-									end 
-								until not _G.AutoEliteHunter or not v.Parent or v.Humanoid.Health <= 0
-								ClickFast = false
-							end
-							if _G.AutoEliteHunter and string.find(v.Name,"Deandre") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-								repeat wait()
-									if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude > 300 then
-										Farmtween = TP(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame)
-									elseif (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 300 then
-										if Farmtween then
-											Farmtween:Stop()
-										end
-										EquipWeapon(_G.SelectWeapon)
-										ClickFast = true
-										if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
-											local args = {
-												[1] = "Buso"
-											}
-											game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-										end
-										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0,30,0)
-										Click()
-									end 
-								until not _G.AutoEliteHunter or not v.Parent or v.Humanoid.Health <= 0
-								ClickFast = false
-							end
-						end
-					else
-						if _G.AutoEliteHunterHOP and game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("EliteHunter") == "I don't have anything for you right now. Come back later." then
-							local PlaceID = game.PlaceId
-							local AllIDs = {}
-							local foundAnything = ""
-							local actualHour = os.date("!*t").hour
-							local Deleted = false
-							function TPReturner()
-								local Site;
-								if foundAnything == "" then
-									Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
-								else
-									Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
-								end
-								local ID = ""
-								if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
-									foundAnything = Site.nextPageCursor
-								end
-								local num = 0;
-								for i,v in pairs(Site.data) do
-									local Possible = true
-									ID = tostring(v.id)
-									if tonumber(4) > tonumber(v.playing) then
-										for _,Existing in pairs(AllIDs) do
-											if num ~= 0 then
-												if ID == tostring(Existing) then
-													Possible = false
-												end
-											else
-												if tonumber(actualHour) ~= tonumber(Existing) then
-													local delFile = pcall(function()
-														-- delfile("NotSameServers.json")
-														AllIDs = {}
-														table.insert(AllIDs, actualHour)
-													end)
-												end
-											end
-											num = num + 1
-										end
-										if Possible == true then
-											table.insert(AllIDs, ID)
-											wait()
-											pcall(function()
-											 -- writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
-												wait()
-												game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
-											end)
-											wait(1)
+				pcall(function()
+					if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Diablo") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Deandre") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Urban") then
+							if game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
+								for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+									if v.Name == "Diablo [Lv. 1750]" or v.Name == "Deandre [Lv. 1750]" or v.Name == "Urban [Lv. 1750]" then
+										if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+											repeat wait()
+												AutoHaki()
+												EquipWeapon(_G.Select_Weapon)
+												ClickFast = true
+												v.HumanoidRootPart.CanCollide = false
+												v.Humanoid.WalkSpeed = 0
+												v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+												TP(v.HumanoidRootPart.CFrame * MethodFarm)
+												game:GetService("VirtualUser"):CaptureController()
+												game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+												sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+											until _G.AutoEliteHunter == false or v.Humanoid.Health <= 0 or not v.Parent
+											ClickFast = false
 										end
 									end
 								end
-							end
-							function Teleport() 
-								while wait() do
-									pcall(function()
-										TPReturner()
-										if foundAnything ~= "" then
-											TPReturner()
-										end
-									end)
-								end
-							end
-							Teleport()
-						else
-							local string_1 = "EliteHunter";
-							local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
-							Target:InvokeServer(string_1);
-						end
-					end
-				else
-					if _G.AutoEliteHunterHOP and game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("EliteHunter") == "I don't have anything for you right now. Come back later." then
-						local PlaceID = game.PlaceId
-						local AllIDs = {}
-						local foundAnything = ""
-						local actualHour = os.date("!*t").hour
-						local Deleted = false
-						function TPReturner()
-							local Site;
-							if foundAnything == "" then
-								Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100'))
 							else
-								Site = game.HttpService:JSONDecode(game:HttpGet('https://games.roblox.com/v1/games/' .. PlaceID .. '/servers/Public?sortOrder=Asc&limit=100&cursor=' .. foundAnything))
-							end
-							local ID = ""
-							if Site.nextPageCursor and Site.nextPageCursor ~= "null" and Site.nextPageCursor ~= nil then
-								foundAnything = Site.nextPageCursor
-							end
-							local num = 0;
-							for i,v in pairs(Site.data) do
-								local Possible = true
-								ID = tostring(v.id)
-								if tonumber(4) > tonumber(v.playing) then
-									for _,Existing in pairs(AllIDs) do
-										if num ~= 0 then
-											if ID == tostring(Existing) then
-												Possible = false
-											end
-										else
-											if tonumber(actualHour) ~= tonumber(Existing) then
-												local delFile = pcall(function()
-													-- delfile("NotSameServers.json")
-													AllIDs = {}
-													table.insert(AllIDs, actualHour)
-												end)
-											end
-										end
-										num = num + 1
-									end
-									if Possible == true then
-										table.insert(AllIDs, ID)
-										wait()
-										pcall(function()
-											-- writefile("NotSameServers.json", game:GetService('HttpService'):JSONEncode(AllIDs))
-											wait()
-											game:GetService("TeleportService"):TeleportToPlaceInstance(PlaceID, ID, game.Players.LocalPlayer)
-										end)
-										wait(1)
-									end
+								if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") then
+									TP(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]").HumanoidRootPart.CFrame * MethodFarm)
+								elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") then
+									TP(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]").HumanoidRootPart.CFrame * MethodFarm)
+								elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") then
+									TP(game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]").HumanoidRootPart.CFrame * MethodFarm)
 								end
-							end
+							end                    
 						end
-						function Teleport() 
-							while wait() do
-								pcall(function()
-									TPReturner()
-									if foundAnything ~= "" then
-										TPReturner()
-									end
-								end)
-							end
-						end
-						Teleport()
 					else
-						local string_1 = "EliteHunter";
-						local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
-						Target:InvokeServer(string_1);
+						if _G.Auto_Elite_Hunter_Hop and game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("EliteHunter") == "I don't have anything for you right now. Come back later." then
+							hop()
+						else
+							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
+						end
 					end
-				end
+				end)
 			end
-		end	
+		end
 	end)
-end
 
 if World3 then
     Swords:Seperator("\\\\\  Twin Hook  //")
@@ -11071,6 +10874,18 @@ spawn(function()
                                    sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                             end
                         end
+                        if _G.Auto_Open_Dough_Dungeon and StartCakeMagnet then
+                            if (v.Name == "Cookie Crafter [Lv. 2200]" or v.Name == "Cake Guard [Lv. 2225]" or v.Name == "Baking Staff [Lv. 2250]" or v.Name == "Head Baker [Lv. 2275]") and (v.HumanoidRootPart.Position - POSCAKE.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = POSCAKE
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                   sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                            end
+                        end
                         if _G.AutoCandy and StartMagnetCandy then
                             if (v.HumanoidRootPart.Position - PosMonCandy.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
@@ -11083,7 +10898,7 @@ spawn(function()
                                    sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
                             end
 						end
-				          if _G.AutoMobAura and StartMagnetKill then
+				          if _G.Auto_Farm_Level and StartMagnetKill then
                             if (v.HumanoidRootPart.Position - PosMonAura.Position).Magnitude <= 300 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(60,60,60)
                                 v.HumanoidRootPart.CanCollide = false
