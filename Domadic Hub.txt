@@ -3954,8 +3954,9 @@ end)
 		pcall(function()
 			while wait() do
 				if _G.Farmfast and World1 then
-					if game.Players.LocalPlayer.Data.Level.Value >= 50 then
+					if game.Players.LocalPlayer.Data.Level.Value >= 40 then
 						_G.AutoFarm = true
+						_G.Farmfast = false
 					end
 				end
 			end
