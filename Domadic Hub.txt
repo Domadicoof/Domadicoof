@@ -3855,19 +3855,7 @@ spawn(function()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 AutoHaki()                                            
                                                 PosMon = v.HumanoidRootPart.CFrame
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(1,14,1))
-                                                wait(.1)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(10,14,10))
-                                                wait(.1)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(20,14,19))
-                                                wait(.1)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(15,14,13))
-                                                wait(.1)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(10,14,5))
-                                                wait(.1)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(6,14,2))
-                                                wait(.1)
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(1,14,1))
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
@@ -3914,25 +3902,14 @@ spawn(function()
 							repeat task.wait()
 								AutoHaki()
                                 StartMagnet = true
+                                BypassTP = false
+                                _G.AutoFarm = false
 								Fastattack = true
 								game:GetService'VirtualUser':CaptureController()
 								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                 v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(1,14,1))
-                                wait(.1)
-                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(10,14,10))
-                                wait(.1)
-                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(20,14,19))
-                                wait(.1)
-                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(15,14,13))
-                                wait(.1)
-                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(10,14,5))
-                                wait(.1)
-                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(6,14,2))
-                                wait(.1)
-                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(1,14,1))
+                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
                             until not _G.Farmfast or v.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health <= 0
-                            break  -- Exit the loop once the enemy is defeated or the player dies
                             Fastattack = false
                         end
                     end
@@ -3971,6 +3948,18 @@ end)
 	end)
 	end
 	end
+	end)
+	
+	spawn(function()
+		pcall(function()
+			while wait() do
+				if _G.Farmfast and World1 then
+					if game.Players.LocalPlayer.Data.Level.Value >= 50 then
+						_G.AutoFarm = true
+					end
+				end
+			end
+		end)
 	end)
    
 
