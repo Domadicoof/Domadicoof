@@ -3855,7 +3855,19 @@ spawn(function()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 AutoHaki()                                            
                                                 PosMon = v.HumanoidRootPart.CFrame
-                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(1,14,1))
+                                                wait(.1)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(10,14,10))
+                                                wait(.1)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(20,14,19))
+                                                wait(.1)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(15,14,13))
+                                                wait(.1)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(10,14,5))
+                                                wait(.1)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(6,14,2))
+                                                wait(.1)
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(1,14,1))
                                                 v.HumanoidRootPart.CanCollide = false
                                                 v.Humanoid.WalkSpeed = 0
                                                 v.Head.CanCollide = false
@@ -3883,6 +3895,83 @@ spawn(function()
             end
         end
     end)
+    
+    Main:AddToggle("Auto Farm Fast",_G.AutoFarmFast,function(value)
+        _G.Farmfast = value
+        StopTween(_G.Farmfast)
+    end)
+    
+    spawn(function()
+    pcall(function()
+        while wait() do
+			if _G.AutoFarm and _G.Farmfast and World1 then
+				if game.Players.LocalPlayer.Data.Level.Value >= 10 then
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+					TP1(CFrame.new(-7679.40723, 5565.16113, -502.522491, -0.948657334, -1.87793722e-11, -0.316305608, -1.05328055e-11, 1, -2.77811975e-11, 0.316305608, -2.30232517e-11, -0.948657334))
+                    StartMagnet = false
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v.Name == "Shanda [Lv. 475]" then
+							repeat task.wait()
+								AutoHaki()
+                                StartMagnet = true
+								Fastattack = true
+								game:GetService'VirtualUser':CaptureController()
+								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                                v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(1,14,1))
+                                wait(.1)
+                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(10,14,10))
+                                wait(.1)
+                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(20,14,19))
+                                wait(.1)
+                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(15,14,13))
+                                wait(.1)
+                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(10,14,5))
+                                wait(.1)
+                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(6,14,2))
+                                wait(.1)
+                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(1,14,1))
+                            until not _G.Farmfast or v.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health <= 0
+                            break  -- Exit the loop once the enemy is defeated or the player dies
+                            Fastattack = false
+                        end
+                    end
+                end
+            end
+        end
+    end)
+end)
+
+	spawn(function()
+		while wait() do
+			if _G.AutoFarm and _G.Farmfast then
+				pcall(function()
+				CheckQuest()
+		   for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+	for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+	if v.Name == "Shanda [Lv. 475]" then
+		if y.Name == "Shanda [Lv. 475]" then
+	   v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
+	   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+	   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
+	   v.HumanoidRootPart.Transparency = 1
+	   v.HumanoidRootPart.CanCollide = false
+	   y.HumanoidRootPart.CanCollide = false
+	   v.Humanoid.WalkSpeed = 0
+	   y.Humanoid.WalkSpeed = 0
+	   v.Humanoid.JumpPower = 0
+	   y.Humanoid.JumpPower = 0
+	   if sethiddenproperty then
+		 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+	end
+	end
+	end
+	end
+	end
+	end)
+	end
+	end
+	end)
    
 
 
@@ -9933,7 +10022,7 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
                 if _G.AutoEctoplasm then
                     if game:GetService("Workspace").Enemies:FindFirstChild("Ship Deckhand [Lv. 1250]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Engineer [Lv. 1275]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Steward [Lv. 1300]") or game:GetService("Workspace").Enemies:FindFirstChild("Ship Officer [Lv. 1325]") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if string.find(v.Name, "Ship") then
+                            if v.Name == "Ship Deckhand [Lv. 1250]" or v.Name == "Ship Engineer [Lv. 1275]" or v.Name == "Ship Steward [Lv. 1300]" or v.Name == "Ship Officer [Lv. 1325]" then
                                 repeat task.wait()
                                     EquipWeapon(_G.SelectWeapon)
                                     AutoHaki()
@@ -9954,6 +10043,7 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
                             end
                         end
                     else
+                        topos(v.HumanoidRootPart.CFrame * CFrame.new(2,20,2))                         
                         StartEctoplasmMagnet = false
                         local Distance = (Vector3.new(911.35827636719, 125.95812988281, 33159.5390625) - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
                         if Distance > 18000 then
