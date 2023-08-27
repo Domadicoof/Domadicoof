@@ -3905,6 +3905,7 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         StardMag = true
+                                        _G.AutoFarm = false
                                         BypassTP = false
                                         FastMon = v.HumanoidRootPart.CFrame
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
@@ -10781,7 +10782,7 @@ spawn(function()
         game:GetService("Players").LocalPlayer.Data.Level.Value = value
     end)
     
-    Ss:AddTextbox("Fake Exp","",true,function(value)
+    Ss:AddTextbox("Fake Exp",true,function(value)
         game:GetService("Players").LocalPlayer.Data.Exp.Value = value
     end)
     
