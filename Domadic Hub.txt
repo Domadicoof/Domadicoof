@@ -10778,7 +10778,7 @@ spawn(function()
 	
 	Ss:AddSeperator("Fake Mode")
 	
-	Ss:AddTextbox("Fake Level","",true,function(value)
+	Ss:AddTextbox("Fake Level",true,function(value)
         game:GetService("Players").LocalPlayer.Data.Level.Value = value
     end)
     
@@ -10786,15 +10786,15 @@ spawn(function()
         game:GetService("Players").LocalPlayer.Data.Exp.Value = value
     end)
     
-    Ss:AddTextbox("Fake Money","",true,function(value)
+    Ss:AddTextbox("Fake Money",true,function(value)
         game:GetService("Players").LocalPlayer.Data.Beli.Value = value
     end)
     
-    Ss:AddTextbox("Fake Points","",true,function(value)
+    Ss:AddTextbox("Fake Points",true,function(value)
         game:GetService("Players").LocalPlayer.Data.Points.Value = value
     end)
     
-    Ss:AddTextbox("Fake Bounty","",true,function(value)
+    Ss:AddTextbox("Fake Bounty",true,function(value)
         game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value = value
     end)
     
