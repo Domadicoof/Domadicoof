@@ -3439,6 +3439,7 @@ H:AddLabel("[+] Fix Auto Playyer Hunter|22/8/2566|20:50")
 H:AddLabel("[+] Teleport To Boat Select|22/8/2566|20:50")
 H:AddLabel("[+] Spectate Boat |22/8/2566|20:52")
 H:AddLabel("[+] Bring Boat |22/8/2566|20:52")
+H:AddLabel("[+] Fast Farm |27/8/2566|20:48")
 
 
 
@@ -3894,9 +3895,9 @@ spawn(function()
             if _G.AutoFarm and _G.Farmfast and World1 then
                 pcall(function()
                 if game.Players.LocalPlayer.Data.Level.Value >= 10 then
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "Shanda [Lv. 475]" then
+                            if v.Name == "God's Guard [Lv. 450]" then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat task.wait()
                                         AutoHaki()
@@ -3907,18 +3908,18 @@ spawn(function()
                                         BypassTP = false
                                         FastMon = v.HumanoidRootPart.CFrame
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                        TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Farmfast or not v.Parent or v.Humanoid.Health <= 0
                                     StardMag = false
-                                    TP1(CFrame.new(-7679.40723, 5565.16113, -502.522491, -0.948657334, -1.87793722e-11, -0.316305608, -1.05328055e-11, 1, -2.77811975e-11, 0.316305608, -2.30232517e-11, -0.948657334))
+                                    TP1(CFrame.new(-4710.04296875, 845.2769775390625, -1927.3079833984375))
                                 end
                             end
                         end
                     else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Shanda [Lv. 475]") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Shanda [Lv. 475]").HumanoidRootPart.CFrame * CFrame.new(5,10,2))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("God's Guard [Lv. 450]") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("God's Guard [Lv. 450]").HumanoidRootPart.CFrame * CFrame.new(5,10,2))
                         end
                     end
                 end)
@@ -10421,7 +10422,7 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
                             end
                         end
                         if _G.Farmfast and StardMag then
-                            if (v.Name == "Shanda [Lv. 475]" or v.Name == "Shanda [Lv. 475]") and (v.HumanoidRootPart.Position - CandyMon.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            if (v.Name == "God's Guard [Lv. 450]" or v.Name == "God's Guard [Lv. 450]") and (v.HumanoidRootPart.Position - FastMon.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
