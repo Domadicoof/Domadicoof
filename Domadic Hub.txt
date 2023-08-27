@@ -3884,71 +3884,47 @@ spawn(function()
         end
     end)
     
-    Main:AddToggle("Auto Farm Fast",_G.AutoFarmFast,function(value)
+    Main:AddToggle("Auto Farm Fast (Farm Sky Lv.10-40)",_G.AutoFarmFast,function(value)
         _G.Farmfast = value
         StopTween(_G.Farmfast)
     end)
     
     spawn(function()
-    pcall(function()
         while wait() do
-			if _G.AutoFarm and _G.Farmfast and World1 then
-				if game.Players.LocalPlayer.Data.Level.Value >= 10 then
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
-					TP1(CFrame.new(-7679.40723, 5565.16113, -502.522491, -0.948657334, -1.87793722e-11, -0.316305608, -1.05328055e-11, 1, -2.77811975e-11, 0.316305608, -2.30232517e-11, -0.948657334))
-                    StartMagnet = false
-                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                        if v.Name == "Shanda [Lv. 475]" then
-							repeat task.wait()
-								AutoHaki()
-                                StartMagnet = true
-                                BypassTP = false
-                                _G.AutoFarm = false
-								Fastattack = true
-								game:GetService'VirtualUser':CaptureController()
-								game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                                v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
-                            until not _G.Farmfast or v.Humanoid.Health <= 0 or game.Players.LocalPlayer.Character.Humanoid.Health <= 0
-                            Fastattack = false
+            if _G.AutoFarm and _G.Farmfast and World1 then
+                pcall(function()
+                if game.Players.LocalPlayer.Data.Level.Value >= 10 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-7894.6176757813, 5547.1416015625, -380.29119873047))
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Shanda [Lv. 475]" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.SelectWeapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        StardMag = true
+                                        BypassTP = false
+                                        FastMon = v.HumanoidRootPart.CFrame
+                                        v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
+                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                    until not _G.Farmfast or not v.Parent or v.Humanoid.Health <= 0
+                                    StardMag = false
+                                    TP1(CFrame.new(-7679.40723, 5565.16113, -502.522491, -0.948657334, -1.87793722e-11, -0.316305608, -1.05328055e-11, 1, -2.77811975e-11, 0.316305608, -2.30232517e-11, -0.948657334))
+                                end
+                            end
+                        end
+                    else
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Shanda [Lv. 475]") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Shanda [Lv. 475]").HumanoidRootPart.CFrame * CFrame.new(5,10,2))
                         end
                     end
-                end
+                end)
             end
         end
     end)
-end)
-
-	spawn(function()
-		while wait() do
-			if _G.AutoFarm and _G.Farmfast then
-				pcall(function()
-				CheckQuest()
-		   for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-	for x,y in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-	if v.Name == "Shanda [Lv. 475]" then
-		if y.Name == "Shanda [Lv. 475]" then
-	   v.HumanoidRootPart.CFrame = y.HumanoidRootPart.CFrame
-	   v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-	   y.HumanoidRootPart.Size = Vector3.new(60,60,60)
-	   v.HumanoidRootPart.Transparency = 1
-	   v.HumanoidRootPart.CanCollide = false
-	   y.HumanoidRootPart.CanCollide = false
-	   v.Humanoid.WalkSpeed = 0
-	   y.Humanoid.WalkSpeed = 0
-	   v.Humanoid.JumpPower = 0
-	   y.Humanoid.JumpPower = 0
-	   if sethiddenproperty then
-		 sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-	end
-	end
-	end
-	end
-	end
-	end)
-	end
-	end
-	end)
 	
 	spawn(function()
 		pcall(function()
@@ -7391,6 +7367,58 @@ end
         end)
     end)
     
+    M:AddToggle("Auto Farm Fruit Mastery Mob Aura",_G.AutoSwordMastery,function(value)
+        _G.AutoFarmFruitMasteryNearrest = value
+        StopTween(_G.AutoFarmFruitMasteryNearrest)
+    end)
+    
+    spawn(function()
+                        while wait() do
+                            if _G.AutoFarmFruitMasteryNearrest then
+                                pcall(function()
+                                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                        if v.Name and v:FindFirstChild("Humanoid") then
+                                            HealthMs = v.Humanoid.MaxHealth * _G.Kill_At/100
+                                            repeat task.wait()
+                                                if v.Humanoid.Health <= HealthMs then
+                                                    AutoHaki()
+                                                    EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,10,0))
+                                                    v.HumanoidRootPart.CanCollide = false
+                                                    PosMonMasteryFruit = v.HumanoidRootPart.CFrame
+                                                    v.Humanoid.WalkSpeed = 0
+                                                    v.Head.CanCollide = false
+                                                    UseSkill = true
+                                                else           
+                                                    UseSkill = false 
+                                                    AutoHaki()
+                                                    EquipWeapon(_G.SelectWeapon)
+                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
+                                                    v.HumanoidRootPart.CanCollide = false
+                                                    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                                    PosMonMasteryFruit = v.HumanoidRootPart.CFrame
+                                                    v.Humanoid.WalkSpeed = 0
+                                                    v.Head.CanCollide = false
+                                                end
+                                                StartMasteryFruitMagnet = true
+                                                game:GetService'VirtualUser':CaptureController()
+                                                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                                            until not _G.AutoFarmFruitMasteryNearrest or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                        else
+                                            UseSkill = false
+                                            StartMasteryFruitMagnet = false
+                                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
 
     
     M:AddSeperator("Misc Buddy Sword")
@@ -10438,6 +10466,19 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = CandyMon
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
+                            end
+                        end
+                        if _G.Farmfast and StardMag then
+                            if (v.Name == "Shanda [Lv. 475]" or v.Name == "Shanda [Lv. 475]") and (v.HumanoidRootPart.Position - CandyMon.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                v.Humanoid:ChangeState(14)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = FastMon
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end
