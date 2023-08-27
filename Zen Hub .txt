@@ -8284,8 +8284,9 @@ end)
 if World3 then
 	Swords:Seperator("\\\\\  Tushita  //")
 
-	Swords:Toggle("Auto Tushita",_G.AutoEnmaSword,function(v)
+	Swords:Toggle("Auto Tushita",_G.AutoTushitaSword,function(v)
 		_G.AutoTushitaSword = v
+		ClickFast = v
         StopTween(_G.AutoTushitaSword)
 	end)
 
