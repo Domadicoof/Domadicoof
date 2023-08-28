@@ -3919,7 +3919,6 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         StardMag = true
-                                        BypassTP = false
                                         FastMon = v.HumanoidRootPart.CFrame
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
                                         TP1(v.HumanoidRootPart.CFrame * CFrame.new(PosX,PosY,PosZ))
@@ -3948,6 +3947,7 @@ spawn(function()
 					if game.Players.LocalPlayer.Data.Level.Value >= 75 then
 						_G.AutoFarm = true
 						_G.Farmfast = false
+						BypassTP = true
 					end
 				end
 			end
