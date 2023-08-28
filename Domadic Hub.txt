@@ -3439,7 +3439,8 @@ H:AddLabel("[+] Fix Auto Playyer Hunter|22/8/2566|20:50")
 H:AddLabel("[+] Teleport To Boat Select|22/8/2566|20:50")
 H:AddLabel("[+] Spectate Boat |22/8/2566|20:52")
 H:AddLabel("[+] Bring Boat |22/8/2566|20:52")
-H:AddLabel("[+] Fast Farm |27/8/2566|20:48")
+H:AddLabel("[+] Farm Sky |27/8/2566|20:48")
+H:AddLabel("[+] Look Moon |28/8/2566|17:30")
 
 
 
@@ -3890,6 +3891,19 @@ spawn(function()
         StopTween(_G.Farmfast)
     end)
     
+    spawn(function()
+		pcall(function()
+			while wait() do
+				if _G.Farmfast and World1 then
+					if game.Players.LocalPlayer.Data.Level.Value >= 10 then
+						_G.AutoFarm = false
+					    BypassTP = false
+					end
+				end
+			end
+		end)
+	end)
+	
     spawn(function()
         while wait() do
             if _G.AutoFarm and _G.Farmfast and World1 then
@@ -10901,7 +10915,21 @@ game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF
 end 
 end)  
 end)
-
+RaceV4:AddToggle("Auto Look Moon",false,function(v)
+  _G.AutoDooHee = v
+  end)
+spawn(function()
+    while wait() do
+		pcall(function()
+			if _G.AutoDooHee then
+			    wait(0.5)
+				local moonDir = game.Lighting:GetMoonDirection()
+                local lookAtPos = game.Workspace.CurrentCamera.CFrame.p + moonDir * 100
+                game.Workspace.CurrentCamera.CFrame = CFrame.lookAt(game.Workspace.CurrentCamera.CFrame.p, lookAtPos)
+			end
+		end)
+    end
+end)
 RaceV4:AddToggle("Disabled Inf Stairs", nil, function(value)
 	game.Players.LocalPlayer.Character.InfiniteStairs.Disabled = value
 end)
