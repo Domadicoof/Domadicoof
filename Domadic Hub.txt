@@ -3897,6 +3897,7 @@ spawn(function()
 				if _G.Farmfast and World1 then
 					if game.Players.LocalPlayer.Data.Level.Value >= 10 then
 					    _G.AutoFarm = false
+					    _G.Farmfast = true
 					end
 				end
 			end
