@@ -3906,7 +3906,7 @@ spawn(function()
 	
     spawn(function()
         while wait() do
-            if _G.AutoFarm and _G.Farmfast and World1 then
+            if _G.Farmfast and World1 then
                 pcall(function()
                 if game.Players.LocalPlayer.Data.Level.Value >= 10 then
                     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688))
