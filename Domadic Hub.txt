@@ -3896,7 +3896,6 @@ spawn(function()
 			while wait() do
 				if _G.Farmfast and World1 then
 					if game.Players.LocalPlayer.Data.Level.Value >= 10 then
-					    BypassTP = false
 					    _G.AutoFarm = false
 					end
 				end
@@ -3947,7 +3946,6 @@ spawn(function()
 					if game.Players.LocalPlayer.Data.Level.Value >= 75 then
 						_G.AutoFarm = true
 						_G.Farmfast = false
-						BypassTP = nill
 					end
 				end
 			end
