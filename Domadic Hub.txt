@@ -3947,7 +3947,7 @@ spawn(function()
 					if game.Players.LocalPlayer.Data.Level.Value >= 75 then
 						_G.AutoFarm = true
 						_G.Farmfast = false
-						BypassTP = true
+						BypassTP = nill
 					end
 				end
 			end
