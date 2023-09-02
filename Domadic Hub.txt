@@ -5070,7 +5070,7 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
     Main:AddSeperator("Setting")
     
     
-Main:AddToggle("By Pass Tp",_G.BypassTp,function(Fast)
+Main:AddToggle("By Pass Tp",true,function(Fast)
 BypassTP = Fast
 end)
 
@@ -8179,10 +8179,15 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                         end
                     end
                 else
-                    if ((CFrameBoss).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 1500 then
-                        topos(CFrameBoss)
-                    else
-                        TP1(CFrameBoss)
+                    if BypassTP then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude > 1500 then
+			        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(- 5079.44677734375, 313.7293395996094, - 3151.065185546875))
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude < 1500 then
+				    topos(CFrameBoss)
+					end
+				else
+				    topos(CFrameBoss)
+				end
                     end
                 end
             end)
