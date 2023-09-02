@@ -10883,7 +10883,7 @@ end)
 spawn(function()
 		pcall(function()
 			while wait() do
-				if _G.AutoRace and World3 then
+				if _G.AutoRace then
 					if game.Players.LocalPlayer.Character.RaceTransformed.Value == true then
 					    StardFarm = false
 					    topos(CFrame.new(216.211181640625, 126.9352035522461, -12599.0732421875))
@@ -10902,7 +10902,7 @@ spawn(function()
                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                    repeat task.wait()
                                         AutoHaki()
-                                        EquipWeaponMelee()
+                                        EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.Head.CanCollide = false 
@@ -10937,7 +10937,7 @@ spawn(function()
     spawn(function()
 		pcall(function()
 			while wait() do
-				if _G.AutoRace and World3 then
+				if _G.AutoRace then
 					if game.Players.LocalPlayer.Character.RaceTransformed.Value == false then
 					    StardFarm = true
 					end
