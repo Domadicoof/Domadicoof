@@ -3449,6 +3449,8 @@ H:AddLabel("[+] Spectate Boat |22/8/2566|20:52")
 H:AddLabel("[+] Bring Boat |22/8/2566|20:52")
 H:AddLabel("[+] Farm Sky |27/8/2566|20:48")
 H:AddLabel("[+] Look Moon |28/8/2566|17:30")
+H:AddLabel("[+] Auto Farm Race V4 |2/9/2566|12:23")
+H:AddLabel("[+] Fix Auto Saber |2/9/2566|12:23")
 
 
 
