@@ -1448,7 +1448,7 @@ function Update:Window(text,logo,keybind)
 
         TextboxLabel.Name = "TextboxLabel"
         TextboxLabel.Parent = Textbox
-        TextboxLabel.BackgroundColor3 = Color3.fromRGB(0, 0,0)
+        TextboxLabel.BackgroundColor3 = Color3.fromRGB(255, 128,0)
         TextboxLabel.BackgroundTransparency = 1.000
         TextboxLabel.Position = UDim2.new(0, 15, 0, 0)
         TextboxLabel.Text = text
@@ -1478,7 +1478,7 @@ function Update:Window(text,logo,keybind)
         RealTextbox.Size = UDim2.new(0, 100, 0, 24)
         RealTextbox.Font = Enum.Font.GothamSemibold
         RealTextbox.Text = ""
-        RealTextbox.TextColor3 = Color3.fromRGB(225, 225, 225)
+        RealTextbox.TextColor3 = Color3.fromRGB(7, 236, 240)
         RealTextbox.TextSize = 11.000
         RealTextbox.TextTransparency = 0
 
