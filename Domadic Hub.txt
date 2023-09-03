@@ -1744,7 +1744,7 @@ function Update:Window(text,logo,keybind)
 
         Sep3.Name = "Sep3"
         Sep3.Parent = Seperator
-        Sep3.BackgroundColor3 = Color3.new(125,125,125)
+        Sep3.BackgroundColor3 = Color3.new(7, 236, 240)
         Sep3.BorderSizePixel = 0
         Sep3.Position = UDim2.new(0, 300, 0, 10)
         Sep3.Size = UDim2.new(0, 80, 0, 1)
@@ -1756,14 +1756,14 @@ function Update:Window(text,logo,keybind)
         
         Linee.Name = "Linee"
         Linee.Parent = MainFramePage
-        Linee.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
+        Linee.BackgroundColor3 = Color3.fromRGB(7,236,240)
         Linee.BackgroundTransparency = 1.000
         Linee.Position = UDim2.new(0, 0, 0.119999997, 0)
         Linee.Size = UDim2.new(0, 310, 0, 20)
         
         Line.Name = "Line"
         Line.Parent = Linee
-        Line.BackgroundColor3 = Color3.new(7, 236, 240)
+        Line.BackgroundColor3 = Color3.new(7,236,240)
         Line.BorderSizePixel = 0
         Line.Position = UDim2.new(0, 0, 0, 10)
         Line.Size = UDim2.new(0, 410, 0, 1)
