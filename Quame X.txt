@@ -139,7 +139,7 @@ NameHub.Position = UDim2.new(0, 57, 0, 5)
 NameHub.Size = UDim2.new(0, 61, 0, 27)
 NameHub.Font = Enum.Font.GothamBold
 NameHub.Text = "Quame HUB"
-NameHub.TextColor3 = Color3.fromRGB(0,191,255)
+NameHub.TextColor3 = Color3.fromRGB(50,255,255)
 NameHub.TextSize = 20.000
 
 
@@ -175,7 +175,7 @@ close.BackgroundTransparency = 1.000
 close.BorderSizePixel = 0
 close.Position = UDim2.new(0, 540, 0, 0)
 close.Size = UDim2.new(0, 30, 0, 30)
-close.Image = "http://www.roblox.com/asset/?id=3926305904"
+close.Image = "http://www.roblox.com/asset/?id=3631652068"
 close.ImageRectOffset = Vector2.new(284, 4)
 close.ImageRectSize = Vector2.new(24, 24)
 close.ImageColor3 = Color3.fromRGB(255, 255, 255)
