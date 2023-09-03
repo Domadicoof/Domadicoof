@@ -1448,7 +1448,7 @@ function Update:Window(text,logo,keybind)
 
         TextboxLabel.Name = "TextboxLabel"
         TextboxLabel.Parent = Textbox
-        TextboxLabel.BackgroundColor3 = Color3.fromRGB(255, 128,0)
+        TextboxLabel.BackgroundColor3 = Color3.fromRGB(0, 0,0)
         TextboxLabel.BackgroundTransparency = 1.000
         TextboxLabel.Position = UDim2.new(0, 15, 0, 0)
         TextboxLabel.Text = text
@@ -1461,7 +1461,7 @@ function Update:Window(text,logo,keybind)
 
         txtbtn.Name = "txtbtn"
         txtbtn.Parent = Textbox
-        txtbtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        txtbtn.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
         txtbtn.BackgroundTransparency = 1.000
         txtbtn.Position = UDim2.new(0, 1, 0, 1)
         txtbtn.Size = UDim2.new(0, 387, 0, 29)
@@ -14308,9 +14308,6 @@ end)
 	
 	Misc:AddSeperator("Lock Function")
 
-	_G.LockLevel = false
-	_G.LockBeli = false
-	_G.LockFragments = false
 	_G.Levelclose = 2450
 	_G.LevelcloseFragments = 1000000
 	_G.Lock_Candy = 100000
