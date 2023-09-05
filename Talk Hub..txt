@@ -3,11 +3,10 @@
 
 
 
-if game.CoreGui:FindFirstChild("BlackTrap") then
-    game.CoreGui:FindFirstChild("BlackTrap"):Destroy()
+if game.CoreGui:FindFirstChild("TalkHub") then
+    game.CoreGui:FindFirstChild("TalkHub"):Destroy()
 end
 
-local Blacklib = {}
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -32,14 +31,14 @@ _G.SectionImageColor = Color3.fromRGB(150, 150, 150)
 _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
 _G.SectionOn = Color3.fromRGB(0, 250, 0)
 
-
+local Blacklib = {}
 function Blacklib:Window()
     local osfunc = {}
     local titlefunc = {}
     local pingfunc = {}
     local timefunc = {}
     local Points = Instance.new("Frame")
-    local BlackTrap = Instance.new("ScreenGui")
+    local TalkHub = Instance.new("ScreenGui")
     local PlayTime = Instance.new("TextLabel")
     local PlayTimeCorner = Instance.new("UICorner")
     local WindowFrame = Instance.new("Frame")
@@ -54,9 +53,9 @@ function Blacklib:Window()
     local CloseButton = Instance.new("TextButton")
     
     -- Propertiers --
-    BlackTrap.Name = "BlackTrap"
-    BlackTrap.Parent = game.CoreGui
-    BlackTrap.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    TalkHub.Name = "TalkHub"
+    TalkHub.Parent = game.CoreGui
+    TalkHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     
     Points.Name = "Points"
     Points.Parent = TalkHub
