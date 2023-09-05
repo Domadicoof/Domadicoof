@@ -1,9 +1,13 @@
 
 
-if game.CoreGui:FindFirstChild("DomadicHub") then
-    game.CoreGui:FindFirstChild("DomadicHub"):Destroy()
+
+
+
+if game.CoreGui:FindFirstChild("BlackTrap") then
+    game.CoreGui:FindFirstChild("BlackTrap"):Destroy()
 end
 
+local Blacklib = {}
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -28,8 +32,8 @@ _G.SectionImageColor = Color3.fromRGB(150, 150, 150)
 _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
 _G.SectionOn = Color3.fromRGB(0, 250, 0)
 
-local Blacklib = {}
-function Blacklib:Window()
+
+function Blacklib:Window(GayName)
     local osfunc = {}
     local titlefunc = {}
     local pingfunc = {}
@@ -50,12 +54,12 @@ function Blacklib:Window()
     local CloseButton = Instance.new("TextButton")
     
     -- Propertiers --
-    BlackTrap.Name = "DomadicHub"
+    BlackTrap.Name = GayName or "BlackTrap"
     BlackTrap.Parent = game.CoreGui
     BlackTrap.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     
     Points.Name = "Points"
-    Points.Parent = DomadicHub
+    Points.Parent = BlackTrap
     Points.BackgroundColor3 = _G.WindowBackgroundColor
     Points.BackgroundTransparency = 1.000
     Points.Size = UDim2.new(0, 800, 0, 600)
@@ -1696,7 +1700,7 @@ function Blacklib:Window()
             -- End TextBox --
             
             -- KeyBind --
-            function ItemHand:AddBind(textbind, preset, callback)
+            function ItemHand:Bind(textbind, preset, callback)
                 local Key = preset.Name
                 local BindFrame = Instance.new("Frame")
                 local BindFrame_2 = Instance.new("Frame")
@@ -1878,6 +1882,9 @@ function Blacklib:Window()
     end
     return Tabs
 end
+
+
+
 
 if game.PlaceId == 2753915549 then
         World1 = true
