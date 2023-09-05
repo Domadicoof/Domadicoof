@@ -59,7 +59,7 @@ function Blacklib:Window()
     BlackTrap.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     
     Points.Name = "Points"
-    Points.Parent = Talk Hub
+    Points.Parent = TalkHub
     Points.BackgroundColor3 = _G.WindowBackgroundColor
     Points.BackgroundTransparency = 1.000
     Points.Size = UDim2.new(0, 800, 0, 600)
@@ -3983,7 +3983,7 @@ end)
 
 
 
-local ui = Blacklib:Window("Talk Hub")
+local ui = Blacklib:Window("TalkHub")
 
 local Dev = ui:AddTab("Status/Dev","rbxassetid://6026568198")
 local Farm = ui:AddTab("Level Farm","rbxassetid://13075651575")
