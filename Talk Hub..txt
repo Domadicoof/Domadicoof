@@ -32,7 +32,7 @@ _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
 _G.SectionOn = Color3.fromRGB(0, 250, 0)
 
 local Blacklib = {}
-function Blacklib:Window()
+function Blacklib:Window(WindowFrame)
     local osfunc = {}
     local titlefunc = {}
     local pingfunc = {}
