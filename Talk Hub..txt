@@ -54,12 +54,12 @@ function Blacklib:Window()
     local CloseButton = Instance.new("TextButton")
     
     -- Propertiers --
-    BlackTrap.Name = "Talk"
+    BlackTrap.Name = "BlackTrap"
     BlackTrap.Parent = game.CoreGui
     BlackTrap.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     
     Points.Name = "Points"
-    Points.Parent = BlackTrap
+    Points.Parent = Talk Hub
     Points.BackgroundColor3 = _G.WindowBackgroundColor
     Points.BackgroundTransparency = 1.000
     Points.Size = UDim2.new(0, 800, 0, 600)
@@ -111,7 +111,7 @@ function Blacklib:Window()
     BlackImage.BackgroundTransparency = 1.000
     BlackImage.Position = UDim2.new(0, 3, 0, 3)
     BlackImage.Size = UDim2.new(0, 25, 0, 25)
-    BlackImage.Image = "rbxassetid://8666601749"
+    BlackImage.Image = "rbxassetid://14691510269"
     BlackImage.ImageColor3 = Color3.fromRGB(0,220,0)
     
     BlackTitle.Name = "BlackTitle"
@@ -3983,19 +3983,19 @@ end)
 
 
 
-local ui = Blacklib:Window("Talk")
+local ui = Blacklib:Window("Talk Hub")
 
-local Dev = ui:AddTab("Status/Dev","6026568198")
-local Farm = ui:AddTab("Level Farm","13075651575")
-local Auto = ui:AddTab("Auto Quest","13075622619")
-local Stats = ui:AddTab("Stats","7040410130")
-local Rac = ui:AddTab("RaceV4","11162889532")
-local Playy = ui:AddTab("Player","7251993295")
-local Raid = ui:AddTab("Raid","11155986081")
-local TP = ui:AddTab("Teleport","11155851001")
-local Shop = ui:AddTab("Shop","6031265976")
-local Dee = ui:AddTab("Devil Fruit","7044233235")
-local Min = ui:AddTab("Misc","11156061121")
+local Dev = ui:AddTab("Status/Dev","rbxassetid://6026568198")
+local Farm = ui:AddTab("Level Farm","rbxassetid://13075651575")
+local Auto = ui:AddTab("Auto Quest","rbxassetid://13075622619")
+local Stats = ui:AddTab("Stats","rbxassetid://7040410130")
+local Rac = ui:AddTab("RaceV4","rbxassetid://11162889532")
+local Playy = ui:AddTab("Player","rbxassetid://7251993295")
+local Raid = ui:AddTab("Raid","rbxassetid://11155986081")
+local TP = ui:AddTab("Teleport","rbxassetid://11155851001")
+local Shop = ui:AddTab("Shop","rbxassetid://6031265976")
+local Dee = ui:AddTab("Devil Fruit","rbxassetid://7044233235")
+local Min = ui:AddTab("Misc","rbxassetid://11156061121")
 
 local H = Dev:NewSection("")
 local Main = Farm:NewSection("")
@@ -13642,7 +13642,7 @@ S:AddButton("Random Race (Use 3K Fragments)", function()
 	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BlackbeardReward","Reroll","2")
 end)
     --------------Accessories-----------------
-    	S:AddSeperator("⚙️ Accessories ⚙️")
+    	S:AddLabel("⚙️ Accessories ⚙️")
 	S:AddButton("Black Cape [ $50,000 Beli ]",function()
 		local args = {
 			[1] = "BuyItem",
@@ -14086,7 +14086,7 @@ spawn(function()
 	setclipboard(tostring(game.JobId))
 	end)
 	
-    Misc:AddTextbox("Place Job Id", true, function(value)
+    Misc:AddTextBox("Job Id", "Enter", function(value)
 	_G.Job = value
 	end)
 
@@ -14439,7 +14439,7 @@ end)
 		end
 	end)
 
-	Misc:AddTextbox("Lock Beli", true, function(value)
+	Misc:AddTextBox("Lock Beli", "Enter", function(value)
 		_G.LevelcloseBeli = value
 	end)
 
