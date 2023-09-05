@@ -33,7 +33,7 @@ _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
 _G.SectionOn = Color3.fromRGB(0, 250, 0)
 
 
-function Blacklib:Window(GayName)
+function Blacklib:Window()
     local osfunc = {}
     local titlefunc = {}
     local pingfunc = {}
@@ -54,7 +54,7 @@ function Blacklib:Window(GayName)
     local CloseButton = Instance.new("TextButton")
     
     -- Propertiers --
-    BlackTrap.Name = GayName or "BlackTrap"
+    BlackTrap.Name = "Talk"
     BlackTrap.Parent = game.CoreGui
     BlackTrap.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     
@@ -1849,7 +1849,7 @@ function Blacklib:Window(GayName)
                 TextButton.TextXAlignment = Enum.TextXAlignment.Left
                 
                 -- Label Script --
-                function labelfunc:Refresh(newtext)
+                function labelfunc:Set(newtext)
                     TextButton.Text = newtext
                 end
                 return labelfunc
@@ -11250,23 +11250,23 @@ spawn(function()
 	
 	Ss:AddLabel("Menu Fake")
 	
-	Ss:AddTextbox("Fake Level",true,function(value)
+	Ss:AddTextBox("Level", "Enter", function(value)
         game:GetService("Players").LocalPlayer.Data.Level.Value = value
     end)
     
-    Ss:AddTextbox("Fake Exp",true,function(value)
+    Ss:AddTextBox("Exp", "Enter", function(value)
         game:GetService("Players").LocalPlayer.Data.Exp.Value = value
     end)
     
-    Ss:AddTextbox("Fake Money",true,function(value)
+    Ss:AddTextBox("Beli", "Enter", function(value)
         game:GetService("Players").LocalPlayer.Data.Beli.Value = value
     end)
     
-    Ss:AddTextbox("Fake Points",true,function(value)
+    Ss:AddTextBox("Points", "Enter", function(value)
         game:GetService("Players").LocalPlayer.Data.Points.Value = value
     end)
     
-    Ss:AddTextbox("Fake Bounty",true,function(value)
+    Ss:AddTextBox("Bounty", "Enter", function(value)
         game:GetService("Players").LocalPlayer.leaderstats["Bounty/Honor"].Value = value
     end)
     
