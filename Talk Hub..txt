@@ -247,7 +247,7 @@ function Blacklib:Window(BlackTitle)
     end)
     
     -- Window Script --
-    local gui = WindowFrame
+    local gui = BlackTitle
     local dragging
     local dragInput
     local dragStart
