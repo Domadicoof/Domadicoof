@@ -32,7 +32,7 @@ _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
 _G.SectionOn = Color3.fromRGB(0, 250, 0)
 
 local Blacklib = {}
-function Blacklib:Window(BlackTitle)
+function Blacklib:Window(gametitle)
     local osfunc = {}
     local titlefunc = {}
     local pingfunc = {}
@@ -113,14 +113,14 @@ function Blacklib:Window(BlackTitle)
     BlackImage.Image = "rbxassetid://14691510269"
     BlackImage.ImageColor3 = Color3.fromRGB(0,220,0)
     
-    BlackTitle.Name = "BlackTitle"
+    BlackTitle.Name = GayName or "BlackTitle"
     BlackTitle.Parent = WindowFrame
     BlackTitle.BackgroundColor3 = _G.WindowBackgroundColor
     BlackTitle.BackgroundTransparency = 1.000
     BlackTitle.Position = UDim2.new(0, 33, 0, 3)
     BlackTitle.Size = UDim2.new(0, 50, 0, 25)
     BlackTitle.Font = Enum.Font.GothamBold
-    BlackTitle.Text = "Talk Hub"
+    BlackTitle.Text = "GayName"
     BlackTitle.TextColor3 = Color3.fromRGB(180,180,180)
     BlackTitle.TextSize = 13.000
     BlackTitle.TextXAlignment = Enum.TextXAlignment.Left
@@ -247,7 +247,7 @@ function Blacklib:Window(BlackTitle)
     end)
     
     -- Window Script --
-    local gui = BlackTitle
+    local gui = WindowFrame
     local dragging
     local dragInput
     local dragStart
@@ -352,7 +352,7 @@ function Blacklib:Window(BlackTitle)
     end)
     spawn(function()
         while task.wait() do
-            titlefunc:Refresh("") wait(.2) titlefunc:Refresh("B") wait(.2) titlefunc:Refresh("Bl") wait(.2) titlefunc:Refresh("Bla") wait(.2) titlefunc:Refresh("Blac") wait(.2) titlefunc:Refresh("Black") wait(.2) titlefunc:Refresh("BlackT") wait(.2) titlefunc:Refresh("BlackTr") wait(.2) titlefunc:Refresh("BlackTra") wait(.2) titlefunc:Refresh("BlackTrap") wait(.9) titlefunc:Refresh("BlackTra") wait(.2) titlefunc:Refresh("BlackTr") wait(.2) titlefunc:Refresh("BlackT") wait(.2) titlefunc:Refresh("Black") wait(.2) titlefunc:Refresh("Blac") wait(.2) titlefunc:Refresh("Bla") wait(.2) titlefunc:Refresh("Bl") wait(.2) titlefunc:Refresh("B") wait(.2) titlefunc:Refresh("") wait(.2) wait(.3)
+            titlefunc:Refresh("") wait(.2) titlefunc:Refresh("T") wait(.2) titlefunc:Refresh("Ta") wait(.2) titlefunc:Refresh("Tal") wait(.2) titlefunc:Refresh("Talk") wait(.2) titlefunc:Refresh("Talk H") wait(.2) titlefunc:Refresh("Talk Hu") wait(.2) titlefunc:Refresh("Talk Hub") wait(.9) titlefunc:Refresh("Talk Hu") wait(.2) titlefunc:Refresh("Talk H") wait(.2) titlefunc:Refresh("Talk ") wait(.2) titlefunc:Refresh("Tal") wait(.2) titlefunc:Refresh("Ta") wait(.2) titlefunc:Refresh("T") wait(.2) titlefunc:Refresh("") wait(.2) wait(.3)
         end
     end)
     -- End Windows --
