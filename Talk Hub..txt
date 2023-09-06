@@ -120,7 +120,7 @@ function Blacklib:Window(BlackTitle)
     BlackTitle.Position = UDim2.new(0, 33, 0, 3)
     BlackTitle.Size = UDim2.new(0, 50, 0, 25)
     BlackTitle.Font = Enum.Font.GothamBold
-    BlackTitle.Text = ""
+    BlackTitle.Text = "Talk Hub"
     BlackTitle.TextColor3 = Color3.fromRGB(180,180,180)
     BlackTitle.TextSize = 13.000
     BlackTitle.TextXAlignment = Enum.TextXAlignment.Left
