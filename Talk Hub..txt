@@ -32,7 +32,7 @@ _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
 _G.SectionOn = Color3.fromRGB(0, 250, 0)
 
 local Blacklib = {}
-function Blacklib:Window(gametitle)
+function Blacklib:Window()
     local osfunc = {}
     local titlefunc = {}
     local pingfunc = {}
@@ -113,14 +113,14 @@ function Blacklib:Window(gametitle)
     BlackImage.Image = "rbxassetid://14691510269"
     BlackImage.ImageColor3 = Color3.fromRGB(0,220,0)
     
-    BlackTitle.Name = GayName or "BlackTitle"
+    BlackTitle.Name = "BlackTitle"
     BlackTitle.Parent = WindowFrame
     BlackTitle.BackgroundColor3 = _G.WindowBackgroundColor
     BlackTitle.BackgroundTransparency = 1.000
     BlackTitle.Position = UDim2.new(0, 33, 0, 3)
     BlackTitle.Size = UDim2.new(0, 50, 0, 25)
     BlackTitle.Font = Enum.Font.GothamBold
-    BlackTitle.Text = "GayName"
+    BlackTitle.Text = "Talk Hub"
     BlackTitle.TextColor3 = Color3.fromRGB(180,180,180)
     BlackTitle.TextSize = 13.000
     BlackTitle.TextXAlignment = Enum.TextXAlignment.Left
@@ -133,7 +133,7 @@ function Blacklib:Window(gametitle)
     Space.Size = UDim2.new(0, 10, 0, 25)
     Space.Font = Enum.Font.GothamBold
     Space.Text = "|"
-    Space.TextColor3 = Color3.fromRGB(0,150,0)
+    Space.TextColor3 = Color3.fromRGB(250,0,0)
     Space.TextSize = 18.000
     
     ServerTime.Name = "ServerTime"
@@ -156,7 +156,7 @@ function Blacklib:Window(gametitle)
     Space2.Size = UDim2.new(0, 10, 0, 25)
     Space2.Font = Enum.Font.GothamBold
     Space2.Text = "|"
-    Space2.TextColor3 = Color3.fromRGB(0,150,0)
+    Space2.TextColor3 = Color3.fromRGB(250,0,0)
     Space2.TextSize = 18.000
     
     Pinged.Name = "Pinged"
@@ -179,7 +179,7 @@ function Blacklib:Window(gametitle)
     CloseButton.Position = UDim2.new(0, 525, 0, 3)
     CloseButton.Size = UDim2.new(0, 25, 0, 25)
     CloseButton.Font = Enum.Font.Gotham
-    CloseButton.TextColor3 = Color3.fromRGB(0, 200, 0)
+    CloseButton.TextColor3 = Color3.fromRGB(255,0,0)
     CloseButton.Text = "×"
     CloseButton.Rotation = 0
     CloseButton.TextSize = 25.000
@@ -3982,9 +3982,9 @@ end)
 
 
 
-local ui = Blacklib:Window("TalkHub")
+local ui = Blacklib:Window("")
 
-local Dev = ui:AddTab("Status/Dev","rbxassetid://6026568198")
+local Dev = ui:AddTab("Status","rbxassetid://6026568198")
 local Farm = ui:AddTab("Level Farm","rbxassetid://13075651575")
 local Auto = ui:AddTab("Auto Quest","rbxassetid://13075622619")
 local Stats = ui:AddTab("Stats","rbxassetid://7040410130")
@@ -3996,17 +3996,17 @@ local Shop = ui:AddTab("Shop","rbxassetid://6031265976")
 local Dee = ui:AddTab("Devil Fruit","rbxassetid://7044233235")
 local Min = ui:AddTab("Misc","rbxassetid://11156061121")
 
-local H = Dev:NewSection("")
-local Main = Farm:NewSection("")
-local M = Auto:NewSection("")
-local Ss = Stats:NewSection("")
-local RaceV4 = Rac:NewSection("")
-local P = Playy:NewSection("")
-local R = Raid:NewSection("")
-local T = TP:NewSection("")
-local S = Shop:NewSection("")
-local D = Dee:NewSection("")
-local Misc = Min:NewSection("")
+local H = Dev:NewSection("Umm")
+local Main = Farm:NewSection("Farm")
+local M = Auto:NewSection("Misc Farm")
+local Ss = Stats:NewSection("Stats")
+local RaceV4 = Rac:NewSection("RaceV4")
+local P = Playy:NewSection("Combat")
+local R = Raid:NewSection("Raid")
+local T = TP:NewSection("Teleport")
+local S = Shop:NewSection("Shop")
+local D = Dee:NewSection("Devil Fruit")
+local Misc = Min:NewSection(" Misc")
 
 local Time = H:AddLabel("Executor Time");spawn(function() getgenv().Time = true;while true do wait(.1) UpdateTime() end end);function UpdateTime() local date = os.date("*t");local hour = (date.hour) % 24;local ampm = hour < 12 and "AM" or "PM";local timezone = string.format("%02i:%02i:%02i %s", ((hour -1) % 12) + 1, date.min, date.sec, ampm);local datetime = string.format("%02d/%02d/%04d", date.day, date.month, date.year);local LocalizationService = game:GetService("LocalizationService");local Players = game:GetService("Players");local player = Players.LocalPlayer;local name = player.Name;local result, code = pcall(function()   return LocalizationService:GetCountryRegionForPlayerAsync(player)  end);Time:Set(" : " .. timezone);Time:Set("Executor Time: " .. datetime .. " [ " .. code .. " ]");spawn(function() if getgenv().Time then pcall(function()  while wait() do  Time()  end end) end end) end
 
@@ -4311,6 +4311,21 @@ spawn(function()
         end)
     end
 end)
+Main:AddLabel("Farm Setting")
+
+Main:AddToggle("ByPass Telepoat",true,function(Fast)
+BypassTP = Fast
+end)
+
+Main:AddToggle("Bring Mob",true,function(Mag)
+    _G.BringMonster = Mag
+    end)
+    
+Main:AddToggle("Fask Attack",true,function(value)
+_G.FastAttack = value
+end)
+
+M:AddLine()
 
 Main:AddLabel("Main Farm")
 
@@ -5530,6 +5545,15 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
                             end
                         end
                     else
+                    if BypassTP then
+                    if (game:GetService("ReplicatedStorage"):FindFirstChild("_G.SelectBoss").HumanoidRootPart.CFrame.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1500 then
+			        BTP(game:GetService("ReplicatedStorage"):FindFirstChild("_G.SelectBoss").HumanoidRootPart.CFrame * CFrame.new(0, 30, 5))
+				    elseif (game:GetService("ReplicatedStorage"):FindFirstChild("_G.SelectBoss").HumanoidRootPart.CFrame.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1500 then
+				    topos(game:GetService("ReplicatedStorage"):FindFirstChild("_G.SelectBoss").HumanoidRootPart.CFrame * CFrame.new(0, 30, 5))
+					end
+				else
+				    topos(game:GetService("ReplicatedStorage"):FindFirstChild("_G.SelectBoss").HumanoidRootPart.CFrame * CFrame.new(0, 30, 5))
+				end
                         if game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss) then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
                         end
@@ -5579,17 +5603,9 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
         end
     end)
     
-    Main:AddLabel("Setting")
-    
-    
-Main:AddToggle("ByPass Telepoat",true,function(Fast)
-BypassTP = Fast
-end)
+    Main:AddLabel("Misc Setting")
 
     
-Main:AddToggle("Bring Mob",true,function(Mag)
-    _G.BringMonster = Mag
-    end)
     spawn(function()
         while task.wait() do
             pcall(function()
@@ -5658,10 +5674,7 @@ spawn(function()
             end
         end
     end
-end)
-    Main:AddToggle("Fast Attack ",true,function(value)
-        _G.FastAttack = value
-    end)      
+end)      
     
 local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
 CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
