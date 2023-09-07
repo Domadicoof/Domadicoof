@@ -5554,9 +5554,6 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
 				else
 				    topos(game:GetService("ReplicatedStorage"):FindFirstChild("_G.SelectBoss").HumanoidRootPart.CFrame * CFrame.new(0, 30, 5))
 				end
-                        if game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss) then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
-                        end
                     end
                 end)
             end
