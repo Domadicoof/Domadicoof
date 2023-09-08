@@ -53,9 +53,9 @@ function Blacklib:Window()
     local CloseButton = Instance.new("TextButton")
     
     -- Propertiers --
-    TalkHub.Name = "DomadicLib"
-    TalkHub.Parent = game.CoreGui
-    TalkHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    DomadicLib.Name = "DomadicLib"
+    DomadicLib.Parent = game.CoreGui
+    DomadicLib.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
     
     Points.Name = "Points"
     Points.Parent = DomadicLib
@@ -3962,7 +3962,7 @@ end)
 
 
 
-local ui = Blacklib:Window("ไม่ได้เปลียนชือตรงนี้คับ555")
+local ui = Blacklib:Window("")
 
 local Dev = ui:AddTab("Status","rbxassetid://6026568198")
 local Farm = ui:AddTab("Level Farm","rbxassetid://13075651575")
