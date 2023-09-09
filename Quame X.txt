@@ -4226,7 +4226,7 @@ end)
 
 Swords:Seperator("Mastery Farm")
 
---// Mastery Farm
+--// Mastery 
 
 local MasteryType = {
   'Quest', 'No Quest', 'Boss', 'Nearest'
