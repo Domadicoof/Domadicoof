@@ -3971,6 +3971,7 @@ H:AddLabel("[+] Farm Sky |27/8/2566|20:48")
 H:AddLabel("[+] Look Moon |28/8/2566|17:30")
 H:AddLabel("[+] Auto Farm Race V4 |2/9/2566|12:23")
 H:AddLabel("[+] Fix Auto Saber |2/9/2566|12:23")
+H:AddLabel("[+] Auto Farm Chest Mirage island|2/9/2566|12:23")
 
 
 
@@ -5291,6 +5292,10 @@ function Chest_17500()
 		end
 	end
 end
+
+Main:AddToggle("Auto Farm Chest Mystic",false,function(value)
+loadstring(game:HttpGet('https://raw.githubusercontent.com/devidangelcl3/ange/main/fastmystic'))()
+end)
 
 Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
     _G.AutoFarmChest_Hop = value
