@@ -4477,7 +4477,7 @@ spawn(function()
                             end
                         else
                             TP1(CFrameMon)
-                            UnEquipWeapon
+                            UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
                              TP1(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(15,10,2))
@@ -4529,7 +4529,7 @@ spawn(function()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Farmfast or not v.Parent or v.Humanoid.Health <= 0
                                     StardMag = false
-                                    UnEquipWeapon
+                                    UnEquipWeapon(_G.SelectWeapon)
                                     TP1(CFrame.new(-7678.48974609375, 5566.40380859375, -497.2156066894531))
                                 end
                             end
@@ -5414,7 +5414,7 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
 						        topos(CakePos)
 					        end
                                     MagnetDought = false
-                                    UnEquipWeapon
+                                    UnEquipWeapon(_G.SelectWeapon)
                                     topos(CFrame.new(-2091.911865234375, 70.00884246826172, -12142.8359375))
                                     if game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter [Lv. 2200]") then
                                         topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cookie Crafter [Lv. 2200]").HumanoidRootPart.CFrame * CFrame.new(2,20,2)) 
@@ -5484,7 +5484,7 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
                             end
                         end
                     else
-                    UnEquipWeapon
+                    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-2662.818603515625, 1062.3480224609375, -11853.6953125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Dough King [Lv. 2300] [Raid Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Dough King [Lv. 2300] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -5550,7 +5550,7 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
 				    topos(BonePos)
 				end
                         StartMagnetBoneMon = false
-                        UnEquipWeapon
+                        UnEquipWeapon(_G.SelectWeapon)
 						topos(CFrame.new(-9506.234375, 172.130615234375, 6117.0771484375))
                         for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do 
                             if v.Name == "Reborn Skeleton [Lv. 1975]" then
