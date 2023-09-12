@@ -6698,6 +6698,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos1)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-507.7895202636719, 72.99479675292969, -126.45632934570312))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Factory Staff [Lv. 800]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Factory Staff [Lv. 800]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6753,6 +6754,7 @@ spawn(function()
 				    topos(MaterialsPos2)
 				end
                     topos(CFrame.new(-3352.9013671875, 285.01556396484375, -10534.841796875))
+                        UnEquipWeapon(_G.SelectWeapon)
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Water Fighter [Lv. 1450]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Water Fighter [Lv. 1450]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
@@ -6807,6 +6809,7 @@ spawn(function()
 				    topos(MaterialsPos3)
 				end
                     topos(CFrame.new(-5850.2802734375, 77.28675079345703, 8848.6748046875))
+                        UnEquipWeapon(_G.SelectWeapon)
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Military Spy [Lv. 325]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Military Spy [Lv. 325]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
@@ -6855,6 +6858,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos4)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-5234.60595703125, 51.953372955322266, -4732.27880859375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Lava Pirate [Lv. 1200]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Lava Pirate [Lv. 1200]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6909,6 +6913,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos5)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-7827.15625, 5606.912109375, -1705.5833740234375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Royal Soldier [Lv. 550]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Royal Soldier [Lv. 550]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -6963,6 +6968,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos6)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-1211.8792724609375, 4.787090301513672, 3916.83056640625))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Pirate [Lv. 36]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Pirate [Lv. 36]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7012,6 +7018,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos7)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-2010.5059814453125, 73.00115966796875, -3326.620849609375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Marine Captain [Lv. 900]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Marine Captain [Lv. 900]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7061,6 +7068,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos8)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-11975.78515625, 331.7734069824219, -10620.0302734375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Jungle Pirate [Lv. 1900]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Jungle Pirate [Lv. 1900]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7115,6 +7123,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos9)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-1132.4202880859375, 14.844913482666016, 4293.30517578125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Brute [Lv. 45]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Brute [Lv. 45]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7164,6 +7173,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos10)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-972.307373046875, 73.04473876953125, 1419.2901611328125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Mercenary [Lv. 725]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Mercenary [Lv. 725]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7213,6 +7223,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos11)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-289.6311950683594, 43.8282470703125, 5583.66357421875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Pirate Millionaire [Lv. 1500]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Pirate Millionaire [Lv. 1500]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7267,6 +7278,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos12)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(744.7930908203125, 24.76934242248535, -12637.7255859375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Chocolate Bar Battler [Lv. 2325]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Chocolate Bar Battler [Lv. 2325]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7321,6 +7333,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos13)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(5824.06982421875, 51.38640213012695, -1106.694580078125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Dragon Crew Warrior [Lv. 1575]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Dragon Crew Warrior [Lv. 1575]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7375,6 +7388,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos14)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-379.6134338378906, 73.84449768066406, 5928.5263671875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Pistol Billionaire [Lv. 1525]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Pistol Billionaire [Lv. 1525]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7429,6 +7443,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos15)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-10961.0126953125, 331.7977600097656, -8914.29296875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Fishman Captain [Lv. 1800]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Fishman Captain [Lv. 1800]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7483,6 +7498,7 @@ spawn(function()
 				else
 				    topos(MaterialsPos16)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-13516.0458984375, 469.8182373046875, -6899.16064453125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Mythological Pirate [Lv. 1850]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Mythological Pirate [Lv. 1850]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -7613,6 +7629,7 @@ spawn(function()
                             end
                         else
                             TP1(CFrameMon)
+                            UnEquipWeapon(_G.SelectWeapon)
                             StartMasteryFruitMagnet = false   
                             UseSkill = false 
                             local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Mon) 
@@ -7864,6 +7881,7 @@ spawn(function()
                             end)
                         else
                            TP1(CFrameMon)
+                           UnEquipWeapon(_G.SelectWeapon)
                             AutoFarmNearestMagnet = false
                             local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Mon) 
                             if Mob then
@@ -7958,6 +7976,7 @@ end
                             end)
                         else
                            TP1(CFrameMon)
+                           UnEquipWeapon(_G.SelectWeapon)
                             AutoSwordMasteryMag = false
                             local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Mon) 
                             if Mob then
@@ -8022,6 +8041,7 @@ end
 				else
 				    topos(BigMomPos)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-731.2034301757812, 381.5658874511719, -11198.4951171875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Queen [Lv. 2175] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Queen [Lv. 2175] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -8704,7 +8724,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
 					wait(1)
 				elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-					CheckLevel()
+					CheckQuest()
 					pcall(function()
 						EquipWeapon(_G.SelectWeapon)
 						ClickFast = false
@@ -8924,6 +8944,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
 				else
 				    topos(CavandisPos)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(5311.07421875, 426.0243835449219, 165.12762451171875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Beautiful Pirate [Lv. 1950] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Beautiful Pirate [Lv. 1950] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -8966,6 +8987,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                         end
                     end
                 else
+                    UnEquipWeapon(_G.SelectWeapon)
                     if BypassTP then
                     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude > 1500 then
 			        BTP(CFrameBoss)
@@ -9023,6 +9045,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
 				else
 				    topos(ElephantPos)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-13348.0654296875, 405.8904113769531, -8570.62890625))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Captain Elephant [Lv. 1875] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Captain Elephant [Lv. 1875] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -9105,6 +9128,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                     end
                                 end
                             else
+                                UnEquipWeapon(_G.SelectWeapon)
                                 if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") then
                                     topos(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                                 elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") then
@@ -9206,6 +9230,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                             end
                         end
                     else
+                    UnEquipWeapon(_G.SelectWeapon)
                     if BypassTP then
                     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - AdminPos.Position).Magnitude > 1500 then
 			        BTP(AdminPos)
@@ -9555,6 +9580,7 @@ M:AddToggle('Ennable Hop', false, function(value)
 				else
 				    topos(TridentPos)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-3914.830322265625, 123.29389190673828, -11516.8642578125))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Tide Keeper [Lv. 1475] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Tide Keeper [Lv. 1475] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -9613,6 +9639,7 @@ M:AddToggle('Ennable Hop', false, function(value)
 				else
 				    topos(TridentPos)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(5186.14697265625, 24.86684226989746, 832.1885375976562))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Chief Warden [Lv. 230] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Chief Warden [Lv. 230] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -9671,6 +9698,7 @@ M:AddToggle('Ennable Hop', false, function(value)
 				else
 				    topos(GayMakPos)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-5023.38330078125, 28.65203285217285, 4332.3818359375))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Greybeard [Lv. 750] [Raid Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Greybeard [Lv. 750] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -9729,6 +9757,7 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
 				else
 				    topos(TridentPos)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-7748.0185546875, 5606.80615234375, -2305.898681640625))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Thunder God [Lv. 575] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Thunder God [Lv. 575] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
@@ -9772,6 +9801,7 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
                             end
                         end
                     else 
+                        UnEquipWeapon(_G.SelectWeapon)
                         repeat task.wait()
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(2284.912109375, 15.537666320801, 905.48291015625)) 
                         until (CFrame.new(2284.912109375, 15.537666320801, 905.48291015625).Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 4 or _G.AutoFarmSwanGlasses == false
@@ -9829,6 +9859,7 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
 				else
 				    topos(SharkPos)
 				end
+				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(-690.33081054688, 15.09425163269, 1582.2380371094))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("The Saw [Lv. 100] [Boss]") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("The Saw [Lv. 100] [Boss]").HumanoidRootPart.CFrame * CFrame.new(2,40,2))
