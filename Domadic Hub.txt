@@ -3989,11 +3989,10 @@ H:AddLabel("[+] Farm Sky |27/8/2566|20:48")
 H:AddLabel("[+] Look Moon |28/8/2566|17:30")
 H:AddLabel("[+] Auto Farm Race V4 |2/9/2566|12:23")
 H:AddLabel("[+] Fix Auto Saber |2/9/2566|12:23")
-H:AddLabel("[+] Highlight |2/9/2566|12:23")
 H:AddLabel("[+] UnEquipWeapon |2/9/2566|12:23")
-H:AddLabel("[+] Highlight Character|2/9/2566|12:23")
-H:AddLabel("[+] Fruit Notification|2/9/2566|12:23")
-H:AddLabel("[+] Level Farm Mode|2/9/2566|12:23")
+H:AddLabel("[+] Highlight Character|14/9/2566|12:23")
+H:AddLabel("[+] Fruit Notification|14/9/2566|12:23")
+H:AddLabel("[+] Level Farm Mode|15/9/2566|21:11")
 
 
 
@@ -4351,6 +4350,12 @@ task.spawn(function()
 	end
     end)
     
+local ListF = {"Normal", "Not Tween To Npc Quest"}
+FarmMode = "Normal"
+Main:AddDropdown("Farm Mode", ListF,function(value)
+    FarmMode = value
+end)
+    
     Main:AddLine()
    
 local MonsterStatus = Main:AddLabel("")
@@ -4370,12 +4375,6 @@ spawn(function()
   end
   end
   end)
-  
-local ListF = {"Normal", "Not Tween To Npc Quest"}
-FarmMode = "Normal"
-Main:AddDropdown("Farm Mode", ListF,function(value)
-    FarmMode = value
-end)
 
     Main:AddToggle("Auto Farm Level",_G.AutoFarm,function(value)
         _G.AutoFarm = value
