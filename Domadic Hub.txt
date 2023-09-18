@@ -14649,8 +14649,8 @@ end)
 	
 	Misc:AddLabel('Lock Mastery')
 
-local LockL = {"Melee","Sword","Devil Fruit","Gun"}
-Misc:AddDropdown("Select Lock Mastery ",LockL,function(value)
+local LockL = {"melee","sword","devil Fruit","gun"}
+Misc:AddDropdown("Select Lock mastery ",LockL,function(value)
 _G.LockSle = value
 end)
 
