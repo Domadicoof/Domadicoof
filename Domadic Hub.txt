@@ -14665,7 +14665,7 @@ end)
     
     spawn(function()
 		while wait(.1) do
-			if _G.LockSle == "Sword" and  _G.KobenHubLek then
+			if _G.LockSle == "sword" and  _G.KobenHubLek then
 				if game:GetService("Players")["LocalPlayer"].Data.Stats.Sword.Level.Value >= LockPls then
 					game.Players.localPlayer:Kick("Mas Lock OFF")
 				end
@@ -14674,7 +14674,7 @@ end)
 	end)
 	spawn(function()
 		while wait(.1) do
-			if _G.LockSle == "Melee" and _G.KobenHubLek then
+			if _G.LockSle == "melee" and _G.KobenHubLek then
 				if game:GetService("Players")["LocalPlayer"].Data.Stats.Melee.Level.Value >= LockPls then
 					game.Players.localPlayer:Kick("Mas Lock OFF")
 				end
@@ -14683,7 +14683,7 @@ end)
 	end)
 	spawn(function()
 		while wait(.1) do
-			if _G.LockSle == "Devil Fruit" and _G.KobenHubLek then
+			if _G.LockSle == "devil Fruit" and _G.KobenHubLek then
 				if game:GetService("Players")["LocalPlayer"].Data.Stats["Demon Fruit"].Level.Value >= LockPls then
 					game.Players.localPlayer:Kick("Mas Lock OFF")
 				end
@@ -14692,7 +14692,7 @@ end)
 	end)
 	spawn(function()
 		while wait(.1) do
-			if _G.LockSle == "Gun" and _G.KobenHubLek then
+			if _G.LockSle == "gun" and _G.KobenHubLek then
 				if game:GetService("Players")["LocalPlayer"].Data.Stats.Gun.Level.Value >= LockPls then
 					game.Players.localPlayer:Kick("Mas Lock OFF")
 				end
