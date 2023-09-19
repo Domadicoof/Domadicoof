@@ -9250,10 +9250,6 @@ end)
             end
         end)
         
-M:AddToggle("Auto Sea Baest [Fully]",_G.Auto_Seabest,function(value)
-_G.Auto_Seabest = value
-StopTween(_G.Auto_Seabest)
-end)
 
 
 
@@ -9295,7 +9291,7 @@ end)
 							game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
 							repeat wait()
 								EquipAllWeapon()
-								PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
+								Skillaimbot = v.HumanoidRootPart.Position
 								UseSkillMasteryDevilFruit = true
 								topos(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 								if v.Humanoid.Health > 0 then
@@ -14656,6 +14652,61 @@ end)
 	Misc:AddSlider("Lock Bone",1,5000,100,_G.Lock_Bone,_G.Lock_Bone,function(value)
 		_G.Lock_Bone = value
 	end)
+	
+	Misc:AddLabel('Lock Mastery')
+
+local LockL = {"melee","sword","devil Fruit","gun"}
+Misc:AddDropdown("Select Lock mastery ",LockL,function(value)
+_G.LockSle = value
+end)
+
+    Misc:AddToggle("Start Lock",lock,function(value)
+        _G.KobenHubLek = value
+    end)
+    
+    LockPls = 600
+    Misc:AddSlider(" Kick at Mastery",0,600,600,function(value)
+    LockPls = value
+    end)
+    
+    spawn(function()
+		while wait(.1) do
+			if _G.LockSle == "sword" and  _G.KobenHubLek then
+				if game:GetService("Players")["LocalPlayer"].Data.Stats.Sword.Level.Value >= LockPls then
+					game.Players.localPlayer:Kick("Mas Lock OFF")
+				end
+			end
+		end
+	end)
+	spawn(function()
+		while wait(.1) do
+			if _G.LockSle == "melee" and _G.KobenHubLek then
+				if game:GetService("Players")["LocalPlayer"].Data.Stats.Melee.Level.Value >= LockPls then
+					game.Players.localPlayer:Kick("Mas Lock OFF")
+				end
+			end
+		end
+	end)
+	spawn(function()
+		while wait(.1) do
+			if _G.LockSle == "devil Fruit" and _G.KobenHubLek then
+				if game:GetService("Players")["LocalPlayer"].Data.Stats["Demon Fruit"].Level.Value >= LockPls then
+					game.Players.localPlayer:Kick("Mas Lock OFF")
+				end
+			end
+		end
+	end)
+	spawn(function()
+		while wait(.1) do
+			if _G.LockSle == "gun" and _G.KobenHubLek then
+				if game:GetService("Players")["LocalPlayer"].Data.Stats.Gun.Level.Value >= LockPls then
+					game.Players.localPlayer:Kick("Mas Lock OFF")
+				end
+			end
+		end
+	end)
+	
+	Misc:AddLine()
 	
 	
 	
