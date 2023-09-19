@@ -3993,9 +3993,7 @@ H:AddLabel("[+] UnEquipWeapon |2/9/2566|12:23")
 H:AddLabel("[+] Highlight Character|14/9/2566|12:23")
 H:AddLabel("[+] Fruit Notification|14/9/2566|12:23")
 H:AddLabel("[+] Level Farm Mode|15/9/2566|21:11")
-H:AddLabel("[+] Lock Farm Mastery in Misc Tab|19/9/2566|14:32")
 H:AddLabel("[x] Fix Auto Farm Sea Baest [Fully]|19/9/2566|14:32")
-H:AddLabel("[-] Remove Farm Mode|19/9/2566|14:32")
 
 
 
@@ -4373,6 +4371,12 @@ spawn(function()
   end
   end
   end)
+  
+local FArmL = {"Normal","Not Tween To Npc Quest"}
+Fgay = "Normal"
+Main:AddDropdown("Farm Mode",WeaponList,function(value)
+Fgay = value
+end)
 
     Main:AddToggle("Auto Farm Level",_G.AutoFarm,function(value)
         _G.AutoFarm = value
@@ -4381,7 +4385,7 @@ spawn(function()
     
     spawn(function()
         while wait() do
-            if _G.AutoFarm then
+            if _G.AutoFarm and Fgay == "Normal" then
                 pcall(function()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                     if not string.find(QuestTitle, NameMon) then
@@ -4444,6 +4448,68 @@ spawn(function()
         end
     end)
  
+     spawn(function()
+        while wait() do
+            if _G.AutoFarm and Fgay == "Not Tween To Npc Quest" then
+                pcall(function()
+                    local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
+                    if not string.find(QuestTitle, NameMon) then
+                        StartMagnet = false
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                    end
+                    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                        StartMagnet = false
+                        CheckQuest()
+                        if BypassTP then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude > 1500 then
+						BTP(CFrameMon)
+						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude < 1500 then
+						TP1(CFrameMon)
+						end
+					else
+						TP1(CFrameMon)
+					end
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
+                    elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                        CheckQuest()
+                        if game:GetService("Workspace").Enemies:FindFirstChild(Mon) then
+                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                                    if v.Name == Mon then
+                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
+                                            repeat task.wait()
+                                                EquipWeapon(_G.SelectWeapon)
+                                                AutoHaki()                                            
+                                                PosMon = v.HumanoidRootPart.CFrame
+                                                TP1(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
+                                                v.HumanoidRootPart.CanCollide = false
+                                                v.Humanoid.WalkSpeed = 0
+                                                v.Head.CanCollide = false
+                                                v.HumanoidRootPart.Size = Vector3.new(70,70,70)
+                                                StartMagnet = true
+                                                game:GetService'VirtualUser':CaptureController()
+                                                game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                                            until not _G.AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                        else
+                                            StartMagnet = false
+                                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                        end
+                                    end
+                                end
+                            end
+                        else
+                            TP1(CFrameMon)
+                            StartMagnet = false
+                            if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
+                             TP1(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(15,10,2))
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
     Main:AddToggle("Auto Farm Fast (Farm Sky Lv.10-75)",_G.AutoFarmFast,function(value)
         _G.Farmfast = value
         StopTween(_G.Farmfast)
@@ -14591,60 +14657,6 @@ end)
 		_G.Lock_Bone = value
 	end)
 	
-	Misc:AddLabel('Lock Mastery')
-
-local LockL = {"melee","sword","devil Fruit","gun"}
-Misc:AddDropdown("Select Lock Mastery ",LockL,function(value)
-_G.LockSle = value
-end)
-
-    Misc:AddToggle("Start Lock",lock,function(value)
-        _G.KobenHumLek = value
-    end)
-    
-    LockPls = 600
-    Misc:AddSlider(" Kick at Mastery",0,600,600,function(value)
-    LockPls = value
-    end)
-    
-    spawn(function()
-		while wait(.1) do
-			if _G.LockSle == "sword" and  _G.KobenHumLek then
-				if game:GetService("Players")["LocalPlayer"].Data.Stats.Sword.Level.Value >= LockPls then
-					game.Players.localPlayer:Kick("Mastery Lock OFF")
-				end
-			end
-		end
-	end)
-	spawn(function()
-		while wait(.1) do
-			if _G.LockSle == "melee" and _G.KobenHumLek then
-				if game:GetService("Players")["LocalPlayer"].Data.Stats.Melee.Level.Value >= LockPls then
-					game.Players.localPlayer:Kick("Mastery Lock OFF")
-				end
-			end
-		end
-	end)
-	spawn(function()
-		while wait(.1) do
-			if _G.LockSle == "devil Fruit" and _G.KobenHumLek then
-				if game:GetService("Players")["LocalPlayer"].Data.Stats["Demon Fruit"].Level.Value >= LockPls then
-					game.Players.localPlayer:Kick("Mastery Lock OFF")
-				end
-			end
-		end
-	end)
-	spawn(function()
-		while wait(.1) do
-			if _G.LockSle == "gun" and _G.KobenHumLek then
-				if game:GetService("Players")["LocalPlayer"].Data.Stats.Gun.Level.Value >= LockPls then
-					game.Players.localPlayer:Kick("Mastery Lock OFF")
-				end
-			end
-		end
-	end)
-	
-	Misc:AddLine()
 	
 	
     Misc:AddSeperator("Hack")
