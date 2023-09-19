@@ -4374,7 +4374,7 @@ spawn(function()
   
 local FArmL = {"Normal","Not Tween To Npc Quest"}
 Fgay = "Normal"
-Main:AddDropdown("Farm Mode",WeaponList,function(value)
+Main:AddDropdown("Farm Mode",FArmL,function(value)
 Fgay = value
 end)
 
