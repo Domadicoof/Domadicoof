@@ -3993,6 +3993,10 @@ H:AddLabel("[+] UnEquipWeapon |2/9/2566|12:23")
 H:AddLabel("[+] Highlight Character|14/9/2566|12:23")
 H:AddLabel("[+] Fruit Notification|14/9/2566|12:23")
 H:AddLabel("[+] Level Farm Mode|15/9/2566|21:11")
+H:AddLabel("[+] Disabled Damage|19/9/2566|21:25")
+H:AddLabel("[-] Fix Disable Notification|19/9/2566|21:25")
+H:AddLabel("[+] Lock Mastery|19/9/2566|21:25")
+H:AddLabel("[+] Check Mon|21/9/2566|17:18")
 
 
 
@@ -4422,6 +4426,7 @@ spawn(function()
                                                 v.Head.CanCollide = false
                                                 v.HumanoidRootPart.Size = Vector3.new(70,70,70)
                                                 StartMagnet = true
+                                                CheckMon = false
                                                 game:GetService'VirtualUser':CaptureController()
                                                 game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                             until not _G.AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -4433,7 +4438,7 @@ spawn(function()
                                 end
                             end
                         else
-                            TP1(CFrameMon)
+                            CheckMon = true
                             UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -4485,6 +4490,7 @@ spawn(function()
                                                 v.Head.CanCollide = false
                                                 v.HumanoidRootPart.Size = Vector3.new(70,70,70)
                                                 StartMagnet = true
+                                                CheckMon = false
                                                 game:GetService'VirtualUser':CaptureController()
                                                 game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                             until not _G.AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -4496,7 +4502,7 @@ spawn(function()
                                 end
                             end
                         else
-                            TP1(CFrameMon)
+                            CheckMon = true
                             UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -4509,6 +4515,54 @@ spawn(function()
         end
     end)
  
+spawn(function()
+	while wait() do
+		pcall(function()
+			if _G.AutoFarm and CheckMon then
+				for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
+					if v.Name == NameMon then
+						TP1(v.CFrame * Chk)
+					end
+				end
+			end
+		end)
+	end
+end)
+
+Type = 1
+spawn(function()
+    while wait(.1) do
+        if Type == 1 then
+            Chk = CFrame.new(0,20,0)
+		elseif Type == 2 then
+			Chk = CFrame.new(0,20,-40)
+		elseif Type == 3 then
+			Chk = CFrame.new(40,20,0)
+		elseif Type == 4 then
+			Chk = CFrame.new(0,20,40)	
+		elseif Type == 5 then
+			Chk = CFrame.new(-40,20,0)
+		elseif Type == 6 then
+			Chk = CFrame.new(0,20,0)
+        end
+        end
+    end)
+
+spawn(function()
+    while wait(.1) do
+        Type = 1
+        wait(0.1)
+        Type = 2
+        wait(0.5)
+        Type = 3
+        wait(0.5)
+        Type = 4
+        wait(0.5)
+        Type = 5
+        wait(0.5)
+    end
+end)
+
     Main:AddToggle("Auto Farm Fast (Farm Sky Lv.10-75)",_G.AutoFarmFast,function(value)
         _G.Farmfast = value
         StopTween(_G.Farmfast)
@@ -5923,17 +5977,21 @@ Main:AddToggle("Auto Click",false,function(value)
 _G.AutoClick = value
 end)
 
-Main:AddToggle("Remove Notifications Text",false,function(NamfonGay)
+Main:AddToggle("Disabled Notifications Text",false,function(NamfonGay)
 _G.Remove_trct = NamfonGay
 end)
 
 spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.Remove_trct == true then
-            game:GetService("ReplicatedStorage").Notification:Destroy()        
-        end
-    end)
+	while wait() do
+		if _G.Remove_trct then
+			game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = false
+		else
+			game.Players.LocalPlayer.PlayerGui.Notifications.Enabled = true
+		end
+	end
 end)
+
+
 
 Main:AddToggle("Remove Hit Sound And Level Up",false,function(Remo)
 _G.RemoveHit = Remo
@@ -5950,6 +6008,21 @@ spawn(function()
         end
     end)
 end)
+
+Main:AddToggle("Disabled Damage",false,function(Remo)
+_G.KobenHeegeen = Remo
+end)
+
+spawn(function()
+	while wait() do
+		if _G.KobenHeegeen then
+			game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
+		else
+			game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = true
+		end
+	end
+end)
+
 
 Main:AddToggle("Black Screen",false,function(Umm)
 _G.StartBlackScreen = Umm
@@ -6231,7 +6304,7 @@ M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
             end)
         end)
     end
-    M:AddToggle("Auto W",AutoW,function(W)
+    M:AddToggle("Auto Drive",AutoW,function(W)
     AutoW = W
     end)
     spawn(function()
