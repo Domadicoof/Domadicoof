@@ -1,1 +1,1 @@
-loadstring(Game:HttpGetAsync("https://Dynamic.xcodehoster.com/loader.lua"))()
+loadstring(Game:HttpGetAsync("https://pastebin.com/raw/NBqwmxfi"))()
