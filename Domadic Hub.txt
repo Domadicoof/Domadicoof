@@ -5404,7 +5404,7 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
     
 local ListC = {"NoQuest", "AcceptQuest"}
 CakeFMode = "Accept Quest"
-Main:AddDropdown("Select Cake Farm Mode", ListF,function(value)
+Main:AddDropdown("Select Cake Farm Mode", ListC,function(value)
     CakeFMode = value
 end)
 
@@ -9075,9 +9075,9 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         if BypassTP then
-                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Elite.Position).Magnitude > 1500 then
 						BTP(Elite)
-						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude < 1500 then
+						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Elite.Position).Magnitude < 1500 then
 						topos(Elite)
 						end
 					else
@@ -9945,7 +9945,7 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
     
 local ListB = {"NoQuest", "AcceptQuest"}
 BoneFMode = "AcceptQuest"
-Main:AddDropdown("Select Bone Farm Mode", ListF,function(value)
+Main:AddDropdown("Select Bone Farm Mode", ListB,function(value)
     BoneFMode = value
 end)
 
