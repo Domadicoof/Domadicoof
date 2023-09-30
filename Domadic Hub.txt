@@ -3997,6 +3997,10 @@ H:AddLabel("[+] Disabled Damage|19/9/2566|21:25")
 H:AddLabel("[-] Fix Disable Notification|19/9/2566|21:25")
 H:AddLabel("[+] Lock Mastery|19/9/2566|21:25")
 H:AddLabel("[+] Check Mon|21/9/2566|17:18")
+H:AddLabel("[x] Remove Check Mon|30/9/2566|10:29")
+H:AddLabel("[+] Auto Cake Price Add Quest|30/9/2566|10:30")
+H:AddLabel("[+] Auto Farm Bone Add Quest|30/9/2566|10:30")
+H:AddLabel("[+] Bring Player|30/9/2566|10:30")
 
 
 
@@ -4426,7 +4430,6 @@ spawn(function()
                                                 v.Head.CanCollide = false
                                                 v.HumanoidRootPart.Size = Vector3.new(70,70,70)
                                                 StartMagnet = true
-                                                CheckMon = false
                                                 game:GetService'VirtualUser':CaptureController()
                                                 game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                                             until not _G.AutoFarm or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
@@ -4438,7 +4441,7 @@ spawn(function()
                                 end
                             end
                         else
-                            CheckMon = true
+                            TP1(CFrameMon)
                             UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -4501,6 +4504,7 @@ spawn(function()
                                 end
                             end
                         else
+                            TP1(CFrameMon)
                             UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -12203,6 +12207,14 @@ end)
                 end)
             end
         end
+    end)
+    
+    P:AddButton("Bring Player [Use Electric Claw]",function()
+    EquipWeapon("Electric Claw")
+		game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+		wait(.1)
+		game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[_G.SelectPly].Character.HumanoidRootPart.CFrame	
     end)
     
     P:AddSeperator("Boats")
