@@ -9945,7 +9945,7 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
     
 local ListB = {"NoQuest", "AcceptQuest"}
 BoneFMode = "AcceptQuest"
-Main:AddDropdown("Select Bone Farm Mode", ListB,function(value)
+M:AddDropdown("Select Bone Farm Mode", ListB,function(value)
     BoneFMode = value
 end)
 
@@ -9956,7 +9956,7 @@ end)
    local BonePos = CFrame.new(-9506.234375, 172.130615234375, 6117.0771484375)
     spawn(function()
         while wait() do 
-            if FarmMode == "NoQuest" and _G.Auto_Bone and World3 then
+            if BoneFMode == "NoQuest" and _G.Auto_Bone and World3 then
                 pcall(function()
                     if game:GetService("Workspace").Enemies:FindFirstChild("Reborn Skeleton [Lv. 1975]") or game:GetService("Workspace").Enemies:FindFirstChild("Living Zombie [Lv. 2000]") or game:GetService("Workspace").Enemies:FindFirstChild("Demonic Soul [Lv. 2025]") or game:GetService("Workspace").Enemies:FindFirstChild("Posessed Mummy [Lv. 2050]") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
