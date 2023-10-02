@@ -3923,6 +3923,7 @@ end)
 H:AddLine()
 
 H:AddSeperator("UpdLog")
+H:AddLabel("Upd Time in Thailand")
 
 
 H:AddLabel("[+] Reduce Tween Speed | 5/4/2566|10:02")
@@ -3998,9 +3999,12 @@ H:AddLabel("[-] Fix Disable Notification|19/9/2566|21:25")
 H:AddLabel("[+] Lock Mastery|19/9/2566|21:25")
 H:AddLabel("[+] Check Mon|21/9/2566|17:18")
 H:AddLabel("[x] Remove Check Mon|30/9/2566|10:29")
+H:AddLabel("[+] Bypass Tp Elite Hunter|30/9/2566|10:30")
 H:AddLabel("[+] Auto Cake Price Add Quest|30/9/2566|10:30")
 H:AddLabel("[+] Auto Farm Bone Add Quest|30/9/2566|10:30")
 H:AddLabel("[+] Bring Player|30/9/2566|10:30")
+H:AddLabel("[+] Check LegendSword|2/9/2566|22:44")
+H:AddLabel("[x] Fix Check HakiDealer (Show Colors Sell )|2/9/2566|22:44")
 
 
 
@@ -10353,6 +10357,24 @@ end)
     
     M:AddSeperator("Legendary Sword")
     
+spawn(function()
+    pcall(function()
+        while wait() do
+            if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LegendarySwordDealer", "1") then
+                LegendSwordsSet("Shisui")
+            elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LegendarySwordDealer","2") then
+                LegendSwords:Set("Wando")
+            elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LegendarySwordDealer","3") then
+                LegendSwords:Set("Saddi")
+            else
+                LegendSwords:Set("Not Found LegendSwords [รอดาบขายจะขึ้นชือดาบแล้วเปิด Auto Legendary Sword]")
+            end
+        end
+    end)
+end)
+
+LegendSwords = M:AddLabel("ตรวจสอบแปป...พบว่า Owner MTrient Hub เป็นเก")
+
     M:AddToggle("Auto Legendary Sword",_G.AutoBuyLegendarySword,function(value)
         _G.AutoBuyLegendarySword = value
     end)
@@ -10391,19 +10413,21 @@ end)
     
     M:AddSeperator("Enchancement Colour")
     
+    local KuyKoben = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1")
+    
 spawn(function()
-pcall(function()
-while wait() do
- if game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1") then
- ColorHaki:Set("Found Haki Dealer")
- else
- ColorHaki:Set("Not found Haki Dealer")
- end
- end
-end)
+    pcall(function()
+        while wait() do
+            if game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1") then
+                ColorHaki:Set(KuyKoben)
+            else
+                ColorHaki:Set("Not Found HakiDealer")
+            end
+        end
+    end)
 end)
 
-ColorHaki = M:AddLabel("...")
+ColorHaki = M:AddLabel("เช็กแปป...พบว่า Koben แจกตัวรัน Synx ทีมีไวรัสฟรี")
     
     M:AddToggle("Auto Enchancement Colour",_G.AutoBuyEnchancementColour,function(value)
         _G.AutoBuyEnchancementColour = value
@@ -15607,21 +15631,7 @@ Misc:AddToggle("Esp Advanced Fruit Dealer", false, function(value)
         end
     end)
     
-Misc:AddToggle("Esp Master of Enhancement", false, function(value)
-    AuraESP = value
-        while AuraESP do wait()
-            UpdateAuraESP() 
-        end
-    end)
-    
-Misc:AddToggle("Esp Legendary Sword Dealer", false, function(value)
-    LADESP = value
-        while LADESP do wait()
-            UpdateLSDESP() 
-        end
-    end)
-    
-Misc:AddToggle("Esp Gear", false, function(value)
+Misc:AddToggle("Esp Gear [Beta]", false, function(value)
     GearESP = value
         while GearESP do wait()
             UpdateGeaESP() 
