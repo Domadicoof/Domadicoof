@@ -5407,7 +5407,7 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
 
     Main:AddSeperator("Dought Boss")
     
-local ListC = {"NoQuest", "AcceptQuest"}
+local ListC = {"NoQuest", "AcceptQuest", "MasteryFruit"}
 CakeFMode = "Accept Quest"
 Main:AddDropdown("Select Cake Farm Mode", ListC,function(value)
     CakeFMode = value
@@ -5829,7 +5829,7 @@ spawn(function()
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
-                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(2,10,5))
+                                        topos(v.HumanoidRootPart.CFrame * F)
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
@@ -5838,15 +5838,9 @@ spawn(function()
                             end
                         end
                     else
-                        if BypassTP then
-                        if ((game.ReplicatedStorage:FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 1500 then
-			            BTP(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
-			    	    elseif ((game.ReplicatedStorage:FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 1500 then
-			    	    topos(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
-			    		end
-		    		else
-		    		    topos(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
-	    			end
+                        if game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss) then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
+                        end
                     end
                 end)
             end
@@ -5860,10 +5854,6 @@ spawn(function()
     
     Main:AddToggle("Auto Farm All Boss Hop",_G.AutoAllBossHop,function(value)
         _G.AutoAllBossHop = value
-    end)
-    
-    Main:AddToggle("Auto Farm Boss Hop",_G.AutoFarmBoss,function(value)
-    _G.AutoFarmBossHup = value
     end)
     
     spawn(function()
@@ -10716,7 +10706,7 @@ spawn(function()
             elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LegendarySwordDealer","3") then
                 LegendSwords:Set("Saddi")
             else
-                LegendSwords:Set("Not Found LegendSwords [รอดาบขายจะขึ้นชือดาบแล้วเปิด Auto Legendary Sword]")
+                LegendSwords:Set("Not Found LegendSwords")
             end
         end
     end)
