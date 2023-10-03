@@ -1,3 +1,4 @@
+--Skid...ล้อเล่นเอาซอสไปเลยแล้วแต่ผมคนดีคนับน้อง:)
 local ScreenGui1 = Instance.new("ScreenGui")
 local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
@@ -5701,7 +5702,7 @@ spawn(function()
                                                 PosMonDoughtOpenDoor = v.HumanoidRootPart.CFrame
                                                 game:GetService'VirtualUser':CaptureController()
                                                 game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
-                                            until not _G.AutoFarmFruitMastery or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                            until not _G.AutoDoughtBoss or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                         else
                                             UseSkillKub = false
                                             MagnetDought = false
