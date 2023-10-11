@@ -4822,14 +4822,16 @@ spawn(function()
 	end
 end)
 
-Main:AddToggle("Auto Grab Chest Mirage Island",_G.Setting_table.AutoChestMirage,function(vu)
-	_G.Setting_table.AutoChestMirage = vu
-end)
+Main:AddToggle("Auto Farm Chest Mirage island",false,function(value)
+ _G.AutoChestMirage = value
+ StopTween(_G.AutoChestMirage)
+ end)
+ 
 --ByOakkXHub
 _G.MagnitudeAdd = 0
 spawn(function()
 	while wait() do 
-		if _G.Setting_table.AutoChestMirage then
+		if _G.AutoChestMirage then
 			for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
 				if v.Name:find("FragChest") then
 					if game:GetService("Workspace"):FindFirstChild(v.Name) then
@@ -4838,7 +4840,7 @@ spawn(function()
 								if game:GetService("Workspace"):FindFirstChild(v.Name) then
 									TP(v.CFrame)
 								end
-							until _G.Setting_table.AutoChestMirage == false or not v.Parent
+							until _G.AutoChestMirage == false or not v.Parent
 							TP(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
 							_G.MagnitudeAdd = _G.MagnitudeAdd+1500
 							break
