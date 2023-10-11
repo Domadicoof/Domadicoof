@@ -3925,6 +3925,8 @@ H:AddLine()
 
 H:AddSeperator("UpdLog")
 H:AddLabel("Upd Time in Thailand")
+H:AddLabel("ตอนนี้บิดไปทําสคริป Makori Hub เกม ConDL Piece ละ ")
+H:AddLabel("I'm going to make Makori Hub for the game ConDL Piece Script")
 
 
 H:AddLabel("[+] Reduce Tween Speed | 5/4/2566|10:02")
@@ -4007,6 +4009,8 @@ H:AddLabel("[+] Bring Player|30/9/2566|10:30")
 H:AddLabel("[+] Check LegendSword|2/10/2566|22:44")
 H:AddLabel("[x] Fix Check HakiDealer (Show Colors Sell )|2/10/2566|22:44")
 H:AddLabel("[x] Add Farm MasFruitBone&Cake |3/10/2566|22:44")
+H:AddLabel("[x] Fix Kill Aura  |7/10/2566|20:10")
+H:AddLabel("[+] Farm Chect Mirage |12/ตุลาคม/พ.ศ2566|20:10.น")
 
 
 
@@ -4808,6 +4812,34 @@ spawn(function()
 								end
 							until AutoFarmChest == false or not v.Parent
 							topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+							_G.MagnitudeAdd = _G.MagnitudeAdd+1500
+							break
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+
+Main:AddToggle("Auto Grab Chest Mirage Island",_G.Setting_table.AutoChestMirage,function(vu)
+	_G.Setting_table.AutoChestMirage = vu
+end)
+--ByOakkXHub
+_G.MagnitudeAdd = 0
+spawn(function()
+	while wait() do 
+		if _G.Setting_table.AutoChestMirage then
+			for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+				if v.Name:find("FragChest") then
+					if game:GetService("Workspace"):FindFirstChild(v.Name) then
+						if (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5000+_G.MagnitudeAdd then
+							repeat wait()
+								if game:GetService("Workspace"):FindFirstChild(v.Name) then
+									TP(v.CFrame)
+								end
+							until _G.Setting_table.AutoChestMirage == false or not v.Parent
+							TP(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
 							_G.MagnitudeAdd = _G.MagnitudeAdd+1500
 							break
 						end
@@ -13319,22 +13351,29 @@ end)
     end) 
 
 spawn(function()
-    while wait() do
-        if _G.Kill_Aura then
-            for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
-                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                    pcall(function()
-                        repeat wait(.1)
-                            v.Humanoid.Health = 0
-                            v.HumanoidRootPart.CanCollide = false
-							sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                        until not _G.Kill_Aura  or not v.Parent or v.Humanoid.Health <= 0
-                    end)
-                end
-            end
-        end
-    end
-    end)
+	while wait(.5) do
+		pcall(function()
+			if _G.Kill_Aura then
+				if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
+					for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
+						if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+							repeat wait(.1)
+								sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+								v.Humanoid.Health = 0
+								v.HumanoidRootPart.CanCollide = false
+								v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+								v.HumanoidRootPart.Transparency = 0.5
+							until not _G.Kill_Aura or not v.Parent or v.Humanoid.Health <= 0
+						end
+					end
+				end
+			else
+				wait(3)
+			end
+		end)
+	end
+end)
+
     
     R:AddLine()
 
