@@ -6489,7 +6489,6 @@ M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
                 end
             end)
         end)
-    end
     M:AddToggle("Auto Drive",AutoW,function(W)
     AutoW = W
     end)
@@ -6612,6 +6611,7 @@ spawn(function()
         end
     end)
     end)
+end
     
     M:AddLine()
 
@@ -8108,7 +8108,7 @@ spawn(function()
         end)
     end)
     
-    --UseSkillMasCakeandBoneอยู่ตรงนี้นะMTrient Hub
+    --UseSkillMasCakeandBone
     spawn(function()
         while wait() do
             if UseSkillKub then
