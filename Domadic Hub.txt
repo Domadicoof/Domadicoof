@@ -11044,7 +11044,7 @@ ColorHaki = M:AddLabel("เช็กแปป...พบว่า Koben แจก�
         end)
     end)
     
-    Main:Toggle("Auto Observation Haki v2",_G.AutoObservationv2,function(value)
+    M:AddToggle("Auto Observation Haki v2",_G.AutoObservationv2,function(value)
         _G.AutoObservationv2 = value
         StopTween(_G.AutoObservationv2)
     end)
