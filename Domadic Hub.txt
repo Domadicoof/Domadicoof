@@ -5805,13 +5805,13 @@ spawn(function()
     Main:AddSeperator("Boss")
     
     
-local BoSs = Main:AddLabel("Status")
+local BoSs = Main:AddLabel("Status : Slect Boss")
 
 
 	spawn(function()
 		while wait() do
 			pcall(function()
-				if game:GetService("Workspace").Enemies:FindFirstChild(_G.SelectBoss) then
+				if game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss) or game:GetService("Workspace").Enemies:FindFirstChild(_G.SelectBoss) then
 					BoSs:Set("Status : Spawn!")	
 				else
 					BoSs:Set("Status : Boss Not Spawn")	
@@ -9338,14 +9338,14 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
         end
     end)
     
-    Main:Seperator(" Terrorshark [BETA]")
+    M:AddSeperator(" Terrorshark [BETA]")
     
-    Main:Toggle("Auto Farm Terrorshark", _G.AutoTerrorshark,function(value)
+    M:Toggle("Auto Farm Terrorshark", _G.AutoTerrorshark,function(value)
          _G.AutoTerrorshark = value
         StopTween( _G.AutoTerrorshark)
     end)
     
-    Main:Toggle("Auto Terrorshark Hop", _G.AutoTerrorsharkhop,function(value)
+    M:AddToggle("Auto Terrorshark Hop", _G.AutoTerrorsharkhop,function(value)
          _G.AutoTerrorsharkhop = value
     end)
    
