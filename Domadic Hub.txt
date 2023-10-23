@@ -9340,7 +9340,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
     
     M:AddSeperator(" Terrorshark [BETA]")
     
-    M:Toggle("Auto Farm Terrorshark", _G.AutoTerrorshark,function(value)
+    M:AddToggle("Auto Farm Terrorshark", _G.AutoTerrorshark,function(value)
          _G.AutoTerrorshark = value
         StopTween( _G.AutoTerrorshark)
     end)
@@ -9366,7 +9366,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                         topos(v.HumanoidRootPart.CFrame * Pos)
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                                    until not  Terrorshark or not v.Parent or v.Humanoid.Health <= 0
+                                    until not  _G.AutoTerrorshark or not v.Parent or v.Humanoid.Health <= 0
                                 end
                             end
                         end
@@ -10804,7 +10804,7 @@ spawn(function()
     end)
 end)
 
-LegendSwords = M:AddLabel("สตัด")
+LegendSwords = M:AddLabel("StatusCheck")
 
     M:AddToggle("Auto Legendary Sword",_G.AutoBuyLegendarySword,function(value)
         _G.AutoBuyLegendarySword = value
