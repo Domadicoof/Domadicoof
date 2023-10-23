@@ -5805,10 +5805,12 @@ spawn(function()
     Main:AddSeperator("Boss")
     
 if game:GetService("Workspace").Enemies:FindFirstChild("_G.SelectBoss") then
-queen:Set("Status : Boss Has Been Spawn ✅")
+BossS:Set("Status : Boss Has Been Spawn ✅")
 else
-queen:Set("Status : Boss Not Spawn ❌")
+BossS:Set("Status : Boss Not Spawn ❌")
 end
+
+local BossS = Main:AddLabel("Status:")
 
     if World1 then
 	tableBoss = {"The Gorilla King","Bobby","Yeti","Mob Leader","Vice Admiral","Warden","Chief Warden","Swan","Magma Admiral","Fishman Lord","Wysper","Thunder God","Cyborg","Saber Expert"}
@@ -5818,7 +5820,7 @@ elseif World3 then
 	tableBoss = {"Stone","Island Empress","Kilo Admiral","Captain Elephant","Beautiful Pirate","rip_indra True Form","Longma","Soul Reaper","Cake Queen"}
 end
 
-    local BossName = Main:AddDropdown("Select Boss",tableBoss,function(value)
+    Main:AddDropdown("Select Boss",tableBoss,function(value)
         _G.SelectBoss = value
     end)
     
