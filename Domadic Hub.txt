@@ -5804,13 +5804,21 @@ spawn(function()
     
     Main:AddSeperator("Boss")
     
-if game:GetService("Workspace").Enemies:FindFirstChild("_G.SelectBoss") then
-BossS:Set("Status : Boss Has Been Spawn ✅")
-else
-BossS:Set("Status : Boss Not Spawn ❌")
-end
+    
+    local BoSs = Mis:Label("Status")
 
-local BossS = Main:AddLabel("Status:")
+
+	spawn(function()
+		while wait() do
+			pcall(function()
+				if game:GetService("Workspace").Enemies:FindFirstChild(_G.SelectBoss) then
+					BoSs:Set("Status : Spawn!")	
+				else
+					BoSs:Set("Status : Boss Not Spawn")	
+				end
+			end)
+		end
+	end)
 
     if World1 then
 	tableBoss = {"The Gorilla King","Bobby","Yeti","Mob Leader","Vice Admiral","Warden","Chief Warden","Swan","Magma Admiral","Fishman Lord","Wysper","Thunder God","Cyborg","Saber Expert"}
