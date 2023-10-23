@@ -3585,14 +3585,18 @@ end
         return math.floor((target.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude)
     end
     
-    function BTP(P)
-	repeat wait(1)
-		game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
-		task.wait()
-		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
-	until (P.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500
-end
+    function BTP(p)
+    	pcall(function()
+	    	if (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 1500 and not Auto_Raid and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+				repeat wait()
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
+					wait(.05)
+					game.Players.LocalPlayer.Character.Head:Destroy()
+					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
+				until (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 1500 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
+			end
+		end)
+	end
 
 function TelePPlayer(P)
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
@@ -9447,7 +9451,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
 				pcall(function()
 					if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Training Dummy") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Training Dummy") or string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,"Training Dummy") then
-							if game:GetService("Workspace").Enemies:FindFirstChild("Training Dummy [Lv. 1500]") or game:GetService("Workspace").Enemies:FindFirstChild("Training Dummy [Lv. 1500]") or game:GetService("Workspace").Enemies:FindFirstChild("Training Dummy [Lv. 1500]") then
+							if game:GetService("Workspace").Enemies:FindFirstChild("Training Dummy") or game:GetService("Workspace").Enemies:FindFirstChild("Training Dummy") or game:GetService("Workspace").Enemies:FindFirstChild("Training Dummy") then
 								for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 									if v.Name == "Training Dummy" or v.Name == "Training Dummy" or v.Name == "Training Dummy" then
 										if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
