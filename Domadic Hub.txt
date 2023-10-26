@@ -2395,7 +2395,7 @@ if game.PlaceId == 2753915549 then
                 Mon = "Sun-kissed Warrior"
                 LevelQuest = 1
                 NameQuest = "TikiQuest2"
-                NameMon = "Sun-kissed Warrior"
+                NameMon = "Sun-kissed Warriors"
                 CFrameQuest = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
                 CFrameMon = CFrame.new(-16349.8779296875, 92.0808334350586, 1123.4169921875)
             elseif MyLevel == 2525 or MyLevel <= 2550 then
