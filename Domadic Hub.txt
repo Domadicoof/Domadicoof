@@ -6506,10 +6506,6 @@ M:AddToggle("Auto Mystic Island",_G.AutoMysticIsland,function(value)
 
 
 if _G.dao then
-local args = {
-    [1] = "requestEntrance",
-    [2] = Vector3.new(-12463.6025390625, 378.3270568847656, -7566.0830078125)
-}
 
 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
 wait(1)
@@ -9338,11 +9334,59 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
         end
     end)
     
-    M:AddSeperator(" Terrorshark [BETA]")
+    M:AddSeperator(" Shark [BETA]")
     
     M:AddToggle("Auto Farm Terrorshark", _G.AutoTerrorshark,function(value)
          _G.AutoTerrorshark = value
         StopTween( _G.AutoTerrorshark)
+    end)
+    
+    M:AddToggle("Auto Farm Shark",FarmTFully,function(value)
+    FarmShark = value
+    end)
+
+    spawn(function()
+        while wait() do
+            if  FarmShark and World3 then
+                pcall(function()
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Shark") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Shark" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.SelectWeapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        topos(v.HumanoidRootPart.CFrame * Pos)
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                    until not  FarmShark or not v.Parent or v.Humanoid.Health <= 0
+                                end
+                            end
+                        end
+                    else
+                        topos(CFrame.new(-19701.625, 29.001399993896484, 1064.2261962890625))
+                        wait(5)
+                        topos(CFrame.new(-20360.998046875, 33.44663619995117, 1136.447998046875))
+                        wait(5)
+                        topos(CFrame.new(-20838.755859375, 20.90469741821289, 758.71435546875))
+                        wait(5)
+                        topos(CFrame.new(-20398.724609375, 10.859980583190918, 243.41610717773438))
+                        wait(5)
+                        topos(CFrame.new(-20420.693359375, 11.92376708984375, 1507.5740966796875))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        else
+                            if  _G.AutoTerrorsharkhop then
+                                Hop()
+                            end
+                        end
+                    end
+                end)
+            end
+        end
     end)
     
     M:AddToggle("Auto Terrorshark Hop", _G.AutoTerrorsharkhop,function(value)
@@ -9371,6 +9415,15 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                             end
                         end
                     else
+                        topos(CFrame.new(-19701.625, 29.001399993896484, 1064.2261962890625))--Frame1
+                        wait(5)
+                        topos(CFrame.new(-20360.998046875, 33.44663619995117, 1136.447998046875))--Frame2
+                        wait(5)
+                        topos(CFrame.new(-20838.755859375, 20.90469741821289, 758.71435546875))--Frame3
+                        wait(5)
+                        topos(CFrame.new(-20398.724609375, 10.859980583190918, 243.41610717773438))--Frame4
+                        wait(5)
+                        topos(CFrame.new(-20420.693359375, 11.92376708984375, 1507.5740966796875))--Frame5
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
