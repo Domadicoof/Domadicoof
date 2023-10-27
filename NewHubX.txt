@@ -5032,7 +5032,6 @@ spawn(function()
 										end
 									end
 								else
-								    TP(CFrameMon)
 									--CheckLevel2()
 									repeat task.wait()
 										for i,v in pairs(game.Workspace._WorldOrigin.EnemySpawns:GetChildren()) do
@@ -8000,7 +7999,7 @@ spawn(function()
 		pcall(function()
 			if Auto_Elite_Hunter then
 				if not Mix_Farm or Auto_Elite_Hunter_Farm then
-					if game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") then
+					if game:GetService("ReplicatedStorage"):FindFirstChild("Urban") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
 						Mix_Farm = true
 						Auto_Elite_Hunter_Farm = true
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
@@ -8022,7 +8021,7 @@ spawn(function()
 						elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
 							TP(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 						end
-					elseif game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") then
+					elseif game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Diablo") then
 						Mix_Farm = true
 						Auto_Elite_Hunter_Farm = true
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
@@ -8041,10 +8040,10 @@ spawn(function()
 									FastAttack = false
 								end
 							end
-						elseif game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") then
-							TP(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
+						elseif game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
+							TP(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 						end
-					elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") then
+					elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") then
 						Mix_Farm = true
 						Auto_Elite_Hunter_Farm = true
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EliteHunter")
