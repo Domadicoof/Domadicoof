@@ -1569,27 +1569,20 @@
 					NameMon = "Snow Demon"
 					CFrameQ = CFrame.new(-1148.7237548828125, 20.353158950805664, -14445.751953125)
 					CFrameMon = CFrame.new(-883.241455, 40.9553833, -14538.4951, -0.28144443, -1.18274158e-07, 0.959577501, 1.83865634e-08, 1, 1.28649276e-07, -0.959577501, 5.38509575e-08, -0.28144443)
-				elseif Lv >= 2450 and Lv <= 2474 or SelectMonster == "Isle Outlaw" then 
+				elseif Lv >= 2450 and Lv <= 2524 or SelectMonster == "Isle Outlaw" then 
 					Ms = "Isle Outlaw"
 					NameQuest = "TikiQuest1"
 					QuestLv = 1
 					NameMon = "Isle Outlaw"
 					CFrameQ = CFrame.new(-16547.748046875, 61.13533401489258, -173.41360473632812)
 					CFrameMon = CFrame.new(-16442.814453125, 116.13899993896484, -264.4637756347656)
-                elseif Lv >= 2475 and Lv <= 2524 or SelectMonster == "Island Boy" then 
+                elseif Lv >= 2525 or SelectMonster == "Island Boy" then 
 					Ms = "Island Boy"
 					NameQuest = "TikiQuest1"
 					QuestLv = 2
 					NameMon = "Island Boy"
 					CFrameQ = CFrame.new(-16547.748046875, 61.13533401489258, -173.41360473632812)
 					CFrameMon = CFrame.new(-16901.26171875, 84.06756591796875, -192.88906860351562)
-                elseif Lv >= 2525 or SelectMonster == "Sun-kissed Warrior" then 
-					Ms = "Sun-kissed Warrior"
-					NameQuest = "TikiQuest2"
-					QuestLv = 1
-					NameMon = "Sun-kissed Warrior"
-					CFrameQ = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
-					CFrameMon = CFrame.new(-16349.8779296875, 92.0808334350586, 1123.4169921875)								
 				end
 			end
 		end
@@ -1861,8 +1854,17 @@
 				elseif Lv >= 2400 and Lv <= 2424 or SelectMonster == "Candy Pirate" then 
 					local SW = "Candy Pirate"
 					
-				elseif Lv >= 2425  then 
+				elseif Lv >= 2425 and Lv <= 2449 or SelectMonster == "Candy Pirate"   then 
 					local SW = "Snow Demon"
+					
+				elseif Lv >= 2450 and Lv <= 2474 or SelectMonster == "Candy Pirate"   then 
+					local SW = "Isle Outlaw"
+					
+				elseif Lv >= 2475 and Lv <= 2524 or SelectMonster == "Candy Pirate"   then 
+					local SW = "Island Boy"
+					
+				elseif Lv >= 2525 or SelectMonster == "Candy Pirate"   then 
+					local SW = "Isle Champion"
 				
 				end
 			end
@@ -2774,21 +2776,13 @@
 				CFrameQ = CFrame.new(-16547.748046875, 61.13533401489258, -173.41360473632812)
 				CFrameMon = CFrame.new(-16442.814453125, 116.13899993896484, -264.4637756347656)
 				TelePBoss(CFrameQ)
-            elseif Lv >= 2475 and Lv <= 2499 or SelectMonster == "Island Boy" then 
+            elseif Lv >= 2475 and Lv <= 2524 or SelectMonster == "Island Boy" then 
 				Ms = "Island Boy"
 				NameQuest = "TikiQuest1"
 				QuestLv = 2
 				NameMon = "Island Boy"
 				CFrameQ = CFrame.new(-16547.748046875, 61.13533401489258, -173.41360473632812)
 				CFrameMon = CFrame.new(-16901.26171875, 84.06756591796875, -192.88906860351562)
-				TelePBoss(CFrameQ)
-            elseif Lv >= 2500 and Lv <= 2524 or SelectMonster == "Sun-kissed Warrior" then 
-				Ms = "Sun-kissed Warrior"
-				NameQuest = "TikiQuest2"
-				QuestLv = 1
-				NameMon = "Sun-kissed Warrior"
-				CFrameQ = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
-				CFrameMon = CFrame.new(-16349.8779296875, 92.0808334350586, 1123.4169921875)
 				TelePBoss(CFrameQ)
 			elseif Lv >= 2525 or SelectMonster == "Isle Champion" then 
 				Ms = "Isle Champion"
@@ -3215,7 +3209,7 @@ end
 		game:GetService("RunService").Stepped:Connect(function()
 			pcall(function()
 				--[World 1]
-				if Prince2 or _G.Settings.Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm then
+				if Prince2 or _G.Settings.Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear then
 					if syn then
 						setfflag("HumanoidParallelRemoveNoPhysics", "False")
 						setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -6627,24 +6621,8 @@ end)
             end)
         end)
 
-Miscf:Toggle("Teleport Advanced_Fruit_Dealer",_G.Setting_table.AutoAdvanced_Fruit_Dealer,function(vu)
-	_G.Setting_table.AutoAdvanced_Fruit_Dealer = vu
-	Update_Setting(getgenv()['MyName'])
-end)
 
-spawn(function()
-    pcall(function()
-    while wait() do
-        if _G.Setting_table.AutoAdvanced_Fruit_Dealer then
-            if game:GetService("Workspace").NPCs:FindFirstChild("Advanced Fruit Dealer") then
-                TP(CFrame.new(game:GetService("Workspace").NPCs["Advanced Fruit Dealer"].HumanoidRootPart.Position))
-                end
-            end
-        end
-    end)
-end)
-
-Miscf:Toggle("Teleport_To_Gear",_G.Setting_table.TeleporttoGear,function(vu)
+Miscf:Toggle("Teleport To Gear",_G.Setting_table.TeleporttoGear,function(vu)
 	_G.Setting_table.TeleporttoGear = vu
 	Update_Setting(getgenv()['MyName'])
 end)
@@ -6765,7 +6743,7 @@ task.spawn(function()
 		if _G.Setting_table.AutoFarmAllBoss then
 			pcall(function()
 				CheckBossQuest()
-				if MsBoss == "Soul Reaper [Lv. 2100] [Raid Boss]" or MsBoss == "Longma [Lv. 2000] [Boss]" or MsBoss == "Don Swan [Lv. 1000] [Boss]" or MsBoss == "Cursed Captain [Lv. 1325] [Raid Boss]" or MsBoss == "Order [Lv. 1250] [Raid Boss]" or MsBoss == "rip_indra True Form [Lv. 5000] [Raid Boss]" then
+				if MsBoss == "Soul Reaper" or MsBoss == "Longma" or MsBoss == "Don Swan" or MsBoss == "Cursed Captain" or MsBoss == "Order" or MsBoss == "rip_indra True Form" then
 					if game:GetService("ReplicatedStorage"):FindFirstChild(MsBoss) or game:GetService("Workspace").Enemies:FindFirstChild(MsBoss) then
 						if game:GetService("Workspace").Enemies:FindFirstChild(MsBoss) then
 							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
@@ -6903,7 +6881,7 @@ task.spawn(function()
 		if _G.Setting_table.AutoFarmBoss then
 			pcall(function()
 				CheckBossQuest()
-				if MsBoss == "Soul Reaper [Lv. 2100] [Raid Boss]" or MsBoss == "Longma [Lv. 2000] [Boss]" or MsBoss == "Don Swan [Lv. 1000] [Boss]" or MsBoss == "Cursed Captain [Lv. 1325] [Raid Boss]" or MsBoss == "Order [Lv. 1250] [Raid Boss]" or MsBoss == "rip_indra True Form [Lv. 5000] [Raid Boss]" then
+				if MsBoss == "Soul Reaper" or MsBoss == "Longma" or MsBoss == "Don Swan" or MsBoss == "Cursed Captain" or MsBoss == "Order" or MsBoss == "rip_indra True Form" then
 					if game:GetService("Workspace").Enemies:FindFirstChild(MsBoss) then
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
 							if v.Name == MsBoss then
@@ -7014,37 +6992,19 @@ task.spawn(function()
 	end
 end)
 
-Boss = {}
-for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-	if string.find(v.Name,"Boss") then
-		table.insert(Boss,v.Name)
-	end
-end
-for i,v in pairs(game.ReplicatedStorage:GetChildren()) do
-	if string.find(v.Name,"Boss") then
-		table.insert(Boss,v.Name)
-	end
+if Old_World then
+	tableBoss = {"The Gorilla King","Bobby","Yeti","Mob Leader","Vice Admiral","Warden","Chief Warden","Swan","Magma Admiral","Fishman Lord","Wysper","Thunder God","Cyborg","Saber Expert"}
+elseif New_World then
+	tableBoss = {"Diamond","Jeremy","Fajita","Don Swan","Smoke Admiral","Cursed Captain","Darkbeard","Order","Awakened Ice Admiral","Tide Keeper"}
+elseif Three_World then
+	tableBoss = {"Stone","Island Empress","Kilo Admiral","Captain Elephant","Beautiful Pirate","rip_indra True Form","Longma","Soul Reaper","Cake Queen"}
 end
 
-local Select_B = Miscf:Dropdown("Select Boss",Boss,function(a)
+Miscf:Dropdown("Select Boss",tableBoss,function(a)
 	_G.Setting_table.Selectb = a
 	Update_Setting(getgenv()['MyName'])
 end)
 
-
-Miscf:Button("Refresh Boss",function(vu)
-	Select_B:Clear()
-	for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-		if string.find(v.Name,"Boss") then
-			Select_B:Add(v.Name)
-		end
-	end
-	for i,v in pairs(game.ReplicatedStorage:GetChildren()) do
-		if string.find(v.Name,"Boss") then
-			Select_B:Add(v.Name)
-		end
-	end
-end)
 
 local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
 Camera:Stop()
