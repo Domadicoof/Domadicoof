@@ -4041,6 +4041,7 @@ H:AddLabel("[x] Add Farm MasFruitBone&Cake |3/10/2566|22:44")
 H:AddLabel("[x] Fix Kill Aura  |7/10/2566|20:10")
 H:AddLabel("[+] Farm Chect Mirage |12/10/2566|20:10")
 H:AddLabel("[+] Update Auto Farm Level|22/10/2566|12:09")
+H:AddLabel("[+] Fix Bring Boat|28/10/2566|00:34")
 
 
 
@@ -9368,14 +9369,6 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                         end
                     else
                         topos(CFrame.new(-19701.625, 29.001399993896484, 1064.2261962890625))
-                        wait(5)
-                        topos(CFrame.new(-20360.998046875, 33.44663619995117, 1136.447998046875))
-                        wait(5)
-                        topos(CFrame.new(-20838.755859375, 20.90469741821289, 758.71435546875))
-                        wait(5)
-                        topos(CFrame.new(-20398.724609375, 10.859980583190918, 243.41610717773438))
-                        wait(5)
-                        topos(CFrame.new(-20420.693359375, 11.92376708984375, 1507.5740966796875))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
@@ -9416,14 +9409,6 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                         end
                     else
                         topos(CFrame.new(-19701.625, 29.001399993896484, 1064.2261962890625))--Frame1
-                        wait(5)
-                        topos(CFrame.new(-20360.998046875, 33.44663619995117, 1136.447998046875))--Frame2
-                        wait(5)
-                        topos(CFrame.new(-20838.755859375, 20.90469741821289, 758.71435546875))--Frame3
-                        wait(5)
-                        topos(CFrame.new(-20398.724609375, 10.859980583190918, 243.41610717773438))--Frame4
-                        wait(5)
-                        topos(CFrame.new(-20420.693359375, 11.92376708984375, 1507.5740966796875))--Frame5
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
@@ -12627,7 +12612,7 @@ P:AddButton("Refrsh Boats",function()
 end)
 
 P:AddButton("Bring Boats",function()
-   game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Boats[_G.SelectB].Seat.CFrame
+   game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.CFrame
 end)
 
 P:AddToggle("Teleport to Boats",_G.TPB,function(bool)
