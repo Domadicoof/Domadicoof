@@ -3210,7 +3210,7 @@ end
 		game:GetService("RunService").Stepped:Connect(function()
 			pcall(function()
 				--[World 1]
-				if Prince2 or _G.Settings.Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear then
+				if Prince2 or _G.Settings.Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear or FarmShark or AutoTerrorshark then
 					if syn then
 						setfflag("HumanoidParallelRemoveNoPhysics", "False")
 						setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -8340,7 +8340,7 @@ spawn(function()
 		pcall(function()
 			if Pole_Farm then
 				if not Mix_Farm or Pole_Farm_Ex then
-					if game.Workspace.Enemies:FindFirstChild("Thunder God") or game.ReplicatedStorage:FindFirstChild("Thunder God [Lv. 575] [Boss]") then
+					if game.Workspace.Enemies:FindFirstChild("Thunder God") or game.ReplicatedStorage:FindFirstChild("Thunder God") then
 						Pole_Farm_Ex = true
 						Mix_Farm = true
 						if game.Workspace.Enemies:FindFirstChild("Thunder God") then
@@ -8672,6 +8672,97 @@ Miscf:Toggle("Auto Valkyrie Helmet Hop",_G.Setting_table.Auto_Valkyrie_Helmet_Ho
 	Update_Setting(getgenv()['MyName'])
 end)
 
+Miscf:Seperator(" Shark")
+    
+    Miscf:Toggle("Auto Farm Terrorshark", _G.Setting_table.AutoTerrorshark,function(vu)
+         AutoTerrorshark = vu
+         _G.Setting_table.AutoTerrorshark = vu
+         Update_Setting(getgenv()['MyName'])
+    end)
+    
+    Miscf:Toggle("Auto Farm Shark", _G.Setting_table.FarmShark,function(vu)
+         FarmShark = vu
+         _G.Setting_table.FarmShark = vu
+         Update_Setting(getgenv()['MyName'])
+    end)
+
+    spawn(function()
+        while wait() do
+            if  FarmShark then
+                pcall(function()
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Shark") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Shark" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.Setting_table.Weapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+                                        FastAttack = true
+                                    until not  FarmShark or not v.Parent or v.Humanoid.Health <= 0
+                                    FastAttack = false
+                                end
+                            end
+                        end
+                    else
+                        TP(CFrame.new(-19701.625, 29.001399993896484, 1064.2261962890625))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
+                            TP(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        else
+                            if _G.Setting_table.AutoTerrorsharkhop then
+                                HopServer()
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
+    Miscf:Toggle(" Hop",_G.Setting_table.AutoTerrorsharkhop,function(vu)
+	_G.Setting_table.AutoTerrorsharkhop = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+   
+    spawn(function()
+        while wait() do
+            if AutoTerrorshark then
+                pcall(function()
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Terrorshark" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.Setting_table.Weapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+                                        FastAttack = true
+                                    until not  AutoTerrorshark or not v.Parent or v.Humanoid.Health <= 0
+                                    FastAttack = false
+                                end
+                            end
+                        end
+                    else
+                        TP(CFrame.new(-19701.625, 29.001399993896484, 1064.2261962890625))--Frame1
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
+                            TP(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        else
+                            if _G.Setting_table.AutoTerrorsharkhop then
+                                HopServer()
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
 Miscf:Seperator("// Saber \\\\\ ")
 
 Miscf:Toggle("Auto Saber",_G.Setting_table.Saber_Farm,function(vu)
