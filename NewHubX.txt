@@ -6310,7 +6310,7 @@ end)
 		Update_Setting(getgenv()['MyName'])
 	end)
 
-
+    MinHealth = 20
 	Main:Slider("Kill At %",1,100,20,function(vu)
 		MinHealth = vu
 		_G.Setting_table.MinHealth = vu
@@ -6327,7 +6327,7 @@ end)
             if Auto_Farm_Fruit then
                 pcall(function()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-                    if not string.find(QuestTitle, namemon) then
+                    if not string.find(QuestTitle, NameMon) then
                         StatrMagnet = false
                         UseSkill = false
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
@@ -6335,30 +6335,34 @@ end)
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         StatrMagnet = false
                         UseSkill = false
-                        CheckLevel2()
-                        TP(npcpos)
-                        if (npcpos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",namequest,questlv)
+                        CheckLevel()
+                        TP(CFrameQ)
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQ.Position).Magnitude <= 5 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
                         end
                     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                        CheckLevel2()
-                        if game:GetService("Workspace").Enemies:FindFirstChild(namemon) then
+                        CheckLevel()
+                        if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
                             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                 if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                                    if v.Name == namemon then
-                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,namemon) then
+                                    if v.Name == Ms then
+                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,NameMon) then
                                             HealthMs = v.Humanoid.MaxHealth * MinHealth/100
                                             repeat task.wait()
                                                 if v.Humanoid.Health <= HealthMs then
                                                     EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                                                    v.HumanoidRootPart.CanCollide = false
                                                     TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
                                                     _G.PosMon = v.HumanoidRootPart.CFrame
+                                                    v.Humanoid.WalkSpeed = 0
                                                     PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
                                                     UseSkill = true
                                                 else           
                                                     UseSkill = false 
                                                     EquipWeapon(_G.Setting_table.Weapon)
+                                                    v.HumanoidRootPart.CanCollide = false
                                                     TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1))
+                                                    v.Humanoid.WalkSpeed = 0
                                                     _G.PosMon = v.HumanoidRootPart.CFrame
                                                 end
                                                 StatrMagnet = true
@@ -6373,9 +6377,10 @@ end)
                                 end
                             end
                         else
+                            TP(CFrameMon)
                             StatrMagnet = false   
                             UseSkill = false 
-                            local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(namemon) 
+                            local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Ms) 
                             if Mob then
                                 TP(Mob.HumanoidRootPart.CFrame * CFrame.new(0,0,10))
                             else
