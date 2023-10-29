@@ -6340,13 +6340,9 @@ end)
                         StartMagnet = false
                         UseSkill = false
                         CheckLevel()
-                        repeat wait()
-                            TP(CFrameQ)
-                        until (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not Auto_Farm_Fruit
+                        TP(CFrameQ)
                         if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
-                            wait(0.1)
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
-                            wait(0.1)
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
                         end
                     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                         CheckLevel()
@@ -6412,7 +6408,7 @@ end)
                             MasBF = game:GetService("Players").LocalPlayer.Backpack[game:GetService("Players").LocalPlayer.Data.DevilFruit.Value].Level.Value
                         end
                         if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then                      
-                            if _G.SkillZ then
+                            if SkillZ then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6420,7 +6416,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
                             end
-                            if _G.SkillX then          
+                            if SkillX then          
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6428,7 +6424,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"X",false,game)
                             end
-                            if _G.SkillC then
+                            if SkillC then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6438,7 +6434,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game)
                             end
                         elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Venom-Venom") then   
-                            if _G.SkillZ then
+                            if SkillZ then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6446,7 +6442,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
                             end
-                            if _G.SkillX then        
+                            if SkillX then        
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6454,7 +6450,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"X",false,game)
                             end
-                            if _G.SkillC then 
+                            if SkillC then 
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6464,7 +6460,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game)
                             end
                         elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
-                            if _G.SkillZ and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(2, 2.0199999809265, 1) then
+                            if SkillZ and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(2, 2.0199999809265, 1) then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6472,7 +6468,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
                             end
-                            if _G.SkillX then
+                            if SkillX then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6480,7 +6476,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"X",false,game)
                             end
-                            if _G.SkillC then
+                            if SkillC then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6488,7 +6484,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game)
                             end
-                            if _G.SkillV then
+                            if SkillV then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6497,7 +6493,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
                             end
                         elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) then
-                            if _G.SkillZ then 
+                            if SkillZ then 
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6505,7 +6501,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
                             end
-                            if _G.SkillX then
+                            if SkillX then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6513,7 +6509,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"X",false,game)
                             end
-                            if _G.SkillC then
+                            if SkillC then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
@@ -6521,7 +6517,7 @@ end)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game)
                             end
-                            if _G.SkillV then
+                            if SkillV then
                                 local args = {
                                     [1] = PosMonMasteryFruit.Position
                                 }
