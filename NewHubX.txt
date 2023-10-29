@@ -6328,12 +6328,12 @@ end)
                 pcall(function()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                     if not string.find(QuestTitle, NameMon) then
-                        StartMagnet = false
+                        StatrMagnet = false
                         UseSkill = false
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                     end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                        StartMagnet = false
+                        StatrMagnet = false
                         UseSkill = false
                         CheckLevel()
                         TP(CFrameQ)
@@ -6361,12 +6361,12 @@ end)
                                                     TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,1))
                                                     _G.PosMon = v.HumanoidRootPart.CFrame
                                                 end
-                                                StartMagnet = true
+                                                StatrMagnet = true
                                                 Click()
                                             until not Auto_Farm_Fruit or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                         else
                                             UseSkill = false
-                                            StartMagnet = false
+                                            StatrMagnet = false
                                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                         end
                                     end
@@ -6374,7 +6374,7 @@ end)
                             end
                         else
                             TP(CFrameMon)
-                            StartMagnet = false   
+                            StatrMagnet = false   
                             UseSkill = false 
                             local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Ms) 
                             if Mob then
