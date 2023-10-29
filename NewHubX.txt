@@ -6362,6 +6362,7 @@ end)
                                                     TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
                                                     v.HumanoidRootPart.CanCollide = false
                                                     _G.PosMon = v.HumanoidRootPart.CFrame
+                                                    PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.Head.CanCollide = false
                                                     UseSkill = true
@@ -6411,7 +6412,7 @@ end)
         while wait() do
             if UseSkill then
                 pcall(function()
-                    CheckQuest()
+                    CheckLevel()
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) then
                             MasBF = game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Data.DevilFruit.Value].Level.Value
