@@ -6339,7 +6339,7 @@ end)
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         StartMagnet = false
                         UseSkill = false
-                        CheckQuest()
+                        CheckLevel()
                         repeat wait()
                             TP(CFrameQ)
                         until (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not Auto_Farm_Fruit
@@ -6349,7 +6349,7 @@ end)
                             wait(0.1)
                         end
                     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                        CheckQuest()
+                        CheckLevel()
                         if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
                             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                 if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
@@ -6362,7 +6362,6 @@ end)
                                                     TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
                                                     v.HumanoidRootPart.CanCollide = false
                                                     _G.PosMon = v.HumanoidRootPart.CFrame
-                                                    PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
                                                     v.Humanoid.WalkSpeed = 0
                                                     v.Head.CanCollide = false
                                                     UseSkill = true
