@@ -6352,7 +6352,8 @@ end)
                                                 if v.Humanoid.Health <= HealthMs then
                                                     EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                                                     TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                                    PosMonMasteryFruit.Position = v.HumanoidRootPart.CFrame
+                                                    _G.PosMon = v.HumanoidRootPart.CFrame
+                                                    PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
                                                     UseSkill = true
                                                 else           
                                                     UseSkill = false 
@@ -6406,7 +6407,7 @@ end)
                         if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then                      
                             if SkillZ then
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                        
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
@@ -6414,7 +6415,7 @@ end)
                             end
                             if SkillX then          
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))               
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
@@ -6422,7 +6423,7 @@ end)
                             end
                             if SkillC then
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                          
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",false,game)
@@ -6432,7 +6433,7 @@ end)
                         elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Venom-Venom") then   
                             if SkillZ then
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                        
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
@@ -6440,7 +6441,7 @@ end)
                             end
                             if SkillX then        
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))               
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
@@ -6448,7 +6449,7 @@ end)
                             end
                             if SkillC then 
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                          
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",false,game)
@@ -6458,7 +6459,7 @@ end)
                         elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
                             if SkillZ and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(2, 2.0199999809265, 1) then
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                         
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
@@ -6466,7 +6467,7 @@ end)
                             end
                             if SkillX then
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
@@ -6474,7 +6475,7 @@ end)
                             end
                             if SkillC then
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",false,game)
@@ -6482,7 +6483,7 @@ end)
                             end
                             if SkillV then
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game)
@@ -6491,7 +6492,7 @@ end)
                         elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) then
                             if SkillZ then 
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                         
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
@@ -6499,7 +6500,7 @@ end)
                             end
                             if SkillX then
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
@@ -6507,7 +6508,7 @@ end)
                             end
                             if SkillC then
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",false,game)
@@ -6515,7 +6516,7 @@ end)
                             end
                             if SkillV then
                                 local args = {
-                                    [1] = PosMonMasteryFruit.Position
+                                    [1] = _G.PosMon.Position
                                 }
                                 game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game)
