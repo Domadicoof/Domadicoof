@@ -3351,6 +3351,11 @@ end
 		return "else"
 	end
 
+    function Click()
+        game:GetService'VirtualUser':CaptureController()
+        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+    end
+    
 	---Fast Attack
 
 	local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework"))
@@ -3569,7 +3574,7 @@ end
 	local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
 	spawn(function()
 		while true do
-			if Auto_Farm_Bounty or Auto_Farm_Fruit and not Mix_Farm then
+			if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark and not Mix_Farm then
 				pcall(function()
 					CameraShakerR:Stop()
 					CombatFramework.activeController.attacking = false
@@ -3593,7 +3598,7 @@ end
 				if typeof(w) == "table" then
 					spawn(function()
 						game:GetService("RunService").RenderStepped:Connect(function()
-							if Auto_Farm_Bounty or Auto_Farm_Fruit and not Mix_Farm then
+							if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark and not Mix_Farm then
 								pcall(function()
 									if game.Players.LocalPlayer.Character:FindFirstChild("Combat") or game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") or game.Players.LocalPlayer.Character:FindFirstChild("Electro") or game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") or game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") or game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") or game.Players.LocalPlayer.Character:FindFirstChild("Sharkman Karate") then
 										w.activeController.increment = 3
@@ -8701,16 +8706,15 @@ Miscf:Seperator(" Shark")
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                        FastAttack = true
+                                        Click()
                                     until not  FarmShark or not v.Parent or v.Humanoid.Health <= 0
-                                    FastAttack = false
                                 end
                             end
                         end
                     else
                         TP(CFrame.new(-41261.59765625, 41.04343795776367, 8055.5380859375))
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
-                            TP(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Shark") then
+                            TP(game:GetService("ReplicatedStorage"):FindFirstChild("Shark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
                             if _G.Setting_table.AutoTerrorsharkhop then
                                 HopServer()
@@ -8742,9 +8746,8 @@ end)
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                        FastAttack = true
+                                        Click()
                                     until not  AutoTerrorshark or not v.Parent or v.Humanoid.Health <= 0
-                                    FastAttack = false
                                 end
                             end
                         end
