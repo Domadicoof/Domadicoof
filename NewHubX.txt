@@ -3507,7 +3507,7 @@ end
 	--[[task.spawn(function()
 		while task.wait() do
 			pcall(function()
-				if Auto_Farm_Bounty or Auto_Farm_Fruit and not Mix_Farm then
+				if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark and not Mix_Farm then
 					--[[local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 					local CombatFramework = debug.getupvalues(Module)[2]
 					local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
@@ -3534,7 +3534,7 @@ end
 	local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
 	spawn(function()
 		while task.wait() do
-			if Auto_Farm_Bounty or Auto_Farm_Fruit and not Mix_Farm then
+			if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark and not Mix_Farm then
 				pcall(function()
 					for i,CombatFrameworkR in pairs(debug.getupvalues(YaY)) do
 						if i == 2 then
@@ -6326,7 +6326,7 @@ end)
 		Update_Setting(getgenv()['MyName'])
 	end)
 
-	spawn(function()
+spawn(function()
 	while wait(.5) do
 		pcall(function()
 			if Auto_Farm_Fruit then
@@ -6344,7 +6344,7 @@ end)
 						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
 							if game.Workspace.Enemies:FindFirstChild(Ms) then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-									if not string.find(v.Name,"Boss") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-CFrameMon.Position).Magnitude <= 1000 then
+									if v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-CFrameMon.Position).Magnitude <= 1000 then
 										_G.PosMon = v.HumanoidRootPart.CFrame
 										StatrMagnet = true
 										repeat wait(.2)
@@ -6436,7 +6436,7 @@ end)
 								TP(CFrameMon)
 							else
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-									if not string.find(v.Name,"Boss") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-CFrameMon.Position).Magnitude <= 1000 then
+									if v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-CFrameMon.Position).Magnitude <= 1000 then
 										_G.PosMon = v.HumanoidRootPart.CFrame
 										StatrMagnet = true
 										repeat wait(.2)
@@ -9724,9 +9724,9 @@ spawn(function()
 								Text("กำลังหา ดอกไม้เหลือง")
 								POs = true
 							end
-							if game:GetService("Workspace").Enemies:FindFirstChild("Marine Captain [Lv. 900]") then
+							if game:GetService("Workspace").Enemies:FindFirstChild("Marine Captain") then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-									if v.Name == "Marine Captain [Lv. 900]" then
+									if v.Name == "Marine Captain" then
 										repeat wait(_G.Fast_Delay)
 											EquipWeapon(_G.Setting_table.Weapon)
 											TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
@@ -9756,13 +9756,13 @@ spawn(function()
 							Text("กำลังทำเผ่าคนวี 2")
 							UIjfize = true
 						end
-						if game.Workspace.Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]") then
+						if game.Workspace.Enemies:FindFirstChild("Don Swan") then
 							repeat wait(_G.Fast_Delay)
 								EquipWeapon(_G.Setting_table.Weapon)
-								TP(game.Workspace.Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
+								TP(game.Workspace.Enemies:FindFirstChild("Don Swan").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 								AttackNoCD()
 								FastAttack = true
-							until not game.Workspace.Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]") or game.Workspace.Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]").Humanoid.Health <= 0 or not _G.Setting_table.Human_Evo 
+							until not game.Workspace.Enemies:FindFirstChild("Don Swan") or game.Workspace.Enemies:FindFirstChild("Don Swan").Humanoid.Health <= 0 or not _G.Setting_table.Human_Evo 
 							FastAttack = false
 							_G.Setting_table.Human_Evo_V2 = true
 							Update_Setting(getgenv()['MyName'])
@@ -9785,9 +9785,9 @@ spawn(function()
 						end
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Wenlocktoad","1")
                 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Wenlocktoad","3")
-						if game.Workspace.Enemies:FindFirstChild("Fajita [Lv. 925] [Boss]") then
+						if game.Workspace.Enemies:FindFirstChild("Fajita") then
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-								if v.Name == "Fajita [Lv. 925] [Boss]" then
+								if v.Name == "Fajita" then
 									repeat twait(_G.Fast_Delay)
 										EquipWeapon(_G.Setting_table.Weapon)
 										TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
@@ -9797,11 +9797,11 @@ spawn(function()
 									FastAttack = false
 								end
 							end
-						elseif game.ReplicatedStorage:FindFirstChild("Fajita [Lv. 925] [Boss]") then
-							TP(game.ReplicatedStorage:FindFirstChild("Fajita [Lv. 925] [Boss]").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
-						elseif game.Workspace.Enemies:FindFirstChild("Jeremy [Lv. 850] [Boss]") then
+						elseif game.ReplicatedStorage:FindFirstChild("Fajita") then
+							TP(game.ReplicatedStorage:FindFirstChild("Fajita").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
+						elseif game.Workspace.Enemies:FindFirstChild("Jeremy") then
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-								if v.Name == "Jeremy [Lv. 850] [Boss]" then
+								if v.Name == "Jeremy" then
 									repeat wait(_G.Fast_Delay)
 										EquipWeapon(_G.Setting_table.Weapon)
 										TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
@@ -9811,11 +9811,11 @@ spawn(function()
 									FastAttack = false
 								end
 							end
-						elseif game.ReplicatedStorage:FindFirstChild("Jeremy [Lv. 850] [Boss]") then
-							TP(game.ReplicatedStorage:FindFirstChild("Jeremy [Lv. 850] [Boss]").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
-						elseif game.Workspace.Enemies:FindFirstChild("Diamond [Lv. 750] [Boss]") then
+						elseif game.ReplicatedStorage:FindFirstChild("Jeremy") then
+							TP(game.ReplicatedStorage:FindFirstChild("Jeremy").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
+						elseif game.Workspace.Enemies:FindFirstChild("Diamond") then
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-								if v.Name == "Diamond [Lv. 750] [Boss]" then
+								if v.Name == "Diamond" then
 									repeat wait(_G.Fast_Delay)
 										EquipWeapon(_G.Setting_table.Weapon)
 										TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
@@ -9825,8 +9825,8 @@ spawn(function()
 									FastAttack = false
 								end
 							end
-						elseif game.ReplicatedStorage:FindFirstChild("Diamond [Lv. 750] [Boss]") then
-							TP(game.ReplicatedStorage:FindFirstChild("Diamond [Lv. 750] [Boss]").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
+						elseif game.ReplicatedStorage:FindFirstChild("Diamond") then
+							TP(game.ReplicatedStorage:FindFirstChild("Diamond").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 						else
 							if not IJOijogr then
 								TP2(CFrame.new(-379.70889282227, 73.0458984375, 304.84692382813))
@@ -9881,9 +9881,9 @@ spawn(function()
 								Text("กำลังหา ดอกไม้เหลือง")
 								POsz = true
 							end
-							if game:GetService("Workspace").Enemies:FindFirstChild("Marine Captain [Lv. 900]") then
+							if game:GetService("Workspace").Enemies:FindFirstChild("Marine Captain") then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-									if v.Name == "Marine Captain [Lv. 900]" then
+									if v.Name == "Marine Captain" then
 										repeat wait(_G.Fast_Delay)
 											EquipWeapon(_G.Setting_table.Weapon)
 											TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
@@ -9913,13 +9913,13 @@ spawn(function()
 							Text("กำลังทำเผ่าปีกวี 2")
 							UIjfizez = true
 						end
-						if game.Workspace.Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]") then
+						if game.Workspace.Enemies:FindFirstChild("Don Swan") then
 							repeat wait(_G.Fast_Delay)
 								EquipWeapon(_G.Setting_table.Weapon)
-								TP(game.Workspace.Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
+								TP(game.Workspace.Enemies:FindFirstChild("Don Swan").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 								AttackNoCD()
 								FastAttack = true
-							until not game.Workspace.Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]") or game.Workspace.Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]").Humanoid.Health <= 0 or not _G.Setting_table.Skypiea_Evo 
+							until not game.Workspace.Enemies:FindFirstChild("Don Swan") or game.Workspace.Enemies:FindFirstChild("Don Swan").Humanoid.Health <= 0 or not _G.Setting_table.Skypiea_Evo 
 							FastAttack = false
 							_G.Setting_table.Skypiea_Evo_V2 = true
 							Update_Setting(getgenv()['MyName'])
@@ -10861,7 +10861,7 @@ spawn(function()
                                             FastAttack = false
                                         end
                                     end
-                                elseif game.ReplicatedStorage:FindFirstChild("Captain Elephant [Lv. 1875] [Boss]") then
+                                elseif game.ReplicatedStorage:FindFirstChild("Captain Elephant") then
                                     Mix_Farm = true
                                     Farm_Ken_Ex = true
 									TP(CFrame.new(-13400.6103515625, 317.9277648925781, -8409.9853515625)*CFrame.new(0,200,0))
@@ -10891,10 +10891,10 @@ spawn(function()
                                             FastAttack = false
                                         end
                                     end
-                                elseif game.ReplicatedStorage:FindFirstChild("Forest Pirate [Lv. 1825]") then
+                                elseif game.ReplicatedStorage:FindFirstChild("Forest Pirate") then
                                     Mix_Farm = true
                                     Farm_Ken_Ex = true
-									TP(game.ReplicatedStorage:FindFirstChild("Forest Pirate [Lv. 1825]").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
+									TP(game.ReplicatedStorage:FindFirstChild("Forest Pirate").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 								elseif Farm_Ken_Ex then
 									Farm_Ken_Ex = nil
 									Mix_Farm = nil
