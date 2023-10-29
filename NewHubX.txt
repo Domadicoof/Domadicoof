@@ -6327,212 +6327,214 @@ end)
 	end)
 
 spawn(function()
-	while wait(.5) do
-		pcall(function()
-			if Auto_Farm_Fruit then
-				if not Mix_Farm then
-					if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+		while wait(.5) do
+			pcall(function()
+				if Auto_Farm_Fruit then
+					if not Mix_Farm then
 						CheckLevel()
-						if (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10 then
-                            TP(CFrameQ)
-                        else
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-                        end
-					elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-						CheckLevel()
-						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) then
-							if game.Workspace.Enemies:FindFirstChild(Ms) then
-								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-									if v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-CFrameMon.Position).Magnitude <= 1000 then
-										_G.PosMon = v.HumanoidRootPart.CFrame
-										StatrMagnet = true
-										repeat wait(.2)
+						if game.Workspace.Enemies:FindFirstChild(Ms) then
+							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+								if not string.find(v.Name,"Boss") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-CFrameMon.Position).Magnitude <= 1000 then
+									_G.PosMon = v.HumanoidRootPart.CFrame
+									StatrMagnet = true
+									repeat wait()
+										local health = v.Humanoid.Health
+										local maxhealth = v.Humanoid.MaxHealth
+										local percent = (health / maxhealth) * 100
+										if percent <= MinHealth then
+											EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
+											TP(v.HumanoidRootPart.CFrame * CFrame.new(0,tonumber(_G.Setting_table.Distan_Mastery), 1))
+											PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
+											UseSkillMasteryDevilFruit = true
+											if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then
+												if SkillZ  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+												end
+												if SkillX  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+												end   
+											elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
+												if SkillZ  and v.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(7.6, 7.676, 3.686) then
+												else
+													game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+												end
+												if SkillX  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+												end
+												if SkillC  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+												end  
+											elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value) then
+												game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value).MousePos.Value = v.HumanoidRootPart.Position
+												if SkillZ  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+												end
+												if SkillX  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+												end
+												if SkillC  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+												end
+												if SkillV  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+												end
+												if SkillF  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "F", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "F", false, game)
+												end
+											end
+										elseif percent > MinHealth and v.Humanoid.Health > 0 then
+											if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
+												if game.Players.LocalPlayer.Character.HumanoidRootPart.Size.Y >= 6 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+												end
+											end
+											if DbFast == true then
+												DbFast = false
+											end
+											UseSkillMasteryDevilFruit = false
+											EquipWeapon(_G.Setting_table.Weapon)
+											TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
 											local health = v.Humanoid.Health
 											local maxhealth = v.Humanoid.MaxHealth
 											local percent = (health / maxhealth) * 100
-											if percent <= MinHealth then
+											if percent > MinHealth and v.Humanoid.Health > 0 then
+												game:GetService'VirtualUser':Button1Down(Vector2.new(1280,600))
+											else
 												EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
-												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
-												PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
-												UseSkillMasteryDevilFruit = true
-												if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then
-													if SkillZ  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-													end
-													if SkillX  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-													end   
-												elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
-													if SkillZ  and v.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(7.6, 7.676, 3.686) then
-													else
-														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-													end
-													if SkillX  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-													end
-													if SkillC  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
-													end  
-												elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value) then
-													game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value).MousePos.Value = v.HumanoidRootPart.Position
-													if SkillZ  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-													end
-													if SkillX  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-													end
-													if SkillC  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
-													end
-													if SkillV  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
-													end
-												end
-											elseif percent > MinHealth and v.Humanoid.Health > 0 then
-												if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
-													if game.Players.LocalPlayer.Character.HumanoidRootPart.Size.Y >= 6 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-													end
-												end
-												UseSkillMasteryDevilFruit = false
-												EquipWeapon(_G.Setting_table.Weapon)
-												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
-												local health = v.Humanoid.Health
-												local maxhealth = v.Humanoid.MaxHealth
-												local percent = (health / maxhealth) * 100
-												if percent > MinHealth and v.Humanoid.Health > 0 then
-													game:GetService'VirtualUser':Button1Down(Vector2.new(1280,600))
-												else
-													EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
-													wait(1)
-												end
+												wait(1)
 											end
-										until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm_Fruit
-										StatrMagnet = false
-									end
+										end
+									until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm_Fruit
+									StatrMagnet = false
 								end
-							elseif game.ReplicatedStorage:FindFirstChild(Ms) then
-								TP(CFrameMon)
-							else
-								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-									if v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-CFrameMon.Position).Magnitude <= 1000 then
-										_G.PosMon = v.HumanoidRootPart.CFrame
-										StatrMagnet = true
-										repeat wait(.2)
-											local MinHealth = 17
+							end
+						else
+							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+								if not string.find(v.Name,"Boss") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position-CFrameMon.Position).Magnitude <= 1000 then
+									_G.PosMon = v.HumanoidRootPart.CFrame
+									StatrMagnet = true
+									repeat wait(.2)
+										local MinHealth = 17
+										local health = v.Humanoid.Health
+										local maxhealth = v.Humanoid.MaxHealth
+										local percent = (health / maxhealth) * 100
+										if percent <= MinHealth then
+											EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
+											TP(v.HumanoidRootPart.CFrame * CFrame.new(0, tonumber(_G.Setting_table.Distan_Mastery), 1))
+											PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
+											UseSkillMasteryDevilFruit = true
+											if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then
+												if SkillZ  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+												end
+												if SkillX  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+												end   
+											elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
+												if SkillZ  and v.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(7.6, 7.676, 3.686) then
+												else
+													game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+												end
+												if SkillX  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+												end
+												if SkillC  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+												end  
+											elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value) then
+												game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value).MousePos.Value = v.HumanoidRootPart.Position
+												if SkillZ  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+												end
+												if SkillX  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+												end
+												if SkillC  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+												end
+												if SkillV  and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+												end
+												if SkillF and v.Humanoid.Health > 0 then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "F", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "F", false, game)
+												end
+											end
+										elseif percent > MinHealth and v.Humanoid.Health > 0 then
+											if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
+												if SkillZ  and v.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(7.6, 7.676, 3.686) then
+													game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+													wait(.1)
+													game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+												end
+											end
+											if DbFast == true then
+												DbFast = false
+											end
+											UseSkillMasteryDevilFruit = false
+											EquipWeapon(_G.Setting_table.Weapon)
+											TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
 											local health = v.Humanoid.Health
 											local maxhealth = v.Humanoid.MaxHealth
 											local percent = (health / maxhealth) * 100
-											if percent <= MinHealth then
+											if percent > MinHealth and v.Humanoid.Health > 0 then
+												game:GetService'VirtualUser':Button1Down(Vector2.new(1280,600))
+											else
 												EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
-												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
-												PositionSkillMasteryDevilFruit = v.HumanoidRootPart.Position
-												UseSkillMasteryDevilFruit = true
-												if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Dragon-Dragon") then
-													if SkillZ  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-													end
-													if SkillX  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-													end   
-												elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
-													if SkillZ  and v.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(7.6, 7.676, 3.686) then
-													else
-														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-													end
-													if SkillX  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-													end
-													if SkillC  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
-													end  
-												elseif game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value) then
-													game:GetService("Players").LocalPlayer.Character:FindFirstChild(game.Players.LocalPlayer.Data.DevilFruit.Value).MousePos.Value = v.HumanoidRootPart.Position
-													if SkillZ  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-													end
-													if SkillX  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-													end
-													if SkillC  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
-													end
-													if SkillV  and v.Humanoid.Health > 0 then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
-													end
-												end
-											elseif percent > MinHealth and v.Humanoid.Health > 0 then
-												if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Human-Human: Buddha") then
-													if SkillZ  and v.Humanoid.Health > 0 and game.Players.LocalPlayer.Character.HumanoidRootPart.Size == Vector3.new(7.6, 7.676, 3.686) then
-														game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-														wait(.1)
-														game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-													end
-												end
-												UseSkillMasteryDevilFruit = false
-												EquipWeapon(_G.Setting_table.Weapon)
-												TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 30, 1))
-												local health = v.Humanoid.Health
-												local maxhealth = v.Humanoid.MaxHealth
-												local percent = (health / maxhealth) * 100
-												if percent > MinHealth and v.Humanoid.Health > 0 then
-													game:GetService'VirtualUser':Button1Down(Vector2.new(1280,600))
-												else
-													EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
-													wait(1)
-												end
+												wait(1)
 											end
-										until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm_Fruit
-										StatrMagnet = false
-									end
+										end
+									until v.Humanoid.Health <= 0 or not v.Parent or Mix_Farm or not Auto_Farm_Fruit
+									StatrMagnet = false
 								end
 							end
 						end
 					end
 				end
-			end
-		end)
-	end
-end)
+			end)
+		end
+	end)
 
 	spawn(function()
 		local gg = getrawmetatable(game)
