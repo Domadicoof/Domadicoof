@@ -6327,7 +6327,7 @@ end)
             if Auto_Farm_Fruit then
                 pcall(function()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-                    if not string.find(QuestTitle, NameMon) then
+                    if not string.find(QuestTitle, namemon) then
                         StatrMagnet = false
                         UseSkill = false
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
@@ -6335,18 +6335,18 @@ end)
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         StatrMagnet = false
                         UseSkill = false
-                        CheckLevel()
-                        TP(CFrameQ)
-                        if (CFrameQ.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,QuestLv)
+                        CheckLevel2()
+                        TP(npcpos)
+                        if (npcpos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",namequest,questlv)
                         end
                     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                        CheckLevel()
-                        if game:GetService("Workspace").Enemies:FindFirstChild(Ms) then
+                        CheckLevel2()
+                        if game:GetService("Workspace").Enemies:FindFirstChild(namemon) then
                             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                 if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
-                                    if v.Name == Ms then
-                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,NameMon) then
+                                    if v.Name == namemon then
+                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,namemon) then
                                             HealthMs = v.Humanoid.MaxHealth * MinHealth/100
                                             repeat task.wait()
                                                 if v.Humanoid.Health <= HealthMs then
@@ -6373,10 +6373,9 @@ end)
                                 end
                             end
                         else
-                            TP(CFrameMon)
                             StatrMagnet = false   
                             UseSkill = false 
-                            local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Ms) 
+                            local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(namemon) 
                             if Mob then
                                 TP(Mob.HumanoidRootPart.CFrame * CFrame.new(0,0,10))
                             else
