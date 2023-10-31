@@ -2790,8 +2790,8 @@
 				NameQuest = "TikiQuest2"
 				QuestLv = 2
 				NameMon = "Isle Champion"
-				CFrameQ = CFrame.new(-16547.748046875, 61.13533401489258, -173.41360473632812)
-				CFrameMon = CFrame.new(-16901.26171875, 84.06756591796875, -192.88906860351562)
+				CFrameQ = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
+				CFrameMon = CFrame.new(-16347.4150390625, 92.09503936767578, 1122.335205078125)
 				SelectMonster = "Island Boy"
 				TelePBoss(CFrameQ)
 			end
@@ -3210,7 +3210,7 @@ end
 		game:GetService("RunService").Stepped:Connect(function()
 			pcall(function()
 				--[World 1]
-				if Prince2 or _G.Settings.Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear or FarmShark or AutoTerrorshark then
+				if Prince2 or _G.Settings.Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear or FarmShark or AutoTerrorshark or AutoSeaBest or FarmPiranha then
 					if syn then
 						setfflag("HumanoidParallelRemoveNoPhysics", "False")
 						setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -3356,6 +3356,15 @@ end
         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
     end
     
+    function Text(value)
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Makori Notification", 
+			Text = tostring(value),
+			Icon = "http://www.roblox.com/asset/?id=14395120725",
+			Duration = 10
+		})
+	end
+	
 	---Fast Attack
 
 	local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework"))
@@ -3507,7 +3516,7 @@ end
 	--[[task.spawn(function()
 		while task.wait() do
 			pcall(function()
-				if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark and not Mix_Farm then
+				if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark or FarmPiranha and not Mix_Farm then
 					--[[local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 					local CombatFramework = debug.getupvalues(Module)[2]
 					local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
@@ -3534,7 +3543,7 @@ end
 	local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
 	spawn(function()
 		while task.wait() do
-			if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark and not Mix_Farm then
+			if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark or FarmPiranha and not Mix_Farm then
 				pcall(function()
 					for i,CombatFrameworkR in pairs(debug.getupvalues(YaY)) do
 						if i == 2 then
@@ -3574,7 +3583,7 @@ end
 	local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
 	spawn(function()
 		while true do
-			if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark and not Mix_Farm then
+			if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark or FarmPiranha and not Mix_Farm then
 				pcall(function()
 					CameraShakerR:Stop()
 					CombatFramework.activeController.attacking = false
@@ -3598,7 +3607,7 @@ end
 				if typeof(w) == "table" then
 					spawn(function()
 						game:GetService("RunService").RenderStepped:Connect(function()
-							if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark and not Mix_Farm then
+							if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark or FarmPiranha and not Mix_Farm then
 								pcall(function()
 									if game.Players.LocalPlayer.Character:FindFirstChild("Combat") or game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") or game.Players.LocalPlayer.Character:FindFirstChild("Electro") or game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") or game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") or game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") or game.Players.LocalPlayer.Character:FindFirstChild("Sharkman Karate") then
 										w.activeController.increment = 3
@@ -5619,15 +5628,6 @@ end)
 
 
 
-
-	function Text(value)
-		game.StarterGui:SetCore("SendNotification", {
-			Title = "Switch Notification", 
-			Text = tostring(value),
-			Icon = "http://www.roblox.com/asset/?id=9606070311",
-			Duration = 10
-		})
-	end
 	
 	spawn(function()
 		game:GetService("RunService").Stepped:Connect(function()
@@ -6328,12 +6328,12 @@ end)
                 pcall(function()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                     if not string.find(QuestTitle, NameMon) then
-                        StatrMagnet = false
+                        MastertyMagnet = false
                         UseSkill = false
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                     end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                        StatrMagnet = false
+                        MastertyMagnet = false
                         UseSkill = false
                         CheckLevel()
                         TP(CFrameQ)
@@ -6365,12 +6365,12 @@ end)
                                                     v.Humanoid.WalkSpeed = 0
                                                     _G.PosMon = v.HumanoidRootPart.CFrame
                                                 end
-                                                StatrMagnet = true
+                                                MastertyMagnet = true
                                                 Click()
                                             until not Auto_Farm_Fruit or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
                                         else
                                             UseSkill = false
-                                            StatrMagnet = false
+                                            MastertyMagnet = false
                                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                         end
                                     end
@@ -6378,7 +6378,7 @@ end)
                             end
                         else
                             TP(CFrameMon)
-                            StatrMagnet = false   
+                            MastertyMagnet = false   
                             UseSkill = false 
                             local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Ms) 
                             if Mob then
@@ -6573,7 +6573,29 @@ end)
 		end)
 	end)
 
-
+spawn(function()
+	while task.wait() do
+		pcall(function()
+			if MastertyMagnet then
+				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 300 then
+						if v.Humanoid:FindFirstChild("Animator") then
+							v.Humanoid.Animator:Destroy()
+						end
+						v.Humanoid:ChangeState(11)
+						v.Humanoid.JumpPower = 0
+						v.Humanoid.WalkSpeed = 0
+						v.HumanoidRootPart.CanCollide = false
+						v.HumanoidRootPart.Size = Vector3.new(5,5,5)
+						v.HumanoidRootPart.CFrame = _G.PosMon
+						sethiddenproperty(game.Players.LocalPlayer, "MaximumSimulationRadius",  math.huge)
+						sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  9e20)
+					end
+				end
+			end
+		end)
+	end
+end)
 
 
 
@@ -8692,7 +8714,7 @@ Miscf:Toggle("Auto Valkyrie Helmet Hop",_G.Setting_table.Auto_Valkyrie_Helmet_Ho
 	Update_Setting(getgenv()['MyName'])
 end)
 
-Miscf:Seperator(" Shark")
+Miscf:Seperator(" Rough Sea")
     
     Miscf:Toggle("Auto Farm Terrorshark", _G.Setting_table.AutoTerrorshark,function(vu)
          AutoTerrorshark = vu
@@ -8738,6 +8760,72 @@ Miscf:Seperator(" Shark")
         end
     end)
     
+    
+    Miscf:Toggle("Auto Farm Piranha", _G.Setting_table.FarmPiranha,function(vu)
+         FarmPiranha = vu
+         _G.Setting_table.FarmPiranha = vu
+         Update_Setting(getgenv()['MyName'])
+    end)
+
+    spawn(function()
+        while wait() do
+            if  FarmPiranha then
+                pcall(function()
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Piranha") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Piranha" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        EquipWeapon(_G.Setting_table.Weapon)
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+                                        Click()
+                                    until not  FarmPiranha or not v.Parent or v.Humanoid.Health <= 0
+                                end
+                            end
+                        end
+                    else
+                        TP(CFrame.new(-41261.59765625, 41.04343795776367, 8055.5380859375))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
+                            TP(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        else
+                            if _G.Setting_table.AutoTerrorsharkhop then
+                                HopServer()
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
+    Miscf:Toggle('Auto Seabeast',_G.Setting_table.AutoSeaBest, function(vu)
+    AutoSeaBest = vu
+    _G.Setting_table.AutoSeaBest = vu
+    Update_Setting(getgenv()['MyName'])
+    end)
+    
+    spawn(function()
+        while wait() do
+            if AutoSeaBest then
+                   pcall(function()
+                     for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+                         if v:FindFirstChild("HumanoidRootPart") then
+                            EquipWeapon(_G.SelectWeapon)
+                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
+                            game:GetService("VirtualUser"):CaptureController()
+                            game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                       else
+                           if _G.Setting_table.AutoTerrorsharkhop then
+                             HopServer()
+							    end
+							end
+                         end
+                    end)
+                end
+            end
+        end)
+        
     Miscf:Toggle(" Hop",_G.Setting_table.AutoTerrorsharkhop,function(vu)
 	_G.Setting_table.AutoTerrorsharkhop = vu
 	Update_Setting(getgenv()['MyName'])
@@ -9258,6 +9346,7 @@ Miscf:Toggle("Auto Canvander Hop",_G.Setting_table.Auto_Canvander_Hop,function(v
 	Update_Setting(getgenv()['MyName'])
 end)
 
+    
 Miscf:Seperator("// Hallow Scythe \\\\\ ")
 
 Miscf:Toggle("Auto Hallow Scythe",_G.Setting_table.Auto_Hallow_Scryte,function(vu)
@@ -11620,29 +11709,29 @@ end
 function Buy_Chip()
 	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaidsNpc", "Select", _G.Setting_table.Select_Map)
 end
-spawn(function()
-	while wait(.5) do
-		pcall(function()
-			if Auto_Raid then
-				if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
-					for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
-						if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-							repeat wait(.1)
-								sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-								v.Humanoid.Health = 0
-								v.HumanoidRootPart.CanCollide = false
-								v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-								v.HumanoidRootPart.Transparency = 0.5
-							until not Auto_Raid or not v.Parent or v.Humanoid.Health <= 0
-						end
-					end
-				end
-			else
-				wait(3)
-			end
-		end)
-	end
-end)
+
+    spawn(function()
+        pcall(function() 
+            while wait() do
+                if Auto_Raid then
+                    if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                pcall(function()
+                                    repeat wait()
+                                        sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                                        v.Humanoid.Health = 0
+                                        v.HumanoidRootPart.CanCollide = false
+                                    until not Auto_Raid or not v.Parent or v.Humanoid.Health <= 0
+                                end)
+                            end
+                        end
+                    end
+                end
+            end
+        end)
+    end)
+   
 
     spawn(function()
 	while wait(.5) do
