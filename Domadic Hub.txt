@@ -6008,8 +6008,8 @@ local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
 spawn(function()
     while true do
         if _G.FastAttackCambokak then
+            game:GetService("RunService").RenderStepped:Connect(function()
             pcall(function()
-                CameraShakerR:Stop()
                 CombatFramework.activeController.attacking = false
                 CombatFramework.activeController.timeToNextAttack = 0
                 CombatFramework.activeController.increment = 3
@@ -6054,7 +6054,7 @@ spawn(function()
 end)
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack or _G.FastAttackCambokak == true then
+        if _G.FastAttack == true then
             game.Players.LocalPlayer.Character.Stun.Value = 0
             game.Players.LocalPlayer.Character.Busy.Value = false        
         end
