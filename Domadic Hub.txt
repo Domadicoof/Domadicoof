@@ -5997,7 +5997,7 @@ spawn(function()
     end
 end)
 
-Main:AddToggle("Fast attack 1 [Fast Attack Cambodia] ตีแบบกัมพูชาkang mak",true,function(Fast)
+Main:AddToggle("Fast attack 1",true,function(Fast)
     _G.FastAttackCambokak = Fast
 end)
 
@@ -6024,7 +6024,7 @@ spawn(function()
     end
 end)
 
-    Main:AddToggle("Fast Attack ",_G.FastAttack,function(value)
+    Main:AddToggle("Fast Attack 2",_G.FastAttack,function(value)
         _G.FastAttack = value
     end)      
     
