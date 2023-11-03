@@ -2395,7 +2395,7 @@ if game.PlaceId == 2753915549 then
                 Mon = "Sun-kissed Warrior"
                 LevelQuest = 1
                 NameQuest = "TikiQuest2"
-                NameMon = "Sun-kissed Warriors"
+                NameMon = "Sun-kissed Warrior"
                 CFrameQuest = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
                 CFrameMon = CFrame.new(-16349.8779296875, 92.0808334350586, 1123.4169921875)
             elseif MyLevel == 2525 or MyLevel <= 2550 then
@@ -4778,6 +4778,7 @@ spawn(function()
 		end
 	end
     end)
+    
 
     
     Main:AddLabel("Chest Farm")
@@ -4827,7 +4828,7 @@ spawn(function()
 						if (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5000+_G.MagnitudeAdd then
 							repeat wait()
 								if game:GetService("Workspace"):FindFirstChild(v.Name) then
-									TP(v.CFrame)
+									topos(v.CFrame)
 								end
 							until _G.AutoChestMirage == false or not v.Parent
 							TP(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
@@ -5995,7 +5996,35 @@ spawn(function()
         end
     end
 end)
-    Main:AddToggle("Fast Attack ",true,function(value)
+
+Main:AddToggle("Fast attack 1 [Fast Attack Cambodia] ตีแบบกัมพูชาkang mak",true,function(Fast)
+    _G.FastAttackCambokak = Fast
+end)
+
+local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+local CombatFramework = debug.getupvalues(Module)[2]
+local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
+
+spawn(function()
+    while true do
+        if _G.FastAttackCambokak then
+            pcall(function()
+                CameraShakerR:Stop()
+                CombatFramework.activeController.attacking = false
+                CombatFramework.activeController.timeToNextAttack = 0
+                CombatFramework.activeController.increment = 3
+                CombatFramework.activeController.hitboxMagnitude = 60
+                CombatFramework.activeController.blocking = false
+                CombatFramework.activeController.timeToNextBlock = 0
+                CombatFramework.activeController.focusStart = 0
+                CombatFramework.activeController.humanoid.AutoRotate = true
+            end)
+        end
+        task.wait()
+    end
+end)
+
+    Main:AddToggle("Fast Attack ",_G.FastAttack,function(value)
         _G.FastAttack = value
     end)      
     
