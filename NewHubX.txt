@@ -3210,7 +3210,7 @@ end
 		game:GetService("RunService").Stepped:Connect(function()
 			pcall(function()
 				--[World 1]
-				if Prince2 or _G.Settings.Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear or FarmShark or AutoTerrorshark or AutoSeaBest or FarmPiranha then
+				if Prince2 or _G.Settings.Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear or FarmShark or AutoTerrorshark or AutoSeaBest or FarmPiranha or Fish_Crew_Member or AutoPirateShip then
 					if syn then
 						setfflag("HumanoidParallelRemoveNoPhysics", "False")
 						setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
@@ -4770,7 +4770,24 @@ Py = Library:Tab("Players",9606626034)
 
 
 
+local MonsterStatus = Main:Label("")
+local QuestStatus = Main:Label("")
 
+spawn(function()
+  while task.wait() do
+  if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+  MonsterStatus:Set("[Monster] : ...")
+  QuestStatus:Set("[Quest] : ...".." | [Level] : ...")
+  elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+  pcall(function()
+    CheckLevel2()
+    MonsterStatus:Set("[Monster] : "..namemon)
+    QuestStatus:Set("[Quest] : "..namequest.." | [Level] : "..questlv)
+    end)
+  end
+  end
+  end)
+  
 Main:Toggle("Auto Farm",_G.Setting_table.AutoFarm,function(vu)
 	Auto_Farm = vu
 	Auto_Fast_Farm = vu
@@ -8805,13 +8822,46 @@ Miscf:Seperator(" Rough Sea")
     Update_Setting(getgenv()['MyName'])
     end)
     
+    Miscf:Toggle('Auto Seabeast',_G.Setting_table.AutoSeaBest, function(vu)
+    AutoSeaBest = vu
+    _G.Setting_table.AutoSeaBest = vu
+    Update_Setting(getgenv()['MyName'])
+    end)
+    
+    Miscf:Toggle('Auto Pirate Ship',_G.Setting_table.AutoSeaBest, function(vu)
+    AutoPirateShip = vu
+    _G.Setting_table.AutoPirateShip = vu
+    Update_Setting(getgenv()['MyName'])
+    end)
+    
+    spawn(function()
+        while wait() do
+            if AutoPirateShip then
+                   pcall(function()
+                     for i,v in pairs(workspace.SeaEvents:GetChildren()) do
+                         if v:FindFirstChild("HumanoidRootPart") then
+                            EquipWeapon(_G.Setting_table.Weapon)
+                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
+                            game:GetService("VirtualUser"):CaptureController()
+                            game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                       else
+                           if _G.Setting_table.AutoTerrorsharkhop then
+                             HopServer()
+							    end
+							end
+                         end
+                    end)
+                end
+            end
+        end)
+        
     spawn(function()
         while wait() do
             if AutoSeaBest then
                    pcall(function()
                      for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
                          if v:FindFirstChild("HumanoidRootPart") then
-                            EquipWeapon(_G.SelectWeapon)
+                            EquipWeapon(_G.Setting_table.Weapon)
                             TP(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
@@ -8852,6 +8902,38 @@ end)
                         TP(CFrame.new(-41261.59765625, 41.04343795776367, 8055.5380859375))--Frame1
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             TP(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        else
+                            if _G.Setting_table.AutoTerrorsharkhop then
+                                HopServer()
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
+    spawn(function()
+        while wait() do
+            if Fish_Crew_Member then
+                pcall(function()
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Fish Crew Member" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        EquipWeapon(_G.Setting_table.Weapon)
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
+                                        Click()
+                                    until not Fish_Crew_Member or not v.Parent or v.Humanoid.Health <= 0
+                                end
+                            end
+                        end
+                    else
+                        TP(CFrame.new(-41261.59765625, 41.04343795776367, 8055.5380859375))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member") then
+                            TP(game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
                             if _G.Setting_table.AutoTerrorsharkhop then
                                 HopServer()
