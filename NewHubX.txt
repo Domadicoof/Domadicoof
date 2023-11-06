@@ -4770,24 +4770,6 @@ Py = Library:Tab("Players",9606626034)
 
 
 
-local MonsterStatus = Main:Label("")
-local QuestStatus = Main:Label("")
-
-spawn(function()
-  while task.wait() do
-  if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-  MonsterStatus:Set("[Monster] : ...")
-  QuestStatus:Set("[Quest] : ...".." | [Level] : ...")
-  elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-  pcall(function()
-    CheckLevel2()
-    MonsterStatus:Set("[Monster] : "..namemon)
-    QuestStatus:Set("[Quest] : "..namequest.." | [Level] : "..questlv)
-    end)
-  end
-  end
-  end)
-  
 Main:Toggle("Auto Farm",_G.Setting_table.AutoFarm,function(vu)
 	Auto_Farm = vu
 	Auto_Fast_Farm = vu
@@ -5891,7 +5873,7 @@ end)
 						elseif (game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") or game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice")) and GetMaterial("Conjured Cocoa") >= 10 then
 							game.ReplicatedStorage.Remotes.CommF_:InvokeServer("SweetChaliceNpc")
 							wait(0.2)
-						elseif not game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") and not game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") and (game.Workspace.Enemies:FindFirstChild("Deandre [Lv. 1750]") or game.Workspace.Enemies:FindFirstChild("Urban [Lv. 1750]") or game.Workspace.Enemies:FindFirstChild("Diablo [Lv. 1750]") or game.ReplicatedStorage:FindFirstChild("Deandre [Lv. 1750]") or game.ReplicatedStorage:FindFirstChild("Urban [Lv. 1750]") or game.ReplicatedStorage:FindFirstChild("Diablo [Lv. 1750]")) then
+						elseif not game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") and not game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") and (game.Workspace.Enemies:FindFirstChild("Deandre") or game.Workspace.Enemies:FindFirstChild("Urban") or game.Workspace.Enemies:FindFirstChild("Diablo") or game.ReplicatedStorage:FindFirstChild("Deandre") or game.ReplicatedStorage:FindFirstChild("Urban") or game.ReplicatedStorage:FindFirstChild("Diablo")) then
 							if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 								if string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Diablo") or string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Urban") or string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Deandre") then
 									for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
@@ -6334,7 +6316,7 @@ end)
 		Update_Setting(getgenv()['MyName'])
 	end)
 
-	Main:Slider("DisTan Mas",1,5000,1000,function(vu)
+	Main:Slider("Distance Farm",1,5000,1000,function(vu)
 		_G.Setting_table.Distan_Mastery = vu
 		Update_Setting(getgenv()['MyName'])
 	end)
@@ -6343,12 +6325,6 @@ end)
         while wait() do
             if Auto_Farm_Fruit then
                 pcall(function()
-                    local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-                    if not string.find(QuestTitle, NameMon) then
-                        MastertyMagnet = false
-                        UseSkill = false
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
-                    end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         MastertyMagnet = false
                         UseSkill = false
@@ -6363,8 +6339,7 @@ end)
                             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                 if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                                     if v.Name == Ms then
-                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,NameMon) then
-                                            HealthMs = v.Humanoid.MaxHealth * MinHealth/100
+                                        HealthMs = v.Humanoid.MaxHealth * MinHealth/100
                                             repeat task.wait()
                                                 if v.Humanoid.Health <= HealthMs then
                                                     EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
@@ -8961,7 +8936,7 @@ spawn(function()
                             if (CFrame.new(-1612.55884, 36.9774132, 148.719543, 0.37091279, 3.0717151e-09, -0.928667724, 3.97099491e-08, 1, 1.91679348e-08, 0.928667724, -4.39869794e-08, 0.37091279).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 100 then
                                 TP(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
                                 wait(5)
-                                TPt(game:GetService("Workspace").Map.Jungle.QuestPlates.Plate1.Button.CFrame)
+                                TP(game:GetService("Workspace").Map.Jungle.QuestPlates.Plate1.Button.CFrame)
                                 wait(5)
                                 TP(game:GetService("Workspace").Map.Jungle.QuestPlates.Plate2.Button.CFrame)
                                 wait(5)
@@ -9076,7 +9051,7 @@ spawn(function()
 									FastAttack = true
 									v.HumanoidRootPart.CanCollide = false
 									v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-									TP(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+									TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 								until v.Humanoid.Health <= 0 or not v.Parent or Auto_Quest_Tushita_2 == false
 								FastAttack = false
 							end
