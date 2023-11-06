@@ -1,3 +1,4 @@
+--กูเปลียนเป็นส่วนตัวละโง่ก๊อบปี้วางforตัวตึงFai fao
 --Notfication-Sound  
 local notification = Instance.new("Sound")
 notification.Parent = game:GetService("SoundService")
