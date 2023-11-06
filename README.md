@@ -1,4 +1,4 @@
---กูเปลียนเป็นส่วนตัวละโง่ก๊อบปี้วางเองforตัวตึงFai fao
+
 local notification = Instance.new("Sound")
 notification.Parent = game:GetService("SoundService")
 notification.SoundId = "rbxassetid://9086208751"
