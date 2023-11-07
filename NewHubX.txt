@@ -7039,9 +7039,6 @@ Miscf:Dropdown("Select Boss",tableBoss,function(a)
 end)
 
 
-local Camera = require(game.ReplicatedStorage.Util.CameraShaker)
-Camera:Stop()
-
 Sta:Seperator("// Auto Stats \\\\\ ")
 
 Sta:Toggle("Melee",_G.Setting_table.Melee_A,function(vu)
