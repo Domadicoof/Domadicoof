@@ -4031,6 +4031,7 @@ H:AddLabel("[+] Fix Bring Boat|28/10/2566|00:34")
 H:AddLabel("[+] New Bypass Teleport|1/11/2566|15:55")
 H:AddLabel("[+] Farm Fish Crew Member|1/11/2566|15:55")
 H:AddLabel("[+] Fix Holy Torch|1/11/2566|15:55")
+H:AddLabel("[+] Fix Auto Sea Beast Fully|6/11/2566|20:57")
 
 
 
@@ -5983,7 +5984,7 @@ spawn(function()
     end
 end)
 
-Main:AddToggle("Fast attack 1 (Kod Nha Peeb)",true,function(Fast)
+Main:AddToggle("Fast attack 1 To Slow",true,function(Fast)
     _G.FastAttackCambodiakak = Fast
 end)
 
@@ -5996,15 +5997,16 @@ spawn(function()
         if _G.FastAttackCambodiakak then
             if typeof(CombatFramework) == "table" then
                 pcall(function()
+                    CombatFramework.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
                     CombatFramework.activeController.timeToNextAttack = 0
-                    CombatFramework.activeController.hitboxMagnitude = 200
+                    CombatFramework.activeController.hitboxMagnitude = 60
                     CombatFramework.activeController.active = false
                     CombatFramework.activeController.timeToNextBlock = 0
-                    CombatFramework.activeController.focusStart = 0
-                    CombatFramework.activeController.increment = 4
+                    CombatFramework.activeController.focusStart = 1655503339.0980349
+                    CombatFramework.activeController.increment = 1
                     CombatFramework.activeController.blocking = false
                     CombatFramework.activeController.attacking = false
-                    CombatFramework.activeController.humanoid.AutoRotate = 50
+                    CombatFramework.activeController.humanoid.AutoRotate = true
                 end)
             end
         end
@@ -6041,7 +6043,7 @@ spawn(function()
 end)
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttack == true then
+        if _G.FastAttack or _G.FastAttackCambodiakak == true then
             game.Players.LocalPlayer.Character.Stun.Value = 0
             game.Players.LocalPlayer.Character.Busy.Value = false        
         end
@@ -9964,7 +9966,7 @@ task.spawn(function()
                                     if vs:FindFirstChild("VehicleSeat") then
                                         repeat wait()
                                             game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                                            TPP(vs.VehicleSeat.CFrame * CFrame.new(0,30,0))
+                                            TPP(vs.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                             EquipAllWeapon()  
                                             AutoSkill = true
                                             AimBotSkillPosition = vs.VehicleSeat
@@ -9982,7 +9984,7 @@ task.spawn(function()
                                 if v:FindFirstChild("VehicleSeat") then
                                     repeat wait()
                                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-                                        TPP(v.VehicleSeat.CFrame * CFrame.new(0,30,0))
+                                        TPP(v.VehicleSeat.CFrame * CFrame.new(0,1,0))
                                         EquipAllWeapon()  
                                         AutoSkill = true
                                         AimBotSkillPosition = vss.VehicleSeat
@@ -10015,6 +10017,22 @@ task.spawn(function()
     end
 end)
 
+M:AddToggle("Destroy Boat if found SeaBeast or Player Health 0",_G.AutoDesBoat,function(value)
+_G.AutoDesBoat = value
+end)
+
+spawn(function()
+		pcall(function()
+			if _G.AutoDesBoat then
+				if game.Players.LocalPlayer.Character.Humanoid.Health <= 0 or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or not game.Players.LocalPlayer then
+					if game.Workspace.Boats:FindFirstChild("PirateBrigade") then
+						game.Workspace.Boats.PirateBrigade:Destroy()
+					end
+				end
+			end
+		end)
+	end)
+end
 
 
 M:AddToggle('Auto Farm Boat Raid', false, function(value)
@@ -10024,7 +10042,7 @@ spawn(function()
         while wait() do
             if PirateShip then
                    pcall(function()
-                     for i,v in pairs(game:GetService("Workspace").SeaEvents:GetChildren()) do
+                     for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
                          if v.Name == "PirateBrigade" or v.Name == "PirateBasic" then
                             AutoHaki()
                             EquipWeapon(_G.SelectWeapon)
