@@ -5988,25 +5988,25 @@ Main:AddToggle("Fast attack 1 To Slow",true,function(Fast)
     _G.FastAttackCambodiakak = Fast
 end)
 
-local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-local CombatFramework = debug.getupvalues(Module)[2]
-local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
+Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
+
+CombatFrameMai = debug.getupvalues(Module)[2]
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
         if _G.FastAttackCambodiakak then
-            if typeof(CombatFramework) == "table" then
+            if typeof(CombatFrameMai) == "table" then
                 pcall(function()
-                    CombatFramework.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
-                    CombatFramework.activeController.timeToNextAttack = 0
-                    CombatFramework.activeController.hitboxMagnitude = 60
-                    CombatFramework.activeController.active = false
-                    CombatFramework.activeController.timeToNextBlock = 0
-                    CombatFramework.activeController.focusStart = 1655503339.0980349
-                    CombatFramework.activeController.increment = 1
-                    CombatFramework.activeController.blocking = false
-                    CombatFramework.activeController.attacking = false
-                    CombatFramework.activeController.humanoid.AutoRotate = true
+                    CombatFrameMai.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
+                    CombatFrameMai.activeController.timeToNextAttack = 0
+                    CombatFrameMai.activeController.hitboxMagnitude = 200
+                    CombatFrameMai.activeController.active = false
+                    CombatFrameMai.activeController.timeToNextBlock = 0
+                    CombatFrameMai.activeController.focusStart = 0
+                    CombatFrameMai.activeController.increment = 4
+                    CombatFrameMai.activeController.blocking = false
+                    CombatFrameMai.activeController.attacking = false
+                    CombatFrameMai.activeController.humanoid.AutoRotate = 50
                 end)
             end
         end
