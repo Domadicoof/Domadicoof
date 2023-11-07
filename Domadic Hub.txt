@@ -10021,7 +10021,7 @@ M:AddToggle("Destroy Boat if found SeaBeast or Player Health 0",_G.AutoDesBoat,f
 _G.AutoDesBoat = value
 end)
 
-spawn(function()
+    spawn(function()
 		pcall(function()
 			if _G.AutoDesBoat then
 				if game.Players.LocalPlayer.Character.Humanoid.Health <= 0 or game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") or not game.Players.LocalPlayer then
@@ -10032,7 +10032,6 @@ spawn(function()
 			end
 		end)
 	end)
-end
 
 
 M:AddToggle('Auto Farm Boat Raid', false, function(value)
