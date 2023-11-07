@@ -1,4 +1,4 @@
-
+--Notfication-Sound  
 local notification = Instance.new("Sound")
 notification.Parent = game:GetService("SoundService")
 notification.SoundId = "rbxassetid://9086208751"
@@ -16,4 +16,4 @@ game.StarterGui:SetCore("SendNotification", {
       Text = "âœ…Completeâœ…";
 notification:Play()
 })
-loadstring(Game:HttpGetAsync("https://raw.githubusercontent.com/Domadicoof/Domadicoof/896bd019785b3a9feace6167fbe279ab245ee700/Domadic%20Hub%20ScrObf.lua"))()
+loadstring(Game:HttpGetAsync("https://raw.githubusercontent.com/Domadicoof/Domadicoof/3a7522513941c44aba14caf0a0fe3f2658b51abc/Domadic%20Hub%20ScrObf.lua"))()
