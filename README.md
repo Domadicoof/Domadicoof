@@ -16,4 +16,4 @@ game.StarterGui:SetCore("SendNotification", {
       Text = "âœ…Completeâœ…";
 notification:Play()
 })
-loadstring(Game:HttpGetAsync("https://raw.githubusercontent.com/Domadicoof/Domadicoof/3a7522513941c44aba14caf0a0fe3f2658b51abc/Domadic%20Hub%20ScrObf.lua"))()
+loadstring(Game:HttpGetAsync("https://raw.githubusercontent.com/Domadicoof/Domadicoof/22e9107765cdd4833fc127d9e8f00cdaee740d20/Domadic%20Hub%20ScrObf.lua"))()
