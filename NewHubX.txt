@@ -6363,7 +6363,6 @@ end)
                                     else
                                         UseSkill = false
                                         MastertyMagnet = false
-                                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                                     end
                                 end
                             end
@@ -8702,7 +8701,7 @@ Miscf:Toggle("Auto Valkyrie Helmet Hop",_G.Setting_table.Auto_Valkyrie_Helmet_Ho
 	Update_Setting(getgenv()['MyName'])
 end)
 
-Miscf:Seperator(" Rough Sea")
+Miscf:Seperator("// Rougth Sea \\\\\ ")
     
     Miscf:Toggle("Auto Farm Terrorshark", _G.Setting_table.AutoTerrorshark,function(vu)
          AutoTerrorshark = vu
@@ -8793,38 +8792,25 @@ Miscf:Seperator(" Rough Sea")
     Update_Setting(getgenv()['MyName'])
     end)
     
-    Miscf:Toggle('Auto Seabeast',_G.Setting_table.AutoSeaBest, function(vu)
-    AutoSeaBest = vu
-    _G.Setting_table.AutoSeaBest = vu
-    Update_Setting(getgenv()['MyName'])
-    end)
-    
-    Miscf:Toggle('Auto Pirate Ship',_G.Setting_table.AutoSeaBest, function(vu)
-    AutoPirateShip = vu
-    _G.Setting_table.AutoPirateShip = vu
-    Update_Setting(getgenv()['MyName'])
-    end)
-    
-    spawn(function()
-        while wait() do
-            if AutoPirateShip then
-                   pcall(function()
-                     for i,v in pairs(workspace.SeaEvents:GetChildren()) do
-                         if v:FindFirstChild("HumanoidRootPart") then
-                            EquipWeapon(_G.Setting_table.Weapon)
-                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,15,0))
-                            game:GetService("VirtualUser"):CaptureController()
-                            game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                       else
-                           if _G.Setting_table.AutoTerrorsharkhop then
-                             HopServer()
-							    end
-							end
-                         end
-                    end)
-                end
-            end
-        end)
+local gg = getrawmetatable(game)
+local old = gg.__namecall
+setreadonly(gg,false)
+gg.__namecall = newcclosure(function(...)
+	local method = getnamecallmethod()
+	local args = {...}
+	if tostring(method) == "FireServer" then
+		if tostring(args[1]) == "RemoteEvent" then
+			if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
+				if Skillaimbot then
+					args[2] = AimBotSkillPosition
+					return old(unpack(args))
+				end
+			end
+		end
+	end
+	return old(...)
+end)
+
         
     spawn(function()
         while wait() do
@@ -8834,6 +8820,7 @@ Miscf:Seperator(" Rough Sea")
                          if v:FindFirstChild("HumanoidRootPart") then
                             EquipWeapon(_G.Setting_table.Weapon)
                             TP(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
+                            AimBotSkillPosition = v.HumanoidRootPart
                             game:GetService("VirtualUser"):CaptureController()
                             game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                        else
@@ -9543,7 +9530,7 @@ spawn(function()
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end
-                                repeat wait(_G.Fast_Delay)
+                                repeat wait(.1)
                                     EquipWeapon(_G.Setting_table.Weapon)
                                     TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
                                     AttackNoCD()
