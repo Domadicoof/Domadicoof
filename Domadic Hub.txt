@@ -5832,6 +5832,7 @@ end
         StopTween(_G.AutoFarmBoss)
     end)
     
+  MonBoss = game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss) 
     
     spawn(function()
         while wait() do
@@ -5857,13 +5858,13 @@ end
                         end
                     else
                     if BypassTP then
-                        if ((game.ReplicatedStorage:FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500 then
-						BTP(game.ReplicatedStorage:FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame)
-						elseif ((game.ReplicatedStorage:FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 1500 then
-						topos(game.ReplicatedStorage:FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame)
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MonBoss.Position).Magnitude > 1500 then
+						BTP(MonBoss)
+						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MonBoss.Position).Magnitude < 1500 then
+						topos(MonBoss)
 						end
 					else
-						topos(game.ReplicatedStorage:FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame)
+						topos(MonBoss)
 					    end
                     end
                 end)
