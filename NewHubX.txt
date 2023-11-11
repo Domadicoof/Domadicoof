@@ -5677,7 +5677,7 @@ end)
 		game:GetService("RunService").Heartbeat:Connect(function()
 			pcall(function()
 				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-					if (Auto_Farm_Bone or _G.Settings.Mastery["Farm Mastery SwordList"]) and StatrMagnetBoneMon and (v.Name == "Reborn Skeleton [Lv. 1975]" or v.Name == "Living Zombie [Lv. 2000]" or v.Name == "Demonic Soul [Lv. 2025]" or v.Name == "Posessed Mummy [Lv. 2050]") and (v.HumanoidRootPart.Position - PosMonBone.Position).magnitude <= 350 then
+					if (Auto_Farm_Bone or _G.Settings.Mastery["Farm Mastery SwordList"]) and StatrMagnetBoneMon and (v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy") and (v.HumanoidRootPart.Position - PosMonBone.Position).magnitude <= 350 then
 						v.HumanoidRootPart.CFrame = PosMonBone
 						v.HumanoidRootPart.CanCollide = false
 						v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -8726,9 +8726,13 @@ Miscf:Seperator("// Rougth Sea \\\\\ ")
                                     repeat task.wait()
                                         EquipWeapon(_G.Setting_table.Weapon)
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        _G.PosMon = v.HumanoidRootPart.CFrame
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                        Click()
+                                        StatrMagnet = true
+                                        FastAttack = true
                                     until not  FarmShark or not v.Parent or v.Humanoid.Health <= 0
+                                    StatrMagnet = false
+                                    FastAttack = false
                                 end
                             end
                         end
@@ -8765,9 +8769,13 @@ Miscf:Seperator("// Rougth Sea \\\\\ ")
                                     repeat task.wait()
                                         EquipWeapon(_G.Setting_table.Weapon)
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        _G.PosMon = v.HumanoidRootPart.CFrame
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                        Click()
+                                        FastAttack = true
+                                        StatrMagnet = true
                                     until not  FarmPiranha or not v.Parent or v.Humanoid.Health <= 0
+                                    FastAttack = false
+                                    StatrMagnet = false
                                 end
                             end
                         end
@@ -8850,9 +8858,13 @@ end)
                                     repeat task.wait()
                                         EquipWeapon(_G.Setting_table.Weapon)
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        _G.PosMon = v.HumanoidRootPart.CFrame
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                        Click()
+                                        FastAttack = true
+                                        StatrMagnet = true
                                     until not  AutoTerrorshark or not v.Parent or v.Humanoid.Health <= 0
+                                    FastAttack = false
+                                    StatrMagnet = false
                                 end
                             end
                         end
@@ -8882,9 +8894,13 @@ end)
                                     repeat task.wait()
                                         EquipWeapon(_G.Setting_table.Weapon)
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        _G.PosMon = v.HumanoidRootPart.CFrame
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                        Click()
+                                        FastAttack = true
+                                        StatrMagnet = false
                                     until not Fish_Crew_Member or not v.Parent or v.Humanoid.Health <= 0
+                                    FastAttack = false
+                                    StatrMagnet = false
                                 end
                             end
                         end
