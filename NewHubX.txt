@@ -3685,6 +3685,7 @@ do local GUI = game.CoreGui:FindFirstChild("SOMEXHUB");if GUI then GUI:Destroy()
    end 
 end
 
+
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 
@@ -4757,6 +4758,7 @@ local LogoToggle = Instance.new("ImageLabel")
 	return uitab
 end
 
+
 local Library = Update:Window("Makori","2.0",Enum.KeyCode.RightControl);
 
 Main = Library:Tab("Genneral",6026568198)
@@ -5344,7 +5346,7 @@ spawn(function()
 	end
 end)
 
-Main:Toggle(" Remove Effect ",_G.Setting_table.Refec,function(vu)
+Main:Toggle(" Remove Effect Mob ",_G.Setting_table.Refec,function(vu)
 	Remove_Effect = vu
 	_G.Setting_table.Remove_Effect = vu
 	Update_Setting(getgenv()['MyName'])
@@ -5362,7 +5364,7 @@ spawn(function()
     end)
 end)
 
-Main:Toggle(" Remove Effect ",_G.Setting_table.Refec,function(vu)
+Main:Toggle(" Remove Sound ",_G.Setting_table.Refec,function(vu)
 	RemoveHit = vu
 	_G.Setting_table.RemoveHit = vu
 	Update_Setting(getgenv()['MyName'])
@@ -5499,7 +5501,9 @@ Code = {
         "JCWK",
         "Bluxxy",
         "Sub2Fer999",
-        "Enyu_is_Pro"
+        "Enyu_is_Pro",
+        "Sub2CaptainMaui",
+        "SECRET_ADMIN"
     }
     
     Main:Toggle(" Auto Redeem All Code ",_G.Setting_table.Auto_Redeem_All_Code,function(vu)
@@ -9211,7 +9215,7 @@ spawn(function()
 							end
 						elseif _G.Setting_table.No_Color_Haki_Tushita and _G.Setting_table.Auto_Tushita_Hop then
 							wait(5)
-							if not game.Workspace.Enemies:FindFirstChild("rip_indra True Form [Lv. 5000] [Raid Boss]") and not game.ReplicatedStorage:FindFirstChild("rip_indra True Form [Lv. 5000] [Raid Boss]") then
+							if not game.Workspace.Enemies:FindFirstChild("rip_indra True Form") and not game.ReplicatedStorage:FindFirstChild("rip_indra True Form") then
 								HopServer()
 								wait(50)
 							end
@@ -9234,7 +9238,7 @@ spawn(function()
 								repeat wait()
 									EquipWeapon("God's Chalice")
 									TP(CFrame.new(-5561.32471, 314.284546, -2663.39697, -0.391084909, 1.08295005e-07, 0.920354605, 4.10446699e-09, 1, -1.15922504e-07, -0.920354605, -4.15579748e-08, -0.391084909))
-								until not Auto_Tushita or not game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalicee") and not game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") or game.Workspace.Enemies:FindFirstChild("rip_indra True Form [Lv. 5000] [Raid Boss]")
+								until not Auto_Tushita or not game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalicee") and not game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") or game.Workspace.Enemies:FindFirstChild("rip_indra True Form")
 								wait(1)
 							else
 								if game:GetService("ReplicatedStorage"):FindFirstChild("Urban") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
@@ -9247,7 +9251,7 @@ spawn(function()
 												if v.Humanoid:FindFirstChild("Animator") then
 													v.Humanoid.Animator:Destroy()
 												end
-												repeat wait(_G.Fast_Delay)
+												repeat wait(.1)
 													EquipWeapon(_G.Setting_table.Weapon)
 													TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 													AttackNoCD()
@@ -9269,7 +9273,7 @@ spawn(function()
 												if v.Humanoid:FindFirstChild("Animator") then
 													v.Humanoid.Animator:Destroy()
 												end
-												repeat wait(_G.Fast_Delay)
+												repeat wait(.1)
 													EquipWeapon(_G.Setting_table.Weapon)
 													TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 													AttackNoCD()
@@ -9291,7 +9295,7 @@ spawn(function()
 												if v.Humanoid:FindFirstChild("Animator") then
 													v.Humanoid.Animator:Destroy()
 												end
-												repeat wait(_G.Fast_Delay)
+												repeat wait(.1)
 													EquipWeapon(_G.Setting_table.Weapon)
 													TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 													AttackNoCD()
@@ -9330,7 +9334,7 @@ spawn(function()
 										if v.Humanoid:FindFirstChild("Animator") then
 											v.Humanoid.Animator:Destroy()
 										end
-										repeat wait(_G.Fast_Delay)
+										repeat wait(.1)
 											EquipWeapon(_G.Setting_table.Weapon)
 											TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 											AttackNoCD()
@@ -9829,7 +9833,7 @@ spawn(function()
 							if game:GetService("Workspace").Enemies:FindFirstChild("Marine Captain") then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 									if v.Name == "Marine Captain" then
-										repeat wait(_G.Fast_Delay)
+										repeat wait(.2)
 											EquipWeapon(_G.Setting_table.Weapon)
 											TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 											AttackNoCD()
@@ -9859,7 +9863,7 @@ spawn(function()
 							UIjfiz = true
 						end
 						if game.Workspace.Enemies:FindFirstChild("Don Swan") then
-							repeat wait(_G.Fast_Delay)
+							repeat wait(.2)
 								EquipWeapon(_G.Setting_table.Weapon)
 								TP(game.Workspace.Enemies:FindFirstChild("Don Swan").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 								AttackNoCD()
@@ -9949,7 +9953,7 @@ spawn(function()
 							if game:GetService("Workspace").Enemies:FindFirstChild("Marine Captain") then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 									if v.Name == "Marine Captain" then
-										repeat wait(_G.Fast_Delay)
+										repeat wait(.1)
 											EquipWeapon(_G.Setting_table.Weapon)
 											TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 											AttackNoCD()
@@ -9979,7 +9983,7 @@ spawn(function()
 							UIjfize = true
 						end
 						if game.Workspace.Enemies:FindFirstChild("Don Swan") then
-							repeat wait(_G.Fast_Delay)
+							repeat wait(.1)
 								EquipWeapon(_G.Setting_table.Weapon)
 								TP(game.Workspace.Enemies:FindFirstChild("Don Swan").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 								AttackNoCD()
@@ -10010,7 +10014,7 @@ spawn(function()
 						if game.Workspace.Enemies:FindFirstChild("Fajita") then
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 								if v.Name == "Fajita" then
-									repeat twait(_G.Fast_Delay)
+									repeat twait(.1)
 										EquipWeapon(_G.Setting_table.Weapon)
 										TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 										AttackNoCD()
@@ -10024,7 +10028,7 @@ spawn(function()
 						elseif game.Workspace.Enemies:FindFirstChild("Jeremy") then
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 								if v.Name == "Jeremy" then
-									repeat wait(_G.Fast_Delay)
+									repeat wait(.1)
 										EquipWeapon(_G.Setting_table.Weapon)
 										TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 										AttackNoCD()
@@ -10038,7 +10042,7 @@ spawn(function()
 						elseif game.Workspace.Enemies:FindFirstChild("Diamond") then
 							for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 								if v.Name == "Diamond" then
-									repeat wait(_G.Fast_Delay)
+									repeat wait(.1)
 										EquipWeapon(_G.Setting_table.Weapon)
 										TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 										AttackNoCD()
@@ -10106,7 +10110,7 @@ spawn(function()
 							if game:GetService("Workspace").Enemies:FindFirstChild("Marine Captain") then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 									if v.Name == "Marine Captain" then
-										repeat wait(_G.Fast_Delay)
+										repeat wait(.1)
 											EquipWeapon(_G.Setting_table.Weapon)
 											TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 											AttackNoCD()
@@ -10136,7 +10140,7 @@ spawn(function()
 							UIjfizez = true
 						end
 						if game.Workspace.Enemies:FindFirstChild("Don Swan") then
-							repeat wait(_G.Fast_Delay)
+							repeat wait(.1)
 								EquipWeapon(_G.Setting_table.Weapon)
 								TP(game.Workspace.Enemies:FindFirstChild("Don Swan").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 								AttackNoCD()
@@ -10168,7 +10172,7 @@ spawn(function()
 						Check_Race_Skypiea()
 						if _G.Select_Player ~= nil then
 							print(_G.Select_Player)
-							repeat wait(_G.Fast_Delay)
+							repeat wait(.1)
 								EquipWeapon(_G.Setting_table.Weapon)
 								TP(game.Players:FindFirstChild(_G.Select_Player).Character.HumanoidRootPart.CFrame*CFrame.new(0,0,2))
 								AttackNoCD()
@@ -10232,7 +10236,7 @@ spawn(function()
 							if game:GetService("Workspace").Enemies:FindFirstChild("Marine Captain") then
 								for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 									if v.Name == "Marine Captain" then
-										repeat wait(_G.Fast_Delay)
+										repeat wait(.1)
 											EquipWeapon(_G.Setting_table.Weapon)
 											TP(v.HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 											AttackNoCD()
@@ -10262,7 +10266,7 @@ spawn(function()
 							UIjfizezt = true
 						end
 						if game.Workspace.Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]") then
-							repeat wait(_G.Fast_Delay)
+							repeat wait(.1)
 								EquipWeapon(_G.Setting_table.Weapon)
 								TP(game.Workspace.Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 								AttackNoCD()
@@ -10291,7 +10295,7 @@ spawn(function()
 						for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
 							if v:FindFirstChild("HumanoidRootPart") then
 								_G.Ping = true
-								repeat wait(_G.Fast_Delay)
+								repeat wait(.1)
 									EquipWeapon(_G.Setting_table.Weapon)
 									TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
 									AttackNoCD()
@@ -12050,15 +12054,15 @@ Raid:Seperator("Law Boss")
 		pcall(function()
 			while wait(.1) do
 				if Auto_Raw then
-					if not game:GetService("Workspace").Enemies:FindFirstChild("Order [Lv. 1250] [Raid Boss]") and not game:GetService("ReplicatedStorage"):FindFirstChild("Order [Lv. 1250] [Raid Boss]") then
+					if not game:GetService("Workspace").Enemies:FindFirstChild("Order") and not game:GetService("ReplicatedStorage"):FindFirstChild("Order") then
 						if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Microchip") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Microchip") then
 							fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon.Button.Main.ClickDetector)
 						end
 					end
-					if game:GetService("ReplicatedStorage"):FindFirstChild("Order [Lv. 1250] [Raid Boss]") or game:GetService("Workspace").Enemies:FindFirstChild("Order [Lv. 1250] [Raid Boss]") then
-						if game:GetService("Workspace").Enemies:FindFirstChild("Order [Lv. 1250] [Raid Boss]") then
+					if game:GetService("ReplicatedStorage"):FindFirstChild("Order") or game:GetService("Workspace").Enemies:FindFirstChild("Order") then
+						if game:GetService("Workspace").Enemies:FindFirstChild("Order") then
 							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-								if v.Name == "Order [Lv. 1250] [Raid Boss]" then
+								if v.Name == "Order" then
 									repeat game:GetService("RunService").Heartbeat:wait()
 										EquipWeapon(_G.Setting_table.Weapon)
 										TP(v.HumanoidRootPart.CFrame * CFrame.new(0,50,25))
@@ -12069,7 +12073,7 @@ Raid:Seperator("Law Boss")
 									FastAttack = false
 								end
 							end
-						elseif game:GetService("ReplicatedStorage"):FindFirstChild("Order [Lv. 1250] [Raid Boss]") then
+						elseif game:GetService("ReplicatedStorage"):FindFirstChild("Order") then
 							FastAttack = false
 							TP(CFrame.new(-6217.2021484375, 28.047645568848, -5053.1357421875))
 						end
@@ -13475,6 +13479,8 @@ end)
         end
     end
 
+Main:Label("Makori Hub By Domadic Hub")
+Main:Label("Game Support Blox fruit | ConDl piece")
 
 
 
