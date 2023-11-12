@@ -2776,7 +2776,7 @@
 				CFrameQ = CFrame.new(-16547.748046875, 61.13533401489258, -173.41360473632812)
 				CFrameMon = CFrame.new(-16442.814453125, 116.13899993896484, -264.4637756347656)
 				TelePBoss(CFrameQ)
-            elseif Lv >= 2475 and Lv <= 2524 or SelectMonster == "Island Boy" then 
+            elseif Lv >= 2475 or SelectMonster == "Island Boy" then 
 				Ms = "Island Boy"
 				NameQuest = "TikiQuest1"
 				QuestLv = 2
@@ -2784,15 +2784,6 @@
 				CFrameQ = CFrame.new(-16547.748046875, 61.13533401489258, -173.41360473632812)
 				CFrameMon = CFrame.new(-16901.26171875, 84.06756591796875, -192.88906860351562)
 				SelectMonster = "Isle Outlaw"
-				TelePBoss(CFrameQ)
-			elseif Lv >= 2525 or SelectMonster == "Isle Champion" then 
-				Ms = "Isle Champion"
-				NameQuest = "TikiQuest2"
-				QuestLv = 2
-				NameMon = "Isle Champion"
-				CFrameQ = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
-				CFrameMon = CFrame.new(-16347.4150390625, 92.09503936767578, 1122.335205078125)
-				SelectMonster = "Island Boy"
 				TelePBoss(CFrameQ)
 			end
 		end
@@ -13480,7 +13471,6 @@ end)
     end
 
 Main:Label("Makori Hub By Domadic Hub")
-Main:Label("Game Support Blox fruit | ConDl piece")
 
 
 
