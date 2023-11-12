@@ -5439,7 +5439,6 @@ end)
 Main:Toggle("Invisible Monsters",_G.Setting_table.inv,function(value)
     _G.Setting_table.inv = value
     Update_Setting(getgenv()['MyName'])
-end)
     
          while wait() do
              if _G.Setting_table.inv then
@@ -5467,6 +5466,7 @@ end)
           end)
         end
       end
+      end)
     
 Code = {
         "EXP_5B",
