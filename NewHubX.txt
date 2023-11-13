@@ -6269,29 +6269,22 @@ end)
 		end
 	end)
 
-	
-	task.spawn(function()
-		while task.wait() do
+    spawn(function()
+		game:GetService("RunService").Heartbeat:Connect(function()
 			pcall(function()
-				if _G.Setting_table.Bring_Mob then
-					for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-						if (Auto_Spikey_Trident or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.SWOW) and MagnetDought then
-							if (v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker") and (v.HumanoidRootPart.Position - PosMonDoughtOpenDoor.Position).Magnitude <= 250 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-								v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-								v.Humanoid:ChangeState(14)
-								v.HumanoidRootPart.CanCollide = false
-								v.Head.CanCollide = false
-								v.HumanoidRootPart.CFrame = PosMonDoughtOpenDoor
-								if v.Humanoid:FindFirstChild("Animator") then
-									v.Humanoid.Animator:Destroy()
-								end
-								sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
-							end
+				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					if (Auto_Spikey_Trident and MagnetDought) and _G.Setting_table.Bring_Mob and (v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker") and (v.HumanoidRootPart.Position - PosMonDoughtOpenDoor.Position).magnitude <= 250 then
+						v.HumanoidRootPart.CFrame = PosMonDoughtOpenDoor
+						v.HumanoidRootPart.CanCollide = false
+						v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+						if v.Humanoid:FindFirstChild("Animator") then
+							v.Humanoid.Animator:Destroy()
 						end
+						sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  math.huge)
 					end
 				end
 			end)
-		end
+		end)
 	end)
 
 	spawn(function()
