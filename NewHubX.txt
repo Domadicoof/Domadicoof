@@ -283,7 +283,6 @@
 
 	_G.Setting_table = {
 		Auto_Farm = false,
-		DbQ = false,
 		Bypass = true,
 		Fast_Attack = true,
 		DbFast = false,
