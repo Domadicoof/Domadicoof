@@ -283,7 +283,7 @@
 
 	_G.Setting_table = {
 		Auto_Farm = false,
-		DbQ = true,
+		DbQ = false,
 		Bypass = true,
 		Fast_Attack = true,
 		DbFast = false,
@@ -3507,7 +3507,7 @@ end
 	--[[task.spawn(function()
 		while task.wait() do
 			pcall(function()
-				if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark or FarmPiranha and not Mix_Farm then
+				if Auto_Farm_Bounty or Auto_Farm_Fruit and not Mix_Farm then
 					--[[local Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 					local CombatFramework = debug.getupvalues(Module)[2]
 					local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
@@ -3534,7 +3534,7 @@ end
 	local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
 	spawn(function()
 		while task.wait() do
-			if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark or FarmPiranha and not Mix_Farm then
+			if Auto_Farm_Bounty or Auto_Farm_Fruit and not Mix_Farm then
 				pcall(function()
 					for i,CombatFrameworkR in pairs(debug.getupvalues(YaY)) do
 						if i == 2 then
@@ -3574,7 +3574,7 @@ end
 	local CameraShakerR = require(game.ReplicatedStorage.Util.CameraShaker)
 	spawn(function()
 		while true do
-			if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark or FarmPiranha and not Mix_Farm then
+			if Auto_Farm_Bounty or Auto_Farm_Fruit and not Mix_Farm then
 				pcall(function()
 					CameraShakerR:Stop()
 					CombatFramework.activeController.attacking = false
@@ -3598,7 +3598,7 @@ end
 				if typeof(w) == "table" then
 					spawn(function()
 						game:GetService("RunService").RenderStepped:Connect(function()
-							if Auto_Farm_Bounty or Auto_Farm_Fruit or FarmShark or AutoTerrorshark or FarmPiranha and not Mix_Farm then
+							if Auto_Farm_Bounty or Auto_Farm_Fruit and not Mix_Farm then
 								pcall(function()
 									if game.Players.LocalPlayer.Character:FindFirstChild("Combat") or game.Players.LocalPlayer.Character:FindFirstChild("Black Leg") or game.Players.LocalPlayer.Character:FindFirstChild("Electro") or game.Players.LocalPlayer.Character:FindFirstChild("Fishman Karate") or game.Players.LocalPlayer.Character:FindFirstChild("Dragon Claw") or game.Players.LocalPlayer.Character:FindFirstChild("Superhuman") or game.Players.LocalPlayer.Character:FindFirstChild("Sharkman Karate") then
 										w.activeController.increment = 3
