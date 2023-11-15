@@ -8746,21 +8746,21 @@ end)
 
 Miscf:Seperator("// Rougth Sea \\\\\ ")
     
-    BoatsName = {}
+    BN = {}
 
 for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
   table.insert(BoatsName ,v.Name)
 end
 
-local Boats = Miscf:Dropdown("Selected Boats Rough Sea Quest",BoatsName,function(plys)
+local BC = Miscf:Dropdown("Selected Boats Rough Sea Quest",BN,function(plys)
   BoatLis = plys
 end)
     
 Miscf:Button("Refrsh Boats",function()
-  BoatsName = {}
-  Boats:Clear()
+  BN = {}
+  BC:Clear()
   for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
-     Boats:Add(v.Name)
+     BC:Add(v.Name)
   end
 end)
 
@@ -8794,9 +8794,9 @@ Miscf:Toggle("Auto Rougth Sea Quest Need Boat", _G.Setting_table.AutoRougthFully
                         end
                     else
                         game.Players.LocalPlayer.Character.Humanoid.Sit = true
-                        topos(game:GetService("Workspace").Boats[BoatLis].VehicleSeat.CFrame * CFrame.new(0,1,0))
+                        TP(game:GetService("Workspace").Boats[BoatLis].VehicleSeat.CFrame * CFrame.new(0,1,0))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                            TP(game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
                             if  _G.AutoTerrorsharkhop then
                                 HopServer()
