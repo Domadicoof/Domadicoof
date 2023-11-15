@@ -9361,7 +9361,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
         end
     end)
     
-    M:AddSeperator("Rough Sea")
+    M:AddSeperator("Rough Sea NEED BOAT")
     
     M:AddToggle("Auto Farm Terrorshark", _G.AutoTerrorshark,function(value)
          _G.AutoTerrorshark = value
@@ -9390,12 +9390,14 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                         topos(v.HumanoidRootPart.CFrame * Pos)
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                        game.Players.LocalPlayer.Character.Humanoid.Sit = false
                                     until not  FarmShark or not v.Parent or v.Humanoid.Health <= 0
                                 end
                             end
                         end
                     else
-                        topos(CFrame.new(-41261.59765625, 41.04343795776367, 8055.5380859375))
+                        game.Players.LocalPlayer.Character.Humanoid.Sit = true
+                        topos(game:GetService("Workspace").Boats.PirateBrigade.VehicleSeat.CFrame * CFrame.new(0,1,0))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
@@ -9440,12 +9442,14 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                         topos(v.HumanoidRootPart.CFrame * Pos)
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                        game.Players.LocalPlayer.Character.Humanoid.Sit = false
                                     until not  _G.AutoTerrorshark or not v.Parent or v.Humanoid.Health <= 0
                                 end
                             end
                         end
                     else
-                        topos(CFrame.new(-41261.59765625, 41.04343795776367, 8055.5380859375))--Frame1
+                        game.Players.LocalPlayer.Character.Humanoid.Sit = true
+                        topos(game:GetService("Workspace").Boats.PirateBrigade.VehicleSeat.CFrame * CFrame.new(0,1,0))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Terrorshark").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
@@ -9476,12 +9480,14 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                         topos(v.HumanoidRootPart.CFrame * Pos)
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                        game.Players.LocalPlayer.Character.Humanoid.Sit = false
                                     until not  _G.farmpiranya or not v.Parent or v.Humanoid.Health <= 0
                                 end
                             end
                         end
                     else
-                        topos(CFrame.new(-41261.59765625, 41.04343795776367, 8055.5380859375))--Frame1
+                        game.Players.LocalPlayer.Character.Humanoid.Sit = true
+                        topos(game:GetService("Workspace").Boats.PirateBrigade.VehicleSeat.CFrame * CFrame.new(0,1,0))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Piranha") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Piranha").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
@@ -9512,12 +9518,14 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                         topos(v.HumanoidRootPart.CFrame * Pos)
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                        game.Players.LocalPlayer.Character.Humanoid.Sit = false
                                     until not  _G.Fish_Crew_Member or not v.Parent or v.Humanoid.Health <= 0
                                 end
                             end
                         end
                     else
-                        topos(CFrame.new(-41261.59765625, 41.04343795776367, 8055.5380859375))--Frame1
+                        game.Players.LocalPlayer.Character.Humanoid.Sit = true
+                        topos(game:GetService("Workspace").Boats.PirateBrigade.VehicleSeat.CFrame * CFrame.new(0,1,0))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member") then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
