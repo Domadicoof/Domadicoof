@@ -8793,6 +8793,7 @@ Miscf:Toggle("Auto Rougth Sea Quest [BETA]", _G.Setting_table.AutoRougthFully,fu
                             end
                         end
                     else
+                        game.Players.LocalPlayer.Character.Humanoid.Sit = true
                         TP(game:GetService("Workspace").Boats[BoatLis].VehicleSeat.CFrame * CFrame.new(0,1,0))
                         if game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member") then
                             TP(game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
