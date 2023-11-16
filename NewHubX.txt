@@ -8749,7 +8749,7 @@ Miscf:Seperator("// Rougth Sea \\\\\ ")
     BN = {}
 
 for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
-  table.insert(BoatsName ,v.Name)
+  table.insert(BN ,v.Name)
 end
 
 local BC = Miscf:Dropdown("Selected Boats Rough Sea Quest",BN,function(plys)
@@ -8764,7 +8764,7 @@ Miscf:Button("Refrsh Boats",function()
   end
 end)
 
-Miscf:Toggle("Auto Rougth Sea Quest Need Boat", _G.Setting_table.AutoRougthFully,function(vu)
+Miscf:Toggle("Auto Rougth Sea Quest [BETA]", _G.Setting_table.AutoRougthFully,function(vu)
          AutoRougthFully = vu
          _G.Setting_table.AutoRougthFully = vu
          Update_Setting(getgenv()['MyName'])
@@ -8772,7 +8772,7 @@ Miscf:Toggle("Auto Rougth Sea Quest Need Boat", _G.Setting_table.AutoRougthFully
     
     spawn(function()
         while wait() do
-            if AutoRougthFully and World3 then
+            if AutoRougthFully then
                 pcall(function()
                     if game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
