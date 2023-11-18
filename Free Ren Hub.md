@@ -25017,7 +25017,7 @@ end)
 local time = SettingTab:Label("Server Time : N/a")
 local function Munrock()
 	if game:GetService("Workspace").AllNPC:FindFirstChild('QuestLvl' .. tostring(new_table))then
-		plr.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").AntiTPNPC:FindFirstChild('QuestLvl' .. tostring(new_table)).HumanoidRootPart.CFrame * CFrame.new(0,-6.5,0)
+		plr.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").AllNPC:FindFirstChild('QuestLvl' .. tostring(new_table)).HumanoidRootPart.CFrame * CFrame.new(0,-6.5,0)
 	elseif game:GetService("ReplicatedStorage").MAP:FindFirstChild('QuestLvl' .. tostring(new_table)) then
 		plr.Character.HumanoidRootPart.CFrame = game:GetService("ReplicatedStorage").MAP:FindFirstChild('QuestLvl' .. tostring(new_table)).HumanoidRootPart.CFrame  * CFrame.new(0,-6.5,0)
     else
