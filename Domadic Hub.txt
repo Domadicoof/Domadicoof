@@ -5663,7 +5663,7 @@ spawn(function()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                     if not string.find(QuestTitle, "Cookie Crafter") then
                         Magnet = false
-                        UseSkill = false
+                        UseSkillKub = false
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                     end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
@@ -9363,6 +9363,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
     
     M:AddSeperator("Rough Sea NEED BOAT")
     
+
     M:AddToggle("Auto Farm Terrorshark", _G.AutoTerrorshark,function(value)
          _G.AutoTerrorshark = value
         StopTween( _G.AutoTerrorshark)
@@ -9387,11 +9388,14 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        PosNarathiwat = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        Min_XT_Is_Kak = true
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         game.Players.LocalPlayer.Character.Humanoid.Sit = false
                                     until not  FarmShark or not v.Parent or v.Humanoid.Health <= 0
+                                    Min_XT_Is_Kak = false
                                 end
                             end
                         end
@@ -9438,12 +9442,15 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
+                                        PosNarathiwat = v.HumanoidRootPart.CFrame
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        Min_XT_Is_Kak = true
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         game.Players.LocalPlayer.Character.Humanoid.Sit = false
                                     until not  _G.AutoTerrorshark or not v.Parent or v.Humanoid.Health <= 0
+                                    Min_XT_Is_Kak = false
                                 end
                             end
                         end
@@ -9476,12 +9483,15 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
+                                        PosNarathiwat = v.HumanoidRootPart.CFrame
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        Min_XT_Is_Kak = true
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         game.Players.LocalPlayer.Character.Humanoid.Sit = false
                                     until not  _G.farmpiranya or not v.Parent or v.Humanoid.Health <= 0
+                                    Min_XT_Is_Kak = false
                                 end
                             end
                         end
@@ -9514,12 +9524,15 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
+                                        PosNarathiwat = v.HumanoidRootPart.CFrame
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        Min_XT_Is_Kak = true
                                         topos(v.HumanoidRootPart.CFrame * Pos)
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         game.Players.LocalPlayer.Character.Humanoid.Sit = false
                                     until not  _G.Fish_Crew_Member or not v.Parent or v.Humanoid.Health <= 0
+                                    Min_XT_Is_Kak = false
                                 end
                             end
                         end
@@ -11894,28 +11907,6 @@ task.spawn(function()
 	end
 end)
 
-    
-function InMyNetWork(object)
-	if isnetworkowner then
-		return isnetworkowner(object)
-	else
-		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then 
-			return true
-		end
-		return false
-	end
-end
-
-function InMyNetWork(object)
-	if isnetworkowner then
-		return isnetworkowner(object)
-	else
-		if (object.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then 
-			return true
-		end
-		return false
-	end
-end
 
 task.spawn(function()
 	while task.wait() do
@@ -11925,6 +11916,33 @@ task.spawn(function()
 					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
 						if InMyNetWork(v.HumanoidRootPart) then
 							v.HumanoidRootPart.CFrame = PosMon
+							v.Humanoid.JumpPower = 0
+							v.Humanoid.WalkSpeed = 0
+							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+							v.HumanoidRootPart.Transparency = 1
+							v.HumanoidRootPart.CanCollide = false
+							v.Head.CanCollide = false
+							if v.Humanoid:FindFirstChild("Animator") then
+								v.Humanoid.Animator:Destroy()
+							end
+							v.Humanoid:ChangeState(11)
+							v.Humanoid:ChangeState(14)
+						end
+					end
+				end
+			end
+		end)
+	end
+end)
+
+task.spawn(function()
+	while task.wait() do
+		pcall(function()
+			if Min_XT_Is_Kak and _G.BringMonster then
+				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
+						if InMyNetWork(v.HumanoidRootPart) then
+							v.HumanoidRootPart.CFrame = PosNarathiwat
 							v.Humanoid.JumpPower = 0
 							v.Humanoid.WalkSpeed = 0
 							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
@@ -16322,6 +16340,8 @@ spawn(function()
     end)
 
 print("Domadic Hub Load Complete")
+print("/console pls")
+print("For Skid Reskin i Hua Kuy ")
 
 game.StarterGui:SetCore("SendNotification", {
       Icon = "http://www.roblox.com/asset/?id=12523036534";
