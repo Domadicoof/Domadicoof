@@ -6695,7 +6695,14 @@ end)
                 end
             end)
         end)
-
+        
+Miscf:Button("Teleport To Advanced Fruit Dealer",function()
+    for i, ve in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
+        if ve.Name == "Advanced Fruit Dealer" then
+            TP(ve.HumanoidRootPart.CFrame * CFrame.new(0,2,0))
+        end
+    end
+end)
 
 Miscf:Toggle("Teleport To Gear",_G.Setting_table.TeleporttoGear,function(vu)
 	_G.Setting_table.TeleporttoGear = vu
@@ -6719,7 +6726,23 @@ spawn(function()
         end
     end)
 end)
-
+Miscf:Toggle("Auto Find Full Moon",_G.Setting_table.AutoFindFullmoon,function(vu)
+	_G.Setting_table.AutoFindFullmoon = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+ 
+spawn(function()
+        while wait() do
+            if AutoFindFullmoon then
+                pcall(function()
+                    if not game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+                        wait(3)
+                        Hop()
+                    end
+                end)
+            end
+        end
+    end)
 Miscf:Seperator("Farm Nearest")
 
 ddiss = Miscf:Label("")
