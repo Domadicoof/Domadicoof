@@ -6737,7 +6737,7 @@ spawn(function()
                 pcall(function()
                     if not game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
                         wait(3)
-                        Hop()
+                        HopServer()
                     end
                 end)
             end
