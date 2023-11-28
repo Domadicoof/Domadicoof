@@ -25,18 +25,6 @@ local ui = game.CoreGui:FindFirstChild("Pado Hub")
             ui:Destroy()
         end
 
-local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
-local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
-
-
-
-	local notifSound = Instance.new("Sound",workspace)
-	notifSound.PlaybackSpeed = 1.5
-	notifSound.Volume = 0.15
-	notifSound.SoundId = "rbxassetid://170765130"
-	notifSound.PlayOnRemove = true
-	notifSound:Destroy()
-
 
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
