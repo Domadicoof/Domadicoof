@@ -3941,6 +3941,7 @@ end)
 
 H:AddLine()
 
+
 H:AddSeperator("UpdLog")
 
 
@@ -4033,6 +4034,7 @@ H:AddLabel("[+] Farm Fish Crew Member|1/11/2566|15:55")
 H:AddLabel("[+] Fix Holy Torch|1/11/2566|15:55")
 H:AddLabel("[x] Fix Auto Sea Beast Fully|6/11/2566|20:57")
 H:AddLabel("[+] Bypass Tele Boss|6/11/2566|20:57")
+H:AddLabel("[+] Auto Find Full Moon|28/11/2566|16:30")
 
 
 
@@ -6601,6 +6603,13 @@ spawn(function()
         end
     end)
 end)
+M:AddButton("Teleport To Advanced Fruit Dealer",function()
+    for i, ve in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
+        if ve.Name == "Advanced Fruit Dealer" then
+            topos(ve.HumanoidRootPart.CFrame * CFrame.new(0,2,0))
+        end
+    end
+end)
 M:AddToggle("Tween Gear",_G.TweenMGear,function(value)
 _G.TweenMGear = value
 StopTween(_G.TweenMGear)
@@ -8702,6 +8711,30 @@ M:AddToggle("Auto Soul Guitar + Hop",false,function(value)
   _G.soulGuitarhop = value    
  end)
 
+M:AddToggle("Auto Find Full Moon",_G.AutoFindFullmoon,function(value)
+  _G.AutoFindFullmoon = value    
+ end)
+ 
+    spawn(function()
+        while wait() do
+            if _G.AutoFindFullmoon then
+                pcall(function()
+                    if not game:GetService("Lighting").Sky.MoonTextureId=="http://www.roblox.com/asset/?id=9709149431" then
+                        wait(3)
+                    game.StarterGui:SetCore("SendNotification", {
+                        Icon = "http://www.roblox.com/asset/?id=12523036534";
+                        Title = "Domadic Hub", 
+                        Text = "Not Found Full Moon Wait Hop Saver";
+                     })
+                        wait(5)
+                        print("Hop!!")
+                        Hop()
+                    end
+                end)
+            end
+        end
+    end)
+    
  M:AddSeperator("Dual Curse Katana")
 
 M:AddToggle("Auto Dual Curse Katana",_G.AutoCdk,function(value)
@@ -16340,7 +16373,6 @@ spawn(function()
     end)
 
 print("Domadic Hub Load Complete")
-print("/console pls")
 print("For Skid Reskin i Hua Kuy ")
 
 game.StarterGui:SetCore("SendNotification", {
