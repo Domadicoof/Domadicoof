@@ -92,7 +92,7 @@ function Update:Window(text,logo,keybind)
 	local yoo = string.gsub(tostring(keybind),"Enum.KeyCode.","")
 	
 	local PADOXHUB = Instance.new("ScreenGui")
-	PADOXHUB.Name = "Domadic Hub"
+	PADOXHUB.Name = "     Domadic"
 	PADOXHUB.Parent = game.CoreGui
 	PADOXHUB.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
@@ -477,7 +477,53 @@ end)
 		local PageImage = Instance.new("ImageLabel")
         PageImage.Name = "PageImage"
         PageImage.Parent = TabButton
-        PageImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        spawn(function()
+            while wait() do
+                pcall(function()
+                    wait(0.1) 
+                    game:GetService('TweenService'):Create(
+                        PageImage,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(255, 0, 0)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        PageImage,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(255, 155, 0)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        PageImage,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(255, 255, 0)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        PageImage,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(0, 255, 0)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        PageImage,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(0, 255, 255)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        PageImage,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(0, 155, 255)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        PageImage,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(255, 0, 255)}
+                    ):Play() 
+                    wait(.5)            
+                    game:GetService('TweenService'):Create(
+                        PageImage,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
+                        {TextColor3 = Color3.fromRGB(255, 0, 155)}
+                    ):Play() 
+                    wait(.5)
+                end)
+            end
+        end)
         PageImage.BackgroundTransparency = 1.000
         PageImage.Position = UDim2.new(0, 5, 0, 5)
         PageImage.Size = UDim2.new(0, 19, 0, 19)
@@ -680,7 +726,7 @@ end)
 
 			ToggleImage.Name = "ToggleImage"
 			ToggleImage.Parent = Toggle
-			ToggleImage.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
+			ToggleImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 			ToggleImage.Position = UDim2.new(0, 415, 0, 5)
 			ToggleImage.Size = UDim2.new(0, 45, 0, 20)
 
@@ -761,7 +807,7 @@ end)
 			DropScroll.Name = "DropScroll"
 			DropScroll.Parent = DropTitle
 			DropScroll.Active = true
-			DropScroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+			DropScroll.BackgroundColor3 = Color3.fromRGB(7, 236, 240)
 			DropScroll.BackgroundTransparency = 1.000
 			DropScroll.BorderSizePixel = 0
 			DropScroll.Position = UDim2.new(0, 0, 0, 31)
@@ -4323,6 +4369,35 @@ spawn(function()
 									topos(v.CFrame)
 								end
 							until AutoFarmChest == false or not v.Parent
+							topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+							_G.MagnitudeAdd = _G.MagnitudeAdd+1500
+							break
+						end
+					end
+				end
+			end
+		end
+	end
+end)
+
+Main:AddToggle("Auto Farm Chest Stop When Found God's Chalice Or Frist Of Darkness ",false,function(value)
+ AutoFarmChestNahHee = value
+ StopTween(AutoFarmChestNahHee)
+ end)
+ 
+_G.MagnitudeAdd = 0
+spawn(function()
+	while wait() do 
+		if not game.Players.LocalPlayer.Backpack:FindFirstChild("Fist of Darkness") or not game.Players.LocalPlayer.Character:FindFirstChild("Fist of Darkness") or not game.Players.LocalPlayer.Backpack:FindFirstChild("God's Chalice") or not game.Players.LocalPlayer.Character:FindFirstChild("God's Chalice") and AutoFarmChestNahHee then
+			for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+				if v.Name:find("Chest") then
+					if game:GetService("Workspace"):FindFirstChild(v.Name) then
+						if (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5000+_G.MagnitudeAdd then
+							repeat wait()
+								if game:GetService("Workspace"):FindFirstChild(v.Name) then
+									topos(v.CFrame)
+								end
+							until AutoFarmChestNahHee == false or not v.Parent
 							topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
 							_G.MagnitudeAdd = _G.MagnitudeAdd+1500
 							break
