@@ -5319,36 +5319,8 @@ spawn(function()
     end
 end)
 
-Main:AddToggle("Fast attack 1 To Slow",true,function(Fast)
-    _G.FastAttackCambodiakak = Fast
-end)
-
-Module = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
-
-CombatFrameMai = debug.getupvalues(Module)[2]
-
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.FastAttackCambodiakak then
-            if typeof(CombatFrameMai) == "table" then
-                pcall(function()
-                    CombatFrameMai.activeController.timeToNextAttack = (math.huge^math.huge^math.huge)
-                    CombatFrameMai.activeController.timeToNextAttack = 0
-                    CombatFrameMai.activeController.hitboxMagnitude = 60
-                    CombatFrameMai.activeController.active = false
-                    CombatFrameMai.activeController.timeToNextBlock = 0
-                    CombatFrameMai.activeController.focusStart = 0
-                    CombatFrameMai.activeController.increment = 4
-                    CombatFrameMai.activeController.blocking = false
-                    CombatFrameMai.activeController.attacking = false
-                    CombatFrameMai.activeController.humanoid.AutoRotate = 50
-                end)
-            end
-        end
-    end)
-end)
-
-    Main:AddToggle("Fast Attack 2",_G.FastAttack,function(value)
+  
+    Main:AddToggle("Fast Attack",true,function(value)
         _G.FastAttack = value
     end)      
     
@@ -5384,6 +5356,34 @@ spawn(function()
         end
     end)
 end)
+    local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
+    CamShake:Stop()
+    local Client = game.Players.LocalPlayer
+    local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
+    local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
+    spawn(function()
+        while task.wait() do
+            pcall(function()
+                if not shared.orl then shared.orl = STOPRL.wrapAttackAnimationAsync end
+                if not shared.cpc then shared.cpc = STOP.play end
+                    STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
+                    local Hits = STOPRL.getBladeHits(b,c,d)
+                    if Hits then
+                        if _G.FastAttack then
+                            STOP.play = function() end
+                            a:Play(0.01,0.01,0.01)
+                            func(Hits)
+                            STOP.play = shared.cpc
+                            wait(a.length * 0.5)
+                            a:Stop()
+                        else
+                            a:Play()
+                        end
+                    end
+                end
+            end)
+        end
+    end)
 
 local AttackList = {"0", "0.1", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185"}
 _G.FastAttackDelay = "0.175"
