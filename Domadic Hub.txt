@@ -25,6 +25,20 @@ do local GUI = game.CoreGui:FindFirstChild("SOMEXHUB");if GUI then GUI:Destroy()
    end 
 end
 
+do
+    local NamfonHub = workspace:FindFirstChild("DeeKub")
+    if NamfonHub then
+        NamfonHub:Destroy()
+    end
+end
+
+local Namfon = Instance.new("Part",workspace)
+Namfon.Size = Vector3.new(30,5,30)
+Namfon.Name = "DeeKub"
+Namfon.Transparency = 1
+Namfon.CanCollide = true
+Namfon.Anchored = true
+
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 
@@ -184,7 +198,7 @@ local LogoHub = Instance.new("ImageLabel")
     LogoHub.BackgroundTransparency = 1.000
     LogoHub.Position = UDim2.new(0, 5, 0, 1)
     LogoHub.Size = UDim2.new(0, 26, 0, 26)
-    LogoHub.Image = "http://www.roblox.com/asset/?id="..tostring(13984057027)
+    LogoHub.Image = "http://www.roblox.com/asset/?id="..tostring(12523036534)
 
     local ScrollTab = Instance.new("ScrollingFrame")
     ScrollTab.Name = "ScrollTab"
@@ -262,7 +276,7 @@ local LogoHub = Instance.new("ImageLabel")
     
     local uitab = {}
     
-    function uitab:Tab(text,image)
+    function uitab:AddTab(text,image)
         local Image = image
         
         local TabButton = Instance.new("TextButton")
@@ -361,7 +375,7 @@ local LogoHub = Instance.new("ImageLabel")
         end)
         
         local main = {}
-        function main:Button(text,callback)
+        function main:AddButton(text,callback)
             local Button = Instance.new("Frame")
             local UICorner = Instance.new("UICorner")
             local TextBtn = Instance.new("TextButton")
@@ -427,7 +441,7 @@ local LogoHub = Instance.new("ImageLabel")
                 callback()
             end)
         end
-        function main:Toggle(text,config,callback)
+        function main:AddToggle(text,config,callback)
             config = config or false
             local toggled = config
             local Toggle = Instance.new("Frame")
@@ -503,7 +517,7 @@ local LogoToggle = Instance.new("ImageLabel")
     LogoToggle.BackgroundTransparency = 1.000
     LogoToggle.Position = UDim2.new(0, 7, 0, 2)
     LogoToggle.Size = UDim2.new(0, 26, 0, 26)
-    LogoToggle.Image = "http://www.roblox.com/asset/?id="..tostring(0)
+    LogoToggle.Image = "http://www.roblox.com/asset/?id="..tostring(12523036534)
 
             Circle.Name = "Circle"
             Circle.Parent = ToggleImage
@@ -546,7 +560,7 @@ local LogoToggle = Instance.new("ImageLabel")
                 pcall(callback,toggled)
             end
         end
-        function main:Dropdown(text,option,callback)
+        function main:AddDropdown(text,option,callback)
             local isdropping = false
             local Dropdown = Instance.new("Frame")
             local UICorner = Instance.new("UICorner")
@@ -739,7 +753,7 @@ local LogoToggle = Instance.new("ImageLabel")
             return dropfunc
         end
 
-        function main:Slider(text,min,max,set,callback)
+        function main:AddSlider(text,min,max,set,callback)
             local Slider = Instance.new("Frame")
             local slidercorner = Instance.new("UICorner")
             local sliderr = Instance.new("Frame")
@@ -917,7 +931,7 @@ local LogoToggle = Instance.new("ImageLabel")
             end)
         end
 
-        function main:Textbox(text,disappear,callback)
+        function main:AddTextbox(text,disappear,callback)
             local Textbox = Instance.new("Frame")
             local TextboxCorner = Instance.new("UICorner")
             local Textboxx = Instance.new("Frame")
@@ -993,7 +1007,7 @@ local LogoToggle = Instance.new("ImageLabel")
             UICorner.CornerRadius = UDim.new(0, 5)
             UICorner.Parent = RealTextbox
         end
-        function main:Label(text)
+        function main:AddLabel(text)
             local Label = Instance.new("TextLabel")
             local PaddingLabel = Instance.new("UIPadding")
             local labelfunc = {}
@@ -1019,7 +1033,7 @@ local LogoToggle = Instance.new("ImageLabel")
             return labelfunc
         end
 
-        function main:Seperator(text)
+        function main:AddSeperator(text)
             local Seperator = Instance.new("Frame")
             local Sep1 = Instance.new("Frame")
             local Sep2 = Instance.new("TextLabel")
@@ -1057,7 +1071,7 @@ local LogoToggle = Instance.new("ImageLabel")
             Sep3.Size = UDim2.new(0, 80, 0, 1)
         end
 
-        function main:Line()
+        function main:AddLine()
             local Linee = Instance.new("Frame")
             local Line = Instance.new("Frame")
             
@@ -3213,7 +3227,7 @@ end)
 
 print("Load Script")
 
-local Library = Update:Window("Domadic HUB","",Enum.KeyCode.RightControl);
+local Library = Update:Window("           Domadic","2.0",Enum.KeyCode.RightControl);
 
 local H = Library:AddTab("Home","6026568198")
 local Main = Library:AddTab("Level Farm","13075651575")
