@@ -8745,12 +8745,12 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                 for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
                                     if v.Name == "PirateBrigade" then
                                         repeat wait()
-                                            if (CFrame.new(-17013.80078125, 10.962434768676758, 438.0169982910156)) then
-                                                TPB(CFrame.new(260.3658142089844, 17.747055053710938, 3543.2646484375))
-                                            elseif (CFrame.new(260.3658142089844, 17.747055053710938, 3543.2646484375)) then
-                                                TPB(CFrame.new(29236.712890625, 17.74854850769043, 19706.36328125))
-                                            elseif (CFrame.new(29236.712890625, 17.74854850769043, 19706.36328125)) then
-                                                TPB(CFrame.new(260.3658142089844, 17.747055053710938, 3543.2646484375))
+                                            if (CFrame.new(-17013.80078125, 10.962434768676758, 438.0169982910156).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+                                                TPB(CFrame.new(-33163.1875, 10.964323997497559, -324.4842224121094))
+                                            elseif (CFrame.new(-33163.1875, 10.964323997497559, -324.4842224121094).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+                                                TPB(CFrame.new(-37952.49609375, 10.96342945098877, -1324.12109375))
+                                            elseif (CFrame.new(-37952.49609375, 10.96342945098877, -1324.12109375).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+                                                TPB(CFrame.new(-33163.1875, 10.964323997497559, -324.4842224121094))
                                             end 
                                         until game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or _G.DomadicAutoDriveBoat == false
                                     end
