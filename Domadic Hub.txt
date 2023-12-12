@@ -8745,7 +8745,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                                 for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
                                     if v.Name == "PirateBrigade" then
                                         repeat wait()
-                                            if (CFrame.new(-17013.80078125, 10.962434768676758, 438.0169982910156) then
+                                            if (CFrame.new(-17013.80078125, 10.962434768676758, 438.0169982910156)) then
                                                 TPB(CFrame.new(260.3658142089844, 17.747055053710938, 3543.2646484375))
                                             elseif (CFrame.new(260.3658142089844, 17.747055053710938, 3543.2646484375)) then
                                                 TPB(CFrame.new(29236.712890625, 17.74854850769043, 19706.36328125))
