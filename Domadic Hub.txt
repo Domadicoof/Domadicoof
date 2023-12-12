@@ -2959,11 +2959,11 @@ function TP1(Pos)
     end
     
     
-
+--Tween Boats 
 function TPB(CFgo)
 	local tween_s = game:service"TweenService"
-	local info = TweenInfo.new((game:GetService("Workspace").Boats.MarineBrigade.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
-	tween = tween_s:Create(game:GetService("Workspace").Boats.MarineBrigade.VehicleSeat, info, {CFrame = CFgo})
+	local info = TweenInfo.new((game:GetService("Workspace").Boats.PirateBrigade.VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
+	tween = tween_s:Create(game:GetService("Workspace").Boats.PirateBrigade.VehicleSeat, info, {CFrame = CFgo})
 	tween:Play()
 
 	local tweenfunc = {}
@@ -3205,7 +3205,7 @@ end)
 
 print("Load Script")
 
-local Library = Update:Window("           Domadic","2.0",Enum.KeyCode.RightControl);
+local Library = Update:Window("           Domadic","12523036534",Enum.KeyCode.RightControl);
 
 local H = Library:AddTab("Home","6026568198")
 local Main = Library:AddTab("Level Farm","13075651575")
@@ -9320,10 +9320,10 @@ task.spawn(function()
             if _G.Auto_Seabest then
                 if not game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then
                     if not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then 
-                        if not game:GetService("Workspace").Boats:FindFirstChild("PirateBasic") then
+                        if not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then
                             if not game:GetService("Workspace").Boats:FindFirstChild("PirateBrigade") then
-                                buyb = TPP(CFrame.new(-11.78054428100586, 10.302456855773926, 2927.2255859375))
-                                if (CFrame.new(-11.78054428100586, 10.302456855773926, 2927.2255859375).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+                                buyb = TPP(CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781))
+                                if (CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
                                     if buyb then buyb:Stop() end
                                     local args = {
                                         [1] = "BuyBoat",
@@ -9361,9 +9361,9 @@ task.spawn(function()
                                 end
                             end
                         end
-                    elseif game:GetService("Workspace").Enemies:FindFirstChild("PirateBrigade") then
+                    elseif game:GetService("Workspace").Enemies:FindFirstChild("PirateBasic") then
                         for iss,vss in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if vss.Name == "PirateBrigade" then
+                            if vss.Name == "PirateBasic" then
                                 if vss:FindFirstChild("VehicleSeat") then
                                     repeat wait()
                                         game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
