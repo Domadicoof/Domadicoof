@@ -8776,13 +8776,18 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
         end
     end)
     
-spawn(function()
-    game:GetService("RunService").RenderStepped:Connect(function()
-        if _G.DomadicAutoDriveBoat == true then
-            game.Players.LocalPlayer.Character.Humanoid.Sit = false
-        end
-    end)
-end)
+    spawn(function()
+		pcall(function()
+			while wait() do
+				if _G.DomadicAutoDriveBoat then
+					if game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
+					    game.Players.LocalPlayer.Character.Humanoid.Sit = false
+					end
+				end
+			end
+		end)
+	end)
+	
 
     M:AddToggle("Auto Farm Terrorshark", _G.AutoTerrorshark,function(value)
          _G.AutoTerrorshark = value
