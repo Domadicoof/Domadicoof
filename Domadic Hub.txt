@@ -3911,7 +3911,6 @@ if World1 then
 			while wait() do
 				if _G.Farmfast and World1 then
 					if game.Players.LocalPlayer.Data.Level.Value >= 75 then
-						_G.AutoFarm = true
 						_G.Farmfast = false
 						_G.AutoPlayerHunter = true
 					end
@@ -3919,13 +3918,13 @@ if World1 then
 			end
 		end)
 	end)
-end
 
 spawn(function()
 		pcall(function()
 			while wait() do
 				if _G.Farmfast and World1 then
 					if game.Players.LocalPlayer.Data.Level.Value >= 300 then
+				    	_G.AutoFarm = true
 						_G.AutoPlayerHunter = false
 					end
 				end
@@ -8777,6 +8776,14 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
         end
     end)
     
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.DomadicAutoDriveBoat == true then
+            game.Players.LocalPlayer.Character.Humanoid.Sit = false
+        end
+    end)
+end)
+
     M:AddToggle("Auto Farm Terrorshark", _G.AutoTerrorshark,function(value)
          _G.AutoTerrorshark = value
         StopTween( _G.AutoTerrorshark)
