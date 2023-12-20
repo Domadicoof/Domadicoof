@@ -5111,16 +5111,7 @@ spawn(function()
     
     Main:AddSeperator("Boss")
     
-    
-if World1 or World2 or World3 then
-    for _, bossName in pairs(bossNames) do
-        if game:GetService("ReplicatedStorage"):FindFirstChild(bossName) then
-            table.insert(bossCheck, bossName)
-        end
-    end
-end
-
-local Boss = {}
+    local Boss = {}
 
 for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
     if string.find(v.Name, "Boss") then
@@ -5131,8 +5122,6 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
     end
 end
 
-    local bossCheck = {}
-    local bossNames = { "The Gorilla King", "Bobby", "The Saw", "Yeti", "Mob Leader", "Vice Admiral", "Warden", "Chief Warden", "Swan", "Saber Expert", "Magma Admiral", "Fishman Lord", "Wysper", "Thunder God", "Cyborg", "Greybeard", "Diamond", "Jeremy", "Fajita", "Don Swan", "Smoke Admiral", "Awakened Ice Admiral", "Tide Keeper", "Order", "Darkbeard", "Cursed Captain", "Stone", "Island Empress", "Kilo Admiral", "Captain Elephant", "Beautiful Pirate", "Longma", "Cake Queen", "Soul Reaper", "Rip_Indra", "Cake Prince", "Dough King" }
 
 if World1 or World2 or World3 then
     for _, bossName in pairs(bossNames) do
@@ -5142,11 +5131,15 @@ if World1 or World2 or World3 then
     end
 end
 
+    local bossCheck = {}
+    local bossNames = { "The Gorilla King", "Bobby", "The Saw", "Yeti", "Mob Leader", "Vice Admiral", "Warden", "Chief Warden", "Swan", "Saber Expert", "Magma Admiral", "Fishman Lord", "Wysper", "Thunder God", "Cyborg", "Greybeard", "Diamond", "Jeremy", "Fajita", "Don Swan", "Smoke Admiral", "Awakened Ice Admiral", "Tide Keeper", "Order", "Darkbeard", "Cursed Captain", "Stone", "Island Empress", "Kilo Admiral", "Captain Elephant", "Beautiful Pirate", "Longma", "Cake Queen", "Soul Reaper", "Rip_Indra", "Cake Prince", "Dough King" }
+
+
 for _, name in pairs(Boss) do
     table.insert(bossCheck, name)
 end
 
-    Main:AddDropdown("Select Boss",bossCheck,function(value)
+local BossName = Main:AddDropdown("Select Boss",bossCheck,function(value)
         _G.SelectBoss = value
     end)
     Main:AddButton("Refresh Boss", function()
