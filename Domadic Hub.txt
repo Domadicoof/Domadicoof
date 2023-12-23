@@ -9149,7 +9149,8 @@ end)
                 end
         end
           end)
-          
+         
+    
      spawn(function()
     pcall(function()
         while wait() do
@@ -9162,7 +9163,10 @@ end)
     end)
 end)
 
-
+M:AddButton("Set Speed Boat",function()
+        loadstring(Game:HttpGetAsync("https://raw.githubusercontent.com/Domadicoof/Domadicoof/bbf98b2996c542627a6f3d08f5b458306d0d1567/SetSpeedBoatscript"))()
+    end)
+    
 FrozenIsland = M:AddLabel("")
      
     M:AddToggle("Auto Frozen Dimension",_G.AutoFrozenDimension,function(value)
