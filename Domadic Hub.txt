@@ -12446,21 +12446,12 @@ P:AddButton("Bring Boats",function()
    game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.CFrame
 end)
 
-spawn(function()
-            while wait() do
-                if _G.TPB then
-                    pcall(function()
-                        if game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat then
-                            topos(game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.CFrame)
-                        end
-                    end)
-                end
-            end
-        end)
+
         
-P:AddToggle("Teleport to Boats",_G.TPB,function(bool)
-   _G.TPB = bool       
- StopTween(_G.TPB)
+P:AddButton("Tween To Boat",function()
+   topos(game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.CFrame)
+end)
+
 
 
 P:AddToggle("Spectate Boats",false,function(bool)
