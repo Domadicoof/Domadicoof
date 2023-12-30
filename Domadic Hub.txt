@@ -2544,13 +2544,6 @@ function UpdateIslandMirageESP()
     end
 end
 
-function isnil(thing)
-    return (thing == nil)
-end
-local function round(n)
-    return math.floor(tonumber(n) + 0.5)
-end
-Number = math.random(1, 1000000)
 
 function UpdateAfdESP() 
     for i,v in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
@@ -2659,6 +2652,40 @@ function UpdateGeaESP()
         pcall(function()
             if GearESP then 
                 if v.Name == "MeshPart" then
+                    if not v:FindFirstChild('NameEsp') then
+                        local bill = Instance.new('BillboardGui',v)
+                        bill.Name = 'NameEsp'
+                        bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                        bill.Size = UDim2.new(1,200,1,30)
+                        bill.Adornee = v
+                        bill.AlwaysOnTop = true
+                        local name = Instance.new('TextLabel',bill)
+                        name.Font = "Code"
+                        name.FontSize = "Size14"
+                        name.TextWrapped = true
+                        name.Size = UDim2.new(1,0,1,0)
+                        name.TextYAlignment = 'Top'
+                        name.BackgroundTransparency = 1
+                        name.TextStrokeTransparency = 0.5
+                        name.TextColor3 = Color3.fromRGB(80, 245, 245)
+                    else
+                        v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                    end
+                end
+            else
+                if v:FindFirstChild('NameEsp') then
+                    v:FindFirstChild('NameEsp'):Destroy()
+                end
+            end
+        end)
+    end
+end
+
+function UpdateIslandKisuneESP() 
+    for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
+        pcall(function()
+            if DomadicKisuneESP then 
+                if v.Name == "Kitsune Island" then
                     if not v:FindFirstChild('NameEsp') then
                         local bill = Instance.new('BillboardGui',v)
                         bill.Name = 'NameEsp'
@@ -3716,6 +3743,8 @@ spawn(function()
   end
   end
   end)
+  
+Main:AddLabel("Trun On Auto Farm Level If You Want To Farm Candy🤩")
 
     Main:AddToggle("Auto Farm Level",_G.AutoFarm,function(value)
         _G.AutoFarm = value
@@ -5353,6 +5382,10 @@ end)
         _G.FastAttack = value
     end)      
     
+    Main:AddToggle("Fast Attack Super Fast [Trun on Fast Attack to use!!] ",_G.NotDeley,function(value)
+        _G.NotDeley = value
+    end)      
+    
 local CameraShaker = require(game.ReplicatedStorage.Util.CameraShaker)
 CombatFrameworkR = require(game:GetService("Players").LocalPlayer.PlayerScripts.CombatFramework)
 y = debug.getupvalues(CombatFrameworkR)[2]
@@ -5503,6 +5536,16 @@ spawn(function()
         end
     end
 end)
+
+spawn(function()
+    game:GetService("RunService").RenderStepped:Connect(function()
+        if _G.NotDeley then
+             pcall(function()
+                AttackHit()
+            end)
+        end
+    end)
+   end)
 
     
 Main:AddToggle("Auto Click",false,function(value)
@@ -9163,6 +9206,18 @@ end)
     end)
 end)
 
+spawn(function()
+    pcall(function()
+        while wait() do
+            if game.Workspace._WorldOrigin.Locations:FindFirstChild('Kitsunen Island') then
+                FaiFaoKai:Set('🦊: Kitsunen Spwan')
+            else
+                FaiFaoKai:Set('🔴: Kitsunen Not Found')
+            end
+        end
+    end)
+end)
+
 M:AddButton("Set Speed Boat",function()
         loadstring(Game:HttpGetAsync("https://raw.githubusercontent.com/Domadicoof/Domadicoof/bbf98b2996c542627a6f3d08f5b458306d0d1567/SetSpeedBoatscript"))()
     end)
@@ -9173,6 +9228,10 @@ FrozenIsland = M:AddLabel("")
     _G.AutoFrozenDimension = value
     StopTween(_G.AutoFrozenDimension)
     end)
+    
+    M:AddLabel("Esp Kitsunen Island in MiscTab At Seperator Esp Menu")
+    
+    FaiFaoKai = M:AddLabel("")
     
     M:AddToggle("Auto Kitsunen Island",_G.AutoFKitsune,function(value)
     _G.AutoFKitsune = value
@@ -12085,7 +12144,7 @@ spawn(function()
 				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Fishman" then
 					for i,v in pairs(game:GetService("Workspace").SeaBeasts.SeaBeast1:GetDescendants()) do
 						if v.Name ==  "HumanoidRootPart" then
-							topos(v.CFrame* Pos)
+							topos(v.CFrame* CFrame.new(0,200,0))
 							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 								if v:IsA("Tool") then
 									if v.ToolTip == "Melee" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
@@ -12387,38 +12446,22 @@ P:AddButton("Bring Boats",function()
    game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.CFrame
 end)
 
+spawn(function()
+            while wait() do
+                if _G.TPB then
+                    pcall(function()
+                        if game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat then
+                            topos(game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.CFrame)
+                        end
+                    end)
+                end
+            end
+        end)
+        
 P:AddToggle("Teleport to Boats",_G.TPB,function(bool)
    _G.TPB = bool       
  StopTween(_G.TPB)
 
-   if _G.TPB then
-       _G.Boats = true
-       while _G.Boats do wait()
-           Distance = (game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-           Speed = 220
-           tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
-           tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.CFrame})
-           tween:Play()
-           _G.Clip = true
-           wait(Distance/Speed)
-       end
-   elseif _G.TPB == false then
-       _G.Boats = false
-       while _G.Boats do wait()
-           Distance = (game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-           Speed = 220
-           tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear)
-           tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.CFrame})
-           tween:Play()
-           _G.Clip = true
-           wait(Distance/Speed)
-       end
-       tweenService, tweenInfo = game:GetService("TweenService"), TweenInfo.new(.1, Enum.EasingStyle.Linear)
-       tween = tweenService:Create(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart, tweenInfo, {CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame})
-       tween:Play()
-       _G.Clip = false
-   end
-end)
 
 P:AddToggle("Spectate Boats",false,function(bool)
   Sp = bool
@@ -15750,20 +15793,14 @@ Misc:AddToggle("Esp Mystic Island", false, function(value)
             UpdateIslandMirageESP()
         end
     end)
-
-Misc:AddToggle("Esp Advanced Fruit Dealer", false, function(value)
-    AfdESP = value
-        while AfdESP do wait()
-            UpdateAfdESP()
-        end
-    end)
     
-Misc:AddToggle("Esp Gear [Beta]", false, function(value)
-    GearESP = value
-        while GearESP do wait()
-            UpdateGeaESP() 
+    Misc:AddToggle("Esp Kitsune Island", false, function(value)
+    DomadicKisuneESP = value
+        while DomadicKisuneESP do wait()
+            UpdateIslandKisuneESP() 
         end
     end)
+
 
     Misc:AddSeperator("Abilities")
     
