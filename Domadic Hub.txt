@@ -9261,6 +9261,34 @@ FrozenIsland = M:AddLabel("")
             end
         end)
         
+    M:AddToggle("Send Notification If Kitsunen Island Spwan",_G.KisuneWarn,function(value)
+    _G.KisuneWarn = value
+    end)
+    
+--Notfication-Sound  
+local notification = Instance.new("Sound")
+notification.Parent = game:GetService("SoundService")
+notification.SoundId = "rbxassetid://9086208751" --sound id
+notification.Volume = 5 --ระวังหูแตก
+
+    spawn(function()
+        while wait() do
+            if _G.KisuneWarn then
+                pcall(function()
+                    if game.Workspace._WorldOrigin.Locations:FindFirstChild('Kitsune Island') then
+                        wait(5)
+                    game.StarterGui:SetCore("SendNotification", {
+                        Icon = "http://www.roblox.com/asset/?id=12523036534";
+                        Title = "Domadic Notification", 
+                        Text = "Kitsunen Is Spawn";
+                    notification:Play()
+                    })
+                    end
+                end)
+            end
+        end
+    end)
+        
     M:AddSeperator("Misc Elite")
     
     local EliteProgress = M:AddLabel("")
