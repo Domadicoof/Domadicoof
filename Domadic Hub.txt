@@ -7318,7 +7318,8 @@ spawn(function()
 			end
 		end)
     end
-    end)
+end)
+end
     
     M:AddToggle("Hop Farm",_G.Makori_gay,function(value)
     _G.StardHop = value
