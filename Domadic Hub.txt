@@ -3255,10 +3255,6 @@ H:AddSeperator("Credit")
 
 
 
-H:AddButton("Copy Link Donate",function()
-setclipboard("https://direct-link.net/547536/donate-domadic-hub")
-end)
-
 H:AddButton("Copy Youtube Domadic Hub",function()
 setclipboard("https://youtube.com/@nomadicoof789")
 end)
@@ -3361,6 +3357,7 @@ H:AddLabel("[+] Bypass Tele Boss|6/11/2566|20:57")
 H:AddLabel("[+] Auto Find Full Moon|28/11/2566|16:30")
 H:AddLabel("[+] New Tween|11/12/2566|18:19")
 H:AddLabel("[+] New GUI|11/12/2566|18:19")
+H:AddLabel("[+] Auto Farm No Quest|2/1/2567|20:28")
 
 
 
@@ -3718,7 +3715,7 @@ task.spawn(function()
 	end
     end)
     
-local ListF = {"Normal", "Not Tween To Npc Quest"}
+local ListF = {"Normal", "Not Tween To Npc Quest", "No Quest"}
 FarmMode = "Normal"
 Main:AddDropdown("Farm Mode", ListF,function(value)
     FarmMode = value
@@ -3744,7 +3741,7 @@ spawn(function()
   end
   end)
   
-Main:AddLabel("Trun On Auto Farm Level If You Want To Farm Candy🤩")
+Main:AddLabel("Select Farm Mode No Quest And Trun On Auto Farm Level If You Want To Farm Candy🤩")
 
     Main:AddToggle("Auto Farm Level",_G.AutoFarm,function(value)
         _G.AutoFarm = value
@@ -3872,6 +3869,40 @@ Main:AddLabel("Trun On Auto Farm Level If You Want To Farm Candy🤩")
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
                              TP1(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(15,10,2))
                             end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
+    spawn(function()
+        while wait() do
+            if FarmMode == "No Quest" and _G.AutoFarm then
+                pcall(function()
+                CheckQuest()
+                    if game:GetService("Workspace").Enemies:FindFirstChild(Mon) then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == Mon then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.SelectWeapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        TP1(v.HumanoidRootPart.CFrame * Pos)
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                    until not  _G.AutoFarm or not v.Parent or v.Humanoid.Health <= 0
+                                end
+                            end
+                        end
+                    else
+                    UnEquipWeapon(_G.SelectWeapon)
+                    TP1(CFrameMon)
+                        if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
+                            TP1(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         end
                     end
                 end)
@@ -7233,6 +7264,58 @@ spawn(function()
         end
     end)
 end
+
+if World3 then  
+M:AddToggle("Auto Farm Wooden Plank",false,function(value)
+_G.AutoWooddenPlank = value
+StopTween(MiniHee)
+end)
+
+    spawn(function()
+        while wait() do
+            if _G.AutoWooddenPlank then
+                pcall(function()
+                    EquipAllWeapon()
+                    topos(CFrame.new(-5852.70801, 324.864441, -2838.90527, -0.374604106, 0, 0.92718488, 0, 1, 0, -0.92718488, 0, -0.374604106))
+                    wait(10)
+                    topos(CFrame.new(-5502.23438, 324.864441, -2980.50513, -0.374604106, 0, 0.92718488, 0, 1, 0, -0.92718488, 0, -0.374604106))
+                    wait(10)
+                    topos(CFrame.new(-5236.99219, 324.864441, -3089.67969, 0.374604106, -0, -0.92718488, 0, 1, -0, 0.92718488, 0, 0.374604106))
+                    wait(10)
+                end)
+            end
+        end
+    end)
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if _G.AutoWooddenPlank then
+                if SkillZ then
+                    game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                    wait(.1)
+                    game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                end
+                if SkillX then
+                    game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                    wait(.1)
+                    game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                end
+                if SkillC then
+                    game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+                    wait(.1)
+                    game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+                end
+                if SkillV then
+                    game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+                    wait(.1)
+                    game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+                end
+            end
+        end)
+    end
+end)
+end
     
     M:AddToggle("Hop Farm",_G.Makori_gay,function(value)
     _G.StardHop = value
@@ -8802,7 +8885,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
     
     M:AddSeperator("Rough Sea")
     
-    M:AddToggle("Auto Drive Boat", _G.DomadicAutoDriveBoat,function(value)
+    M:AddToggle("Auto Drive Boat Sea Event", _G.DomadicAutoDriveBoat,function(value)
          _G.DomadicAutoDriveBoat = value
         StopTween( _G.DomadicAutoDriveBoat)
     end)
@@ -9229,14 +9312,27 @@ FrozenIsland = M:AddLabel("")
     StopTween(_G.AutoFrozenDimension)
     end)
     
+    M:AddSeperator("Kitsunen")
+    
     M:AddLabel("Esp Kitsunen Island in MiscTab At Seperator Esp Menu")
     
     FaiFaoKai = M:AddLabel("")
     
-    M:AddToggle("Auto Kitsunen Island",_G.AutoFKitsune,function(value)
+    M:AddToggle("Enable Drive Boat Kitsunen Island",_G.AutoFKitsune,function(value)
     _G.AutoFKitsune = value
     StopTween(_G.AutoFKitsune)
     end)
+    
+    M:AddToggle("Teleport To Kitsunen Island",_G.AutoFKitsune,function(value)
+    _G.AutoFKitsune = value
+    StopTween(_G.AutoFKitsune)
+    end)
+    
+    M:AddToggle("Auto Azuer Ember",_G.AutoAzuerEmber,function(value)
+    _G.AutoAzuerEmber = value
+    StopTween(_G.AutoAzuerEmber)
+    end)
+    
           spawn(function()
             while wait() do
                 if _G.AutoFrozenDimension then
@@ -9261,6 +9357,18 @@ FrozenIsland = M:AddLabel("")
             end
         end)
         
+        spawn(function() --Testนะจะใช่ได้ป่าวไม่รู้
+			while wait(.1) do
+				if _G.AutoAzuerEmber then
+					for i,v in pairs(workspace._WorldOrigin.Locations["Kitsune Island"]:GetChildren()) do
+						if v.Name == "Azure Ember" then
+							topos(v.CFrame)
+						end
+					end
+				end
+    end
+    end)
+    
     M:AddToggle("Send Notification If Kitsunen Island Spwan",_G.KisuneWarn,function(value)
     _G.KisuneWarn = value
     end)
