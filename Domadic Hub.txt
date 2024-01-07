@@ -7275,18 +7275,27 @@ end)
         while wait() do
             if _G.AutoWooddenPlank then
                 pcall(function()
-                    EquipAllWeapon()
                     topos(CFrame.new(-5852.70801, 324.864441, -2838.90527, -0.374604106, 0, 0.92718488, 0, 1, 0, -0.92718488, 0, -0.374604106))
-                    wait(10)
+                    wait(5)
                     topos(CFrame.new(-5502.23438, 324.864441, -2980.50513, -0.374604106, 0, 0.92718488, 0, 1, 0, -0.92718488, 0, -0.374604106))
-                    wait(10)
+                    wait(5)
                     topos(CFrame.new(-5236.99219, 324.864441, -3089.67969, 0.374604106, -0, -0.92718488, 0, 1, -0, 0.92718488, 0, 0.374604106))
-                    wait(10)
+                    wait(5)
                 end)
             end
         end
     end)
 
+spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if _G.AutoWooddenPlank then    
+                    EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                end
+            end
+        end)
+    end)
+    
 spawn(function()
     while wait() do
         pcall(function()
