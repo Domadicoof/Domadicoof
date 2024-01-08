@@ -3825,6 +3825,7 @@ Main:AddLabel("Select Farm Mode No Quest And Trun On Auto Farm Level If You Want
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         StartMagnet = false
                         CheckQuest()
+                        UnEquipWeapon(_G.SelectWeapon)
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
                         if BypassTP then
                         if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude > 1500 then
@@ -3899,8 +3900,16 @@ Main:AddLabel("Select Farm Mode No Quest And Trun On Auto Farm Level If You Want
                             end
                         end
                     else
+                    if BypassTP then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos2.Position).Magnitude > 1500 then
+			        BTP(CFrameMon)
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos2.Position).Magnitude < 1500 then
+				    TP1(CFrameMon)
+					end
+				else
+				    TP1(CFrameMon)
+				end
                     UnEquipWeapon(_G.SelectWeapon)
-                    TP1(CFrameMon)
                         if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
                             TP1(game:GetService("ReplicatedStorage"):FindFirstChild(Mon).HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         end
@@ -5269,7 +5278,7 @@ end)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(80,80,80)                             
-                                        topos(v.HumanoidRootPart.CFrame * (Farm_pos))
+                                        topos(v.HumanoidRootPart.CFrame * Pos)
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                         sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
@@ -9149,7 +9158,7 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
                     local v = CheckPirateBoat()
                     repeat
                         wait()
-                        spawn(topos(v.Engine.CFrame * CFrame.new(0, -20, 0)), 1)
+                        topos(v.Engine.CFrame * CFrame.new(0,20, 0))
                         AimBotSkillPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
                         Skillaimbot = true
                         AutoSkill = false
@@ -9186,7 +9195,7 @@ spawn(function()
                     local v = CheckPirateBoat()
                     repeat
                         wait()
-                        spawn(topos(v.Engine.CFrame * CFrame.new(0, -20, 0), 1))
+                        topos(v.Engine.CFrame * CFrame.new(0, 30, 0))
                         AutoSkill = true
                         Skillaimbot = true
                         AimBotSkillPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -5, 0)
