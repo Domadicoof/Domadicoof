@@ -3095,7 +3095,41 @@ spawn(function()
         wait(0.5)
     end
 end)
-    
+
+Type = 1
+spawn(function()
+    while wait(.1) do
+        if P == 1 then
+            F = CFrame.new(0,20,0)
+		elseif P == 2 then
+			F = CFrame.new(0,20,-50)
+		elseif P == 3 then
+			F = CFrame.new(50,20,0)
+		elseif P == 4 then
+			F = CFrame.new(0,20,50)	
+		elseif P == 5 then
+			F = CFrame.new(-50,20,0)
+		elseif P == 6 then
+			F = CFrame.new(0,20,0)
+        end
+        end
+    end)
+
+spawn(function()
+    while wait(.1) do
+        P = 1
+        wait(0.1)
+        P = 2
+        wait(0.3)
+        P = 3
+        wait(0.3)
+        P = 4
+        wait(0.3)
+        P = 5
+        wait(0.3)
+    end
+end)
+
     spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
         if _G.AutoAdvanceDungeon or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFactory or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NOCLIP or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or _G.Autodoughking or _G.AutoFarmMaterial or _G.AutoNevaSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.AutoKai or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or _G.Namfon or _G.AutoSwordMastery or _G.AutoSeaBest or _G.AutoKillTial or _G.Auto_Saber or _G.Position_Spawn or _G.Farmfast or _G.AutoRace or _G.RaidPirate or Open_Color_Haki or _G.AutoWooddenPlank then
@@ -3153,8 +3187,8 @@ end)
                 if _G.AutoAdvanceDungeon or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFactory or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or _G.Autodoughking or _G.AutoFarmMaterial or _G.AutoNevaSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or _G.Namfon or _G.AutoSwordMastery or _G.Auto_Seabest or _G.AutoSeaBest or _G.AutoKillTial or _G.Auto_Saber or _G.Position_Spawn or _G.Farmfast or _G.AutoRace or _G.RaidPirate or _G.AutoTushitaSword or Open_Color_Haki or _G.AutoTerrorshark or FarmShark or _G.farmpiranya or _G.Fish_Crew_Member or _G.DomadicAutoDriveBoat or _G.bjirFishBoat or _G.KillGhostShip or _G.AutoWooddenPlank or _G.EnableDriveDoMaD == true then
                     if not game.Players.LocalPlayer.Character:FindFirstChild("Highlight") then
 	            		local Highlight = Instance.new("Highlight")
-                    	Highlight.FillColor = Color3.new(50, 255, 255)
-	            		Highlight.OutlineColor = Color3.new(50,255,255)
+                    	Highlight.FillColor = Color3.new(0, 255, 0)
+	            		Highlight.OutlineColor = Color3.new(0,255,0)
             			Highlight.Parent = game.Players.LocalPlayer.Character
                     end
                 end
@@ -3166,9 +3200,6 @@ end)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
     end
     
-    function TP3(pos)
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
-    end
     
     spawn(function()
         while wait() do
@@ -3190,7 +3221,7 @@ end)
         end
     end)
    end)
-
+--Stoptween Line 3206-3207 Remove Highlight
     function StopTween(target)
         if not target then
             _G.StopTween = true
@@ -3260,6 +3291,8 @@ setclipboard("https://youtube.com/@nomadicoof789")
 end)
 
 H:AddLine()
+H:AddLabel("New Update Log")
+H:AddLabel("[+] Auto Set Frame Mon (CheckMon)|9/1/2567|20:28")
 
 
 H:AddSeperator("UpdLog")
@@ -3358,6 +3391,7 @@ H:AddLabel("[+] Auto Find Full Moon|28/11/2566|16:30")
 H:AddLabel("[+] New Tween|11/12/2566|18:19")
 H:AddLabel("[+] New GUI|11/12/2566|18:19")
 H:AddLabel("[+] Auto Farm No Quest|2/1/2567|20:28")
+H:AddLabel("[+] Auto Set Frame Mon (CheckMon)|9/1/2567|20:28")
 
 
 
@@ -3741,7 +3775,6 @@ spawn(function()
   end
   end)
   
-Main:AddLabel("Select Farm Mode No Quest And Trun On Auto Farm Level If You Want To Farm Candy🤩")
 
     Main:AddToggle("Auto Farm Level",_G.AutoFarm,function(value)
         _G.AutoFarm = value
@@ -3800,7 +3833,7 @@ Main:AddLabel("Select Farm Mode No Quest And Trun On Auto Farm Level If You Want
                                 end
                             end
                         else
-                            TP1(CFrameMon)
+                            TP1(CFrameMon * F)
                             UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -3864,7 +3897,7 @@ Main:AddLabel("Select Farm Mode No Quest And Trun On Auto Farm Level If You Want
                                 end
                             end
                         else
-                            TP1(CFrameMon)
+                            TP1(CFrameMon * F)
                             UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -3904,10 +3937,10 @@ Main:AddLabel("Select Farm Mode No Quest And Trun On Auto Farm Level If You Want
                     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos2.Position).Magnitude > 1500 then
 			        BTP(CFrameMon)
 				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos2.Position).Magnitude < 1500 then
-				    TP1(CFrameMon)
+				    TP1(CFrameMon * F)
 					end
 				else
-				    TP1(CFrameMon)
+				    TP1(CFrameMon * F)
 				end
                     UnEquipWeapon(_G.SelectWeapon)
                         if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -4227,10 +4260,10 @@ spawn(function()
 						if (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5000+_G.MagnitudeAdd then
 							repeat wait()
 								if game:GetService("Workspace"):FindFirstChild(v.Name) then
-									TP3(v.CFrame)
+									InstancePos(v.CFrame)
 								end
 							until AutoFarmChest == false or not v.Parent
-							topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+							InstancePos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
 							_G.MagnitudeAdd = _G.MagnitudeAdd+1500
 							break
 						end
