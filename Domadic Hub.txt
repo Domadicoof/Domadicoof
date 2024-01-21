@@ -9387,17 +9387,25 @@ FrozenIsland = M:AddLabel("")
             end
         end)
         
-        spawn(function()
-            while wait() do
-                if _G.AutoFKitsune then
-                    pcall(function()
-                        if game.Workspace._WorldOrigin.Locations:FindFirstChild('Kitsune Island') then
-                            topos(game.Workspace._WorldOrigin.Locations:FindFirstChild('Kitsune Island').HumanoidRootPart.CFrame * CFrame.new(0,100,0))
+    spawn(function()
+               local CheckKit
+               while not CheckKit do
+               CheckKit = game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland")
+            wait(1)
+        end
+        while wait() do
+            if _G.AutoFKitsune then
+				local ShrineActive = CheckKit:FindFirstChild("ShrineActive")
+				if ShrineActive then
+						for _, v in pairs(shrineActive:GetDescendants()) do
+                            if v:IsA("BasePart") and v.Name:find("NeonShrinePart") then
+                                topos(vvs.CFrame)
+                            end
+                            end
                         end
-                    end)
+                    end
                 end
-            end
-        end)
+            end)
         
     spawn(function()
         pcall(function()
@@ -9425,7 +9433,7 @@ notification.Volume = 5 --ระวังหูแตก
         while wait() do
             if _G.KisuneWarn then
                 pcall(function()
-                    if game.Workspace._WorldOrigin.Locations:FindFirstChild('Kitsune Island') then
+                    if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
                         wait(5)
                     game.StarterGui:SetCore("SendNotification", {
                         Icon = "http://www.roblox.com/asset/?id=12523036534";
