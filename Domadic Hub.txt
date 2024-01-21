@@ -9387,19 +9387,19 @@ FrozenIsland = M:AddLabel("")
             end
         end)
         
-    spawn(function()
-               local CheckKit
-               while not CheckKit do
-               CheckKit = game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland")
+        spawn(function()
+               local KitsuneIsland
+               while not KitsuneIsland do
+               kitsuneIsland = game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland")
             wait(1)
         end
         while wait() do
             if _G.AutoFKitsune then
-				local ShrineActive = CheckKit:FindFirstChild("ShrineActive")
-				if ShrineActive then
+				local shrineActive = KitsuneIsland:FindFirstChild("ShrineActive")
+				if shrineActive then
 						for _, v in pairs(shrineActive:GetDescendants()) do
                             if v:IsA("BasePart") and v.Name:find("NeonShrinePart") then
-                                topos(vvs.CFrame)
+                                topos(v.CFrame)
                             end
                             end
                         end
