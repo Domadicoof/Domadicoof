@@ -1,4 +1,4 @@
---มึงอย่า Reskin ดิ๊ทําไมไม่obfเพราะobfแล้วหน่วงบางฟังชั้นขึ้นไม่ครบคนทีใช้scrกูเป็นSkidหมด!!
+--มึงอย่า Reskin ดิ๊ทําไมไม่obfเพราะobfแล้วหน่วงบางฟังชั้นขึ้นไม่ครบคนทีใช้scrกูSkidหมด!!
 local ScreenGui1 = Instance.new("ScreenGui")
 local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
@@ -1717,7 +1717,7 @@ if game.PlaceId == 2753915549 then
                 NameMon = "kissed"
                 CFrameQuest = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
                 CFrameMon = CFrame.new(-16349.8779296875, 92.0808334350586, 1123.4169921875)
-            elseif MyLevel == 2525 then
+            elseif MyLevel == 2525 or MyLevel <= 2550 then
                 Mon = "Isle Champion"
                 LevelQuest = 2
                 NameQuest = "TikiQuest2"
@@ -5252,7 +5252,7 @@ end)
 
 Main:AddButton("Refresh Boss", function()
 BossName:Clear()
-wait(0)
+wait(0.1)
 for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
     if (v.Name == "rip_indra" or v.Name == "Ice Admiral")
                         or (v.Name == "Saber Expert" or v.Name == "The Saw" or v.Name == "Greybeard" or v.Name == "Mob Leader" or v.Name == "The Gorilla King" or v.Name == "Bobby" or v.Name == "Yeti" or v.Name == "Vice Admiral" or v.Name == "Warden" or v.Name == "Chief Warden" or v.Name == "Swan" or v.Name == "Magma Admiral" or v.Name == "Fishman Lord" or v.Name == "Wysper" or v.Name == "Thunder God" or v.Name == "Cyborg")
@@ -9388,14 +9388,14 @@ FrozenIsland = M:AddLabel("")
         end)
         
         spawn(function()
-               local KitsuneIsland
-               while not KitsuneIsland do
+               local kitsuneIsland
+               while not kitsuneIsland do
                kitsuneIsland = game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland")
             wait(1)
         end
         while wait() do
             if _G.AutoFKitsune then
-				local shrineActive = KitsuneIsland:FindFirstChild("ShrineActive")
+				local shrineActive = kitsuneIsland:FindFirstChild("ShrineActive")
 				if shrineActive then
 						for _, v in pairs(shrineActive:GetDescendants()) do
                             if v:IsA("BasePart") and v.Name:find("NeonShrinePart") then
@@ -9433,7 +9433,7 @@ notification.Volume = 5 --ระวังหูแตก
         while wait() do
             if _G.KisuneWarn then
                 pcall(function()
-                    if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+                    if game:GetService("Workspace").Map:FindFirstChild('KitsuneIsland') then
                         wait(5)
                     game.StarterGui:SetCore("SendNotification", {
                         Icon = "http://www.roblox.com/asset/?id=12523036534";
@@ -15189,23 +15189,6 @@ Misc:AddToggle("Graphic",false,function(v)
 		end
 	end)
 
-Misc:AddButton("Rain Fruit",function()
-    for i, v in pairs(game:GetObjects("rbxassetid://14759368201")[1]:GetChildren()) do
-            v.Parent = game.Workspace.Map
-            v:MoveTo(game.Players.LocalPlayer.Character.PrimaryPart.Position + Vector3.new(math.random(-50, 50), 100, math.random(-50, 50)))
-            if v.Fruit:FindFirstChild("AnimationController") then
-                v.Fruit:FindFirstChild("AnimationController"):LoadAnimation(v.Fruit:FindFirstChild("Idle")):Play()
-            end
-            v.Handle.Touched:Connect(function(otherPart)
-                if otherPart.Parent == game.Players.LocalPlayer.Character then
-                    v.Parent = game.Players.LocalPlayer.Backpack
-                    game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-                end
-            end)
-        end
-	end
-	end)
-	
     Misc:AddSeperator("⚙️ Misc ⚙️")
 
 Misc:AddToggle("Anti AFK", true, function()
