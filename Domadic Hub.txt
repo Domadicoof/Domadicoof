@@ -1494,7 +1494,7 @@ if game.PlaceId == 2753915549 then
                 CFrameQuest = CFrame.new(5832.83594, 51.6806107, -1101.51563, 0.898790359, -0, -0.438378751, 0, 1, -0, 0.438378751, 0, 0.898790359)
                 CFrameMon = CFrame.new(6141.140625, 51.35136413574219, -1340.738525390625)
             elseif MyLevel == 1600 or MyLevel <= 1624 then 
-                Mon = "Dragon Crew Archer [Lv. 1600]"
+                Mon = "Dragon Crew Archer"
                 NameQuest = "AmazonQuest"
                 LevelQuest = 2
                 NameMon = "Dragon Crew Archer"
@@ -1508,7 +1508,7 @@ if game.PlaceId == 2753915549 then
                 CFrameQuest = CFrame.new(5446.8793945313, 601.62945556641, 749.45672607422)
                 CFrameMon = CFrame.new(4685.25830078125, 735.8078002929688, 815.3425903320312)
             elseif MyLevel == 1650 or MyLevel <= 1699 then 
-                Mon = "Giant Islander [Lv. 1650]"
+                Mon = "Giant Islander"
                 NameQuest = "AmazonQuest2"
                 LevelQuest = 2
                 NameMon = "Giant Islander"
@@ -1522,7 +1522,7 @@ if game.PlaceId == 2753915549 then
                 CFrameQuest = CFrame.new(2180.54126, 27.8156815, -6741.5498, -0.965929747, 0, 0.258804798, 0, 1, 0, -0.258804798, 0, -0.965929747)
                 CFrameMon = CFrame.new(2286.0078125, 73.13391876220703, -7159.80908203125)
             elseif MyLevel == 1725 or MyLevel <= 1774 then
-                Mon = "Marine Rear Admiral [Lv. 1725]"
+                Mon = "Marine Rear Admiral"
                 NameMon = "Marine Rear Admiral"
                 NameQuest = "MarineTreeIsland"
                 LevelQuest = 2
@@ -4231,16 +4231,16 @@ _G.MagnitudeAdd = 0
 spawn(function()
 	while wait() do 
 		if _G.AutoChestMirage then
-			for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
+			for i,v in pairs(game:GetService("Workspace").Map.MysticIsland:GetChildren()) do 
 				if v.Name:find("FragChest") then
-					if game:GetService("Workspace"):FindFirstChild(v.Name) then
+					if game:GetService("Workspace").Map.MysticIsland:FindFirstChild(v.Name) then
 						if (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5000+_G.MagnitudeAdd then
 							repeat wait()
-								if game:GetService("Workspace"):FindFirstChild(v.Name) then
+								if game:GetService("Workspace").Map.MysticIsland:FindFirstChild(v.Name) then
 									topos(v.CFrame)
 								end
 							until _G.AutoChestMirage == false or not v.Parent
-							TP(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+							topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
 							_G.MagnitudeAdd = _G.MagnitudeAdd+1500
 							break
 						end
@@ -9446,6 +9446,26 @@ notification.Volume = 5 --ระวังหูแตก
             end
         end
     end)
+    
+    M:AddToggle("Increase Boat Speed 350",_G.IncreaseBoatSpeed,function(value)
+        _G.IncreaseBoatSpeed = value
+        end)
+
+    local vehicleSeats = {}
+                for i, v in pairs(game.Workspace.Boats:GetDescendants()) do
+                    if v:IsA("VehicleSeat") then
+                        table.insert(vehicleSeats, v)
+                    end
+                end
+                if _G.IncreaseBoatSpeed then
+                    for _, v in pairs(vehicleSeats) do
+                        v.MaxSpeed = 350
+                    end
+                else
+                    for _, v in pairs(vehicleSeats) do
+                        v.MaxSpeed = 100
+                    end
+                end
         
     M:AddSeperator("Misc Elite")
     
