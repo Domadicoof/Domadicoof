@@ -9388,31 +9388,23 @@ FrozenIsland = M:AddLabel("")
         end)
         
         spawn(function()
-               local kitsuneIsland
-               while not kitsuneIsland do
-               kitsuneIsland = game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland")
-            wait(1)
-        end
-        while wait() do
-            if _G.AutoFKitsune then
-				local shrineActive = kitsuneIsland:FindFirstChild("ShrineActive")
-				if shrineActive then
-						for _, v in pairs(shrineActive:GetDescendants()) do
-                            if v:IsA("BasePart") and v.Name:find("NeonShrinePart") then
-                                topos(v.CFrame)
-                            end
-                            end
-                        end
-                    end
-                end
-            end)
+		while  _G.AutoFKitsune do wait()
+			pcall(function()
+				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+				topos(game.Workspace.Map.KitsuneIsland.ShrineActive.NeonShrinePart.CFrame * CFrame.new(0,0,10))
+				end
+			end)
+		end
+	end)
+	
+        
         
     spawn(function()
         pcall(function()
             while wait() do
                 if _G.AutoAzuerEmber then
-                    if game:GetService("Workspace"):FindFirstChild("AttachedAzureEmber") then
-                    topos(game:GetService("Workspace"):WaitForChild("EmberTemplate"):FindFirstChild("Part").CFrame)
+                    if game.Workspace.AttachedAzureEmber then
+                    topos(game.Workspace.EmberTemplate.Part.CFrame)
                     end
                 end
             end
@@ -9447,10 +9439,10 @@ notification.Volume = 5 --ระวังหูแตก
         end
     end)
     
-    M:AddToggle("Increase Boat Speed 350",_G.IncreaseBoatSpeed,function(value)
+    M:AddLabel("Boat")
+    
+    M:AddToggle("Increase Boat Speed",_G.IncreaseBoatSpeed,function(value)
         _G.IncreaseBoatSpeed = value
-        end)
-
     local vehicleSeats = {}
                 for i, v in pairs(game.Workspace.Boats:GetDescendants()) do
                     if v:IsA("VehicleSeat") then
@@ -9466,6 +9458,40 @@ notification.Volume = 5 --ระวังหูแตก
                         v.MaxSpeed = 100
                     end
                 end
+            end)
+            
+M:AddToggle("Noclip Rock",_G.IncreaseBoatSpeed,function(value)
+_G.NoclipR = value 
+end)
+                        spawn(function()
+                            while wait() do
+                                if _G.NoclipR then
+                                    if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+                                        for _, v in pairs(game.Workspace.Boats:GetDescendants()) do
+                                            if v:IsA("BasePart") and v.CanCollide == true then
+                                                v.CanCollide = false
+                                            end
+                                        end
+                                        for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                                            if v:IsA("BasePart") and v.CanCollide == true then
+                                                v.CanCollide = false
+                                            end
+                                        end
+                                    elseif game.Players.LocalPlayer.Character.Humanoid.Sit == false then
+                                        for _, v in pairs(game.Workspace.Boats:GetDescendants()) do
+                                            if v:IsA("BasePart") and v.CanCollide == false then
+                                                v.CanCollide = true
+                                            end
+                                        end
+                                        for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                                            if v:IsA("BasePart") and v.CanCollide == false then
+                                                v.CanCollide = true
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end)
         
     M:AddSeperator("Misc Elite")
     
