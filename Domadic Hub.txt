@@ -1,4 +1,4 @@
---มึงอย่า Reskin ดิ๊ทําไมไม่obfเพราะobfแล้วหน่วงบางฟังชั้นขึ้นไม่ครบคนทีใช้scrกูSkidหมด!!
+
 local ScreenGui1 = Instance.new("ScreenGui")
 local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
@@ -3838,7 +3838,15 @@ spawn(function()
                                 end
                             end
                         else
-                            TP1(CFrameMon * F)
+                        if BypassTP then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude > 1500 then
+	    		        BTP(CFrameMon)
+	    			    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude < 1500 then
+	    			    TP1(CFrameMon * F)
+	    				end
+	    			else
+		    		    TP1(CFrameMon * F)
+	    			end
                             UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -3939,9 +3947,9 @@ spawn(function()
                         end
                     else
                     if BypassTP then
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos2.Position).Magnitude > 1500 then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude > 1500 then
 			        BTP(CFrameMon)
-				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - MaterialsPos2.Position).Magnitude < 1500 then
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude < 1500 then
 				    TP1(CFrameMon * F)
 					end
 				else
