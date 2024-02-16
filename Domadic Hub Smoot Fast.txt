@@ -5553,7 +5553,8 @@ end)
     Main:AddToggle("Fast Attack",true,function(value)
         _G.FastAttack = value
     end)      
-    
+  
+  
     Main:AddToggle("Fast Attack Dobble",_G.DbFast,function(value)
         _G.DbFast = value
     end)      
@@ -5564,7 +5565,7 @@ local fast = {
 	"Normal",
 	"ExTra"
 }
-
+_G.FastMode = "Normal"
 Main:AddDropdown("Select Fast Mode",fast,function(value)
 	_G.FastMode = value
 end)
@@ -5575,6 +5576,7 @@ local SFast = {
 	"Extra"
 }
 
+_G.FastModeD = "Normal"
 Main:AddDropdown("Select Fast Delay",SFast,function(value)
 	_G.FastModeD = value
 end)
@@ -5592,7 +5594,7 @@ coroutine.wrap(function()
 				elseif _G.FastModeD == "Extra" then
 					if tick() - cooldownfastattack > 3.5 then wait() cooldownfastattack = tick() end
 				end
-			elseif FastAttack and Fast_Attack and _G.FastMode == "ExTra" then
+			elseif FastAttack and _G.FastAttack and _G.FastMode == "ExTra" then
 				AttackNoCD()
 				if _G.FastModeD == "Normal" then
 					if tick() - cooldownfastattack > 1 then wait(1) cooldownfastattack = tick() end
