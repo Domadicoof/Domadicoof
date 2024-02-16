@@ -5640,7 +5640,7 @@ local SFast = {
 	"Extra"
 }
 
-_G.FastModeD = "Normal"
+_G.FastModeD = "Smooth"
 Main:AddDropdown("Select Fast Delay",SFast,function(value)
 	_G.FastModeD = value
 end)
@@ -5654,7 +5654,7 @@ end)
 	end
 	
 spawn(function()
-	while wait(.5) do
+	while wait(000000000000000000000000000000000000000000000000000000000000000000.1) do
 		pcall(function()
 			if _G.FastAttack and FastAttack and  _G.FastMode == "ExTra" then
 				repeat wait(_G.Fast_Delay)
@@ -5666,7 +5666,7 @@ spawn(function()
 end)
 
 spawn(function()
-	while wait(.5) do
+	while wait(000000000000000000000000000000000000000000000000000000000000000000.1) do
 		pcall(function()
 			if _G.FastAttack and FastAttack and  _G.FastMode == "Normal" then
 				repeat wait(_G.Fast_Delay)
