@@ -5667,7 +5667,7 @@ end)
 		end
 	end
 end)()
-
+--
 coroutine.wrap(function()
 	while task.wait(.1) do
 		local ac = CombatFrameworkR.activeController
