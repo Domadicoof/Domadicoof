@@ -5627,7 +5627,7 @@ end)
 
 local fast = {
 	"Normal",
-	"ExTra"
+	"NoCDAttack"
 }
 _G.FastMode = "Normal"
 Main:AddDropdown("Select Fast Mode",fast,function(value)
@@ -5635,12 +5635,12 @@ Main:AddDropdown("Select Fast Mode",fast,function(value)
 end)
 
 local SFast = {
+	"Safety",
 	"Fast",
-	"Smooth",
 	"Extra"
 }
 
-_G.FastModeD = "Smooth"
+_G.FastModeD = "Safety"
 Main:AddDropdown("Select Fast Delay",SFast,function(value)
 	_G.FastModeD = value
 end)
@@ -5651,11 +5651,11 @@ end)
 		if ac and ac.equipped then
 			if FastAttack and _G.FastAttack and _G.FastMode == "Normal" then
 				AttackFunction()
-				if _G.FastModeD == "Normal" then
+				if _G.FastModeD == "Fast" then
 					if tick() - cooldownfastattack > .9 then wait(.1) cooldownfastattack = tick() end
 				elseif _G.FastModeD == "Extra" then
 					if tick() - cooldownfastattack > 1.5 then wait(.01) cooldownfastattack = tick() end
-				elseif _G.FastModeD == "Smoot" then
+				elseif _G.FastModeD == "Safety" then
 					if tick() - cooldownfastattack > .3 then wait(.7) cooldownfastattack = tick() end
 				end
 			elseif FastAttack and _G.FastAttack == false then
@@ -5672,13 +5672,13 @@ coroutine.wrap(function()
 	while task.wait(.1) do
 		local ac = CombatFrameworkR.activeController
 		if ac and ac.equipped then
-			if FastAttack and _G.FastAttack and _G.FastMode == "ExTra" then
+			if FastAttack and _G.FastAttack and _G.FastMode == "NoCDAttack" then
 				AttackNoCD()
-				if _G.FastModeD == "Normal" then
+				if _G.FastModeD == "Fast" then
 					if tick() - cooldownfastattack > .9 then wait(.1) cooldownfastattack = tick() end
 				elseif _G.FastModeD == "Extra" then
 					if tick() - cooldownfastattack > 1.5 then wait(.01) cooldownfastattack = tick() end
-				elseif _G.FastModeD == "Smoot" then
+				elseif _G.FastModeD == "Safety" then
 					if tick() - cooldownfastattack > .3 then wait(.7) cooldownfastattack = tick() end
 				end
 			elseif FastAttack and _G.FastAttack == false then
