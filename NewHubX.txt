@@ -8902,7 +8902,42 @@ spawn(function()
 			end
 		end)
 	end)
-        
+      
+SpeedTable = {
+	"200",
+	"250",
+	"300",
+	"350",
+	"400",
+	"450",
+	"500"
+}
+_G.BoatSpeed = "350"
+Miscf:Dropdown("Selected Boat Speed",SpeedTable,function(value)
+_G.BoatSpeed = value
+end)
+
+    
+    Miscf:Toggle("Increase Boat Speed",_G.Setting_table.IncreaseBoatSpeed,function(value)
+        _G.Setting_table.IncreaseBoatSpeed = vu
+	    Update_Setting(getgenv()['MyName'])
+    local vehicleSeats = {}
+                for i, v in pairs(game.Workspace.Boats:GetDescendants()) do
+                    if v:IsA("VehicleSeat") then
+                        table.insert(vehicleSeats, v)
+                    end
+                end
+                if _G.Setting_table.IncreaseBoatSpeed then
+                    for _, v in pairs(vehicleSeats) do
+                        v.MaxSpeed = _G.BoatSpeed
+                    end
+                else
+                    for _, v in pairs(vehicleSeats) do
+                        v.MaxSpeed = 100
+                    end
+                end
+            end)  
+            
 Miscf:Toggle("Auto Rougth Sea Quest [BETA]", _G.Setting_table.AutoRougthFully,function(vu)
          AutoRougthFully = vu
          _G.Setting_table.AutoRougthFully = vu
