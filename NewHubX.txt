@@ -1959,20 +1959,6 @@
 			return {["QuestLv"] = questlv, ["CFrameQuest"] = npcpos, ["NameMon"] = namemon, ["NameQuest"] = namequest, ["LevelReq"] = levelreq}
 		end
 		
-		local matchingCFrames = {}
-		local result = string.gsub(MobName, "Lv. ", "")
-		local result2 = string.gsub(result, "[%[%]]", "")
-		local result3 = string.gsub(result2, "%d+", "")
-		local result4 = string.gsub(result3, "%s+", "")
-		
-		for i,v in pairs(game.workspace.EnemySpawns:GetChildren()) do
-			if v.Name == result4 then
-				table.insert(matchingCFrames, v.CFrame)
-			else
-				table.insert(matchingCFrames, nil)
-			end
-			MobCFrame = matchingCFrames
-		end
 
 	function CheckLevel3()
 		local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
