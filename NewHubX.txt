@@ -8818,17 +8818,18 @@ BoatSeaQ = value
 end)
 
 
-Miscf:Dropdown("Select Sea",Seatable,function(value)
+_G.SelectLocalTeleportSea = "Sea6[???]"
+Miscf:Dropdown("Select Sea",{"Sea1[Low]","Sea2[Medium]","Sea3[High]","Sea4[Extreme]","Sea5[Crazy]","Sea6[???]"},function(value)
 _G.SelectLocalTeleportSea = value
 end)
 
-Miscf:Toggle("Auto Sailing Boat",_G.Setting_table.BuyBoat,function(vu)
+Miscf:Toggle("Auto Sailing Boat",_G.Setting_table.BuyBoatDmd,function(vu)
     BuyBoatDmd = vu
 	_G.Setting_table.BuyBoatDmd = vu
 	Update_Setting(getgenv()['MyName'])
 end)
 
-Seatable = {"Sea1[Low]","Sea2[Medium]","Sea3[High]","Sea4[Extreme]","Sea5[Crazy]","Sea6[???]"}
+
 
 spawn(function()
         while wait() do
