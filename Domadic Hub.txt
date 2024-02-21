@@ -3297,6 +3297,7 @@ H:AddLabel("New Update Log")
 H:AddLabel("[+] Auto Set Frame Mon (CheckMon)|9/1/2567|20:28")
 H:AddLabel("[+] Esp Kisune|14/1/2567|08:08")
 H:AddLabel("[+] Send Notifications Kisune Spwan (There is a warning sound )|14/1/2567|08:08")
+H:AddLabel("[+] Auto Get Fruit Inventory|20/2/2567|15:30")
 
 
 H:AddSeperator("UpdLog")
@@ -9449,6 +9450,20 @@ notification.Volume = 5 --ระวังหูแตก
     
     M:AddLabel("Boat")
     
+    SpeedTable = {
+	"200",
+	"250",
+	"300",
+	"350",
+	"400",
+	"450",
+	"500"
+}
+_G.BoatSpeed = "350"
+M:AddDropdown("Selected Boat Speed",SpeedTable,function(value)
+_G.BoatSpeed = value
+end)
+
     M:AddToggle("Increase Boat Speed",_G.IncreaseBoatSpeed,function(value)
         _G.IncreaseBoatSpeed = value
     local vehicleSeats = {}
@@ -9459,7 +9474,7 @@ notification.Volume = 5 --ระวังหูแตก
                 end
                 if _G.IncreaseBoatSpeed then
                     for _, v in pairs(vehicleSeats) do
-                        v.MaxSpeed = 350
+                        v.MaxSpeed = _G.BoatSpeed
                     end
                 else
                     for _, v in pairs(vehicleSeats) do
@@ -13582,6 +13597,30 @@ spawn(function()
         end)
     end)
     
+    R:AddToggle("Auto Get Fruit Inventory",_G.GetFruit,function(value)
+        _G.GetFruit = value
+    end)
+    
+    spawn(function()
+	while wait(.5) do
+		pcall(function()
+			if _G.GetFruit then
+				if Inventory_Fruit then
+					Inventory_Fruit = nil
+				end
+				fruit = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryFruits")
+				for i,v in pairs(fruit) do
+					if v["Price"] < 10000000 then
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LoadFruit",v["Name"])
+					end
+				end
+			else
+				wait(2)
+			end
+		end)
+	end
+end)
+
     R:AddLine()
     
     if World2 then
