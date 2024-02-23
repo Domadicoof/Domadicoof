@@ -2990,7 +2990,7 @@ function TP1(Pos)
 --Tween Boats 
 function TPB(CFgo)
 	local tween_s = game:service"TweenService"
-	local info = TweenInfo.new((game:GetService("Workspace").Boats.PirateBrigade[SelectBoat].CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
+	local info = TweenInfo.new((game:GetService("Workspace").Boats[SelectBoat].VehicleSeat.CFrame.Position - CFgo.Position).Magnitude/300, Enum.EasingStyle.Linear)
 	tween = tween_s:Create(game:GetService("Workspace").Boats[SelectBoat].VehicleSeat, info, {CFrame = CFgo})
 	tween:Play()
 
@@ -3831,6 +3831,7 @@ spawn(function()
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                     end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                        UnEquipWeapon(_G.SelectWeapon)
                         StartMagnet = false
                         CheckQuest()
                         if BypassTP then
@@ -8989,7 +8990,7 @@ SelectBoat = value
 end)
 
 _G.SelectLocalTeleportSea = "Sea5[Crazy]"	
-M:AddDropdown("Select Boats",{"Sea1[Low]","Sea2[Medium]","Sea3[High]","Sea4[Extreme]","Sea5[Crazy]","Sea6[???]"},function(value)
+M:AddDropdown("Select Sea",{"Sea1[Low]","Sea2[Medium]","Sea3[High]","Sea4[Extreme]","Sea5[Crazy]","Sea6[???]"},function(value)
 _G.SelectLocalTeleportSea = value
 end)
 
