@@ -3137,13 +3137,13 @@ spawn(function()
         if Frame == 1 then
             BoatFrameNew = CFrame.new(0,0,0)
 		elseif Frame == 2 then
-			BoatFrameNew = CFrame.new(0,0,-300)
+			BoatFrameNew = CFrame.new(0,0,-500)
 		elseif Frame == 3 then
-			BoatFrameNew = CFrame.new(300,0,0)
+			BoatFrameNew = CFrame.new(500,0,0)
 		elseif Frame == 4 then
-			BoatFrameNew = CFrame.new(0,0,300)	
+			BoatFrameNew = CFrame.new(0,0,500)	
 		elseif Frame == 5 then
-			BoatFrameNew = CFrame.new(-300,0,0)
+			BoatFrameNew = CFrame.new(-500,0,0)
 		elseif Frame == 6 then
 			BoatFrameNew = CFrame.new(0,0,0)
         end
