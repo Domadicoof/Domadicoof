@@ -8988,7 +8988,7 @@ M:AddDropdown("Select Boats",BoatDataLis,function(value)
 SelectBoat = value
 end)
 
-SelectBoat = "Sea5[Crazy]"	
+_G.SelectLocalTeleportSea = "Sea5[Crazy]"	
 M:AddDropdown("Select Boats",{"Sea1[Low]","Sea2[Medium]","Sea3[High]","Sea4[Extreme]","Sea5[Crazy]","Sea6[???]"},function(value)
 _G.SelectLocalTeleportSea = value
 end)
