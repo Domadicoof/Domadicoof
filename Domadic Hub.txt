@@ -13342,9 +13342,31 @@ spawn(function()
         end)
 end)
     
-        R:AddToggle("Auto Next Island",_G.Auto_Dungeon,function(value)
+        R:AddToggle("Auto Farm Dungeon",_G.Auto_Dungeon,function(value)
         _G.Auto_Dungeon = value
         StopTween(_G.Auto_Dungeon)
+    end)
+    
+    spawn(function()
+        pcall(function() 
+            while wait() do
+                if _G.Auto_Dungeon then
+                    if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                pcall(function()
+                                    repeat wait()
+                                        sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                                        v.Humanoid.Health = 0
+                                        v.HumanoidRootPart.CanCollide = false
+                                    until not _G.Auto_Dungeon or not v.Parent or v.Humanoid.Health <= 0
+                                end)
+                            end
+                        end
+                    end
+                end
+            end
+        end)
     end)
     
     spawn(function()
@@ -13353,55 +13375,22 @@ end)
                 if _G.Auto_Dungeon then
                     if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
                         if game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5") then
-                            topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5").CFrame*RaidPos)
+                            topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5").CFrame*CFrame.new(0,25,0))
                         elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4") then
-                            topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4").CFrame*RaidPos)
+                            topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4").CFrame*CFrame.new(0,25,0))
                         elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3") then
-                            topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3").CFrame*RaidPos)
+                            topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3").CFrame*CFrame.new(0,25,0))
                         elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2") then
-                            topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2").CFrame*RaidPos)
+                            topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2").CFrame*CFrame.new(0,25,0))
                         elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1") then
-                            topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1").CFrame*RaidPos)
+                            topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1").CFrame*CFrame.new(0,25,0))
                         end
                     end
                 end
             end
         end)
     end)
-    
-    Type = 1
-spawn(function()
-    while wait(.1) do
-        if Type == 1 then
-            RaidPos = CFrame.new(0,25,0)
-		elseif Type == 2 then
-			RaidPos = CFrame.new(0,25,-40)
-		elseif Type == 3 then
-			RaidPos = CFrame.new(40,25,0)
-		elseif Type == 4 then
-			RaidPos = CFrame.new(0,25,40)	
-		elseif Type == 5 then
-			RaidPos = CFrame.new(-40,25,0)
-		elseif Type == 6 then
-			RaidPos = CFrame.new(0,25,0)
-        end
-        end
-    end)
-
-spawn(function()
-    while wait(.1) do
-        Type = 1
-        wait(0.9)
-        Type = 2
-        wait(0.9)
-        Type = 3
-        wait(0.9)
-        Type = 4
-        wait(0.9)
-        Type = 5
-        wait(0.9)
-    end
-end)
+      
     
     R:AddToggle("Auto Awakener",_G.Auto_Awakener,function(value)
         _G.Auto_Awakener = value
@@ -13421,30 +13410,27 @@ end)
     R:AddToggle("Kill Aura",nil,function(value)
     _G.Kill_Aura = value
     end) 
-
-spawn(function()
-        pcall(function() 
-            while wait() do
-                if _G.Kill_Aura then
-                    if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
-                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                pcall(function()
-                                    repeat wait()
-                                        sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-                                        v.Humanoid.Health = 0
-                                        v.HumanoidRootPart.CanCollide = false
-                                    until not _G.Kill_Aura or not v.Parent or v.Humanoid.Health <= 0
-                                end)
-                            end
-                        end
-                    end
+    
+    spawn(function()
+    while wait() do
+        if _G.Kill_Aura or _G.AutoRaid or RaidSuperhuman then
+            for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
+                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                    pcall(function()
+                        repeat wait(.1)
+                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+                            v.Humanoid.Health = 0
+                            v.HumanoidRootPart.CanCollide = false
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                            v.HumanoidRootPart.Transparency = 0.8
+                        until not _G.Kill_Aura or not _G.AutoRaid or not RaidSuperhuman or not v.Parent or v.Humanoid.Health <= 0
+                    end)
                 end
             end
-        end)
-    end)
+        end
+    end
+end)
 
-    
     R:AddLine()
 
     _G.SelectChip = selectraids or ""
