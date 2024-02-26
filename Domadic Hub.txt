@@ -3085,15 +3085,15 @@ spawn(function()
 spawn(function()
     while wait(.1) do
         Type = 1
-        wait(0.5)
+        wait(.5)
         Type = 2
-        wait(0.5)
+        wait(.5)
         Type = 3
-        wait(0.5)
+        wait(.5)
         Type = 4
-        wait(0.5)
+        wait(.5)
         Type = 5
-        wait(0.5)
+        wait(.5)
     end
 end)
 
@@ -3328,9 +3328,6 @@ end)
 
 H:AddLine()
 H:AddLabel("New Update Log")
-H:AddLabel("[+] Auto Set Frame Mon (CheckMon)|9/1/2567|20:28")
-H:AddLabel("[+] Esp Kisune|14/1/2567|08:08")
-H:AddLabel("[+] Send Notifications Kisune Spwan (There is a warning sound )|14/1/2567|08:08")
 H:AddLabel("[+] Auto Get Fruit Inventory|20/2/2567|15:30")
 
 
@@ -3432,6 +3429,7 @@ H:AddLabel("[+] New GUI|11/12/2566|18:19")
 H:AddLabel("[+] Auto Farm No Quest|2/1/2567|20:28")
 H:AddLabel("[+] Auto Set Frame Mon (CheckMon)|9/1/2567|20:28")
 H:AddLabel("[+] Esp Kisune|14/1/2567|08:08")
+H:AddLabel("[+] Auto Get Fruit Inventory|20/2/2567|15:30")
 
 
 
