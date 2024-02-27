@@ -10004,7 +10004,7 @@ FrozenIsland = M:AddLabel("")
     StopTween(_G.AutoFrozenDimension)
     end)
     
-    M:AddSeperator("Kitsunen")
+    M:AddLabel("Kitsunen")
         
     FaiFaoKai = M:AddLabel("")
     
