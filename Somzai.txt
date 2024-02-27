@@ -4338,7 +4338,7 @@ spawn(function()
     end
 end)
 
-H:AddSeperator("Gun")
+H:AddLabel("Gun")
 
 local Kabu_cha = H:AddLabel("❌: Kabucha")
 local Acidum_Rifle = H:AddLabel("❌: Acidum Rifle")
