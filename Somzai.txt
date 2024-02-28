@@ -13428,7 +13428,7 @@ P:AddToggle("Spectate Boats",false,function(bool)
   game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
 end)
 
-    P:AddSeperator("Quest Player")
+    P:AddLabel("Quest Player")
     
     P:AddButton("Get Quest Elite Players",function()
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
