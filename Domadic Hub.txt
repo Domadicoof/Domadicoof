@@ -7711,35 +7711,23 @@ end
         pcall(function()
             if UseSkillKub then
                 if _G.SkillZ then
-                    local args = {
-                        [1] = PosMonMasteryFruit.Position
-                    }
-                     game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
                      game:GetService("VirtualInputManager"):SendKeyEvent(true,"Z",false,game)
+                     wait(.1)
                      game:GetService("VirtualInputManager"):SendKeyEvent(false,"Z",false,game)
                 end
                 if _G.SkillX then
-                    local args = {
-                        [1] = PosMonMasteryFruit.Position
-                    }
-                     game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
                      game:GetService("VirtualInputManager"):SendKeyEvent(true,"X",false,game)
+                     wait(.1)
                      game:GetService("VirtualInputManager"):SendKeyEvent(false,"X",false,game)
                 end
-                if _G.SkillC then
-                    local args = {
-                        [1] = PosMonMasteryFruit.Position
-                    }
-                     game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
+                if _G.SkillC then                  
                      game:GetService("VirtualInputManager"):SendKeyEvent(true,"C",false,game)
+                     wait(.1)
                      game:GetService("VirtualInputManager"):SendKeyEvent(false,"C",false,game)
                 end
                 if _G.SkillV then
-                    local args = {
-                        [1] = PosMonMasteryFruit.Position
-                    }
-                     game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
                      game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game)
+                     wait(.1)
                      game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
                 end
             end
@@ -13342,32 +13330,11 @@ spawn(function()
         end)
 end)
     
-        R:AddToggle("Auto Farm Dungeon",_G.Auto_Dungeon,function(value)
+        R:AddToggle("Auto Next Island",_G.Auto_Dungeon,function(value)
         _G.Auto_Dungeon = value
         StopTween(_G.Auto_Dungeon)
     end)
     
-    spawn(function()
-        pcall(function() 
-            while wait() do
-                if _G.Auto_Dungeon then
-                    if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
-                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                pcall(function()
-                                    repeat wait()
-                                        sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
-                                        v.Humanoid.Health = 0
-                                        v.HumanoidRootPart.CanCollide = false
-                                    until not _G.Auto_Dungeon or not v.Parent or v.Humanoid.Health <= 0
-                                end)
-                            end
-                        end
-                    end
-                end
-            end
-        end)
-    end)
     
     spawn(function()
         pcall(function()
@@ -13412,24 +13379,27 @@ end)
     end) 
     
     spawn(function()
-    while wait() do
-        if _G.Kill_Aura or _G.AutoRaid or RaidSuperhuman then
-            for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
-                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                    pcall(function()
-                        repeat wait(.1)
-                            sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-                            v.Humanoid.Health = 0
-                            v.HumanoidRootPart.CanCollide = false
-                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                            v.HumanoidRootPart.Transparency = 0.8
-                        until not _G.Kill_Aura or not _G.AutoRaid or not RaidSuperhuman or not v.Parent or v.Humanoid.Health <= 0
-                    end)
+        pcall(function() 
+            while wait() do
+                if _G.Kill_Aura then
+                    if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.Timer.Visible == true then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetDescendants()) do
+                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                pcall(function()
+                                    repeat wait()
+                                        sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                                        v.Humanoid.Health = 0
+                                        v.HumanoidRootPart.CanCollide = false
+                                    until not _G.Kill_Aura or not v.Parent or v.Humanoid.Health <= 0
+                                end)
+                            end
+                        end
+                    end
                 end
             end
-        end
-    end
-end)
+        end)
+    end)
+    
 
     R:AddLine()
 
