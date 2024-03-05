@@ -3339,6 +3339,7 @@ end)
 H:AddLine()
 H:AddLabel("New Update Log")
 H:AddLabel("[+] Auto Get Fruit Inventory|20/2/2567|15:30")
+H:AddLabel("[+] Fix Function Not Load On Delta,Arceus x,Codex|5/3/2567|22:35")
 
 
 H:AddSeperator("UpdLog")
@@ -5544,35 +5545,7 @@ spawn(function()
         end
     end)
 end)
-    local CamShake = require(game.ReplicatedStorage.Util.CameraShaker)
-    CamShake:Stop()
-    local Client = game.Players.LocalPlayer
-    local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
-    local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
-    spawn(function()
-        while task.wait() do
-            pcall(function()
-                if not shared.orl then shared.orl = STOPRL.wrapAttackAnimationAsync end
-                if not shared.cpc then shared.cpc = STOP.play end
-                    STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
-                    local Hits = STOPRL.getBladeHits(b,c,d)
-                    if Hits then
-                        if _G.FastAttack then
-                            STOP.play = function() end
-                            a:Play(0.01,0.01,0.01)
-                            func(Hits)
-                            STOP.play = shared.cpc
-                            wait(a.length * 0.5)
-                            a:Stop()
-                        else
-                            a:Play()
-                        end
-                    end
-                end
-            end)
-        end
-    end)
-
+    
 local AttackList = {"0", "0.1", "0.15", "0.155", "0.16", "0.165", "0.17", "0.175", "0.18", "0.185"}
 _G.FastAttackDelay = "0.175"
 Main:AddDropdown("Fast Attack Delay", AttackList,function(MakoGay)
@@ -5824,6 +5797,10 @@ end)
     
      Main:AddToggle("Skill V",true,function(value)
         _G.SkillV = value
+    end)
+    
+    Main:AddToggle("Skill F",_G.SkillF,function(value)
+        _G.SkillF = value
     end)
     
     M:AddSeperator("World")
@@ -7675,6 +7652,15 @@ end
                                 game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game)
                                 game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
                             end
+                            if _G.SkillF then
+                                local args = {
+                                    [1] = PosMonMasteryFruit.Position
+                                }
+                                game:GetService("Players").LocalPlayer.Character[game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool").Name].RemoteEvent:FireServer(unpack(args))                           
+                                game:GetService("VirtualInputManager"):SendKeyEvent(true,"F",false,game)
+                                game:GetService("VirtualInputManager"):SendKeyEvent(false,"F",false,game)
+                            end
+                            end
                         end
                     end
                 end)
@@ -7735,6 +7721,11 @@ end
                      game:GetService("VirtualInputManager"):SendKeyEvent(true,"V",false,game)
                      wait(.1)
                      game:GetService("VirtualInputManager"):SendKeyEvent(false,"V",false,game)
+                end
+                if _G.SkillF then
+                     game:GetService("VirtualInputManager"):SendKeyEvent(true,"F",false,game)
+                     wait(.1)
+                     game:GetService("VirtualInputManager"):SendKeyEvent(false,"F",false,game)
                 end
             end
         end)
