@@ -3167,9 +3167,9 @@ end)
 
 spawn(function()
     while wait(.1) do
-		if game.Players.LocalPlayer.Character.Humanoid.Health = 100 or game.Players.LocalPlayer.Character.Humanoid.Health = 26 then
+		if game.Players.LocalPlayer.Character.Humanoid.Health <= 100 or game.Players.LocalPlayer.Character.Humanoid.Health <= 26 then
 			SafeFrame = CFrame.new(0,PosY,0)
-		elseif game.Players.LocalPlayer.Character.Humanoid.Health = 25 then
+		elseif game.Players.LocalPlayer.Character.Humanoid.Health <= 25 then
 			SafeFrame = CFrame.new(0,100,0)
         end
         end
