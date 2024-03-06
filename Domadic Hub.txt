@@ -8934,7 +8934,7 @@ end)
 	end)
 	
 
-    M:AddToggle("Auto Farm Terrorshark (Safe Mode At Health 25%)", _G.AutoTerrorshark,function(value)
+    M:AddToggle("Auto Farm Terrorshark(Safe Mode At Health 25%)", _G.AutoTerrorshark,function(value)
          _G.AutoTerrorshark = value
         StopTween( _G.AutoTerrorshark)
     end)
