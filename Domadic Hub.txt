@@ -3882,16 +3882,7 @@ spawn(function()
                                 end
                             end
                         else
-                        TP1(CFrameMon * F)
-                        if BypassTP then
-                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude > 1500 then
-	    		        BTP(CFrameMon)
-	    			    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude < 1500 then
-	    			    TP1(CFrameMon * F)
-	    				end
-	                else
-				        topos(CFrameMon * F)
-	    		    end
+                            TP1(CFrameMon * F)
                             UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -3991,7 +3982,6 @@ spawn(function()
                             end
                         end
                     else
-                    TP1(CFrameMon * F)
                     if BypassTP then
                     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameMon.Position).Magnitude > 1500 then
 			        BTP(CFrameMon)
