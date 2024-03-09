@@ -3133,6 +3133,40 @@ spawn(function()
     end
 end)
 
+Type = 1
+spawn(function()
+    while wait(.1) do
+        if Frame == 1 then
+            Check = CFrame.new(0,50,0)
+		elseif F == 2 then
+			Check = CFrame.new(0,0,-100)
+		elseif F == 3 then
+			Check = CFrame.new(100,0,0)
+		elseif F == 4 then
+			Check = CFrame.new(0,0,100)	
+		elseif F == 5 then
+			Check = CFrame.new(-100,0,0)
+		elseif F == 6 then
+			Check = CFrame.new(0,50,0)
+        end
+        end
+    end)
+
+spawn(function()
+    while wait(.1) do
+        F = 1
+        wait(0.5)
+        F = 2
+        wait(0.5)
+        F = 3
+        wait(0.5)
+        F = 4
+        wait(0.5)
+        F = 5
+        wait(0.5)
+    end
+end)
+
 spawn(function()
     while wait(.1) do
 		if game.Players.LocalPlayer.Character.Humanoid.Health <= 100 or game.Players.LocalPlayer.Character.Humanoid.Health <= 26 then
@@ -3812,7 +3846,7 @@ spawn(function()
                         CheckQuest()
                         if BypassTP then
                         if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude > 1500 then
-						BTP(CFrameQuest * CFrame.new(0,20,0))
+						BTP(CFrameQuest * CFrame.new(0,20,5))
 						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuest.Position).Magnitude < 1500 then
 						TP1(CFrameQuest)
 						end
@@ -3850,7 +3884,7 @@ spawn(function()
                                 end
                             end
                         else
-                            TP1(CFrameMon)
+                            TP1(CFrameMon * Check)
                             UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -3914,7 +3948,7 @@ spawn(function()
                                 end
                             end
                         else
-                            TP1(CFrameMon)
+                            TP1(CFrameMon * Check)
                             UnEquipWeapon(_G.SelectWeapon)
                             StartMagnet = false
                             if game:GetService("ReplicatedStorage"):FindFirstChild(Mon) then
@@ -6021,19 +6055,15 @@ M:AddToggle("Teleport Advanced Fruit Dealer",_G.TPNPC,function(value)
         end)
 
 spawn(function()
-    pcall(function()
-    while wait() do
-        if _G.Miragenpc then
-            if game:GetService("Workspace").NPCs:FindFirstChild("Advanced Fruit Dealer") then
-                topos(CFrame.new(game:GetService("Workspace").NPCs["Advanced Fruit Dealer"].HumanoidRootPart.Position))
+        pcall(function()
+            while wait(.1) do
+                if _G.Miragenpc then    
+                    TweenNpc()
                 end
             end
-        end
+        end)
     end)
-end)
-M:AddButton("Teleport Advanced Fruit Dealer", function()
-                TweenNpc()
-                end)
+
 
                 function TweenNpc()
                     repeat
@@ -6051,6 +6081,7 @@ M:AddButton("Teleport Advanced Fruit Dealer", function()
                             end
                         end
                     end
+                    
 M:AddToggle("Tween Gear",_G.TweenMGear,function(value)
 _G.TweenMGear = value
 StopTween(_G.TweenMGear)
