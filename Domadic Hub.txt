@@ -5633,6 +5633,41 @@ spawn(function()
         end
     end
 end)
+local Client = game.Players.LocalPlayer
+local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
+local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
+task.spawn(function()
+	pcall(function()
+		if not shared.orl then
+			shared.orl = STOPRL.wrapAttackAnimationAsync
+		end
+			if not shared.cpc then
+				shared.cpc = STOP.play 
+			end
+		spawn(function()
+			game:GetService("RunService").Stepped:Connect(function()
+				STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
+					local Hits = STOPRL.getBladeHits(b,c,d)
+					if Hits then
+						if  _G.FastAttack then
+							STOP.play = function() end
+							a:Play(2.1,2.1,2.1)
+							func(Hits)
+							STOP.play = shared.cpc
+							wait(a.length * 0.5)
+							a:Stop()
+						else
+							func(Hits)
+							STOP.play = shared.cpc
+							wait(a.length * 0.5)
+							a:Stop()
+						end
+					end
+				end
+			end)
+		end)
+	end)
+	end)
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
