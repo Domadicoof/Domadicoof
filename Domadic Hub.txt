@@ -3340,7 +3340,7 @@ end)
 
 H:AddLine()
 H:AddLabel("New Update Log")
-H:AddLabel("[+] Auto Get Fruit Inventory|20/2/2567|15:30")
+H:AddLabel("[+] Fix Fast Attack|10/3/2567|12:15")
 
 
 H:AddSeperator("UpdLog")
@@ -3442,6 +3442,7 @@ H:AddLabel("[+] Auto Farm No Quest|2/1/2567|20:28")
 H:AddLabel("[+] Auto Set Frame Mon (CheckMon)|9/1/2567|20:28")
 H:AddLabel("[+] Esp Kisune|14/1/2567|08:08")
 H:AddLabel("[+] Auto Get Fruit Inventory|20/2/2567|15:30")
+H:AddLabel("[+] Fix Fast Attack|10/3/2567|12:15")
 
 
 
