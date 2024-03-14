@@ -1902,7 +1902,6 @@ local Shop = H:NewSection("Shops")
 local Misc = Misc:NewSection("Misc")
 local RaceV4 = R:NewSection("RaceV4")
 
-Main:Label("Madox Crack Nokey")
 
 Main:Label("Server")
 
@@ -7707,7 +7706,7 @@ local Boats = Farm:Dropdown("Select Boats",BoatsName,function(plys)
   SelectB = plys
 end)
     
-Farm:AddButton("Refrsh Boats",function()
+Farm:Button("Refrsh Boats",function()
   BoatsName = {}
   Boats:Clear()
   for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
