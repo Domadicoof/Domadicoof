@@ -1902,7 +1902,7 @@ local Shop = H:NewSection("Shops")
 local Misc = Misc:NewSection("Misc")
 local RaceV4 = R:NewSection("RaceV4")
 
-Main:Seperator("Server")
+Main:Label("Server")
 
 Time = Main:Label("Executer Time")
 
