@@ -3641,19 +3641,6 @@ end
 end
 end
 --// Farming Float Island Tween
-spawn(function()
-  game:GetService("RunService").Heartbeat:Connect(function()
-    if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or _G.d or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or _G.Mirage or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto then
-    if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
-    setfflag("HumanoidParallelRemoveNoPhysics","false")
-    setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2","false")
-    game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(11)
-    end
-    else
-      game:GetService("Players").LocalPlayer.Character.Humanoid:ChangeState(18)
-    end
-    end)
-  end)
 
 --// Player Body Velocity
 spawn(function()
@@ -3675,7 +3662,7 @@ spawn(function()
     end
     end)
   end)
-
+  
 --// Farming Clip Tween
 spawn(function()
   pcall(function()
