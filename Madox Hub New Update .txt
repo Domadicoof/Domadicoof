@@ -128,7 +128,7 @@ function Blacklib:Window()
     Space.Size = UDim2.new(0, 10, 0, 25)
     Space.Font = Enum.Font.GothamBold
     Space.Text = "|"
-    Space.TextColor3 = Color3.fromRGB(250,0,0)
+    Space.TextColor3 = Color3.fromRGB(255, 255, 255)
     Space.TextSize = 18.000
     
     ServerTime.Name = "ServerTime"
@@ -151,7 +151,7 @@ function Blacklib:Window()
     Space2.Size = UDim2.new(0, 10, 0, 25)
     Space2.Font = Enum.Font.GothamBold
     Space2.Text = "|"
-    Space2.TextColor3 = Color3.fromRGB(250,0,0)
+    Space2.TextColor3 = Color3.fromRGB(255, 255, 255)
     Space2.TextSize = 18.000
     
     Pinged.Name = "Pinged"
@@ -3534,12 +3534,17 @@ end
 end
 
 --// Bypass Teleport
-function BTP(P1)
-game.Players.LocalPlayer.Character.Head:Destroy()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
-wait(1)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
-game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+function BTP(p)
+    pcall(function()
+	    if (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 2000 and not Auto_Raid and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+			repeat wait()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
+				wait(.05)
+				game.Players.LocalPlayer.Character.Head:Destroy()
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
+			until (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 2000 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
+		end
+	end)
 end
 
 --// Aimbot Skill Mastery
