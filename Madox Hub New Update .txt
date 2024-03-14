@@ -7651,7 +7651,7 @@ Farm:Toggle('Fast Boat', false, function(AGAM)
                         table.insert(vehicleSeats, v)
                     end
                 end
-                if _G.IncreaseBoatSpeed then
+                if BoatSpeed then
                     for _, v in pairs(vehicleSeats) do
                         v.MaxSpeed = BoatSpeed
                     end
