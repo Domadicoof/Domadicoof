@@ -7638,9 +7638,9 @@ end
 	"450",
 	"500"
 }
-BoatSpeed = "350"
+BoatSpeeded = "350"
 Farm:Dropdown("Select Boat Speed",SpeedTable,function(value)
-BoatSpeed = value
+BoatSpeeded = value
 end)
 
 Farm:Toggle('Fast Boat', false, function(AGAM)
@@ -7653,7 +7653,7 @@ Farm:Toggle('Fast Boat', false, function(AGAM)
                 end
                 if BoatSpeed then
                     for _, v in pairs(vehicleSeats) do
-                        v.MaxSpeed = BoatSpeed
+                        v.MaxSpeed = BoatSpeeded
                     end
                 else
                     for _, v in pairs(vehicleSeats) do
