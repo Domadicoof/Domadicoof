@@ -7618,7 +7618,7 @@ end)
         pcall(function()
             while wait() do
                 if AutoGetAzure then
-                    if game.Workspace.EmberTemplate.Part.CFrame then
+                    if game.Workspace.EmberTemplate.Part then
                     Tween(game.Workspace.EmberTemplate.Part.CFrame)
                     end
                 end
