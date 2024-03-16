@@ -7638,22 +7638,22 @@ end
 	"450",
 	"500"
 }
-BoatSpeeded = "350"
-Farm:Dropdown("Select Boat Speed",SpeedTable,function(value)
-BoatSpeeded = value
+BoatSpeed = "350"
+Farm:Dropdown("Selected Boat Speed",SpeedTable,function(value)
+BoatSpeed = value
 end)
 
-Farm:Toggle('Fast Boat', false, function(value)
-        BoatSpeed = value
+    Farm:Toggle("Increase Boat Speed",_G.IncreaseBoatSpeed,function(value)
+        IncreaseBoatSpeed = value
     local vehicleSeats = {}
                 for i, v in pairs(game.Workspace.Boats:GetDescendants()) do
                     if v:IsA("VehicleSeat") then
                         table.insert(vehicleSeats, v)
                     end
                 end
-                if BoatSpeed then
+                if IncreaseBoatSpeed then
                     for _, v in pairs(vehicleSeats) do
-                        v.MaxSpeed = BoatSpeeded
+                        v.MaxSpeed = BoatSpeed
                     end
                 else
                     for _, v in pairs(vehicleSeats) do
