@@ -7643,7 +7643,7 @@ Farm:Dropdown("Select Boat Speed",SpeedTable,function(value)
 BoatSpeeded = value
 end)
 
-Farm:Toggle('Fast Boat', false, function(AGAM)
+Farm:Toggle('Fast Boat', false, function(value)
         BoatSpeed = value
     local vehicleSeats = {}
                 for i, v in pairs(game.Workspace.Boats:GetDescendants()) do
