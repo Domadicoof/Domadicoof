@@ -7563,6 +7563,7 @@ spawn(function()
                                     --v.Humanoid:ChangeState(14)
                                     FarmPos = v.HumanoidRootPart.CFrame
                                     MonFarm = v.Name
+                                    MobNames = v.Name
                                     Click()
                                 until v.Humanoid.Health <= 0 or not v.Parent or not AutoSeaEvent
                                 Fastattack = false
@@ -7570,7 +7571,7 @@ spawn(function()
                         end
                     end
                 else
-                    Tween(game.ReplicatedStorage:FindFirstChild(v.Name).HumanoidRootPart.CFrame*Farm_Mode)
+                    Tween(game.ReplicatedStorage:FindFirstChild(MobNames).HumanoidRootPart.CFrame*Farm_Mode)
                 end       
             end
         end)
@@ -7629,31 +7630,17 @@ end
     
     Farm:Label("🛶 Boat Menu 🛶")
     
-    SpeedTable = {
-	"200",
-	"250",
-	"300",
-	"350",
-	"400",
-	"450",
-	"500"
-}
-BoatSpeed = "350"
-Farm:Dropdown("Selected Boat Speed",SpeedTable,function(value)
-BoatSpeed = value
-end)
-
-    Farm:Toggle("Increase Boat Speed",_G.IncreaseBoatSpeed,function(value)
-        IncreaseBoatSpeed = value
+    Farm:Toggle("Increase Boat Speed",false,function(value)
+        _G.IncreaseBoatSpeed = value
     local vehicleSeats = {}
                 for i, v in pairs(game.Workspace.Boats:GetDescendants()) do
                     if v:IsA("VehicleSeat") then
                         table.insert(vehicleSeats, v)
                     end
                 end
-                if IncreaseBoatSpeed then
+                if _G.IncreaseBoatSpeed then
                     for _, v in pairs(vehicleSeats) do
-                        v.MaxSpeed = BoatSpeed
+                        v.MaxSpeed = 350
                     end
                 else
                     for _, v in pairs(vehicleSeats) do
