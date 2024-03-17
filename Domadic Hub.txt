@@ -9569,6 +9569,7 @@ end)
     
     local Elite = CFrame.new(-5418.892578125, 313.74130249023, -2826.2260742188)
     
+    
     spawn(function()
         while wait() do
             if _G.AutoElitehunter and World3 then
@@ -9608,12 +9609,16 @@ end)
                                     end
                                 end
                             else
-                                if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                                elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                                elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
-                                    topos(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                local LocMon1 = game:GetService("ReplicatedStorage"):FindFirstChild(v.Name).HumanoidRootPart.CFrame * CFrame.new(2,20,2)
+                                if BypassTP then
+                                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - LocMon1.Position).Magnitude > 1500 then
+	                    		    BTP(LocMon1)
+			                	    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - LocMon1.Position).Magnitude < 1500 then
+		                    		topos(LocMon1)
+				                	end
+			                	else
+			                	    topos(LocMon1)
+		                		end
                                 else
                                     if _G.AutoEliteHunterHop then
                                         Hop()
@@ -12531,7 +12536,7 @@ end)
         end)
 
         RaceV4:AddButton("Auto Complete Cyborg Trial",function(t)
-        topos(CFrame.new(0,300,0))
+        topos(CFrame.new(28654, 14898.7832, -30, 1, 0, 0, 0, 1, 0, 0, 0, 1))
         end)
     end
     
@@ -12615,11 +12620,11 @@ end)
         table.insert(Playerslist,v.Name)
     end
     
-    local SelectedPly = P:AddDropdown("Select Player",Playerslist,function(value)
+    local SelectedPly = Combat:Dropdown("Select Player List",Playerslist,function(value)
         _G.SelectPly = value
     end)
     
-    P:AddButton("Refresh Player",function()
+    Combat:Button("Refresh Player List",function()
         Playerslist = {}
         SelectedPly:Clear()
         for i,v in pairs(game:GetService("Players"):GetChildren()) do  
