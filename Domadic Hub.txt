@@ -9568,8 +9568,7 @@ end)
     end)
     
     local Elite = CFrame.new(-5418.892578125, 313.74130249023, -2826.2260742188)
-    
-    
+       
     spawn(function()
         while wait() do
             if _G.AutoElitehunter and World3 then
@@ -9640,7 +9639,6 @@ end)
             if _G.AutoElitehunter and _G.AutoEliteHunterHop then
                 pcall(function()
                     if not game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or not game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or not game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
-                        wait(3)
                         Hop()
                     end
                 end)
@@ -12550,7 +12548,7 @@ end)
         end)
 
         RaceV4:AddButton("Auto Complete Cyborg Trial",function(t)
-        topos(CFrame.new(28654, 14898.7832, -30, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+        topos(CFrame.new(0,300,0))
         end)
     end
     
@@ -12634,11 +12632,11 @@ end)
         table.insert(Playerslist,v.Name)
     end
     
-    local SelectedPly = Combat:Dropdown("Select Player List",Playerslist,function(value)
+    local SelectedPly = P:AddDropdown("Select Player",Playerslist,function(value)
         _G.SelectPly = value
     end)
     
-    Combat:Button("Refresh Player List",function()
+    P:AddButton("Refresh Player",function()
         Playerslist = {}
         SelectedPly:Clear()
         for i,v in pairs(game:GetService("Players"):GetChildren()) do  
