@@ -9634,7 +9634,6 @@ end)
     end)
     
     spawn(function()
-        spawn(function()
         while wait() do
             if _G.AutoElitehunter and _G.AutoEliteHunterHop then
                 pcall(function()
