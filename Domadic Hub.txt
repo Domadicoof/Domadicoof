@@ -13328,6 +13328,8 @@ end)
         end
     end)
     
+    R:AddLabel("Not Found Dungeons! In World 1")
+    if World2 or World3 then 
     local TimeRaid = R:AddLabel("Wait For Dungeon")
     
     local Island1 = R:AddLabel(": lsland 1")
@@ -13645,7 +13647,8 @@ end)
             topos(CFrame.new(-11571.440429688, 49.172668457031, -7574.7368164062))
         end)
     end
-    
+end
+    if World2 then 
     R:AddSeperator("Misc KoKo Sword")
     
  R:AddToggle("Auto Law Sword (New !)", _G.AutoOderSword,function(value)
@@ -13661,9 +13664,9 @@ end)
         while wait() do
             if  _G.AutoOderSword then
                 pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Order [Lv. 1250] [Raid Boss]") then
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Order") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "Order [Lv. 1250] [Raid Boss]" then
+                            if v.Name == "Order" then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat task.wait()
                                         AutoHaki()
@@ -13680,8 +13683,8 @@ end)
                             end
                         end
                     else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Order [Lv. 1250] [Raid Boss]") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Order [Lv. 1250] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Order") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Order").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
                             if  _G.AutoOderSwordHop then
                                 Hop()
@@ -13707,6 +13710,7 @@ end)
             fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon.Button.Main.ClickDetector)
         end
     end)
+end
 
 
     T:AddSeperator("World")
