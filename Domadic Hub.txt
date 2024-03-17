@@ -9609,25 +9609,39 @@ end)
                                     end
                                 end
                             else
-                                LocMon1 = game:GetService("ReplicatedStorage"):FindFirstChild(v.Name).HumanoidRootPart.CFrame * CFrame.new(2,20,2)
                                 if BypassTP then
-                                if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - LocMon1.Position).Magnitude > 1500 then
-	                    	    BTP(LocMon1)
-			                    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - LocMon1.Position).Magnitude < 1500 then
-		                    	topos(LocMon1)
-				            	end
-			            	else
-			                    topos(LocMon1)
-		            		end
-                                else
-                                    if _G.AutoEliteHunterHop then
-                                        Hop()
-                                    else
-                                        topos(CFrame.new(-5418.892578125, 313.74130249023, -2826.2260742188))
+                                   if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
+                                       BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
+                                       BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
+                                       BTP(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                   end
+                               else
+                                   if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then
+                                       topos(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
+                                       topos(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                                   elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
+                                       topos(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame * CFrame.new(2,20,2))         
                                     end
                                 end
                             end                    
                         end
+                    end
+                end)
+            end
+        end
+    end)
+    
+    spawn(function()
+        spawn(function()
+        while wait() do
+            if _G.AutoElitehunter and _G.AutoEliteHunterHop then
+                pcall(function()
+                    if not game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") or not game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") or not game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
+                        wait(3)
+                        Hop()
                     end
                 end)
             end
