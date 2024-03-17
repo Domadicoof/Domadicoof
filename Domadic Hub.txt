@@ -4885,6 +4885,7 @@ Main:AddToggle("Auto Farm Chest Hop",_G.AutoFarmChest_Hop,function(value)
     _G.AutoFarmChest_Hop = value
     end)
 
+if World3 then
 
     Main:AddSeperator("Dought Boss")
     
@@ -5261,6 +5262,7 @@ spawn(function()
             end
         end
     end)
+end
    
     
     Main:AddSeperator("Boss")
@@ -7956,7 +7958,7 @@ end
     end)
     
 
-    
+    if World3 then
     M:AddSeperator("Misc Buddy Sword")
     
     M:AddToggle("Auto Buddy Sword",_G.AutoBudySword,function(value)
@@ -8015,7 +8017,9 @@ end
             end
         end
     end)
+end
     
+if World3 then
     M:AddSeperator("Soul Guitar")
     
     local FM = M:AddLabel('Third World')
@@ -8214,7 +8218,9 @@ M:AddToggle("Auto Find Full Moon",_G.AutoFindFullmoon,function(value)
             end
         end
     end)
-    
+end
+   
+if World3 then 
  M:AddSeperator("Dual Curse Katana")
 
 M:AddToggle("Auto Dual Curse Katana",_G.AutoCdk,function(value)
@@ -8654,7 +8660,9 @@ spawn(function()
             end
         end
     end)
+end
 	
+	if World3 then
 	M:AddSeperator(" Tushita ")
 
 M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
@@ -8713,7 +8721,9 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
             end
         end
     end)
+end
 
+if World3 then
     M:AddSeperator("Carvander")
 
     M:AddToggle("Auto Cavander", _G.AutoCarvender,function(value)
@@ -8772,6 +8782,9 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
             end
         end
     end)
+end
+
+if World3 then
     
     M:AddSeperator("Pirate Raid [BETA]")
     
@@ -8814,7 +8827,9 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
         end
     end
     end)
+end
     
+if World3 then
     M:AddSeperator("Twin Hook")
     
     M:AddToggle("Auto Twin Hook", _G.AutoTwinHook,function(value)
@@ -8873,7 +8888,9 @@ M:AddToggle("Auto Tushita", _G.Autotushita,function(value)
             end
         end
     end)
-    
+end
+
+if World3 then  
     M:AddSeperator("Rough Sea")
     
     BoatDataLis = {
@@ -9404,6 +9421,7 @@ notification.Volume = 5 --ระวังหูแตก
             end
         end
     end)
+end
     
     M:AddLabel("Boat")
     
@@ -9472,7 +9490,8 @@ end)
                                 end
                             end
                         end)
-                        
+ 
+if World3 then              
 M:AddToggle("Auto Quest Shipwinght Teacher(Kill Shark 20)",_G.GetQuaetRepia,function(value)
 _G.GetQuestRepia = value 
 StopTween(_G.GetQuestRepia)
@@ -9648,7 +9667,9 @@ end)
     M:AddToggle("Auto Elite Hunter Hop",_G.AutoEliteHunterHop,function(value)
         _G.AutoEliteHunterHop = value
     end)
+    end
     
+    if World3 then
     M:AddSeperator("ArenaTrainer")
     
     M:AddToggle("Auto ArenaTrainer",_G.AutoArenaTrainer,function(value)
@@ -9764,7 +9785,9 @@ end)
             end
         end
     end)
+end
     
+    if World3 then
     M:AddSeperator("Dark Dagger")
     
     M:AddToggle("Auto Kill Admin Boss",_G.AutoDarkDagger,function(value)
@@ -9856,6 +9879,7 @@ spawn(function()
         end) 
     end
 end)
+end
     
     
 function EquipAllWeapon()
@@ -9870,6 +9894,7 @@ function EquipAllWeapon()
 	end)
 end
 
+if World2 or World3 then
     M:AddSeperator(" Sea Beast ")
  
     M:AddToggle('Teleport to Seabaeat', false, function(value)
@@ -10066,8 +10091,9 @@ end)
 M:AddToggle('Ennable Hop Sea Event Farm', false, function(value)
     _G.AutoSeaBestHop = value
     end)
+    end
     
-    
+    if World2 then
     M:AddSeperator(" Trident ")
 	
 	M:AddToggle("Auto Dragon Trident", _G.Auto_Dragon_Trident,function(value)
@@ -10126,7 +10152,9 @@ M:AddToggle('Ennable Hop Sea Event Farm', false, function(value)
             end
         end
     end)
+end
 
+if World1 then
 	M:AddSeperator(" Waden Sword ")
 	
 	M:AddToggle("Auto Waden Sword", _G.Autowaden,function(value)
@@ -10303,7 +10331,9 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
             end
         end
     end)
+end
     
+    if World2 then
     M:AddSeperator("Misc Swan Glasses")
     
     M:AddToggle("Auto Swan Glasses",_G.AutoFarmSwanGlasses,function(value)
@@ -10342,10 +10372,22 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
         end)
     end)
     
+    spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if (_G.AutoFarmSwanGlasses and _G.AutoFarmSwanGlasses_Hop) and World2 and not game:GetService("ReplicatedStorage"):FindFirstChild("Don Swan [Lv. 1000] [Boss]") and not game:GetService("Workspace").Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]") then
+                    Hop()
+                end
+            end
+        end)
+    end)
+    
     M:AddToggle("Auto Swan Glasses Hop",_G.AutoFarmSwanGlasses_Hop,function(value)
         _G.AutoFarmSwanGlasses_Hop = value
     end)
+end
     
+    if World1 then
     M:AddSeperator("Sharks Saw")
     
     M:AddToggle("Auto Sharks saw", _G.Autodoughking,function(value)
@@ -10404,18 +10446,10 @@ local PolePos = CFrame.new(-7748.0185546875, 5606.80615234375, -2305.89868164062
             end
         end
     end)
+end
     
     
-    spawn(function()
-        pcall(function()
-            while wait(.1) do
-                if (_G.AutoFarmSwanGlasses and _G.AutoFarmSwanGlasses_Hop) and World2 and not game:GetService("ReplicatedStorage"):FindFirstChild("Don Swan [Lv. 1000] [Boss]") and not game:GetService("Workspace").Enemies:FindFirstChild("Don Swan [Lv. 1000] [Boss]") then
-                    Hop()
-                end
-            end
-        end)
-    end)
-    
+if World3 then
     M:AddSeperator("Misc Bone")
     
     BoneCheck = M:AddLabel("Total Bone :  ")
@@ -10686,6 +10720,7 @@ end)
             end
         end)
     end)
+end
                 
     M:AddSeperator("Observation")
     
@@ -10798,6 +10833,7 @@ end)
         end)
     end)
     
+if World1 then
     M:AddSeperator("Saber")
     
     M:AddToggle("Auto Saber",_G.AutoSaber,function(value)
@@ -10856,7 +10892,7 @@ end)
 										topos(CFrame.new(-2967.59521, -4.91089821, 5328.70703, 0.342208564, -0.0227849055, 0.939347804, 0.0251603816, 0.999569714, 0.0150796166, -0.939287126, 0.0184739735, 0.342634559)) 
                                             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                                 if v.Name == "Mob Leader" then
-                                                   if game:GetService("Workspace").Enemies:FindFirstChild("Mob Leader [Lv. 120] [Boss]") then
+                                                   if game:GetService("Workspace").Enemies:FindFirstChild("Mob Leader") then
                                                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                                         repeat task.wait()
                                                         AutoHaki()
@@ -10919,7 +10955,9 @@ end)
             end
         end
     end)
+end
     
+if World2 then
     M:AddSeperator("Legendary Sword")
     
 spawn(function()
@@ -10975,7 +11013,9 @@ LegendSwords = M:AddLabel("StatusCheck")
     M:AddToggle("Auto Legendary Sword Hop",_G.AutoBuyLegendarySword_Hop,function(value)
         _G.AutoBuyLegendarySword_Hop = value
     end)
+end
     
+if World2 or World3 then
     M:AddSeperator("Enchancement Colour")
     
     local KuyKoben = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1")
@@ -11017,9 +11057,10 @@ ColorHaki = M:AddLabel("HuaiPaDang")
             end 
         end
     end)
+end
     
     M:AddSeperator("Other")
-    
+if World3 then
     M:AddToggle("Auto Musketeer Hat",_G.AutoMusketeerHat,function(value)
         _G.AutoMusketeerHat = value
         StopTween(_G.AutoMusketeerHat)
@@ -11100,7 +11141,7 @@ ColorHaki = M:AddLabel("HuaiPaDang")
             end
         end)
     end)
-    
+
     M:AddToggle("Auto Rainbow Haki",_G.Auto_Rainbow_Haki,function(value)
         _G.Auto_Rainbow_Haki = value
         StopTween(_G.Auto_Rainbow_Haki)
@@ -11272,7 +11313,9 @@ ColorHaki = M:AddLabel("HuaiPaDang")
             end)
         end
     end)
+end
     
+    if World2 then
     M:AddToggle("Auto Rengoku",_G.AutoRengoku,function(value)
         _G.AutoRengoku = value
         StopTween(_G.AutoRengoku)
@@ -11355,7 +11398,9 @@ ColorHaki = M:AddLabel("HuaiPaDang")
             end
         end)
     end)
+end
     
+    if World3 then
     M:AddToggle("Auto Yama",_G.AutoYama,function(value)
         _G.AutoYama = value
         StopTween(_G.AutoYama)
@@ -11372,7 +11417,9 @@ ColorHaki = M:AddLabel("HuaiPaDang")
             end
         end
     end)
+end
     
+    if World2 then
     M:AddToggle("Auto Evo Race (V2)",_G.Auto_EvoRace,function(value)
         _G.Auto_EvoRace = value
         StopTween(_G.Auto_EvoRace)
@@ -11520,7 +11567,8 @@ ColorHaki = M:AddLabel("HuaiPaDang")
             end
         end)
     end)
-    
+end
+if World3 then
     M:AddToggle("Auto Holy Torch",_G.AutoHolyTorch,function(value)
         _G.AutoHolyTorch = value
         StopTween(_G.AutoHolyTorch)
@@ -11563,6 +11611,7 @@ ColorHaki = M:AddLabel("HuaiPaDang")
         end)
     end
 end)
+end
     
     spawn(function()
         while task.wait() do
