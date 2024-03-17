@@ -13327,8 +13327,9 @@ end)
             end
         end
     end)
-    
+    if World1 then 
     R:AddLabel("Not Found Dungeons! In World 1")
+    end
     if World2 or World3 then 
     local TimeRaid = R:AddLabel("Wait For Dungeon")
     
