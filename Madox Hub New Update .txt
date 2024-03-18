@@ -2376,30 +2376,37 @@ Main:Toggle("Bring Mob", true, function(Value)
   end)
 
 
-function bring2()
-	local plr = game.Players.LocalPlayer
-	pcall(function()
-	for i, v in pairs(game.workspace.Enemies:GetChildren()) do
-		for k, x in pairs (game.workspace.Enemies:GetChildren()) do
-		if x.Name == MonFarm then
-			if v.Name == MonFarm then
-				x.HumanoidRootPart.CFrame = FarmPos
-				v.HumanoidRootPart.CanCollide = false
-				v.HumanoidRootPart.Size = Vector3.new(80,80,80)
-				sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
-			end
-		end
-		end
-	end
-	end)
-end
 spawn(function()
-	while wait(.1) do
-		if BringMobs or _G.Auto_Farm_Level then
-			bring2()
-		end
-    end
-end)
+        while task.wait() do
+            pcall(function()
+                if BringMobs then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v.Name == MonFarm and (Mon == "Factory Staff" or Mon == "Monkey" or Mon == "Dragon Crew Warrior" or Mon == "Dragon Crew Archer") and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 220 then
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                            v.HumanoidRootPart.CFrame = FarmPos
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                            sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                        elseif v.Name == MonFarm and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 and (v.HumanoidRootPart.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
+                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                            v.HumanoidRootPart.CFrame = FarmPos
+                            v.Humanoid:ChangeState(14)
+                            v.HumanoidRootPart.CanCollide = false
+                            v.Head.CanCollide = false
+                            if v.Humanoid:FindFirstChild("Animator") then
+                                v.Humanoid.Animator:Destroy()
+                            end
+                            sethiddenproperty(game:GetService("Players").LocalPlayer,"SimulationRadius",math.huge)
+                        end
+                    end
+                end
+            end)
+        end
+    end)
 
 Main:Toggle("Auto Set Spawn Point",true, function(setspawnfunc)
   AutoSetSpawn = setspawnfunc
