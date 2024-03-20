@@ -5070,11 +5070,12 @@ spawn(function()
 									end
 								else
 									--CheckLevel2()
-									TP(MobCFrame)
 									repeat task.wait()
-										for i,v in pairs(game.Workspace._WorldOrigin.EnemySpawns:GetChildren()) do
-											if v.Name == namemon then
-												TP(v.CFrame * CFrame.new(0,30,0))
+										for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
+                                            if string.find(v.Name,namemon) then
+                                                if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
+                                                Tween(v.CFrame * CFrame.new(0,30,0))
+                                                end
 											end
 										end
 									until game.Workspace.Enemies:FindFirstChild(namemon) or not Auto_Farm or Mix_Farm
@@ -8190,12 +8191,12 @@ spawn(function()
 									FastAttack = false
 								end
 							end
-						elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") then
-							TP(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
+						elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
+							TP(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame*CFrame.new(0,30,0))
 						end
 					elseif _G.Setting_table.Auto_Elite_Hunter_Hop then
 						wait(5)
-						if not game:GetService("ReplicatedStorage"):FindFirstChild("Urban [Lv. 1750]") and not game:GetService("Workspace").Enemies:FindFirstChild("Urban [Lv. 1750]") and not game:GetService("ReplicatedStorage"):FindFirstChild("Diablo [Lv. 1750]") and not game:GetService("Workspace").Enemies:FindFirstChild("Diablo [Lv. 1750]") and not game:GetService("ReplicatedStorage"):FindFirstChild("Deandre [Lv. 1750]") and not game:GetService("Workspace").Enemies:FindFirstChild("Deandre [Lv. 1750]") then
+						if not game:GetService("ReplicatedStorage"):FindFirstChild("Urban") and not game:GetService("Workspace").Enemies:FindFirstChild("Urban") and not game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") and not game:GetService("Workspace").Enemies:FindFirstChild("Diablo") and not game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") and not game:GetService("Workspace").Enemies:FindFirstChild("Deandre") then
 							HopServer()
 							wait(50)
 						end
@@ -8905,7 +8906,7 @@ _G.BoatSpeed = value
 end)
 
     
-    Miscf:Toggle("Increase Boat Speed",_G.Setting_table.IncreaseBoatSpeed,function(value)
+    Miscf:Toggle("Increase Boat Speed",_G.Setting_table.IncreaseBoatSpeed,function(vu)
         _G.Setting_table.IncreaseBoatSpeed = vu
 	    Update_Setting(getgenv()['MyName'])
     local vehicleSeats = {}
