@@ -5074,7 +5074,7 @@ spawn(function()
 										for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
                                             if string.find(v.Name,namemon) then
                                                 if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
-                                                Tween(v.CFrame * CFrame.new(0,30,0))
+                                                TP(v.CFrame * CFrame.new(0,30,0))
                                                 end
 											end
 										end
