@@ -3655,17 +3655,19 @@ function Tween(aL)
     )
 end
 
+
+    
 --// Stop Tween Farm
     function CancelTween(target)
-		if not target then
-			tween:Cancel()
-			_G.StopTween = true
-			_G.UseSkill = false
-			wait(0.2)
-			_G.StopTween = false
-			_G.Clip = false
-		end
-	end
+        if not target then
+            wait()
+            Tween(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+            wait()
+            if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
+                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip"):Destroy()
+            end
+        end
+    end
 
 --// Tween Boats
 function TPB(CFgo)
