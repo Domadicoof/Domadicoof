@@ -5699,9 +5699,9 @@ end)
     spawn(function()
 			while wait(.1) do
 				if _G.Setting_table.AutoChestMirage then
-					for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+					for i,v in pairs(game:GetService("Workspace").Map.MysticIsland:GetChildren()) do
 						if v.Name == "FragChest" then
-							TP(v.Parent.CFrame)
+							TP(v.CFrame)
 						end
 					end
 				end
@@ -6730,13 +6730,39 @@ end)
             end)
         end)
         
-Miscf:Button("Teleport To Advanced Fruit Dealer",function()
-    for i, ve in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
-        if ve.Name == "Advanced Fruit Dealer" then
-            TP(ve.HumanoidRootPart.CFrame * CFrame.new(0,2,0))
-        end
-    end
+Miscf:Toggle("Teleport Advanced Fruit Npc",_G.Setting_table.TeleporttoGear,function(vu)
+	_G.Setting_table.Miragenpc = vu
+	Update_Setting(getgenv()['MyName'])
 end)
+
+        spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if _G.Setting_table.Miragenpc then    
+                    TweenNpc()
+                end
+            end
+        end)
+    end)
+
+
+                function TweenNpc()
+                    repeat
+                        wait()
+                    until game:GetService("Workspace").Map:FindFirstChild("MysticIsland")
+                    if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+                        AllNPCS = getnilinstances()
+                        for r, v in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
+                            table.insert(AllNPCS, v)
+                        end
+                        for r, v in pairs(AllNPCS) do
+                            if v.Name == "Advanced Fruit Dealer" then
+                                TP(v.HumanoidRootPart.CFrame)
+                                end
+                            end
+                        end
+                    end
+                    
 
 Miscf:Toggle("Teleport To Gear",_G.Setting_table.TeleporttoGear,function(vu)
 	_G.Setting_table.TeleporttoGear = vu
