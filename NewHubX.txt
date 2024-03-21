@@ -3228,47 +3228,35 @@ end
 
 	----[Body Gryro]
 
-    task.spawn(function()
-		game:GetService("RunService").Stepped:Connect(function()
-			pcall(function()
-				--[World 1]
-				if Prince2 or _G.Settings.Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear or FarmShark or AutoTerrorshark or AutoSeaBest or FarmPiranha or Fish_Crew_Member or AutoPirateShip or _G.Setting_table.AutoMysticIsland or AutoRougthFully or BuyBoatDmd then
-					if syn then
-						setfflag("HumanoidParallelRemoveNoPhysics", "False")
-						setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
-						game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-						if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-							game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-						end
-					else
-						if not Auto_Sea_Best then
-							if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-								if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1") then
-									if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == true then
-										game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
-									end
-									local BodyVelocity = Instance.new("BodyVelocity")
-									BodyVelocity.Name = "BodyVelocity1"
-									BodyVelocity.Parent =  game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
-									BodyVelocity.MaxForce = Vector3.new(10000, 10000, 10000)
-									BodyVelocity.Velocity = Vector3.new(0, 0, 0)
-								end
-							end
-							for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-								if v:IsA("BasePart") then
-									v.CanCollide = false    
-								end
-							end
-						end
-					end
-				else
-					if game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1") then
-						game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1"):Destroy();
+spawn(function()
+    while wait(.1) do
+        pcall(function()
+            if Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear or FarmShark or AutoTerrorshark or AutoSeaBest or FarmPiranha or Fish_Crew_Member or AutoPirateShip or _G.Setting_table.AutoMysticIsland or AutoRougthFully or BuyBoatDmd then
+				if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+					game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
+					wait(5)
+				end
+				PIO = false
+                if not game.Players.LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity") then 
+					local L_1 = Instance.new("BodyVelocity")
+                    L_1.Name = "BodyGyrozz"
+                    L_1.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart 
+                    L_1.MaxForce=Vector3.new(1000000000,1000000000,1000000000)
+                    L_1.Velocity=Vector3.new(0,0,0) 
+                end
+            elseif PIO == false then
+				for i,v in pairs(game.Players.LocalPlayer.Character.HumanoidRootPart:GetChildren()) do
+					if v.Name == "BodyGyrozz" then
+						v:Destroy()
+						PIO = true
 					end
 				end
-			end)
-		end)
-	end)
+            end
+        end)
+    end
+end)
+
+    
 
 
 
