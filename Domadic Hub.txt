@@ -5755,44 +5755,44 @@ spawn(function()
         end
     end
 end)
-local Client = game.Players.LocalPlayer
-    local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
-    local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
-    task.spawn(function()
-        pcall(function()
-            if not shared.orl then
-                shared.orl = STOPRL.wrapAttackAnimationAsync
-            end
-                if not shared.cpc then
-                    shared.cpc = STOP.play 
-                end
-                spawn(function()
+
+            local Client = game.Players.LocalPlayer
+            local STOP = require(Client.PlayerScripts.CombatFramework.Particle)
+            local STOPRL = require(game:GetService("ReplicatedStorage").CombatFramework.RigLib)
+            task.spawn(function()
+                pcall(function()
+                    if not shared.orl then
+                        shared.orl = STOPRL.wrapAttackAnimationAsync
+                    end
+                        if not shared.cpc then
+                            shared.cpc = STOP.play 
+                        end
+                    spawn(function()
                     require(game.ReplicatedStorage.Util.CameraShaker):Stop()
-                    game:GetService("RunService").Stepped:Connect(function()
-                        STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
-                            local Hits = STOPRL.getBladeHits(b,c,d)
-                            if Hits then
-                                if  _G.FastAttack then
-                                    STOP.play = function() end
-                                    a:Play(21,29,30)
-                                    func(Hits)
-                                    STOP.play = shared.cpc
-                                    wait(a.length * 9e9)
-                                    a:Stop()
-                                else
-                                    func(Hits)
-                                    STOP.play = shared.cpc
-                                    wait(a.length * 9e9)
-                                    a:Stop()
+                  require(game.ReplicatedStorage.Util.CameraShaker):Stop()
+                        game:GetService("RunService").Stepped:Connect(function()
+                            STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
+                                local Hits = STOPRL.getBladeHits(b,c,d)
+                                if Hits then
+                                    if  _G.FastAttackNormalSpeed then
+                                        STOP.play = function() end
+                                        a:Play(20.1,15.1,10.1)
+                                        func(Hits)
+                                        STOP.play = shared.cpc
+                                        wait(a.length * 1000000000.5)
+                                        a:Stop()
+                                    else
+                                        func(Hits)
+                                        STOP.play = shared.cpc
+                                        wait(a.length * 10000000000.5)
+                                        a:Stop()
+                                    end
                                 end
                             end
-                        end
+                        end)
                     end)
                 end)
-            end)
-        end)
-    end
-end)
+                end)
 
 spawn(function()
     game:GetService("RunService").RenderStepped:Connect(function()
