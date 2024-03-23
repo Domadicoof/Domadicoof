@@ -3455,7 +3455,8 @@ end)
 
 H:AddLine()
 H:AddLabel("New Update Log")
-H:AddLabel("[+] New Tween|19/3/2567/20:21")
+H:AddLabel("[-] Fix Auto Cake Accept Quest Not Farm Boss|23/3/2567|15:58")
+H:AddLabel("[+] Add Bring Mob FarmNoQuest|23/3/2567|15:58")
 
 
 H:AddSeperator("UpdLog")
@@ -3548,7 +3549,7 @@ H:AddLabel("[+] Fix Bring Boat|28/10/2566|00:34")
 H:AddLabel("[+] New Bypass Teleport|1/11/2566|15:55")
 H:AddLabel("[+] Farm Fish Crew Member|1/11/2566|15:55")
 H:AddLabel("[+] Fix Holy Torch|1/11/2566|15:55")
-H:AddLabel("[x] Fix Auto Sea Beast Fully|6/11/2566|20:57")
+H:AddLabel("[-] Fix Auto Sea Beast Fully|6/11/2566|20:57")
 H:AddLabel("[+] Bypass Tele Boss|6/11/2566|20:57")
 H:AddLabel("[+] Auto Find Full Moon|28/11/2566|16:30")
 H:AddLabel("[+] New Tween|11/12/2566|18:19")
@@ -3557,8 +3558,10 @@ H:AddLabel("[+] Auto Farm No Quest|2/1/2567|20:28")
 H:AddLabel("[+] Auto Set Frame Mon (CheckMon)|9/1/2567|20:28")
 H:AddLabel("[+] Esp Kisune|14/1/2567|08:08")
 H:AddLabel("[+] Auto Get Fruit Inventory|20/2/2567|15:30")
-H:AddLabel("[+] Fix Fast Attack|10/3/2567|12:15")
+H:AddLabel("[-] Fix Fast Attack|10/3/2567|12:15")
 H:AddLabel("[+] New Tween|19/3/256720:21")
+H:AddLabel("[-] Fix Auto Cake Accept Quest Not Farm Boss|23/3/2567|15:58")
+H:AddLabel("[+] Add Bring Mob FarmNoQuest|23/3/2567|15:58")
 
 
 
@@ -4308,8 +4311,12 @@ end)
                             end
                         end
                     else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectMob) then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectMob).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
+                    for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
+                        if string.find(v.Name, _G.SelectMob) then
+                            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
+                                topos(v.CFrame * CFrame.new(5,10,2))
+                                end
+                            end
                         end
                     end
                 end)
@@ -5075,8 +5082,8 @@ end)
                             end
                         end
                     else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
                         else
                             if KillMob == 0 then
                             end                    
@@ -5171,8 +5178,8 @@ spawn(function()
                             end
                         end
                     else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]") then
-                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince [Lv. 2300] [Raid Boss]").HumanoidRootPart.CFrame * CFrame.new(5,10,2))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Cake Prince").HumanoidRootPart.CFrame * CFrame.new(5,10,2))
                         end
                     end
                 end)
@@ -5549,7 +5556,6 @@ Main:AddToggle("By Pass Tp",BypassTP,function(Fast)
 BypassTP = Fast
 end)
 
-    
 Main:AddToggle("Bring Mob",true,function(Mag)
     _G.BringMonster = Mag
     end)
@@ -8925,13 +8931,14 @@ if World3 then
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if _G.RaidPirate and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                             if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 2000 then
-                                repeat wait()
+                                repeat task.wait()
                                     AutoHaki()
                                     EquipWeapon(_G.SelectWeapon)
                                     v.HumanoidRootPart.CanCollide = false
                                     v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                     topos(v.HumanoidRootPart.CFrame * Pos)
-                                    Click()
+                                    game:GetService("VirtualUser"):CaptureController()
+                                    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                 until v.Humanoid.Health <= 0 or not v.Parent or not _G.RaidPirate
                             end
                         end
