@@ -2682,39 +2682,47 @@ function UpdateGeaESP()
 end
 
 
-function UpdateIslandKisuneESP() 
-    for i,v in pairs(game:GetService("Workspace").Map.KitsuneIsalnd.ShrineActive:GetChildren()) do
-        pcall(function()
-            if DomadicKisuneESP then 
-                if v.Name == "NeonShrinePart" then
-                    if not v:FindFirstChild('NameEsp') then
-                        local bill = Instance.new('BillboardGui',v)
-                        bill.Name = 'NameEsp'
-                        bill.ExtentsOffset = Vector3.new(0, 1, 0)
-                        bill.Size = UDim2.new(1,200,1,30)
-                        bill.Adornee = v
-                        bill.AlwaysOnTop = true
-                        local name = Instance.new('TextLabel',bill)
-                        name.Font = "Code"
-                        name.FontSize = "Size14"
-                        name.TextWrapped = true
-                        name.Size = UDim2.new(1,0,1,0)
-                        name.TextYAlignment = 'Top'
-                        name.BackgroundTransparency = 1
-                        name.TextStrokeTransparency = 0.5
-                        name.TextColor3 = Color3.fromRGB(80, 245, 245)
-                    else
-                        v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
-                    end
-                end
-            else
-                if v:FindFirstChild('NameEsp') then
-                    v:FindFirstChild('NameEsp'):Destroy()
-                end
-            end
-        end)
-    end
-end
+function ESPKisuneIsland()
+			pcall(function()
+				if _G.EspKitsuneIsland then
+					for i,v in pairs(game:GetService("Workspace").Map.KitsuneIsland:GetChildren()) do
+						pcall(function()
+							if v.Name == 'NeonShrinePart' then 
+								if not v:FindFirstChild('EspKitsune') then
+									local bill = Instance.new('BillboardGui',v)
+									bill.Name = 'EspKitsune'
+									bill.ExtentsOffset = Vector3.new(0, 1, 0)
+									bill.Size = UDim2.new(1,200,1,30)
+									bill.Adornee = v
+									bill.AlwaysOnTop = true
+									local name = Instance.new('TextLabel',bill)
+									name.Font = "GothamBold"
+									name.FontSize = "Size14"
+									name.TextWrapped = true
+									name.Size = UDim2.new(1,0,1,0)
+									name.TextYAlignment = 'Top'
+									name.BackgroundTransparency = 1
+									name.TextStrokeTransparency = 0.5
+									name.TextColor3 = Color3.fromRGB(255, 255, 255)
+									name.Text = ("Kitsune Island" ..' \n'.." [ "..round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M'.." ] ")
+								else
+									v.EspKitsune.TextLabel.Text = ("Kitsune Island" ..' \n'.." [ "..round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance'.." ] ")
+									v.EspKitsune.TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+								end
+							end
+						end)
+					end
+				else
+					for i,v in pairs(game:GetService("Workspace").Map.KitsuneIsland:GetChildren()) do
+						if v.Name == 'Center' then
+							if v:FindFirstChild('EspKitsune') then
+								v:FindFirstChild('EspKitsune'):Destroy()
+							end
+						end
+					end
+				end
+			end)
+		end
     
 
     
@@ -9456,8 +9464,8 @@ end)
 spawn(function()
     pcall(function()
         while wait() do
-            if game.Workspace._WorldOrigin.Locations:FindFirstChild('Kitsunen Island') then
-                FaiFaoKai:Set('🦊: Kitsunen Spwan')
+            if game:GetService("Workspace").Map:FindFirstChild('KitsuneIsland') then
+                FaiFaoKai:Set('🟢: Kitsunen Spwan')
             else
                 FaiFaoKai:Set('🔴: Kitsunen Not Found')
             end
@@ -9500,24 +9508,24 @@ FrozenIsland = M:AddLabel("")
             end
         end)
         
-        spawn(function()
-		while  _G.AutoFKitsune do wait()
-			pcall(function()
-				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-				topos(game.Workspace.Map.KitsuneIsland.ShrineActive.NeonShrinePart.CFrame * CFrame.new(0,0,10))
-				end
-			end)
-		end
-	end)
-	
+	spawn(function()
+        pcall(function()
+            while wait() do
+                if _G.AutoFKitsune then
+                    topos(game.Workspace.Map.KitsuneIsland.ShrineActive.NeonShrinePart.CFrame * CFrame.new(0,0,10))
+                end
+            end
+        end)
+    end)
+    
         
         
     spawn(function()
         pcall(function()
             while wait() do
                 if _G.AutoAzuerEmber then
-                    if game.Workspace.AttachedAzureEmber then
-                    topos(game.Workspace.EmberTemplate.Part.CFrame)
+                    if game.Workspace.EmberTemplate then
+                    InstancePos(game.Workspace.EmberTemplate.Part.CFrame)
                     end
                 end
             end
@@ -16288,12 +16296,12 @@ Misc:AddToggle("Esp Mystic Island", false, function(value)
     end)
     
     Misc:AddToggle("Esp Kitsune Island", false, function(value)
-    DomadicKisuneESP = value
-        while DomadicKisuneESP do wait()
-            UpdateIslandKisuneESP() 
+    _G.EspKitsuneIsland = value
+        while _G.EspKitsuneIsland do wait()
+            EspKitsuneIsland()
         end
     end)
-
+  
 
     Misc:AddSeperator("Abilities")
     
