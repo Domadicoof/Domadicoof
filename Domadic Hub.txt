@@ -3493,6 +3493,9 @@ H:AddLabel("[-] Fix Fast Attack|10/3/2567|12:15")
 H:AddLabel("[+] New Tween|19/3/256720:21")
 H:AddLabel("[-] Fix Auto Cake Accept Quest Not Farm Boss|23/3/2567|15:58")
 H:AddLabel("[+] Add Bring Mob FarmNoQuest|23/3/2567|15:58")
+H:AddLabel("[-] Fix Teleport  Kisune Not Working|25/3/2023|12:44")
+H:AddLabel("[+] Fast Tp Collect Azure|25/3/2023|12:44")
+H:AddLabel("[+] New Tween|25/3/2023|16:46")
 
 
 
