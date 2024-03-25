@@ -2965,7 +2965,7 @@ end
     end
 
     
-    function topos(p)
+function topos(p)
 	task.spawn(function()
 		pcall(function()
 			if game:GetService("Players").LocalPlayer:DistanceFromCharacter(p.Position) <= 200 then 
@@ -2984,17 +2984,18 @@ end
 				end;
 			elseif not game.Players.LocalPlayer.Character:FindFirstChild("Root")then 
 				local K = Instance.new("Part",game.Players.LocalPlayer.Character)
+				local lpc = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
 				K.Size = Vector3.new(1,0.5,1)
 				K.Name = "Root"
 				K.Anchored = true
 				K.Transparency = 1
 				K.CanCollide = false
-				K.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lpc.X, 50, lpc.Z)
 			end
 			local r = game:GetService("Players").LocalPlayer
 			local U = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude
 			local z = game:service("TweenService")
-			local B = TweenInfo.new((p.Position-game.Players.LocalPlayer.Character.Root.Position).Magnitude/350,Enum.EasingStyle.Linear)
+			local B = TweenInfo.new((p.Position-game.Players.LocalPlayer.Character.Root.Position).Magnitude/375,Enum.EasingStyle.Linear)
 			local S,g = pcall(function()
 				local q = z:Create(game.Players.LocalPlayer.Character.Root,B,{CFrame = p})
 				if game.Players.LocalPlayer.Character.Humanoid.Sit == true then 
@@ -3008,10 +3009,10 @@ end
 			game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 			if S and game.Players.LocalPlayer.Character:FindFirstChild("Root") then 
 				pcall(function()
-					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude >= 25 then 
+					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude >= 50 then 
 						task.spawn(function()
 							pcall(function()
-								if (game.Players.LocalPlayer.Character.Root.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 100 then 
+								if (game.Players.LocalPlayer.Character.Root.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 200 then 
 									game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
 								else 
 									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players.LocalPlayer.Character.Root.CFrame
