@@ -4259,7 +4259,7 @@ spawn(function()
 			for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                 if v.Name and v:FindFirstChild("Humanoid") then
 			        if v.Humanoid.Health > 0 then
-			            repeat wait()
+			            repeat task.wait()
 			              EquipWeapon(_G.SelectWeapon)
 			                if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
 			                	local args = {
@@ -4269,7 +4269,6 @@ spawn(function()
 			               	end
 			                topos(v.HumanoidRootPart.CFrame * Pos)
 			                v.HumanoidRootPart.CanCollide = false
-			                Fastattack = true
 			                v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
 						    game:GetService("VirtualUser"):CaptureController()
 				       	    game:GetService("VirtualUser"):Button1Down(Vector2.new(1280, 672), game.Workspace.CurrentCamera.CFrame)
@@ -4277,7 +4276,6 @@ spawn(function()
 				       	    PosMon = v.HumanoidRootPart.CFrame
 			            until not _G.AutoFarmNearest or not v.Parent or v.Humanoid.Health <= 0 
 			            AutoFarmNearestMagnet = false
-			            Fastattack = false
 			        end
 			    end
 			end
@@ -6560,6 +6558,7 @@ local MaterialsPos1 = CFrame.new(-507.7895202636719, 72.99479675292969, -126.456
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Radioactive or not v.Parent or v.Humanoid.Health <= 0
@@ -6617,6 +6616,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Makori_gay or not v.Parent or v.Humanoid.Health <= 0
@@ -6674,6 +6674,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Umm or not v.Parent or v.Humanoid.Health <= 0
@@ -6724,6 +6725,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Umm or not v.Parent or v.Humanoid.Health <= 0
@@ -6781,6 +6783,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Auto_Wing or not v.Parent or v.Humanoid.Health <= 0
@@ -6838,6 +6841,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Leather or not v.Parent or v.Humanoid.Health <= 0
@@ -6888,6 +6892,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Leather or not v.Parent or v.Humanoid.Health <= 0
@@ -6938,6 +6943,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not _G.Leather or not v.Parent or v.Humanoid.Health <= 0
@@ -6995,6 +7001,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Scrap or not v.Parent or v.Humanoid.Health <= 0
@@ -7045,6 +7052,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Scrap or not v.Parent or v.Humanoid.Health <= 0
@@ -7095,6 +7103,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Scrap or not v.Parent or v.Humanoid.Health <= 0
@@ -7152,6 +7161,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Cocoafarm or not v.Parent or v.Humanoid.Health <= 0
@@ -7209,6 +7219,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Dragon_Scale or not v.Parent or v.Humanoid.Health <= 0
@@ -7266,6 +7277,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Gunpowder or not v.Parent or v.Humanoid.Health <= 0
@@ -7323,6 +7335,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not Fish or not v.Parent or v.Humanoid.Health <= 0
@@ -7380,6 +7393,7 @@ spawn(function()
                                         MakoriGayMag = true
                                         PosGay = v.HumanoidRootPart.CFrame
                                         topos(v.HumanoidRootPart.CFrame * Pos)
+                                        MonMat = v.Name
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until not MiniHee or not v.Parent or v.Humanoid.Health <= 0
@@ -8841,7 +8855,7 @@ if World3 then
     
     M:AddSeperator("Pirate Raid [BETA]")
     
-    M:AddToggle("Auto Pirate Raid", _G.AutoCarvender,function(value)
+    M:AddToggle("Auto Pirate Raid", _G.RaidPirate,function(value)
      _G.RaidPirate = value
     StopTween(_G.RaidPirate)
     end)
@@ -11915,7 +11929,7 @@ end
                             end
                         end
                         if Min_XT_Is_Kak and FarmShark then
-                            if (v.Name == "Shark" or v.Name == "Shark") and (v.HumanoidRootPart.Position - PosNarathiwat.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            if (v.Name == "Shark" or v.Name == "Shark") and (v.HumanoidRootPart.Position - PosNarathiwat.Position).Magnitude <= 200 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
@@ -11928,7 +11942,7 @@ end
                             end
                         end
                         if Min_XT_Is_Kak and _G.AutoTerrorshark then
-                            if (v.Name == "Terrorshark" or v.Name == "Terrorshark") and (v.HumanoidRootPart.Position - PosNarathiwat.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            if (v.Name == "Terrorshark" or v.Name == "Terrorshark") and (v.HumanoidRootPart.Position - PosNarathiwat.Position).Magnitude <= 200 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
@@ -11941,7 +11955,7 @@ end
                             end
                         end
                         if Min_XT_Is_Kak and _G.farmpiranya then
-                            if v.Name == "Piranha" and (v.HumanoidRootPart.Position - PosNarathiwat.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            if v.Name == "Piranha" and (v.HumanoidRootPart.Position - PosNarathiwat.Position).Magnitude <= 200 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
@@ -11954,12 +11968,25 @@ end
                             end
                         end
                         if Min_XT_Is_Kak and _G.Fish_Crew_Member then
-                            if v.Name == "Fish Crew Member" and (v.HumanoidRootPart.Position - PosNarathiwat.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            if v.Name == "Fish Crew Member" and (v.HumanoidRootPart.Position - PosNarathiwat.Position).Magnitude <= 200 and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                 v.Humanoid:ChangeState(14)
                                 v.HumanoidRootPart.CanCollide = false
                                 v.Head.CanCollide = false
                                 v.HumanoidRootPart.CFrame = PosNarathiwat
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
+                            end
+                        end
+                        if MakoriGayMag then
+                            if v.Name == MonMat and (v.HumanoidRootPart.Position - PosGay.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                v.Humanoid:ChangeState(14)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = PosGay
                                 if v.Humanoid:FindFirstChild("Animator") then
                                     v.Humanoid.Animator:Destroy()
                                 end
@@ -12009,36 +12036,6 @@ function InMyNetWork(object)
 	end
 end
 
-task.spawn(function()
-	while task.wait() do
-		pcall(function()
-			if MakoriGayMag and _G.BringMonster then
-				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
-						if InMyNetWork(v.HumanoidRootPart) then
-							v.HumanoidRootPart.CFrame = PosGay
-							v.Humanoid.JumpPower = 0
-							v.Humanoid.WalkSpeed = 0
-							v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-							v.HumanoidRootPart.Transparency = 1
-							v.HumanoidRootPart.CanCollide = false
-							v.Head.CanCollide = false
-							if v.Humanoid:FindFirstChild("Animator") then
-								v.Humanoid.Animator:Destroy()
-							end
-							v.Humanoid:ChangeState(11)
-							v.Humanoid:ChangeState(14)
-						end
-					end
-				end
-			end
-		end)
-	end
-end)
-
-
-
-    
 task.spawn(function()
 	while task.wait() do
 		pcall(function()
