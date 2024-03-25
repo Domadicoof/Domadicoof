@@ -3210,15 +3210,6 @@ spawn(function()
     end
 end)
 
-spawn(function()
-    while wait(.1) do
-		if game.Players.LocalPlayer.Character.Humanoid.Health <= 100 or game.Players.LocalPlayer.Character.Humanoid.Health <= 26 then
-			SafeFrame = CFrame.new(0,PosY,0)
-		elseif game.Players.LocalPlayer.Character.Humanoid.Health <= 25 then
-			SafeFrame = CFrame.new(0,100,0)
-        end
-        end
-    end)
     
     spawn(function()
     game:GetService("RunService").Heartbeat:Connect(function()
@@ -9114,7 +9105,7 @@ end)
                                         v.Humanoid.WalkSpeed = 0
                                         PosNarathiwat = v.HumanoidRootPart.CFrame
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        topos(v.HumanoidRootPart.CFrame * SafeFrame)
+                                        topos(v.HumanoidRootPart.CFrame * Pos)
                                         Min_XT_Is_Kak = true
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
