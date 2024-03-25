@@ -2990,12 +2990,12 @@ function topos(p)
 				K.Anchored = true
 				K.Transparency = 1
 				K.CanCollide = false
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lpc.X, 50, lpc.Z)
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lpc.X, 100, lpc.Z)
 			end
 			local r = game:GetService("Players").LocalPlayer
 			local U = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude
 			local z = game:service("TweenService")
-			local B = TweenInfo.new((p.Position-game.Players.LocalPlayer.Character.Root.Position).Magnitude/375,Enum.EasingStyle.Linear)
+			local B = TweenInfo.new((p.Position-game.Players.LocalPlayer.Character.Root.Position).Magnitude/325,Enum.EasingStyle.Linear)
 			local S,g = pcall(function()
 				local q = z:Create(game.Players.LocalPlayer.Character.Root,B,{CFrame = p})
 				if game.Players.LocalPlayer.Character.Humanoid.Sit == true then 
