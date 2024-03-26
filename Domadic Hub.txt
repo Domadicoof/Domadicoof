@@ -16266,16 +16266,18 @@ Misc:AddToggle("Esp Mystic Island", false, function(value)
     end)
     
     spawn(function()
-    while wait() do
 		pcall(function()
-			if _G.AutoAwakeningRace then
-				game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
-				wait(0.1)
-                game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
+			while wait() do
+				if _G.AutoAwakeningRace then
+					if game.Players.LocalPlayer.Character.RaceEnergy.Value >= 1 and game.Players.LocalPlayer.Character.RaceTransformed.Value == false then
+					    game:GetService("VirtualInputManager"):SendKeyEvent(true,"Y",false,game)
+			        	wait(0.1)
+                        game:GetService("VirtualInputManager"):SendKeyEvent(false,"Y",false,game)
+					end
+				end
 			end
 		end)
-    end
-    end)
+	end)
     
     Misc:AddToggle("Infinite Obversation Range",getgenv().InfiniteObRange,function(value)
         getgenv().InfiniteObRange = value
