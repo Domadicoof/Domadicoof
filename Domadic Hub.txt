@@ -2957,100 +2957,60 @@ end
     end
 
     
-function AntiLowHealth(aK)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-        CFrame.new(
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,
-        aK,
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z
+PanicMode = false
+IngoreY = true
+TweenSpeed = 325
+function topos(aL)
+    pcall(function()
+    print("1")
+            if game:GetService("Players").LocalPlayer and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and  game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
+                if not TweenSpeed then
+                    TweenSpeed = 325
+                end
+                DefualtY = aL.Y
+                TargetY = aL.Y
+                targetCFrameWithDefualtY = CFrame.new(aL.X, DefualtY, aL.Z)
+                targetPos = aL.Position
+                oldcframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                Distance = (targetPos - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude
+                if Distance <= 300 then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = aL
+                end
+                b1 = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,DefualtY,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+                if IngoreY and (b1.Position - targetCFrameWithDefualtY.Position).Magnitude > 5 then
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,DefualtY,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+                    local tweenfunc = {}
+                    local aN = game:service "TweenService"
+                    local aO =
+                        TweenInfo.new((targetPos -game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude /TweenSpeed,Enum.EasingStyle.Linear)
+                    tween = aN:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"],aO,{CFrame = targetCFrameWithDefualtY})
+                    tween:Play()
+                    function tweenfunc:Stop()
+                        tween:Cancel()
+                    end
+                    tween.Completed:Wait()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,TargetY,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+                else
+                    local tweenfunc = {}
+                    local aN = game:service "TweenService"
+                    local aO =
+                        TweenInfo.new((targetPos -game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude /TweenSpeed,Enum.EasingStyle.Linear)
+                    tween = aN:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"],aO,{CFrame = aL})
+                    tween:Play()
+                    function tweenfunc:Stop()
+                        tween:Cancel()
+                    end
+                    tween.Completed:Wait()
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,TargetY,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+                end
+                if not tween then
+                    return tween
+                end
+                return tweenfunc
+            end
+        end
     )
-    wait()
 end
-
-    function AntiLowHealth(aK)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
-        CFrame.new(
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,
-        aK,
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z
-    )
-    wait()
-end
-
-function topos(p)
-	task.spawn(function()
-		pcall(function()
-			if game:GetService("Players").LocalPlayer:DistanceFromCharacter(p.Position) <= 200 then 
-				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = p
-				if game.Players.LocalPlayer.Character:FindFirstChild("Root") then
-					game.Players.LocalPlayer.Character:FindFirstChild("Root"):Destroy();
-					wait()
-					topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
-					wait()
-					if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
-						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip"):Destroy()
-					end
-				end;
-				if game.Players.LocalPlayer.Character:FindFirstChild("Root") then
-					game.Players.LocalPlayer.Character:FindFirstChild("Root"):Remove();
-				end;
-			elseif not game.Players.LocalPlayer.Character:FindFirstChild("Root")then 
-				local K = Instance.new("Part",game.Players.LocalPlayer.Character)
-				local lpc = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
-				K.Size = Vector3.new(1,0.5,1)
-				K.Name = "Root"
-				K.Anchored = true
-				K.Transparency = 1
-				K.CanCollide = false
-				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lpc.X, 50, lpc.Z)
-			end
-			local r = game:GetService("Players").LocalPlayer
-			local U = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude
-			local z = game:service("TweenService")
-			local B = TweenInfo.new((p.Position-game.Players.LocalPlayer.Character.Root.Position).Magnitude/375,Enum.EasingStyle.Linear)
-			local S,g = pcall(function()
-				local q = z:Create(game.Players.LocalPlayer.Character.Root,B,{CFrame = p})
-				if game.Players.LocalPlayer.Character.Humanoid.Sit == true then 
-					game.Players.LocalPlayer.Character.Humanoid.Sit = false;
-				end;
-				q:Play()
-			end)
-			if not S then 
-				return g
-			end
-			game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-			if S and game.Players.LocalPlayer.Character:FindFirstChild("Root") then 
-				pcall(function()
-					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude >= 50 then 
-						task.spawn(function()
-							pcall(function()
-								if (game.Players.LocalPlayer.Character.Root.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 200 then 
-									game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-								else 
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players.LocalPlayer.Character.Root.CFrame
-								end
-							end)
-						end)
-					elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude >= 25 and(game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude < 40 then 
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
-					elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude < 25 then 
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
-					end
-				end)
-			end
-		end)
-	end)    
-end
-task.spawn(function()
-	while task.wait() do 
-		pcall(function()
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.Root.CFrame;
-			if (game.Players.LocalPlayer.Character.Root.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 1 then
-				game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
-			end
-		end)
-	end
-end)
     
 --Tween Boats 
 function TPB(CFgo)
