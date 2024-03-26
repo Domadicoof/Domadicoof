@@ -2681,48 +2681,40 @@ function UpdateGeaESP()
     end
 end
 
-
 function ESPKisuneIsland()
-			pcall(function()
-				if _G.EspKitsuneIsland then
-					for i,v in pairs(game:GetService("Workspace").Map.KitsuneIsland:GetChildren()) do
-						pcall(function()
-							if v.Name == 'NeonShrinePart' then 
-								if not v:FindFirstChild('EspKitsune') then
-									local bill = Instance.new('BillboardGui',v)
-									bill.Name = 'EspKitsune'
-									bill.ExtentsOffset = Vector3.new(0, 1, 0)
-									bill.Size = UDim2.new(1,200,1,30)
-									bill.Adornee = v
-									bill.AlwaysOnTop = true
-									local name = Instance.new('TextLabel',bill)
-									name.Font = "GothamBold"
-									name.FontSize = "Size14"
-									name.TextWrapped = true
-									name.Size = UDim2.new(1,0,1,0)
-									name.TextYAlignment = 'Top'
-									name.BackgroundTransparency = 1
-									name.TextStrokeTransparency = 0.5
-									name.TextColor3 = Color3.fromRGB(255, 255, 255)
-									name.Text = ("Kitsune Island" ..' \n'.." [ "..round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M'.." ] ")
-								else
-									v.EspKitsune.TextLabel.Text = ("Kitsune Island" ..' \n'.." [ "..round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' Distance'.." ] ")
-									v.EspKitsune.TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-								end
-							end
-						end)
-					end
-				else
-					for i,v in pairs(game:GetService("Workspace").Map.KitsuneIsland:GetChildren()) do
-						if v.Name == 'Center' then
-							if v:FindFirstChild('EspKitsune') then
-								v:FindFirstChild('EspKitsune'):Destroy()
-							end
-						end
-					end
-				end
-			end)
-		end
+    for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].Locations:GetChildren()) do
+        pcall(function()
+            if _G.EspKitsuneIsland then 
+                if v.Name == "Kitsune Island" then
+                    if not v:FindFirstChild('NameEsp') then
+                        local bill = Instance.new('BillboardGui',v)
+                        bill.Name = 'NameEsp'
+                        bill.ExtentsOffset = Vector3.new(0, 1, 0)
+                        bill.Size = UDim2.new(1,200,1,30)
+                        bill.Adornee = v
+                        bill.AlwaysOnTop = true
+                        local name = Instance.new('TextLabel',bill)
+                        name.Font = "Code"
+                        name.FontSize = "Size14"
+                        name.TextWrapped = true
+                        name.Size = UDim2.new(1,0,1,0)
+                        name.TextYAlignment = 'Top'
+                        name.BackgroundTransparency = 1
+                        name.TextStrokeTransparency = 0.5
+                        name.TextColor3 = Color3.fromRGB(80, 245, 245)
+                    else
+                        v['NameEsp'].TextLabel.Text = (v.Name ..'   \n'.. round((game:GetService('Players').LocalPlayer.Character.Head.Position - v.Position).Magnitude/3) ..' M')
+                    end
+                end
+            else
+                if v:FindFirstChild('NameEsp') then
+                    v:FindFirstChild('NameEsp'):Destroy()
+                end
+            end
+        end)
+    end
+end
+
     
 
     
@@ -11993,6 +11985,19 @@ end
                                 sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
                             end
                         end
+                        if SelectMag and _G.AutoFarmMob then
+                            if v.Name == _G.SelectMob and (v.HumanoidRootPart.Position - PosMon.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                v.Humanoid:ChangeState(14)
+                                v.HumanoidRootPart.CanCollide = false
+                                v.Head.CanCollide = false
+                                v.HumanoidRootPart.CFrame = PosMon
+                                if v.Humanoid:FindFirstChild("Animator") then
+                                    v.Humanoid.Animator:Destroy()
+                                end
+                                sethiddenproperty(game:GetService("Players").LocalPlayer, "SimulationRadius", math.huge)
+                            end
+                        end
                         if _G.AutoDoughtBoss and MagnetDought then
                             if (v.Name == "Cookie Crafter" or v.Name == "Cake Guard" or v.Name == "Baking Staff" or v.Name == "Head Baker") and (v.HumanoidRootPart.Position - PosMonDoughtOpenDoor.Position).Magnitude <= _G.BringMode and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -12039,7 +12044,7 @@ end
 task.spawn(function()
 	while task.wait() do
 		pcall(function()
-			if _G.AutoFarmNearest and AutoFarmNearestMagnet or SelectMag and _G.BringMonster then
+			if _G.AutoFarmNearest and AutoFarmNearestMagnet and _G.BringMonster then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
 					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= _G.BringMode then
 						if InMyNetWork(v.HumanoidRootPart) then
