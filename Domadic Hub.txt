@@ -2967,62 +2967,21 @@ function AntiLowHealth(aK)
     wait()
 end
 
-PanicMode = false
-IngoreY = true
-TweenSpeed = 325
-function topos(aL)
-    pcall(function()
-    print("1")
-            if game:GetService("Players").LocalPlayer and game:GetService("Players").LocalPlayer.Character and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and  game:GetService("Players").LocalPlayer.Character.Humanoid.Health > 0 and game:GetService("Players").LocalPlayer.Character.HumanoidRootPart then
-                if not TweenSpeed then
-                    TweenSpeed = 325
-                end
-                DefualtY = aL.Y
-                TargetY = aL.Y
-                targetCFrameWithDefualtY = CFrame.new(aL.X, DefualtY, aL.Z)
-                targetPos = aL.Position
-                oldcframe = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                Distance = (targetPos - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude
-                if Distance <= 300 then
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = aL
-                end
-                b1 = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,DefualtY,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
-                if IngoreY and (b1.Position - targetCFrameWithDefualtY.Position).Magnitude > 5 then
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,DefualtY,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
-                    local tweenfunc = {}
-                    local aN = game:service "TweenService"
-                    local aO =
-                        TweenInfo.new((targetPos -game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude /TweenSpeed,Enum.EasingStyle.Linear)
-                    tween = aN:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"],aO,{CFrame = targetCFrameWithDefualtY})
-                    tween:Play()
-                    function tweenfunc:Stop()
-                        tween:Cancel()
-                    end
-                    tween.Completed:Wait()
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,TargetY,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
-                else
-                    local tweenfunc = {}
-                    local aN = game:service "TweenService"
-                    local aO =
-                        TweenInfo.new((targetPos -game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude /TweenSpeed,Enum.EasingStyle.Linear)
-                    tween = aN:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"],aO,{CFrame = aL})
-                    tween:Play()
-                    function tweenfunc:Stop()
-                        tween:Cancel()
-                    end
-                    tween.Completed:Wait()
-                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,TargetY,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
-                end
-                if not tween then
-                    return tween
-                end
-                return tweenfunc
-            end
+    function topos(Pos)
+        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/250, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+        tween:Play()
+        if Distance <= 250 then
+            tween:Cancel()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
         end
-    )
-end
-
-
+        if _G.StopTween == true then
+            tween:Cancel()
+            _G.Clip = false
+        end
+    end
+    
 --Tween Boats 
 function TPB(CFgo)
 	local tween_s = game:service"TweenService"
@@ -4126,61 +4085,6 @@ spawn(function()
 end
    
 
-
-    
-Main:AddToggle("Auto Kaitan",false,function(value)
-       _G.AutoFarm = value
-       _G.SelectWeapon = "Combat"
-       _G.Auto_Stats_Kaitun = value
-       _G.AutoSuperhuman = value
-       _G.AutoSecondSea = value
-       _G.AutoThirdSea = value
-       _G.AutoBuyLegendarySword = value
-       _G.AutoStoreFruit = value
-       _G.Random_Auto = value
-       _G.BuyAllAib = value
-       _G.BuyAllSword = value
-      StopTween(_G.AutoFarm)
-    end)
-    
-    spawn(function()
-        while wait() do
-            if _G.BuyAllSword then
-                pcall(function()
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Cutlass")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Katana")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Iron Mace")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Duel Katana")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Triple Katana")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Pipe")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Bisento")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Dual-Headed Blade")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyItem","Soul Cane")
-                    if _G.BuyHop then
-                        wait(10)
-                        Hop()
-                    end
-                end)
-            end 
-        end
-    end)
-    
-    spawn(function()
-        while wait() do
-            if _G.BuyAllAib then
-                pcall(function()
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KenTalk","Buy")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Geppo")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Buso")
-                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BuyHaki","Soru")
-                    if _G.HopBuy then
-                        wait(10)
-                        Hop()
-                    end
-                end)
-            end 
-        end
-    end)
     
 if World1 then
 	tableMon = {"Bandit","Monkey","Gorilla","Pirate","Brute","Desert Bandit","Desert Officer","Snow Bandit","Snowman","Chief Petty Officer","Sky Bandit","Dark Master","Toga Warrior","Gladiator","Military Soldier","Military Spy","Fishman Warrior","Fishman Commando","God's Guard","Shanda","Royal Squad","Royal Soldier","Galley Pirate","Galley Captain"}
@@ -4338,43 +4242,37 @@ spawn(function()
 	end
 end)
 
-Main:AddToggle("Auto Chest Bypass",false,function(vu)
+Main:AddToggle("Auto Chest Bypass[Risk Ban]",false,function(vu)
 	_G.ChestBypass = vu
 end)
 
-_G.MagnitudeAdd = 0
 spawn(function()
-	while wait() do 
-		if _G.ChestBypass then
-			for i,v in pairs(game:GetService("Workspace"):GetChildren()) do 
-				if v.Name:find("Chest") then
-					if game:GetService("Workspace"):FindFirstChild(v.Name) then
-						if (v.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5000+_G.MagnitudeAdd then
-							repeat wait()
-								if game:GetService("Workspace"):FindFirstChild(v.Name) then
-									InstancePos(v.CFrame)
-								end
-							until AutoFarmChest == false or not v.Parent
-							InstancePos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
-							_G.MagnitudeAdd = _G.MagnitudeAdd+1500
-							break
-						end
-					end
-				end
-			end
-		end
-	end
+  while wait(.8) do
+  if _G.GrabChested then
+  pcall(function()
+    local player = game.Players.LocalPlayer.Character
+    for i,v in pairs(game.Workspace:GetChildren()) do
+    if string.find(v.Name, 'Chest') then
+    player.HumanoidRootPart.CFrame = v.CFrame
+    wait(.15)
+    end
+    end
+    player.Head:Destroy()
+    for i,v in pairs(game.Workspace:GetDescendants()) do
+    if string.find(v.Name, 'Chest') and v:IsA("TouchTransmitter") then
+    firetouchinterest(player.HumanoidRootPart, v.Parent, 0) -- 0 is touch
+    wait()
+    firetouchinterest(player.HumanoidRootPart, v.Parent, 1) -- 1 is not touch
+    end
+    end
+    if not game.Workspace:FindFirstChild("Chest1") or not game.Workspace:FindFirstChild("Chest2") or not game.Workspace:FindFirstChild("Chest3") then
+    wait(10)
+    end
+    end)
+  end
+  end
 end)
 
-spawn(function()
-while task.wait() do
-if _G.ChestBypass then
-        local ohString1 = "SetTeam"
-        local ohString2 = "Pirates"
-        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(ohString1, ohString2)
-     end
-end
-end)
 
 Main:AddToggle("Auto Chest Stop Found Frist of darkness",_G.STP,function(vu)
 	Grab_Chest = vu
