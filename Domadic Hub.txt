@@ -2967,19 +2967,90 @@ function AntiLowHealth(aK)
     wait()
 end
 
-    function topos(Pos)
-        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/250, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
-        tween:Play()
-        if Distance <= 250 then
-            tween:Cancel()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
-        end
-        if _G.StopTween == true then
-            tween:Cancel()
-            _G.Clip = false
-        end
-    end
+    function AntiLowHealth(aK)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame =
+        CFrame.new(
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,
+        aK,
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z
+    )
+    wait()
+end
+
+function topos(p)
+	task.spawn(function()
+		pcall(function()
+			if game:GetService("Players").LocalPlayer:DistanceFromCharacter(p.Position) <= 200 then 
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = p
+				if game.Players.LocalPlayer.Character:FindFirstChild("Root") then
+					game.Players.LocalPlayer.Character:FindFirstChild("Root"):Destroy();
+					wait()
+					topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+					wait()
+					if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
+						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip"):Destroy()
+					end
+				end;
+				if game.Players.LocalPlayer.Character:FindFirstChild("Root") then
+					game.Players.LocalPlayer.Character:FindFirstChild("Root"):Remove();
+				end;
+			elseif not game.Players.LocalPlayer.Character:FindFirstChild("Root")then 
+				local K = Instance.new("Part",game.Players.LocalPlayer.Character)
+				local lpc = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+				K.Size = Vector3.new(1,0.5,1)
+				K.Name = "Root"
+				K.Anchored = true
+				K.Transparency = 1
+				K.CanCollide = false
+				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(lpc.X, 50, lpc.Z)
+			end
+			local r = game:GetService("Players").LocalPlayer
+			local U = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude
+			local z = game:service("TweenService")
+			local B = TweenInfo.new((p.Position-game.Players.LocalPlayer.Character.Root.Position).Magnitude/375,Enum.EasingStyle.Linear)
+			local S,g = pcall(function()
+				local q = z:Create(game.Players.LocalPlayer.Character.Root,B,{CFrame = p})
+				if game.Players.LocalPlayer.Character.Humanoid.Sit == true then 
+					game.Players.LocalPlayer.Character.Humanoid.Sit = false;
+				end;
+				q:Play()
+			end)
+			if not S then 
+				return g
+			end
+			game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+			if S and game.Players.LocalPlayer.Character:FindFirstChild("Root") then 
+				pcall(function()
+					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude >= 50 then 
+						task.spawn(function()
+							pcall(function()
+								if (game.Players.LocalPlayer.Character.Root.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 200 then 
+									game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+								else 
+									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players.LocalPlayer.Character.Root.CFrame
+								end
+							end)
+						end)
+					elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude >= 25 and(game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude < 40 then 
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
+					elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude < 25 then 
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
+					end
+				end)
+			end
+		end)
+	end)    
+end
+task.spawn(function()
+	while task.wait() do 
+		pcall(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.Root.CFrame;
+			if (game.Players.LocalPlayer.Character.Root.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 1 then
+				game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+			end
+		end)
+	end
+end)
     
 --Tween Boats 
 function TPB(CFgo)
@@ -4242,7 +4313,7 @@ spawn(function()
 end)
 
 Main:AddToggle("Auto Chest Bypass[Risk Ban]",false,function(vu)
-	_G.ChestBypass = vu
+	_G.GrabChested = vu
 end)
 
 spawn(function()
