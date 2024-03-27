@@ -3227,11 +3227,13 @@ end
 	end
 
 	----[Body Gryro]
-        
-        spawn(function()
+
+    
+	
+spawn(function()
     while wait(.1) do
         pcall(function()
-            if Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear or FarmShark or AutoTerrorshark or AutoSeaBest or FarmPiranha or Fish_Crew_Member or AutoPirateShip or _G.Setting_table.AutoMysticIsland or AutoRougthFully or BuyBoatDmd then
+            if Prince2 or _G.Settings.Mastery["Farm Mastery SwordList"] or pre or Auto_Raw or Auto_Farm_Fruit or Auto_Farm_Monster or Auto_Quest_Tushita_2 or _G.Setting_table.AutoFarm_Meterial or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmAllBoss or _G.Setting_table.AutoFarmBoss or _G.Farm_Boss or Auto_Farm_Boss or Farm_Candy or Farm_Mas_Sword or _G.Settings.Mastery["Farm Mastery SwordList"] or _G.Setting_table.AutoFarm or _G.Setting_table.AutoFarm_Meterial or _G.Start_Tween_Island or AutoFarmKen_Rejoin or _G.Setting_table.AutoFarm_Meterial or AutoMobAura or _G.AutoFarm_Ken or AutoFarmObservation or Auto_radiao or Auto_Scrapmetal or Auto_Lather or Auto_minitusk or Auto_magma or Auto_mystcdrop or Auto_vampire or Auto_Dragon or _G.Clip or Auto_Farm_Bounty or Auto_Twin_Hooks or Auto_Canvander or Auto_Buddy_Sword or Auto_Hallow_Scryte or Auto_Spikey_Trident or Auto_Dark_Dagger or Auto_Serpent_Bow or Auto_Acidum_Rifle or Auto_Swan_Glass or Auto_Pale_Scarf or Auto_Valkyrie_Helmet or Saber_Farm or Pole_Farm or Rengoku_A or Auto_Dragon_Trident or Triple_A or Auto_Yama or Auto_Tushita or Auto_Dark_Coat or _G.Setting_table.Human_Evo or _G.Setting_table.Mink_Evo or Auto_Three_World or Bartlio_Farm or Auto_New_A or Auto_Elite_Hunter or Auto_Phoenix_Awaken or Auto_Raid or _G.Setting_table.Farm_Ken_Hop or _G.Setting_table.Auto_Farm_Boss_Hop or _G.Setting_table.Auto_Farm_Boss_All_Hop or Open_Color_Haki or Auto_Holy_Torch or Grab_Chest or Auto_Farm_Monster or Farm_Ken or Auto_Farm_Bone or Farm_Ken_V2 or Auto_Farm_Melee or _G.Settings.Mastery["Farm Mastery SwordList"] or Auto_Farm or Auto_Farm_Gun or Auto_Farm_Boss_All or Auto_Farm_Boss or Auto_Farm_Fruit or _G.TeleportPly or _G.Setting_table.AutoChestMirage or _G.Setting_table.AutoRengoku or Auto_Rainbow_Haki or _G.Setting_table.AutoEctoplasm or _G.Setting_table.TeleporttoGear or FarmShark or AutoTerrorshark or AutoSeaBest or FarmPiranha or Fish_Crew_Member or AutoPirateShip or _G.Setting_table.AutoMysticIsland or AutoRougthFully or BuyBoatDmd or AutoEmber or AutoKisune then
 				if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
 					game.Players.LocalPlayer.Character.Humanoid:ChangeState(15)
 					wait(5)
@@ -3255,8 +3257,6 @@ end
         end)
     end
 end)
-
-
 
 
 
@@ -4854,10 +4854,9 @@ spawn(function()
 		end)
 	end
 end)
-if Old_World or New_World then
+
 Main:Seperator("Auto New Sea")
-end
-if Old_World then
+
 Main:Toggle("Auto New World",_G.Setting_table.MasMelee,function(vu)
     Auto_New_A = vu
 	_G.Setting_table.Second_Farm = vu
@@ -4905,8 +4904,7 @@ spawn(function()
         end
     end
 end)
-end
-if New_World then
+
 Main:Toggle("Auto Third World",false,function(vu)
 Auto_Three_World = vu
 end)
@@ -4959,7 +4957,6 @@ spawn(function()
 		end)
 	end
 end)
-end
 
  Faa = Main:Label("")
  db = Main:Label("")
@@ -5061,12 +5058,11 @@ spawn(function()
 									end
 								else
 									--CheckLevel2()
+									TP(MobCFrame)
 									repeat task.wait()
-										for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
-                                            if string.find(v.Name,namemon) then
-                                                if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
-                                                TP(v.CFrame * CFrame.new(0,30,0))
-                                                end
+										for i,v in pairs(game.Workspace._WorldOrigin.EnemySpawns:GetChildren()) do
+											if v.Name == namemon then
+												TP(v.CFrame * CFrame.new(0,30,0))
 											end
 										end
 									until game.Workspace.Enemies:FindFirstChild(namemon) or not Auto_Farm or Mix_Farm
@@ -5690,9 +5686,9 @@ end)
     spawn(function()
 			while wait(.1) do
 				if _G.Setting_table.AutoChestMirage then
-					for i,v in pairs(game:GetService("Workspace").Map.MysticIsland:GetChildren()) do
+					for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
 						if v.Name == "FragChest" then
-							TP(v.CFrame)
+							TP(v.Parent.CFrame)
 						end
 					end
 				end
@@ -5715,7 +5711,6 @@ end)
 		end)
 	end)
 
-if Three_World then
 	Bone = Main:Label("")
 	spawn(function()
 		pcall(function()
@@ -5800,9 +5795,8 @@ if Three_World then
 			end
 		end
 	end)
-	end
 
-if Three_World then
+
  Kill_Cake_Monster_ST = Main:Label("")
 
 	spawn(function()
@@ -6370,7 +6364,6 @@ if Three_World then
 			end)
 		end
 	end)
-	end
 
 	Main:Seperator("Mas Farm")
 
@@ -6705,7 +6698,6 @@ end)
 		Update_Setting(getgenv()['MyName'])
 	end)
 	
-	if Three_World then
 Miscf:Seperator("Mystic Island")
 
 Miscf:Toggle("Auto Mystic Island",_G.Setting_table.AutoMysticIsland,function(vu)
@@ -6725,39 +6717,13 @@ end)
             end)
         end)
         
-Miscf:Toggle("Teleport Advanced Fruit Npc",_G.Setting_table.TeleporttoGear,function(vu)
-	_G.Setting_table.Miragenpc = vu
-	Update_Setting(getgenv()['MyName'])
+Miscf:Button("Teleport To Advanced Fruit Dealer",function()
+    for i, ve in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
+        if ve.Name == "Advanced Fruit Dealer" then
+            TP(ve.HumanoidRootPart.CFrame * CFrame.new(0,2,0))
+        end
+    end
 end)
-
-        spawn(function()
-        pcall(function()
-            while wait(.1) do
-                if _G.Setting_table.Miragenpc then    
-                    TweenNpc()
-                end
-            end
-        end)
-    end)
-
-
-                function TweenNpc()
-                    repeat
-                        wait()
-                    until game:GetService("Workspace").Map:FindFirstChild("MysticIsland")
-                    if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
-                        AllNPCS = getnilinstances()
-                        for r, v in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
-                            table.insert(AllNPCS, v)
-                        end
-                        for r, v in pairs(AllNPCS) do
-                            if v.Name == "Advanced Fruit Dealer" then
-                                TP(v.HumanoidRootPart.CFrame)
-                                end
-                            end
-                        end
-                    end
-                    
 
 Miscf:Toggle("Teleport To Gear",_G.Setting_table.TeleporttoGear,function(vu)
 	_G.Setting_table.TeleporttoGear = vu
@@ -6798,7 +6764,6 @@ spawn(function()
             end
         end
     end)
-    end
 Miscf:Seperator("Farm Nearest")
 
 ddiss = Miscf:Label("")
@@ -7241,7 +7206,6 @@ spawn(function()
     end
 end)
 
-if New_World then
 Miscf:Seperator("// Acidum Rifle \\\\\ ")
 
 Miscf:Toggle("Auto Acidum Rifle",_G.Setting_table.Auto_Acidum_Rifle,function(vu)
@@ -7297,7 +7261,6 @@ Miscf:Toggle("Auto Acidum Rifle Hop",_G.Setting_table.Auto_Acidum_Rifle_Hop,func
 	_G.Setting_table.Auto_Acidum_Rifle_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
 
 Miscf:Seperator("// Fighting Style \\\\\ ")
 
@@ -8140,7 +8103,6 @@ spawn(function()
 	end
 end)
 
-if Three_World then
 Miscf:Seperator("// Elite Hunter \\\\\ ")
 
 Miscf:Toggle("Auto Elite Hunter",_G.Setting_table.Auto_Elite_Hunter,function(vu)
@@ -8241,7 +8203,6 @@ spawn(function()
 		end)
 	end
 end)
-end
 
 Miscf:Seperator("// Advanced Dungeon \\\\\ ")
 
@@ -8481,7 +8442,7 @@ spawn(function()
 		end)
 	end
 end)
-if Old_World then
+
 Miscf:Seperator("// Pole \\\\\ ")
 
 Miscf:Toggle("Auto Pole V1",_G.Setting_table.Pole_Farm,function(vu)
@@ -8548,8 +8509,7 @@ Miscf:Toggle("Auto Pole V1 Hop",_G.Setting_table.Pole_V1_Hop,function(vu)
 	_G.Setting_table.Pole_V1_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
-if Three_World then
+
 Miscf:Seperator("// Serpent Bow \\\\\ ")
 
 Miscf:Toggle("Auto Serpent Bow",_G.Setting_table.Auto_Serpent_Bow,function(vu)
@@ -8603,8 +8563,7 @@ Miscf:Toggle("Auto Serpent Bow Hop",_G.Setting_table.Auto_Serpent_Bow_Hop,functi
 	_G.Setting_table.Auto_Serpent_Bow_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
-if New_World then
+
 Miscf:Seperator("// Auto Dragon Trident \\\\\ ")
 
 Miscf:Toggle("Auto Dragon Trident",_G.Setting_table.Auto_Dragon_Trident,function(vu)
@@ -8661,8 +8620,7 @@ Miscf:Toggle("Auto Dragon Trident Hop",_G.Setting_table.Auto_Dragon_Trident_Hop,
 	_G.Setting_table.Auto_Dragon_Trident_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
-if New_World then
+
 Miscf:Seperator("// Swan Glasses \\\\\ ")
 
 Miscf:Toggle("Auto Swan Glass",_G.Setting_table.Auto_Swan_Glass,function(vu)
@@ -8675,7 +8633,7 @@ spawn(function()
 		pcall(function()
 			if Auto_Swan_Glass then
 				if not Mix_Farm or Auto_Swan_Glass_Farm then
-					if game.Workspace.Enemies:FindFirstChild("Don Swan") or game.ReplicatedStorage:FindFirstChild("Don Swan") then
+					if game.Workspace.Enemies:FindFirstChild("Don Swan") or game.ReplicatedStorage:FindFirstChild("Don Swan [Lv. 1000] [Boss]") then
 						Auto_Swan_Glass_Farm = true
 						Mix_Farm = true
 						if game.Workspace.Enemies:FindFirstChild("Don Swan") then
@@ -8716,8 +8674,7 @@ Miscf:Toggle("Auto Swan Glass Hop",_G.Setting_table.Auto_Swan_Glass_Hop,function
 	_G.Setting_table.Auto_Swan_Glass_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
-if Three_World then
+
 Miscf:Seperator("// Buddy Sword \\\\\ ")
 
 Miscf:Toggle("Auto Buddy Sword",_G.Setting_table.Auto_Buddy_Sword,function(vu)
@@ -8774,9 +8731,8 @@ Miscf:Toggle("Auto Buddy Sword Hop",_G.Setting_table.Auto_Buddy_Sword_Hop,functi
 	_G.Setting_table.Auto_Buddy_Sword_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
-if Three_World then
-Miscf:Seperator("// Valkyrie Helmet\\\\\ ")
+
+Miscf:Seperator("// Dark Danger \\\\\ ")
 
 Miscf:Toggle("Auto Valkyrie Helmet",_G.Setting_table.Auto_Valkyrie_Helmet,function(vu)
 	Auto_Valkyrie_Helmet = vu
@@ -8831,8 +8787,7 @@ Miscf:Toggle("Auto Valkyrie Helmet Hop",_G.Setting_table.Auto_Valkyrie_Helmet_Ho
 	_G.Setting_table.Auto_Valkyrie_Helmet_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
-if Three_World then
+
 Miscf:Seperator("// Rougth Sea \\\\\ ")
 Miscf:Label("Setting Rougth Sea")
     
@@ -9266,8 +9221,7 @@ end)
                 end
             end
         end)
-        end
-    if Old_World then    
+        
 Miscf:Seperator("// Saber \\\\\ ")
 
 Miscf:Toggle("Auto Saber",_G.Setting_table.Saber_Farm,function(vu)
@@ -9375,11 +9329,9 @@ spawn(function()
             end
         end
     end)
-    end
-    
 
 
-if Three_World then
+
 Miscf:Seperator("// Raid Pirate \\\\\ ")
 
 Miscf:Toggle("Auto Raid Pirate",_G.Setting_table.Auto_Quest_Tushita_2,function(vu)
@@ -9418,8 +9370,7 @@ spawn(function()
 		end
 	end
 end)
-end
-if Three_World then
+
 Miscf:Seperator("// tushita \\\\\ ")
 
 Miscf:Toggle("Auto Tushita",_G.Setting_table.Auto_Tushita,function(vu)
@@ -9638,8 +9589,7 @@ spawn(function()
 		end)
 	end
 end)
-end
-if Three_World then
+
 Miscf:Seperator("// Twin Hooks \\\\\ ")
 
 Miscf:Toggle("Auto Twin Hooks",_G.Setting_table.Auto_Twin_Hooks,function(vu)
@@ -9696,8 +9646,7 @@ Miscf:Toggle("Auto Twin Hooks Hop",_G.Setting_table.Auto_Twin_Hooks_Hop,function
 	_G.Setting_table.Auto_Twin_Hooks_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
-if Three_World then
+
 Miscf:Seperator("// Canvander \\\\\ ")
 
 
@@ -9755,9 +9704,8 @@ Miscf:Toggle("Auto Canvander Hop",_G.Setting_table.Auto_Canvander_Hop,function(v
 	_G.Setting_table.Auto_Canvander_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
 
-    if Three_World then
+    
 Miscf:Seperator("// Hallow Scythe \\\\\ ")
 
 Miscf:Toggle("Auto Hallow Scythe",_G.Setting_table.Auto_Hallow_Scryte,function(vu)
@@ -9849,8 +9797,7 @@ Miscf:Toggle("Auto Hallow Scythe Hop",_G.Setting_table.Hallow_Scryte_Hop,functio
 	_G.Setting_table.Hallow_Scryte_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
-if Three_World then
+
 Miscf:Seperator("// Dark Dagger \\\\\ ")
 
 Miscf:Toggle("Auto Dark Dagger",_G.Setting_table.Auto_Dark_Dagger,function(vu)
@@ -9931,8 +9878,7 @@ Miscf:Toggle("Auto Dark Dagger Hop",_G.Setting_table.Auto_Dark_Dagger_Hop,functi
 	_G.Setting_table.Auto_Dark_Dagger_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
-if New_World then
+
 Miscf:Seperator("// Legendary Sword \\\\\ ")
     
 spawn(function()
@@ -9990,8 +9936,7 @@ Miscf:Toggle("Auto Buy Legendary Sword Hop",_G.Setting_table.AutoBuyLegendarySwo
 	_G.Setting_table.AutoBuyLegendarySword_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-end
-    if New_World then
+    
     Miscf:Seperator("// Enchancement Colour \\\\\ ")
     
 local KuyKoben = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("ColorsDealer", "1")
@@ -10035,7 +9980,6 @@ end)
             end 
         end
     end)
-    end
    
 
 Miscf:Seperator("// Misc \\\\\ ")
