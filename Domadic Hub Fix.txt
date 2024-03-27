@@ -9400,28 +9400,29 @@ FrozenIsland = M:AddLabel("")
         end)
         
         spawn(function()
-		while  _G.AutoFKitsune do wait()
-			pcall(function()
-				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-				topos(game.Workspace.Map.KitsuneIsland.ShrineActive.NeonShrinePart.CFrame * CFrame.new(0,0,10))
-				end
-			end)
-		end
-	end)
-	
-        
-        
-    spawn(function()
-        pcall(function()
             while wait() do
                 if _G.AutoAzuerEmber then
-                    if game.Workspace.AttachedAzureEmber then
-                    topos(game.Workspace.EmberTemplate.Part.CFrame)
-                    end
+                    pcall(function()
+                        if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
+                            topos(game.Workspace.Map.KitsuneIsland.ShrineActive.NeonShrinePart.CFrame * CFrame.new(0,0,10))
+                    end)
                 end
             end
         end)
-    end)
+        
+           
+        
+    spawn(function()
+            while wait() do
+                if _G.AutoAzuerEmber then
+                    pcall(function()
+                        if game:GetService("Workspace"):FindFirstChild("AttachedAzureEmber") then
+                            topos(game.Workspace.EmberTemplate.Part.CFrame)
+                        end
+                    end)
+                end
+            end
+        end)
     
     M:AddToggle("Send Notification If Kitsunen Island Spwan",_G.KisuneWarn,function(value)
     _G.KisuneWarn = value
