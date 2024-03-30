@@ -1317,8 +1317,6 @@ end
 
 -- [Server Hop Api]
 
-local ServerHop =  loadstring(game:HttpGet("https://www.klgrth.io/paste/h8yq5/raw"))();
-
 function Fast_Hop()
 	pcall(function()
 		for count = math.random(1, math.random(40, 75)), 100 do
@@ -3938,7 +3936,7 @@ function GetBossName()
 end
 
 --[Create Variables UI]
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/minhhau207/SilverHub/main/obfuscated-3788.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/hajibeza/GUISTORAGE/main/UniqueGui.lua"))()
 
 local Main = Library:CreateWindow() 
 
