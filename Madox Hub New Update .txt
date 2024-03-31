@@ -1883,6 +1883,7 @@ local ui = Blacklib:Window("Madox")
 local M = ui:Tab("Main","rbxassetid://11446825283")
 local F = ui:Tab("Farm/Quest","rbxassetid://9260732790")
 local S = ui:Tab("Stats","rbxassetid://11447069304")
+local De = ui:Tab("Sea Quest","rbxassetid://7044284832")
 local C = ui:Tab("Combats","rbxassetid://11446900930")
 local T = ui:Tab("Teleport","rbxassetid://11446920523")
 local D = ui:Tab("Raid/Esp","rbxassetid://11446957539")
@@ -1894,6 +1895,7 @@ local R = ui:Tab("RaceV4","rbxassetid://11446900930")
 local Main = M:NewSection("Main")
 local Farm = F:NewSection("Farm/Quest")
 local Stats = S:NewSection("Stats")
+loca Sea = De:NewSection("Sea Event")
 local Combat = C:NewSection("Combats")
 local Teleport = T:NewSection("Teleport")
 local Dungeon = D:NewSection("Raid/Esp")
@@ -3681,7 +3683,7 @@ end
 spawn(function()
   pcall(function()
     while wait() do
-    if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.d or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or _G.Mirage or AutoKenHop or AutoKenV2 or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto or _G.Next_Islands or _G.Auto_Raid or _G.Raid or _G.Auto_Dungeon or _G.TweenMGear or AutoFoxIsland or AutoGetAzure or AutoSeaEvent or TweenSpyToBoat then
+    if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.d or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or _G.Mirage or AutoKenHop or AutoKenV2 or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto or _G.Next_Islands or _G.Auto_Raid or _G.Raid or _G.Auto_Dungeon or _G.TweenMGear or AutoFoxIsland or AutoGetAzure or AutoSeaEvent or TweenSpyToBoat or _G.AutoQuestRace or TeleportAFD then
     if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
     local Noclip = Instance.new("BodyVelocity")
     Noclip.Name = "BodyClip"
@@ -3702,7 +3704,7 @@ spawn(function()
 spawn(function()
   pcall(function()
     game:GetService("RunService").Stepped:Connect(function()
-      if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or _G.Mirage or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or _G.d or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto or _G.Next_Islands or _G.Auto_Raid or _G.Raid or _G.Auto_Dungeon or _G.TweenMGear or AutoFoxIsland or AutoGetAzure or AutoSeaEvent or TweenSpyToBoat then
+      if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or _G.Mirage or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or _G.d or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto or _G.Next_Islands or _G.Auto_Raid or _G.Raid or _G.Auto_Dungeon or _G.TweenMGear or AutoFoxIsland or AutoGetAzure or AutoSeaEvent or TweenSpyToBoat or _G.AutoQuestRace or TeleportAFD then
       for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
       if v:IsA("BasePart") then
       v.CanCollide = false
@@ -3975,7 +3977,7 @@ spawn(function()
       for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
     if string.find(v.Name,NameMon) then
     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
-    Tween(v.CFrame * Farm_Mode)
+    Tween(v.CFrame * CFrame.new(0,30,50))
     end
     end
     end
@@ -5446,7 +5448,7 @@ Main:Toggle('Use Skill F', SkillF, function(ffunc)
   SkillF = ffunc
 end)
 
-    Main:Label("🤺 Observation Haki 🤺")
+    Main:Label(" Observation Haki ")
 
 local ObservationRange = Main:Label("")
 
@@ -5597,7 +5599,7 @@ end
 
 
 
-Farm:Label("😉 Fighting Style 😉")
+Farm:Label(" Fighting Style")
 
 Farm:Toggle('Auto Death Step', AutoDeathStep, function(ads)
     AutoDeathStep = ads
@@ -6204,7 +6206,7 @@ spawn(function()
   end
   end)
 
-Farm:Label("😲 Elite Hunter 😲")
+Farm:Label(" Elite Hunter ")
 local EliteProgress = Farm:Label("")
     local BosstElite = Farm:Label("")
     spawn(function()
@@ -7455,302 +7457,7 @@ Hop()
 end)
 end
 
-if World3 then
-Farm:Label("🌊 Sea Evens🌊")
-
-
-BoatDataLis = {
-	"Dinghy",
-	"PirateSloop",
-	"PirateBrigade",
-	"PirateGrandBrigade",
-	"MarineSloop",
-	"MarineBrigade",
-	"MarineGrandBrigade"
-}
-
-SelectBoat = "PirateBrigade"	
-Farm:Dropdown("Select Boats",BoatDataLis,function(value)
-SelectBoat = value
-end)
-
-_G.SelectLocalTeleportSea = "Sea5[Crazy]"	
-Farm:Dropdown("Select Sea",{"Sea1[Low]","Sea2[Medium]","Sea3[High]","Sea4[Extreme]","Sea5[Crazy]","Sea6[???]"},function(value)
-SelectLocalTeleportSea = value
-end)
-
-Farm:Toggle('Auto Sea Event', false, function(SeaFarm)
-    AutoSeaEvent = SeaFarm
-    CancelTween(AutoSeaEvent)
-end)
-
-spawn(function()
-        while wait() do
-            pcall(function()
-                if AutoSeaEvent then
-                    if not game:GetService("Workspace").Enemies:FindFirstChild("Shark") or not game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or not game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or not game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
-                        if not game:GetService("Workspace").Boats:FindFirstChild(SelectBoat) then
-                            buyb = TPP(CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781))
-                            if (CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
-                                if buyb then buyb:Stop() end
-                                local args = {
-                                    [1] = "BuyBoat",
-                                    [2] = SelectBoat
-                                }
-    
-                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-                            end
-                        elseif game:GetService("Workspace").Boats:FindFirstChild(SelectBoat) then
-                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
-                                TPP(game:GetService("Workspace").Boats[SelectBoat].VehicleSeat.CFrame * CFrame.new(0,1,0))
-                            else
-                                for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
-                                    if v.Name == SelectBoat then
-                                        repeat wait()
-                                            if SelectLocalTeleportSea == "Sea1[Low]" then
-				                        		TPB(CFrame.new(-22526.0098, -0.3221744, 1716.89185, -0.210707203, 1.100981e-07, 0.977549195, 2.74631451e-09, 1, -1.12034698e-07, -0.977549195, -2.09218598e-08, -0.210707203))
-			                            	elseif SelectLocalTeleportSea == "Sea2[Medium]" then
-					                        	TPB(CFrame.new(-25645.3535, -0.3221744, 2554.41016, -0.334876329, -5.05522451e-08, 0.942262113, -3.13346469e-08, 1, 4.25136619e-08, -0.942262113, -1.52886308e-08, -0.334876329))
-			                            	elseif SelectLocalTeleportSea == "Sea3[High]" then
-				                        		TPB(CFrame.new(-29842.2227, -0.3221744, 4070.85767, -0.270609587, 3.60968606e-08, 0.962689161, -4.47193429e-08, 1, -5.00663617e-08, -0.962689161, -5.65992657e-08, -0.270609587))
-		                            		elseif SelectLocalTeleportSea == "Sea4[Extreme]" then
-			                        			TPB(CFrame.new(-32654.7188, -0.3221744, 4788.14697, -0.183276221, 2.0033232e-08, 0.983061433, 3.66669433e-08, 1, -1.35424418e-08, -0.983061433, 3.35638504e-08, -0.183276221))
-	                            			elseif SelectLocalTeleportSea == "Sea5[Crazy]" then
-					                        	TPB(CFrame.new(-37813.6953, -0.3221744, 6105.16895, -0.252362996, 4.13621581e-09, 0.967632651, 2.87320709e-08, 1, 3.21888249e-09, -0.967632651, 2.86144175e-08, -0.252362996))
-			                            	elseif SelectLocalTeleportSea == "Sea6[???]" then
-					                        	TPB(CFrame.new(-42250.2227, -0.3221744, 9247.07715, -0.45916447, 6.39043236e-08, 0.888351262, -3.36711423e-08, 1, -8.93395651e-08, -0.888351262, -7.09333605e-08, -0.45916447))
-                                            end 
-                                        until game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or AutoSeaEvent == false
-                                    end
-                                end
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-    end)
-    
-    spawn(function()
-		pcall(function()
-			while wait() do
-				if AutoSeaEvent then
-					if game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
-					    game.Players.LocalPlayer.Character.Humanoid.Sit = false
-					end
-				end
-			end
-		end)
-	end)
-	
-spawn(function()
-    while task.wait(.5) do
-        pcall(function()
-            if AutoSeaEvent then
-                if game.Workspace.Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
-                    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-                        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                            if v.Name == "Shark" or v.Name == "Terrorshark" or v.Name == "Piranha" or v.Name == "Fish Crew Member" then
-                                repeat task.wait()
-                                    AutoHaki()
-                                    EquipTool(SelectWeapon)
-                                    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
-                                    Fastattack = true
-                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-                                    v.HumanoidRootPart.Transparency = 1
-                                    v.Humanoid.JumpPower = 0
-                                    v.Humanoid.WalkSpeed = 0
-                                    v.HumanoidRootPart.CanCollide = false
-                                    --v.Humanoid:ChangeState(11)
-                                    --v.Humanoid:ChangeState(14)
-                                    FarmPos = v.HumanoidRootPart.CFrame
-                                    MonFarm = v.Name
-                                    Click()
-                                until v.Humanoid.Health <= 0 or not v.Parent or not AutoSeaEvent
-                                Fastattack = false
-                            end
-                        end
-                    end
-                else
-                    Tween(game.ReplicatedStorage:FindFirstChild(v.Name).HumanoidRootPart.CFrame*Farm_Mode)
-                end       
-            end
-        end)
-    end
-end)
-
-Farm:Label("🦊 Kisune 🦊")
-
-spawn(function()
-    pcall(function()
-        while wait() do
-            if game:GetService("Workspace").Map:FindFirstChild('KitsuneIsland') then
-                FaiFaoKai:Set('🦊: Kitsunen Spwan')
-            else
-                FaiFaoKai:Set('🔴: Kitsunen Not Found')
-            end
-        end
-    end)
-end)
-
-FaiFaoKai = Farm:Label("Error!!Why????")
-
-Farm:Toggle('Teleport to Kisune Island', false, function(KSN)
-    AutoFoxIsland = KSN
-    CancelTween(AutoFoxIsland)
-end)
-
-spawn(function()
-		while AutoFoxIsland do wait()
-			pcall(function()
-				if game:GetService("Workspace").Map:FindFirstChild("KitsuneIsland") then
-				Tween(game.Workspace.Map.KitsuneIsland.ShrineActive.NeonShrinePart.CFrame * CFrame.new(0,0,10))
-				end
-			end)
-		end
-	end)
-	
-	Farm:Toggle('Auto Get Azure Ember', false, function(AGAM)
-    AutoGetAzure = AGAM
-    CancelTween(AutoGetAzure)
-end)
-
-
-	spawn(function()
-        pcall(function()
-            while wait() do
-                if AutoGetAzure then
-                    if game.Workspace.EmberTemplate.Part then
-                    Tween(game.Workspace.EmberTemplate.Part.CFrame)
-                    end
-                end
-            end
-        end)
-    end)
-end
-    
-    Farm:Label("🛶 Boat Menu 🛶")
-    
-    SpeedTable = {
-	"200",
-	"250",
-	"300",
-	"350",
-	"400",
-	"450",
-	"500"
-}
-BoatSpeeded = "350"
-Farm:Dropdown("Select Boat Speed",SpeedTable,function(value)
-BoatSpeeded = value
-end)
-
-Farm:Toggle('Fast Boat', false, function(value)
-        BoatSpeed = value
-    local vehicleSeats = {}
-                for i, v in pairs(game.Workspace.Boats:GetDescendants()) do
-                    if v:IsA("VehicleSeat") then
-                        table.insert(vehicleSeats, v)
-                    end
-                end
-                if BoatSpeed then
-                    for _, v in pairs(vehicleSeats) do
-                        v.MaxSpeed = BoatSpeeded
-                    end
-                else
-                    for _, v in pairs(vehicleSeats) do
-                        v.MaxSpeed = 100
-                    end
-                end
-            end)
-            
-Farm:Toggle('Noclip Rock', false, function(value)
-NoclipR = value
-end)
-                       
-                        spawn(function()
-                            while wait() do
-                                if NoclipR then
-                                    if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
-                                        for _, v in pairs(game.Workspace.Boats:GetDescendants()) do
-                                            if v:IsA("BasePart") and v.CanCollide == true then
-                                                v.CanCollide = false
-                                            end
-                                        end
-                                        for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-                                            if v:IsA("BasePart") and v.CanCollide == true then
-                                                v.CanCollide = false
-                                            end
-                                        end
-                                    elseif game.Players.LocalPlayer.Character.Humanoid.Sit == false then
-                                        for _, v in pairs(game.Workspace.Boats:GetDescendants()) do
-                                            if v:IsA("BasePart") and v.CanCollide == false then
-                                                v.CanCollide = true
-                                            end
-                                        end
-                                        for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
-                                            if v:IsA("BasePart") and v.CanCollide == false then
-                                                v.CanCollide = true
-                                            end
-                                        end
-                                    end
-                                end
-                            end
-                        end)
-
-BoatsName = {}
-
-for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
-  table.insert(BoatsName ,v.Name)
-end
-
-local Boats = Farm:Dropdown("Select Boats",BoatsName,function(plys)
-  SelectB = plys
-end)
-    
-Farm:Button("Refrsh Boats",function()
-  BoatsName = {}
-  Boats:Clear()
-  for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
-     Boats:Add(v.Name)
-  end
-end)
-
-Farm:Button("Bring Boats",function()
-   game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Boats[SelectB].VehicleSeat.CFrame
-end)
-
-
-        
-Farm:Toggle('Follow Boat Select', false, function(Val)
-    TweenSpyToBoat = Val
-    CancelTween(TweenSpyToBoat)
-end)
-
-spawn(function()
-        pcall(function()
-            while wait() do
-                if TweenSpyToBoat then
-                    if game:GetService("Workspace").Boats:FindFirstChild(SelectB) then
-                    Tween(game:GetService("Workspace").Boats[SelectB].VehicleSeat.CFrame * CFrame.new(0,30,0))
-                    end
-                end
-            end
-        end)
-    end)
-
-
-Farm:Toggle("Spectate Boats",false,function(bool)
-  Sp = bool
-  local plr1 = game.Players.LocalPlayer.Character.Humanoid
-  local plr2 = game:GetService("Workspace").Boats:FindFirstChild(SelectB)
-  repeat wait(.1)
-     game.Workspace.Camera.CameraSubject = game:GetService("Workspace").Boats[SelectB].VehicleSeat
-  until Sp == false 
-  game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
-end)
- 
-    
+     
     
 if World1 then
 Farm:Label("🗡️ Saber Sword 🗡️")
@@ -8884,6 +8591,304 @@ end)
             game:GetService("Players")["LocalPlayer"].leaderstats["Bounty/Honor"].Value = tonumber(value)
         end
     end)
+if World1 or World2 then
+Farm:Label("Sea Event In Wrold 3")
+end
+
+if World3 then
+Farm:Label("🌊 Sea Evens🌊")
+
+
+BoatDataLis = {
+	"Dinghy",
+	"PirateSloop",
+	"PirateBrigade",
+	"PirateGrandBrigade",
+	"MarineSloop",
+	"MarineBrigade",
+	"MarineGrandBrigade"
+}
+
+SelectBoat = "PirateBrigade"	
+Sea:Dropdown("Select Boats",BoatDataLis,function(value)
+SelectBoat = value
+end)
+
+_G.SelectLocalTeleportSea = "Sea5[Crazy]"	
+Sea:Dropdown("Select Sea",{"Sea1[Low]","Sea2[Medium]","Sea3[High]","Sea4[Extreme]","Sea5[Crazy]","Sea6[???]"},function(value)
+SelectLocalTeleportSea = value
+end)
+
+Sea:Toggle('Auto Sea Event', false, function(SeaFarm)
+    AutoSeaEvent = SeaFarm
+    CancelTween(AutoSeaEvent)
+end)
+
+spawn(function()
+        while wait() do
+            pcall(function()
+                if AutoSeaEvent then
+                    if not game:GetService("Workspace").Enemies:FindFirstChild("Shark") or not game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or not game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or not game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
+                        if not game:GetService("Workspace").Boats:FindFirstChild(SelectBoat) then
+                            buyb = TPP(CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781))
+                            if (CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 10 then
+                                if buyb then buyb:Stop() end
+                                local args = {
+                                    [1] = "BuyBoat",
+                                    [2] = SelectBoat
+                                }
+    
+                                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                            end
+                        elseif game:GetService("Workspace").Boats:FindFirstChild(SelectBoat) then
+                            if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit == false then
+                                TPP(game:GetService("Workspace").Boats[SelectBoat].VehicleSeat.CFrame * CFrame.new(0,1,0))
+                            else
+                                for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do
+                                    if v.Name == SelectBoat then
+                                        repeat wait()
+                                            if SelectLocalTeleportSea == "Sea1[Low]" then
+				                        		TPB(CFrame.new(-22526.0098, -0.3221744, 1716.89185, -0.210707203, 1.100981e-07, 0.977549195, 2.74631451e-09, 1, -1.12034698e-07, -0.977549195, -2.09218598e-08, -0.210707203))
+			                            	elseif SelectLocalTeleportSea == "Sea2[Medium]" then
+					                        	TPB(CFrame.new(-25645.3535, -0.3221744, 2554.41016, -0.334876329, -5.05522451e-08, 0.942262113, -3.13346469e-08, 1, 4.25136619e-08, -0.942262113, -1.52886308e-08, -0.334876329))
+			                            	elseif SelectLocalTeleportSea == "Sea3[High]" then
+				                        		TPB(CFrame.new(-29842.2227, -0.3221744, 4070.85767, -0.270609587, 3.60968606e-08, 0.962689161, -4.47193429e-08, 1, -5.00663617e-08, -0.962689161, -5.65992657e-08, -0.270609587))
+		                            		elseif SelectLocalTeleportSea == "Sea4[Extreme]" then
+			                        			TPB(CFrame.new(-32654.7188, -0.3221744, 4788.14697, -0.183276221, 2.0033232e-08, 0.983061433, 3.66669433e-08, 1, -1.35424418e-08, -0.983061433, 3.35638504e-08, -0.183276221))
+	                            			elseif SelectLocalTeleportSea == "Sea5[Crazy]" then
+					                        	TPB(CFrame.new(-37813.6953, -0.3221744, 6105.16895, -0.252362996, 4.13621581e-09, 0.967632651, 2.87320709e-08, 1, 3.21888249e-09, -0.967632651, 2.86144175e-08, -0.252362996))
+			                            	elseif SelectLocalTeleportSea == "Sea6[???]" then
+					                        	TPB(CFrame.new(-42250.2227, -0.3221744, 9247.07715, -0.45916447, 6.39043236e-08, 0.888351262, -3.36711423e-08, 1, -8.93395651e-08, -0.888351262, -7.09333605e-08, -0.45916447))
+                                            end 
+                                        until game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or AutoSeaEvent == false
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+    end)
+    
+    spawn(function()
+		pcall(function()
+			while wait() do
+				if AutoSeaEvent then
+					if game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
+					    game.Players.LocalPlayer.Character.Humanoid.Sit = false
+					end
+				end
+			end
+		end)
+	end)
+	
+spawn(function()
+    while task.wait(.5) do
+        pcall(function()
+            if AutoSeaEvent then
+                if game.Workspace.Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
+                    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            if v.Name == "Shark" or v.Name == "Terrorshark" or v.Name == "Piranha" or v.Name == "Fish Crew Member" then
+                                repeat task.wait()
+                                    AutoHaki()
+                                    EquipTool(SelectWeapon)
+                                    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                    Fastattack = true
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.Transparency = 1
+                                    v.Humanoid.JumpPower = 0
+                                    v.Humanoid.WalkSpeed = 0
+                                    v.HumanoidRootPart.CanCollide = false
+                                    --v.Humanoid:ChangeState(11)
+                                    --v.Humanoid:ChangeState(14)
+                                    FarmPos = v.HumanoidRootPart.CFrame
+                                    MonFarm = v.Name
+                                    Click()
+                                until v.Humanoid.Health <= 0 or not v.Parent or not AutoSeaEvent
+                                Fastattack = false
+                            end
+                        end
+                    end
+                else
+                    Tween(game.ReplicatedStorage:FindFirstChild(v.Name).HumanoidRootPart.CFrame*Farm_Mode)
+                end       
+            end
+        end)
+    end
+end)
+
+Sea:Label("🦊 Kisune 🦊")
+
+spawn(function()
+    pcall(function()
+        while wait() do
+            if game:GetService("Workspace").Map:FindFirstChild('KitsuneIsland') then
+                yesed:Set('🦊: Kitsunen Spwan')
+            else
+                yesed:Set('🔴: Kitsunen Not Found')
+            end
+        end
+    end)
+end)
+
+yesed = Sea:Label("Error!!Why????")
+
+Sea:Toggle('Teleport to Kisune Island', false, function(KSN)
+    AutoFoxIsland = KSN
+    CancelTween(AutoFoxIsland)
+end)
+
+    spawn(function()
+        pcall(function()
+            while wait() do
+                if AutoFoxIsland then
+                    topos(game.Workspace.Map.KitsuneIsland.ShrineActive.NeonShrinePart.CFrame * CFrame.new(0,0,10))
+                end
+            end
+        end)
+    end)
+	
+	Sea:Toggle('Auto Get Azure Ember', false, function(AGAM)
+    AutoGetAzure = AGAM
+    CancelTween(AutoGetAzure)
+end)
+
+
+	spawn(function()
+            while wait() do
+                if AutoGetAzure then
+                    pcall(function()
+                        if game:GetService("Workspace"):FindFirstChild("AttachedAzureEmber") then
+                            topos(game.Workspace.EmberTemplate.Part.CFrame)
+                        end
+                    end)
+                end
+            end
+        end)
+end
+    
+    Sea:Label("🛶 Boat Menu 🛶")
+    
+    SpeedTable = {
+	"200",
+	"250",
+	"300",
+	"350",
+	"400",
+	"450",
+	"500"
+}
+BoatSpeeded = "350"
+Sea:Dropdown("Select Boat Speed",SpeedTable,function(value)
+BoatSpeeded = value
+end)
+
+Sea:Toggle('Fast Boat', false, function(value)
+        BoatSpeed = value
+    local vehicleSeats = {}
+                for i, v in pairs(game.Workspace.Boats:GetDescendants()) do
+                    if v:IsA("VehicleSeat") then
+                        table.insert(vehicleSeats, v)
+                    end
+                end
+                if BoatSpeed then
+                    for _, v in pairs(vehicleSeats) do
+                        v.MaxSpeed = BoatSpeeded
+                    end
+                else
+                    for _, v in pairs(vehicleSeats) do
+                        v.MaxSpeed = 100
+                    end
+                end
+            end)
+            
+Sea:Toggle('Noclip Rock', false, function(value)
+NoclipR = value
+end)
+                       
+                        spawn(function()
+                            while wait() do
+                                if NoclipR then
+                                    if game.Players.LocalPlayer.Character.Humanoid.Sit == true then
+                                        for _, v in pairs(game.Workspace.Boats:GetDescendants()) do
+                                            if v:IsA("BasePart") and v.CanCollide == true then
+                                                v.CanCollide = false
+                                            end
+                                        end
+                                        for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                                            if v:IsA("BasePart") and v.CanCollide == true then
+                                                v.CanCollide = false
+                                            end
+                                        end
+                                    elseif game.Players.LocalPlayer.Character.Humanoid.Sit == false then
+                                        for _, v in pairs(game.Workspace.Boats:GetDescendants()) do
+                                            if v:IsA("BasePart") and v.CanCollide == false then
+                                                v.CanCollide = true
+                                            end
+                                        end
+                                        for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                                            if v:IsA("BasePart") and v.CanCollide == false then
+                                                v.CanCollide = true
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end)
+
+BoatsName = {}
+
+for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
+  table.insert(BoatsName ,v.Name)
+end
+
+local Boats = Sea:Dropdown("Select Boats",BoatsName,function(plys)
+  SelectB = plys
+end)
+    
+Sea:Button("Refrsh Boats",function()
+  BoatsName = {}
+  Boats:Clear()
+  for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
+     Boats:Add(v.Name)
+  end
+end)
+
+Sea:Button("Bring Boats",function()
+   game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Boats[SelectB].VehicleSeat.CFrame
+end)
+
+
+        
+Sea:Toggle('Follow Boat Select', false, function(Val)
+    TweenSpyToBoat = Val
+    CancelTween(TweenSpyToBoat)
+end)
+
+spawn(function()
+        pcall(function()
+            while wait() do
+                if TweenSpyToBoat then
+                    if game:GetService("Workspace").Boats:FindFirstChild(SelectB) then
+                    Tween(game:GetService("Workspace").Boats[SelectB].VehicleSeat.CFrame * CFrame.new(0,30,0))
+                    end
+                end
+            end
+        end)
+    end)
+
+
+Sea:Toggle("Spectate Boats",false,function(bool)
+  Sp = bool
+  local plr1 = game.Players.LocalPlayer.Character.Humanoid
+  local plr2 = game:GetService("Workspace").Boats:FindFirstChild(SelectB)
+  repeat wait(.1)
+     game.Workspace.Camera.CameraSubject = game:GetService("Workspace").Boats[SelectB].VehicleSeat
+  until Sp == false 
+  game.Workspace.Camera.CameraSubject = game.Players.LocalPlayer.Character.Humanoid
+end)
 
 Combat:Label("🤺 Players Combat 🤺")
 
@@ -9404,6 +9409,38 @@ spawn(function()
     end)
     end)
     
+    Teleport:Toggle("Tween To Advanced Fruit Dealer",_G.TPNPC,function(value)
+             TeleportAFD = value
+             StopTween(TeleportAFD)
+        end)
+        
+    spawn(function()
+        pcall(function()
+            while wait(.1) do
+                if TeleportAFD then    
+                    TweenNpc()
+                end
+            end
+        end)
+    end)
+
+                function TweenNpc()
+                    repeat
+                        wait()
+                    until game:GetService("Workspace").Map:FindFirstChild("MysticIsland")
+                    if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+                        AllNPCS = getnilinstances()
+                        for r, v in pairs(game:GetService("Workspace").NPCs:GetChildren()) do
+                            table.insert(AllNPCS, v)
+                        end
+                        for r, v in pairs(AllNPCS) do
+                            if v.Name == "Advanced Fruit Dealer" then
+                                Tween(v.HumanoidRootPart.CFrame)
+                                end
+                            end
+                        end
+                    end
+    
 spawn(function()
         pcall(function()
             while wait() do
@@ -9412,9 +9449,9 @@ spawn(function()
                 Tween(workspace.Map.MysticIsland.PrimaryPart.CFrame*CFrame.new(0,250,0))
                 else
 game.StarterGui:SetCore("SendNotification", {
-        Title = "Domadic Hub"; -- the title (ofc)
+        Title = "MADOX HUB"; -- the title (ofc)
         Text = "Mirage not Found!"; -- what the text says (ofc)
-        Icon = "rbxassetid://12523036534"; -- the image if u want. 
+        Icon = "rbxassetid://12511245920"; -- the image if u want. 
         Duration = 3; -- how long the notification should in secounds
         })
                 if _G.MirageHop then
@@ -12003,7 +12040,21 @@ Misc:Toggle("Graphic",false,function(v)
          end
       end
      end)
- 
+     
+ Misc:Toggle(" Black Screen ",BlackScreen,function(value)
+	BlackScreen = value
+end)
+
+spawn(function()
+	while wait() do
+		if BlackScreen then
+			game:GetService("Players").LocalPlayer.PlayerGui.Main.Blackscreen.Size = UDim2.new(500, 0, 500, 500)
+		else
+			game:GetService("Players").LocalPlayer.PlayerGui.Main.Blackscreen.Size = UDim2.new(1, 0, 500, 500)
+		end
+	end
+end)
+
  function Click()
     game:GetService("RunService").RenderStepped:Connect(function()
                 game:GetService'VirtualUser':CaptureController()
@@ -12772,6 +12823,127 @@ end)
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer('UpgradeRace','Buy')
   end)
   
+  RaceV4:AddToggle("Auto Complete Trials",false,function(v)
+  _G.AutoQuestRace = v
+  StopTween(_G.AutoQuestRace)
+  end)
+spawn(function()
+    pcall(function()
+        while wait() do
+            if _G.AutoQuestRace then
+				if game:GetService("Players").LocalPlayer.Data.Race.Value == "Human" then
+					for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
+						if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+							pcall(function()
+								repeat wait(.1)
+									v.Humanoid.Health = 0
+									v.HumanoidRootPart.CanCollide = false
+									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+								until not _G.AutoQuestRace or not v.Parent or v.Humanoid.Health <= 0
+							end)
+						end
+					end
+				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Skypiea" then
+					for i,v in pairs(game:GetService("Workspace").Map.SkyTrial.Model:GetDescendants()) do
+						if v.Name ==  "snowisland_Cylinder.081" then
+							Tween(v.CFrame* CFrame.new(0,0,0))
+						end
+					end
+				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Fishman" then
+					for i,v in pairs(game:GetService("Workspace").SeaBeasts.SeaBeast1:GetDescendants()) do
+						if v.Name ==  "HumanoidRootPart" then
+							Tween(v.CFrame* CFrame.new(0,200,0))
+							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Melee" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							wait(.2)
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							wait(.2)
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Blox Fruit" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							wait(.2)
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							wait(.2)
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+					
+							wait(0.5)
+							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Sword" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							wait(.2)
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							wait(.2)
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							wait(0.5)
+							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Gun" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,122,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							wait(.2)
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,120,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							wait(.2)
+							game:GetService("VirtualInputManager"):SendKeyEvent(true,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+							game:GetService("VirtualInputManager"):SendKeyEvent(false,99,false,game.Players.LocalPlayer.Character.HumanoidRootPart)
+						end
+					end
+				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Cyborg" then
+					Tween(CFrame.new(28654, 14898.7832, -30, 1, 0, 0, 0, 1, 0, 0, 0, 1))
+				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Ghoul" then
+					for i,v in pairs(game.Workspace.Enemies:GetDescendants()) do
+						if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+							pcall(function()
+								repeat wait(.1)
+									v.Humanoid.Health = 0
+									v.HumanoidRootPart.CanCollide = false
+									sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+								until not _G.AutoQuestRace or not v.Parent or v.Humanoid.Health <= 0
+							end)
+						end
+					end
+				elseif game:GetService("Players").LocalPlayer.Data.Race.Value == "Mink" then
+					for i,v in pairs(game:GetService("Workspace"):GetDescendants()) do
+						if v.Name == "StartPoint" then
+							Tween(v.CFrame* CFrame.new(0,10,0))
+					  	end
+				   	end
+				end
+			end
+        end
+    end)
+end)
+
 RaceV4:Button("Auto Complete Angel Trial",function(t)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame
         end)
