@@ -2514,7 +2514,7 @@ elseif Lv == 30 or Lv <= 39 or SelectMonster == "Pirate" or SelectArea == 'Buggy
 Ms = "Pirate"
 NameQuest = "BuggyQuest1"
 QuestLv = 1
-NameMon = "Pirate"
+NameMon = "Pirate [Lv. 35]"
 CFrameQ = CFrame.new(-1140.1761474609, 4.752049446106, 3827.4057617188)
 CFrameMon = CFrame.new(-1201.0881347656, 40.628940582275, 3857.5966796875)
 elseif Lv == 40 or Lv <= 59 or SelectMonster == "Brute" or SelectArea == 'Buggy' then -- Brute
