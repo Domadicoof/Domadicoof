@@ -4964,7 +4964,6 @@ Main:Dropdown('Select type', MasteryType,function(typefunc)
 
 Main:Toggle("Auto Farm Mastery (Devil Fruit)", AutoFarmMasDevilFruit, function(dfm)
   AutoFarmMasDevilFruit = dfm
-  SelectMonster = nil
   CancelTween(AutoFarmMasDevilFruit)
   if AutoFarmMasDevilFruit and SelectWeapon == nil then
   Notification( "Please choose your weapon first. \nThanks.")
@@ -5204,7 +5203,6 @@ spawn(function()
 
 Main:Toggle("Auto Farm Mastery (Gun)",AutoFarmMasGun, function(gmf)
   AutoFarmMasGun = gmf
-  SelectMonster = nil
   CancelTween(AutoFarmMasGun)
   if AutoFarmMasGun and SelectWeapon == nil then
   Notification( "Please choose your weapon first. \nThanks.")
