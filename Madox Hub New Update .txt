@@ -4956,7 +4956,7 @@ Main:Label("🍃 Mastery Farm 🍃")
 --// Mastery Farm
 
 local MasteryType = {
-  'Quest', 'No Quest', 'Boss', 'Nearest'
+  'Quest', 'No Quest', 'Nearest'
 }
 Main:Dropdown('Select type', MasteryType,function(typefunc)
   TypeMastery = typefunc
@@ -5146,60 +5146,11 @@ spawn(function()
     end
     end
     end)
-  elseif AutoFarmMasDevilFruit and TypeMastery == 'Boss' then
-  if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-  CheckBossQuest()
-  if BypassTP then
-  if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude > 2000 then
-  BTP(CFrameQBoss)
-  wait(3)
-  elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude < 2000 then
-  Tween(CFrameQBoss)
-  end
-  else
-    Tween(CFrameQBoss)
-  end
-
-  if (CFrameQBoss.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
-  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuestBoss,QuestLvBoss)
-  end
-  elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-  pcall(function()
-    CheckBossQuest()
-    if game:GetService("Workspace").Enemies:FindFirstChild(SelectBoss) then
-    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    if v.Name == selectBoss and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-    repeat game:GetService("RunService").Heartbeat:wait()
-    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
-    _G.UseSkill = true
-    else
-      _G.UseSkill = false
-      AutoHaki()
-    EquipTool(SelectWeapon)
-    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
-    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-    v.HumanoidRootPart.Transparency = 1
-    v.Humanoid.JumpPower = 0
-    v.Humanoid.WalkSpeed = 0
-    v.HumanoidRootPart.CanCollide = false
---v.Humanoid:ChangeState(11)
---v.Humanoid:ChangeState(14)
-    FarmPos = v.HumanoidRootPart.CFrame
-    MonFarm = v.Name
-    Click()
     end
-    until not AutoFarmMasDevilFruit or not TypeMastery == 'Boss' or not v.Parent or v.Humanoid.Health == 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
-    end
-    end
-    else
-      _G.UseSkill = false
-    Tween(game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss).HumanoidRootPart.CFrame*Farm_Mode)
     end
     end)
-  end
-  end
-  end
-  end)
+  
+  
 
 Main:Toggle("Auto Farm Mastery (Gun)",AutoFarmMasGun, function(gmf)
   AutoFarmMasGun = gmf
@@ -5343,63 +5294,9 @@ spawn(function()
     end
     end
     end)
-  elseif AutoFarmMasGun and TypeMastery == 'Boss' then
-  if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-  CheckBossQuest()
-  if BypassTP then
-  if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude > 2000 then
-  BTP(CFrameQBoss)
-  wait(3)
-  elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude < 2000 then
-  Tween(CFrameQBoss)
-  end
-  else
-    Tween(CFrameQBoss)
-  end
-
-  if (CFrameQBoss.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
-  game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuestBoss,QuestLvBoss)
-  end
-  elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-  pcall(function()
-    CheckBossQuest()
-    if game:GetService("Workspace").Enemies:FindFirstChild(SelectBoss) then
-    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    if v.Name == selectBoss and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") then
-    repeat game:GetService("RunService").Heartbeat:wait()
-    if v.Humanoid.Health <= v.Humanoid.MaxHealth * KillPercent / 100 then
-    EquipTool(CurrentEquipGun)
-    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
-    game:GetService("Players").LocalPlayer.Character[CurrentEquipGun].Cooldown.Value = 0
-    _G.UseGunMastery = true
-    else
-      _G.UseGunMastery = false
-    AutoHaki()
-    EquipTool(SelectWeapon)
-    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
-    v.HumanoidRootPart.Size = Vector3.new(60,60,60)
-    v.HumanoidRootPart.Transparency = 1
-    v.Humanoid.JumpPower = 0
-    v.Humanoid.WalkSpeed = 0
-    v.HumanoidRootPart.CanCollide = false
---v.Humanoid:ChangeState(11)
---v.Humanoid:ChangeState(14)
-    FarmPos = v.HumanoidRootPart.CFrame
-    MonFarm = v.Name
-    Click()
     end
-    until not AutoFarmMasGun or not TypeMastery == 'Boss' or not v.Parent or v.Humanoid.Health <= 0 or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
-    end
-    end
-    else
-      _G.UseGunMastery = false
-    Tween(game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss).HumanoidRootPart.CFrame*Farm_Mode)
     end
     end)
-  end
-  end
-  end
-  end)
 
 spawn(function()
   game:GetService("RunService").RenderStepped:Connect(function()
