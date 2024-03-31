@@ -2514,7 +2514,7 @@ elseif Lv == 30 or Lv <= 39 or SelectMonster == "Pirate" or SelectArea == 'Buggy
 Ms = "Pirate"
 NameQuest = "BuggyQuest1"
 QuestLv = 1
-NameMon = "Pirate [Lv. 35]"
+NameMon = "Pirates"
 CFrameQ = CFrame.new(-1140.1761474609, 4.752049446106, 3827.4057617188)
 CFrameMon = CFrame.new(-1201.0881347656, 40.628940582275, 3857.5966796875)
 elseif Lv == 40 or Lv <= 59 or SelectMonster == "Brute" or SelectArea == 'Buggy' then -- Brute
@@ -2673,14 +2673,14 @@ elseif Lv == 625 or Lv <= 649 or SelectMonster == "Galley Pirate" or SelectArea 
 Ms = "Galley Pirate"
 NameQuest = "FountainQuest"
 QuestLv = 1
-NameMon = "Galley Pirate"
+NameMon = "Galley"
 CFrameQ = CFrame.new(5258.2788085938, 38.526931762695, 4050.044921875)
 CFrameMon = CFrame.new(5557.1684570313, 152.32717895508, 3998.7758789063)
 elseif Lv >= 650 or SelectMonster == "Galley Captain" or SelectArea == 'Fountain' then -- Galley Captain
 Ms = "Galley Captain"
 NameQuest = "FountainQuest"
 QuestLv = 2
-NameMon = "Galley Captain"
+NameMon = "Captains"
 CFrameQ = CFrame.new(5258.2788085938, 38.526931762695, 4050.044921875)
 CFrameMon = CFrame.new(5677.6772460938, 92.786109924316, 4966.6323242188)
 end
