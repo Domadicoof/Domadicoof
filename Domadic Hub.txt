@@ -5457,9 +5457,6 @@ for i, v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
     end
 end
 end)
-Main:AddToggle("Auto Quest Boss",_G.AutoQuestBoss,function(value)
-        _G.AutoQuestBoss = value
-    end)
     
     Main:AddToggle("Auto Farm Boss",_G.AutoFarmBoss,function(value)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
@@ -5467,6 +5464,10 @@ Main:AddToggle("Auto Quest Boss",_G.AutoQuestBoss,function(value)
         StopTween(_G.AutoFarmBoss)
     end)
     
+    Main:AddToggle("Auto Quest Boss",_G.AutoQuestBoss,function(value)
+        _G.AutoQuestBoss = value
+    end)
+       
     spawn(function()
         while wait() do
             if _G.AutoFarmBoss and BypassTP and not _G.AutoQuestBoss then
@@ -5539,7 +5540,7 @@ Main:AddToggle("Auto Quest Boss",_G.AutoQuestBoss,function(value)
                 pcall(function()
                     CheckBossQuest()
                     local QuestBoss = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-                    if not string.find(QuestBoss, NameQuestBoss) then
+                    if not string.find(QuestBoss, NameBoss) then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                     end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
@@ -5560,7 +5561,7 @@ Main:AddToggle("Auto Quest Boss",_G.AutoQuestBoss,function(value)
                             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                 if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                                     if v.Name == _G.SelectBoss then
-                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameQuestBoss) then
+                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
                                             repeat task.wait()
                                                 EquipWeapon(_G.SelectWeapon)
                                                 AutoHaki()                                            
