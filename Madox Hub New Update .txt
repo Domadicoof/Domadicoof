@@ -4029,7 +4029,7 @@ if World1 then
             if AutoSecondSea then
                 pcall(function()
                     if game.Players.LocalPlayer.Data.Level.Value >= 700 then
-                        if game.Workspace.Map.Ice.Door.CanCollide == true and game.Workspace.Map.Ice.Door.Transparency == 0 then
+                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress").UsedKey == false then
                             if not game.Players.LocalPlayer.Backpack:FindFirstChild("Key") or game.Players.LocalPlayer.Character:FindFirstChild("Key") then
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress","Detective")
                             end
@@ -4044,7 +4044,7 @@ if World1 then
                                 end
                             end
                         end
-                        if game.Workspace.Map.Ice.Door.CanCollide == false and game.Workspace.Map.Ice.Door.Transparency == 1 then
+                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress").UsedKey == true and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress").KilledIceBoss == false then
                             for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     if v.Name == "Ice Admiral" then
@@ -4834,9 +4834,6 @@ end)
 Main:Toggle('Auto Farm Boss (Quest)', AutoFarmBossQuest, function(afbq)
   AutoFarmBossQuest = afbq
   CancelTween(AutoFarmBossQuest)
-  if AutoFarmBossQuest and SelectWeapon == nil then
-  Notification( "Please choose your weapon first. \nThanks.")
-  end
   end)
 
     spawn(function()
@@ -4904,9 +4901,6 @@ Main:Toggle('Auto Farm Boss (Quest)', AutoFarmBossQuest, function(afbq)
 Main:Toggle('Auto Farm Boss (No Quest)', toFarmBossNoQuest, function(afbnq)
   AutoFarmBossNoQuest = afbnq
   CancelTween(AutoFarmBossNoQuest)
-  if AutoFarmBossNoQuest and SelectWeapon == nil then
-  Notification( "Please choose your weapon first. \nThanks.")
-  end
   end)
 
 spawn(function()
