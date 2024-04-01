@@ -4029,7 +4029,7 @@ if World1 then
             if AutoSecondSea then
                 pcall(function()
                     if game.Players.LocalPlayer.Data.Level.Value >= 700 then
-                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress").UsedKey == false then
+                        if game.Workspace.Map.Ice.Door.CanCollide == true and game.Workspace.Map.Ice.Door.Transparency == 0 then
                             if not game.Players.LocalPlayer.Backpack:FindFirstChild("Key") or game.Players.LocalPlayer.Character:FindFirstChild("Key") then
                                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress","Detective")
                             end
@@ -4044,7 +4044,7 @@ if World1 then
                                 end
                             end
                         end
-                        if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress").UsedKey == true and game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress").KilledIceBoss == false then
+                        if game.Workspace.Map.Ice.Door.CanCollide == false and game.Workspace.Map.Ice.Door.Transparency == 1 then
                             for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     if v.Name == "Ice Admiral" then
@@ -4845,7 +4845,7 @@ Main:Toggle('Auto Farm Boss (Quest)', AutoFarmBossQuest, function(afbq)
                 pcall(function()
                     CheckBossQuest()
                     local QuestBoss = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
-                    if not string.find(QuestBoss, NameQuestBoss) then
+                    if not string.find(QuestBoss, NameBoss) then
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                     end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
@@ -4866,7 +4866,7 @@ Main:Toggle('Auto Farm Boss (Quest)', AutoFarmBossQuest, function(afbq)
                             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                 if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
                                     if v.Name == SelectBoss then
-                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameQuestBoss) then
+                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) then
                                             repeat task.wait()
                                                 EquipTool(SelectWeapon)
                                                 AutoHaki()                                            
