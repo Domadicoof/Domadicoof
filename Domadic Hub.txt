@@ -10575,7 +10575,7 @@ M:AddSeperator(" Dark Coat ")
     
     spawn(function()
         while wait() do
-            if  _G.Autopole and World2 then
+            if  _G.AutoDarkCoat and World2 then
                 pcall(function()
                     if game:GetService("Workspace").Enemies:FindFirstChild("Darkbeard") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
