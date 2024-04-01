@@ -11212,7 +11212,7 @@ spawn(function()
 				if _G.Grabfruit then
 					for i,v in pairs(game.Workspace:GetChildren()) do
 						if string.find(v.Name, "Fruit") then
-							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Handle.CFrame
+							Tween(v.Handle.CFrame)
 						end
 					end
 				end
