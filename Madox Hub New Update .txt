@@ -3683,7 +3683,7 @@ end
 spawn(function()
   pcall(function()
     while wait() do
-    if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.d or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or _G.Mirage or AutoKenHop or AutoKenV2 or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto or _G.Next_Islands or _G.Auto_Raid or _G.Raid or _G.Auto_Dungeon or _G.TweenMGear or AutoFoxIsland or AutoGetAzure or AutoSeaEvent or TweenSpyToBoat or _G.AutoQuestRace or TeleportAFD or AutoSeaSleMob then
+    if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.d or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or _G.Mirage or AutoKenHop or AutoKenV2 or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto or _G.Next_Islands or _G.Auto_Raid or _G.Raid or _G.Auto_Dungeon or _G.TweenMGear or AutoFoxIsland or AutoGetAzure or AutoSeaEvent or TweenSpyToBoat or _G.AutoQuestRace or TeleportAFD or AutoSeaSleMob or AutoDrive then
     if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
     local Noclip = Instance.new("BodyVelocity")
     Noclip.Name = "BodyClip"
@@ -3704,7 +3704,7 @@ spawn(function()
 spawn(function()
   pcall(function()
     game:GetService("RunService").Stepped:Connect(function()
-      if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or _G.Mirage or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or _G.d or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto or _G.Next_Islands or _G.Auto_Raid or _G.Raid or _G.Auto_Dungeon or _G.TweenMGear or AutoFoxIsland or AutoGetAzure or AutoSeaEvent or TweenSpyToBoat or _G.AutoQuestRace or TeleportAFD or AutoSeaSleMob then
+      if AutoFarmHeart or AutoFarmNearestMob or _G.BossRaid or _G.GrabChest or AutoCitizen or AutoEcto or AutoEvoRace or AutoBartilo or AutoFactory or BringChestz or BringFruitz or _G.Auto_Farm_Level or _G.Clip2 or _G.Auto_Farm_Level or AutoFarmBone or AutoFarmSelectMonsterQuest or _G.Mirage or AutoFarmSelectMonsterNoQuest or AutoFarmBossNoQuest or AutoFarmBossQuest or AutoFarmMasGun or AutoFarmMasDevilFruit or AutoFarmSelectArea or AutoSecondSea or AutoThirdSea or AutoDeathStep or AutoSuperhuman or AutoSharkman or AutoElectricClaw or AutoDragonTalon or AutoGodhuman or AutoRengoku or AutoBuddySword or AutoPole or AutoHallowSycthe or AutoCavander or AutoTushita or AutoDarkDagger or AutoCakePrince or AutoEliteHunter or AutoRainbowHaki or AutoSaber or AutoFarmKen or AutoKenHop or AutoKenV2 or _G.d or KillPlayerMelee or KillPlayerGun or KillPlayerFruit or AutoDungeon or AutoNextIsland or AutoAdvanceDungeon or Musketeer or RipIndra or Auto_Serpent_Bow or AutoTorch or AutoSoulGuitar or Auto_Cursed_Dual_Katana or AutoFarmMaterial or Auto_Quest_Yama_1 or Auto_Quest_Yama_2 or Auto_Quest_Yama_3 or Auto_Quest_Tushita_1 or Auto_Quest_Tushita_2 or Auto_Quest_Tushita_3 or _G.Factory or _G.SwanGlasses or AutoBartilo or AutoEvoRace or AutoEcto or _G.Next_Islands or _G.Auto_Raid or _G.Raid or _G.Auto_Dungeon or _G.TweenMGear or AutoFoxIsland or AutoGetAzure or AutoSeaEvent or TweenSpyToBoat or _G.AutoQuestRace or TeleportAFD or AutoSeaSleMob or AutoDrive then
       for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
       if v:IsA("BasePart") then
       v.CanCollide = false
@@ -4839,60 +4839,68 @@ Main:Toggle('Auto Farm Boss (Quest)', AutoFarmBossQuest, function(afbq)
   end
   end)
 
-spawn(function()
-  while task.wait() do
-  if AutoFarmBossQuest then
-  pcall(function()
-    CheckBossQuest(selectBoss)
-    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-    if game:GetService('ReplicatedStorage'):FindFirstChild(SelectBoss) then
-    wait(3)
-    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuestBoss,QuestLvBoss)
-    end
-    if BypassTP then
-    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude > 2000 then
-    BTP(CFrameBoss)
-    wait(3)
-    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude < 2000 then
-    Tween(CFrameBoss)
-    end
-    else
-      Tween(CFrameBoss)
-    end
-    elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-    if v.Name == SelectBoss then
-    repeat game:GetService("RunService").Heartbeat:wait()
-    AutoHaki()
-    EquipTool(SelectWeapon)
-    Fastattack = true
-    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
-    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-    v.HumanoidRootPart.Transparency = 1
-    v.Humanoid.JumpPower = 0
-    v.Humanoid.WalkSpeed = 0
-    v.HumanoidRootPart.CanCollide = false
+    spawn(function()
+        while wait() do
+            if AutoFarmBossQuest then
+                pcall(function()
+                    CheckBossQuest()
+                    local QuestBoss = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
+                    if not string.find(QuestBoss, NameQuestBoss) then
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                    end
+                    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                        if BypassTP then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBosss.Position).Magnitude > 2000 then
+						BTP(CFrameQBoss)
+						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude < 2000 then
+						Tween(CFrameQBoss)
+						end
+					else
+						Tween(CFrameQBoss)
+					end
+                    if (CFrameQBoss.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then                            
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+					end
+                    elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                        if game:GetService("Workspace").Enemies:FindFirstChild(SelectBoss) then
+                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                                    if v.Name == SelectBoss then
+                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameQuestBoss) then
+                                            repeat task.wait()
+                                                EquipTool(SelectWeapon)
+                                                AutoHaki()                                            
+                                                Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                                v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                                v.HumanoidRootPart.Transparency = 1
+                                                v.Humanoid.JumpPower = 0
+                                                v.Humanoid.WalkSpeed = 0
+                                                v.HumanoidRootPart.CanCollide = false
 --v.Humanoid:ChangeState(11)
 --v.Humanoid:ChangeState(14)
-    FarmPos = v.HumanoidRootPart.CFrame
-    MonFarm = v.Name
-    Click()
-    if v.Humanoid.Health <= 0 and v.Humanoid:FindFirstChild("Animator") then
-    v.Humanoid.Animator:Destroy()
-    end
-    until not AutoFarmBossQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name) or game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false
-    end
-    end
-    Fastattack = false
-    end
-    Tween(game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss).HumanoidRootPart.CFrame * Farm_Mode)
-    end
+                                                v.HumanoidRootPart.Size = Vector3.new(70,70,70)
+                                                FarmPos = v.HumanoidRootPart.CFrame
+                                                MonFarm = v.Name
+                                                Click()
+                                            until not AutoFarmBossQuest or v.Humanoid.Health <= 0 or not v.Parent or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                        else
+                                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                                        end
+                                    end
+                                end
+                            end
+                        else
+                            Tween(CFrameBoss)
+                            if game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss) then
+                             Tween(game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss).HumanoidRootPart.CFrame * CFrame.new(15,10,2))
+                            end
+                        end
+                    end
+                end)
+            end
+        end
     end)
-  end
-  end
-  end)
-
+    
 Main:Toggle('Auto Farm Boss (No Quest)', toFarmBossNoQuest, function(afbnq)
   AutoFarmBossNoQuest = afbnq
   CancelTween(AutoFarmBossNoQuest)
@@ -4902,53 +4910,48 @@ Main:Toggle('Auto Farm Boss (No Quest)', toFarmBossNoQuest, function(afbnq)
   end)
 
 spawn(function()
-  while task.wait(.1) do
-  if AutoFarmBossNoQuest then
-  pcall(function()
-    CheckBossQuest(selectBoss)
-    if BypassTP then
-    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude > 2000 then
-    BTP(CFrameBoss)
-    wait(3)
-    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude < 2000 then
-    Tween(CFrameBoss)
+    while task.wait() do
+        if AutoFarmBossNoQuest then
+            pcall(function()
+                if game:GetService("Workspace").Enemies:FindFirstChild(SelectBoss) then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            if v.Name == SelectBoss then
+                                repeat task.wait()
+                                    AutoHaki()
+                                    EquipTool(SelectWeapon)
+                                    Fastattack = true
+                                    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    v.HumanoidRootPart.Transparency = 1
+                                    v.Humanoid.JumpPower = 0
+                                    v.Humanoid.WalkSpeed = 0
+                                    v.HumanoidRootPart.CanCollide = false
+                                    --v.Humanoid:ChangeState(11)
+                                    --v.Humanoid:ChangeState(14)
+                                    FarmPos = v.HumanoidRootPart.CFrame
+                                    MonFarm = v.Name
+                                    Click()
+                                until not AutoFarmBossNoQuest or not v.Parent or v.Humanoid.Health <= 0
+                                Fastattack = false
+                            end
+                        end
+                    end
+                else
+                    if BypassTP then
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude > 2000 then
+                            BTP(CFrameBoss)
+                            wait(3)
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude < 2000 then
+                            Tween(CFrameBoss)
+                        end
+                    else
+                        Tween(CFrameBoss)
+                    end
+                end
+            end)
+        end
     end
-    else
-      Tween(CFrameBoss)
-    end
-    if game:GetService("Workspace").Enemies:FindFirstChild(SelectBoss) then
-    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-    if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-    if v.Name == SelectBoss then
-    repeat game:GetService("RunService").Heartbeat:wait()
-    AutoHaki()
-    EquipTool(SelectWeapon)
-    Fastattack = true
-    Tween(v.HumanoidRootPart.CFrame * Farm_Mode)
-    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
-    v.HumanoidRootPart.Transparency = 1
-    v.Humanoid.JumpPower = 0
-    v.Humanoid.WalkSpeed = 0
-    v.HumanoidRootPart.CanCollide = false
---v.Humanoid:ChangeState(11)
---v.Humanoid:ChangeState(14)
-    FarmPos = v.HumanoidRootPart.CFrame
-    MonFarm = v.Name
-    Click()
-    if v.Humanoid.Health <= 0 and v.Humanoid:FindFirstChild("Animator") then
-    v.Humanoid.Animator:Destroy()
-    end
-    until not AutoFarmBossNoQuest or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild(v.Name)
-    end
-    end
-    Fastattack = false
-    end
-    else
-      Tween(game:GetService("ReplicatedStorage"):FindFirstChild(SelectBoss).HumanoidRootPart.CFrame * Farm_Mode)
-    end
-    end)
-  end
-  end
 end)
 
 Main:Label("🍃 Mastery Farm 🍃")
@@ -8514,6 +8517,11 @@ Sea:Dropdown("Select Sea",{"Sea1[Low]","Sea2[Medium]","Sea3[High]","Sea4[Extreme
 SelectLocalTeleportSea = value
 end)
 
+Sea:Toggle('Auto Teleport Sea', false, function(SeaFarm)
+    AutoDrive = SeaFarm
+    CancelTween(AutoSeaEvent)
+end)
+
 Sea:Toggle('Auto Sea Event', false, function(SeaFarm)
     AutoSeaEvent = SeaFarm
     CancelTween(AutoSeaEvent)
@@ -8522,7 +8530,7 @@ end)
 spawn(function()
         while wait() do
             pcall(function()
-                if AutoSeaEvent then
+                if AutoDrive then
                     if not game:GetService("Workspace").Enemies:FindFirstChild("Shark") or not game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or not game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or not game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
                         if not game:GetService("Workspace").Boats:FindFirstChild(SelectBoat) then
                             buyb = TPP(CFrame.new(-16927.451171875, 9.0863618850708, 433.8642883300781))
@@ -8555,7 +8563,7 @@ spawn(function()
 			                            	elseif SelectLocalTeleportSea == "Sea6[???]" then
 					                        	TPB(CFrame.new(-42250.2227, -0.3221744, 9247.07715, -0.45916447, 6.39043236e-08, 0.888351262, -3.36711423e-08, 1, -8.93395651e-08, -0.888351262, -7.09333605e-08, -0.45916447))
                                             end 
-                                        until game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or AutoSeaEvent == false
+                                        until game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or AutoDrive == false
                                     end
                                 end
                             end
@@ -8569,7 +8577,7 @@ spawn(function()
     spawn(function()
 		pcall(function()
 			while wait() do
-				if AutoSeaEvent then
+				if AutoDrive then
 					if game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
 					    game.Players.LocalPlayer.Character.Humanoid.Sit = false
 					end
