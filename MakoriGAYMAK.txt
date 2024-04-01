@@ -1,1 +1,1 @@
-loadstring(Game:HttpGetAsync("https://raw.githubusercontent.com/Domadicoof/Domadicoof/a4ed0ea920a2615ecc81d92b6b49c384add71b6b/Domadic%20Hub.txt"))()
+loadstring(Game:HttpGetAsync("https://raw.githubusercontent.com/Domadicoof/Domadicoof/198032da31d7f273daf24a54555738fbf4df95fa/Domadic%20Hub.txt"))()
