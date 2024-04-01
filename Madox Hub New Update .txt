@@ -4847,18 +4847,20 @@ Main:Toggle('Auto Farm Boss (Quest)', AutoFarmBossQuest, function(afbq)
                     end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         if BypassTP then
-                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBosss.Position).Magnitude > 2000 then
-						BTP(CFrameQBoss)
-						elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude < 2000 then
-						Tween(CFrameQBoss)
-						end
-					else
-						Tween(CFrameQBoss)
-					end
+                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude > 2000 then
+                        BTP(CFrameQBoss)
+                        wait(3)
+                        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQBoss.Position).Magnitude < 2000 then
+                        Tween(CFrameQBoss)
+                        end
+                        else
+                          Tween(CFrameQBoss)
+                        end
                     if (CFrameQBoss.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 then                            
                         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
 					end
                     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                        CheckBossQuest()
                         if game:GetService("Workspace").Enemies:FindFirstChild(SelectBoss) then
                             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                 if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
