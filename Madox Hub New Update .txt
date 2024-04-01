@@ -8486,11 +8486,11 @@ end)
         end
     end)
 if World1 or World2 then
-Farm:Label("Sea Event In Wrold 3")
+Sea:Label("Sea Event In Third Sea!!")
 end
 
 if World3 then
-Farm:Label("🌊 Sea Evens🌊")
+Sea:Label("🌊 Sea Evens🌊")
 
 
 BoatDataLis = {
