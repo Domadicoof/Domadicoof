@@ -3195,7 +3195,6 @@ end
 
     
 function topos(Pos)
-        topos(CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,Pos.Y,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z))
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
         if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
         pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/325, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
