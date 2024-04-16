@@ -13025,7 +13025,9 @@ end)
 
         
 P:AddButton("Tween To Boat",function()
+if game:GetService("Workspace").Boats:FindFirstChild(_G.SelectB) then
    topos(game:GetService("Workspace").Boats[_G.SelectB].VehicleSeat.CFrame)
+end
 end)
 
 
