@@ -3122,6 +3122,13 @@ gg.__namecall = newcclosure(function(...)
 	return old(...)
 end)
 
+    function UseSkill(skill)
+        Tool = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,skill,false,game)
+        task.wait()
+        game:GetService("VirtualInputManager"):SendKeyEvent(false,skill,false,game)
+    end
+
     function Click()
         game:GetService'VirtualUser':CaptureController()
         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -12012,7 +12019,7 @@ task.spawn(function()
                                     if SkillV then
                                     UseSkill("V")
                                     end
-                                    until not  AutoFarmShip or not v.Parent or not v:FindFirstChild("Health") or not v.Health.Value > 0 or _G.AutoFullSeaevent == false
+                                    until not v.Parent or not v:FindFirstChild("Health") or not v.Health.Value > 0 or _G.AutoFullSeaevent == false
                                     Skillaimbot = false
                                 end
                             end
