@@ -2767,6 +2767,7 @@
 				NameMon = "Snow Demon"
 				CFrameQ = CFrame.new(-1147.95142, 16.1072559, -14445.3105, -0.0240679532, 4.06167295e-08, 0.999710321, 7.46657349e-08, 1, -3.8830926e-08, -0.999710321, 7.3709522e-08, -0.0240679532)
 				CFrameMon = CFrame.new(-883.241455, 40.9553833, -14538.4951, -0.28144443, -1.18274158e-07, 0.959577501, 1.83865634e-08, 1, 1.28649276e-07, -0.959577501, 5.38509575e-08, -0.28144443)
+				SelectMonster = "Candy Pirate"
 				TelePBoss(CFrameQ)
 			elseif Lv >= 2450 and Lv <= 2474 or SelectMonster == "Isle Outlaw" then 
 				Ms = "Isle Outlaw"
@@ -2776,7 +2777,7 @@
 				CFrameQ = CFrame.new(-16547.748046875, 61.13533401489258, -173.41360473632812)
 				CFrameMon = CFrame.new(-16442.814453125, 116.13899993896484, -264.4637756347656)
 				TelePBoss(CFrameQ)
-            elseif Lv >= 2475 or SelectMonster == "Island Boy" then 
+            elseif Lv >= 2475 and Lv <= 2499 or SelectMonster == "Island Boy" then 
 				Ms = "Island Boy"
 				NameQuest = "TikiQuest1"
 				QuestLv = 2
@@ -2784,6 +2785,23 @@
 				CFrameQ = CFrame.new(-16547.748046875, 61.13533401489258, -173.41360473632812)
 				CFrameMon = CFrame.new(-16901.26171875, 84.06756591796875, -192.88906860351562)
 				SelectMonster = "Isle Outlaw"
+				TelePBoss(CFrameQ)
+			elseif Lv >= 2500 and Lv <= 2524 or SelectMonster == "Sun-kissed Warrior" then 
+				Ms = "Sun-kissed Warrior"
+				NameQuest = "TikiQuest2"
+				QuestLv = 1
+				NameMon = "kissed"
+				CFrameQ = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
+				CFrameMon = CFrame.new(-16349.8779296875, 92.0808334350586, 1123.4169921875)
+				TelePBoss(CFrameQ)
+            elseif Lv >= 2525 or SelectMonster == "Isle Champion" then 
+				Ms = "Isle Champion"
+				NameQuest = "TikiQuest2"
+				QuestLv = 2
+				NameMon = "Isle Champion"
+				CFrameQ = CFrame.new(-16539.078125, 55.68632888793945, 1051.5738525390625)
+				CFrameMon = CFrame.new(-17003, 175, 1050)
+				SelectMonster = "Sun-kissed Warrior"
 				TelePBoss(CFrameQ)
 			end
 		end
@@ -5058,10 +5076,9 @@ spawn(function()
 									end
 								else
 									--CheckLevel2()
-									TP(MobCFrame)
 									repeat task.wait()
 										for i,v in pairs(game.Workspace._WorldOrigin.EnemySpawns:GetChildren()) do
-											if v.Name == namemon then
+											if string.find(v.Name,NameMon) then
 												TP(v.CFrame * CFrame.new(0,30,0))
 											end
 										end
@@ -8787,7 +8804,7 @@ Miscf:Toggle("Auto Valkyrie Helmet Hop",_G.Setting_table.Auto_Valkyrie_Helmet_Ho
 	_G.Setting_table.Auto_Valkyrie_Helmet_Hop = vu
 	Update_Setting(getgenv()['MyName'])
 end)
-
+if Three_World then
 Miscf:Seperator("// Rougth Sea \\\\\ ")
 Miscf:Label("Setting Rougth Sea")
     
@@ -8888,7 +8905,7 @@ SpeedTable = {
 	"500"
 }
 _G.BoatSpeed = "350"
-Miscf:Dropdown("Selected Boat Speed",SpeedTable,function(value)
+Miscf:Dropdown("Select Boat Speed",SpeedTable,function(value)
 _G.BoatSpeed = value
 end)
 
@@ -8913,49 +8930,92 @@ end)
                 end
             end)  
             
-Miscf:Toggle("Auto Rougth Sea Quest [BETA]", _G.Setting_table.AutoRougthFully,function(vu)
+Miscf:Toggle("Auto Rougth Sea Quest Fully [BETA]", _G.Setting_table.AutoRougthFully,function(vu)
          AutoRougthFully = vu
          _G.Setting_table.AutoRougthFully = vu
          Update_Setting(getgenv()['MyName'])
     end)
     
+    function UseSkill(skill)
+        Tool = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,skill,false,game)
+        task.wait()
+        game:GetService("VirtualInputManager"):SendKeyEvent(false,skill,false,game)
+    end
     
-    
-    spawn(function()
-        while wait() do
+    task.spawn(function()
+    while wait() do
+        pcall(function()
             if AutoRougthFully then
-                pcall(function()
-                    if game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") or game:GetService("Workspace").Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then
-                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if v.Name == "Fish Crew Member" or v.Name == "Shark" or v.Name == "Piranha" or v.Name == "Terrorshark" then
-                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
-                                        EquipWeapon(_G.Setting_table.Weapon)
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        _G.PosMon = v.HumanoidRootPart.CFrame
-                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                        StatrMagnet = true
-                                        FastAttack = true
-                                        game.Players.LocalPlayer.Character.Humanoid.Sit = false
-                                    until not  AutoRougthFully or not v.Parent or v.Humanoid.Health <= 0
-                                    FastAttack = false
-                                    StatrMagnet = false
+                if workspace.Enemies:FindFirstChild("PirateBrigade") or workspace.Enemies:FindFirstChild("PirateGrandBrigade") or workspace.Enemies:FindFirstChild("FishBoat") then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v.Name == "PirateBrigade" or v.Name == "PirateGrandBrigade" or v.Name == "FishBoat" then
+                            if v.Parent and v:FindFirstChild("Health") and v.Health.Value > 0 then
+                                repeat task.wait()
+                                    TP(v.VehicleSeat.CFrame * CFrame.new(0, 30, -20))
+                                    AimBotSkillPosition = v.VehicleSeat
+                                    Skillaimbot = true
+                                    EquipWeapon(_G.Setting_table.Weapon)
+                                    if SkillZ then
+                                    UseSkill("Z")
+                                    end
+                                    if SkillX then
+                                    UseSkill("X")
+                                    end
+                                    if SkillC then
+                                    UseSkill("C")
+                                    end
+                                    if SkillV then
+                                    UseSkill("V")
+                                    end
+                                    until not v.Parent or not v:FindFirstChild("Health") or not v.Health.Value > 0 or AutoRougthFully == false
+                                    Skillaimbot = false
                                 end
                             end
                         end
-                    else
-                        if game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member") then
-                            TP(game:GetService("ReplicatedStorage"):FindFirstChild("Fish Crew Member").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
-                        else
-                            if  _G.AutoTerrorsharkhop then
-                                HopServer()
+                    elseif game.Workspace.Enemies:FindFirstChild("Shark") or game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") or game:GetService("Workspace").Enemies:FindFirstChild("Piranha") or game:GetService("Workspace").Enemies:FindFirstChild("Fish Crew Member") then
+                        for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                            if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                if v.Name == "Shark" or v.Name == "Terrorshark" or v.Name == "Piranha" or v.Name == "Fish Crew Member" then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.Setting_table.Weapon)
+                                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,50,0))
+                                        FastAttack = true
+                                    until v.Humanoid.Health <= 0 or not v.Parent or AutoRougthFully == false
+                                    FastAttack = false
                             end
                         end
                     end
-                end)
+                elseif game:GetService("Workspace").SeaBeasts:FindFirstChild("SeaBeast1") then  
+                    for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
+                        if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Health") and v.Health.Value > 0 then
+                            repeat task.wait()
+                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0))
+                                EquipWeapon(_G.Setting_table.Weapon)
+                                AimBotSkillPosition = v.HumanoidRootPart
+                                Skillaimbot = true
+                                if SkillZ then
+                                UseSkill("Z")
+                                end
+                                if SkillX then
+                                UseSkill("X")
+                                end
+                                if SkillC then
+                                UseSkill("C")
+                                end
+                                if SkillV then
+                                UseSkill("V")
+                                end
+                            until not v:FindFirstChild("HumanoidRootPart") or not v:FindFirstChild("Health") or not v.Health.Value > 0 or AutoRougthFully == false
+                            Skillaimbot = false
+                        end
+                    end
+                end
             end
-        end
-    end)
+        end)
+    end
+end)
     
     Miscf:Toggle("Auto Farm Terrorshark", _G.Setting_table.AutoTerrorshark,function(vu)
          AutoTerrorshark = vu
@@ -8980,12 +9040,9 @@ Miscf:Toggle("Auto Rougth Sea Quest [BETA]", _G.Setting_table.AutoRougthFully,fu
                                     repeat task.wait()
                                         EquipWeapon(_G.Setting_table.Weapon)
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        _G.PosMon = v.HumanoidRootPart.CFrame
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
-                                        StatrMagnet = true
                                         FastAttack = true
                                     until not  FarmShark or not v.Parent or v.Humanoid.Health <= 0
-                                    StatrMagnet = false
                                     FastAttack = false
                                 end
                             end
@@ -9022,13 +9079,10 @@ Miscf:Toggle("Auto Rougth Sea Quest [BETA]", _G.Setting_table.AutoRougthFully,fu
                                     repeat task.wait()
                                         EquipWeapon(_G.Setting_table.Weapon)
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        _G.PosMon = v.HumanoidRootPart.CFrame
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
                                         FastAttack = true
-                                        StatrMagnet = true
                                     until not  FarmPiranha or not v.Parent or v.Humanoid.Health <= 0
                                     FastAttack = false
-                                    StatrMagnet = false
                                 end
                             end
                         end
@@ -9046,54 +9100,7 @@ Miscf:Toggle("Auto Rougth Sea Quest [BETA]", _G.Setting_table.AutoRougthFully,fu
         end
     end)
     
-    Miscf:Toggle('Auto Seabeast',_G.Setting_table.AutoSeaBest, function(vu)
-    AutoSeaBest = vu
-    _G.Setting_table.AutoSeaBest = vu
-    Update_Setting(getgenv()['MyName'])
-    end)
-    
-local gg = getrawmetatable(game)
-local old = gg.__namecall
-setreadonly(gg,false)
-gg.__namecall = newcclosure(function(...)
-	local method = getnamecallmethod()
-	local args = {...}
-	if tostring(method) == "FireServer" then
-		if tostring(args[1]) == "RemoteEvent" then
-			if tostring(args[2]) ~= "true" and tostring(args[2]) ~= "false" then
-				if Skillaimbot then
-					args[2] = AimBotSkillPosition
-					return old(unpack(args))
-				end
-			end
-		end
-	end
-	return old(...)
-end)
 
-        
-    spawn(function()
-        while wait() do
-            if AutoSeaBest then
-                   pcall(function()
-                     for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
-                         if v:FindFirstChild("HumanoidRootPart") then
-                            EquipWeapon(_G.Setting_table.Weapon)
-                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,300,0))
-                            AimBotSkillPosition = v.HumanoidRootPart
-                            game:GetService("VirtualUser"):CaptureController()
-                            game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
-                       else
-                           if _G.Setting_table.AutoTerrorsharkhop then
-                             HopServer()
-							    end
-							end
-                         end
-                    end)
-                end
-            end
-        end)
-        
     Miscf:Toggle(" Hop",_G.Setting_table.AutoTerrorsharkhop,function(vu)
 	_G.Setting_table.AutoTerrorsharkhop = vu
 	Update_Setting(getgenv()['MyName'])
@@ -9110,13 +9117,10 @@ end)
                                     repeat task.wait()
                                         EquipWeapon(_G.Setting_table.Weapon)
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        _G.PosMon = v.HumanoidRootPart.CFrame
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
                                         FastAttack = true
-                                        StatrMagnet = true
                                     until not  AutoTerrorshark or not v.Parent or v.Humanoid.Health <= 0
                                     FastAttack = false
-                                    StatrMagnet = false
                                 end
                             end
                         end
@@ -9146,13 +9150,10 @@ end)
                                     repeat task.wait()
                                         EquipWeapon(_G.Setting_table.Weapon)
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-                                        _G.PosMon = v.HumanoidRootPart.CFrame
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,30,0))
                                         FastAttack = true
-                                        StatrMagnet = false
                                     until not Fish_Crew_Member or not v.Parent or v.Humanoid.Health <= 0
                                     FastAttack = false
-                                    StatrMagnet = false
                                 end
                             end
                         end
@@ -9190,13 +9191,13 @@ end)
     
     Miscf:Toggle("Teleport To Kitsune Island",_G.AutoFKitsune,function(value)
     AutoKisune = value
-    _G.Setting_table.AutoKisune
+    _G.Setting_table.AutoKisune = value
     Update_Setting(getgenv()['MyName'])
     end)
     
     Miscf:Toggle("Auto Azuer Ember",_G.AutoAzuerEmber,function(value)
     AutoEmber = value
-    _G.Setting_table.AutoEmber
+    _G.Setting_table.AutoEmber = value
     Update_Setting(getgenv()['MyName'])
     end)
         
@@ -9221,6 +9222,7 @@ end)
                 end
             end
         end)
+        end
         
 Miscf:Seperator("// Saber \\\\\ ")
 
