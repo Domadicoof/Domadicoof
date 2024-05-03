@@ -3473,6 +3473,12 @@ function Tween(P1)
 	game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear), {
 	  CFrame = P1
 	}):Play()
+	if Distance <= 250 then
+        game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear), {
+        CFrame = P1
+        }):Cancel()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P1
+    end
 	if _G.StopTween then
 	game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/Speed, Enum.EasingStyle.Linear), {
 	  CFrame = P1
@@ -8639,18 +8645,17 @@ Sea:Toggle('Auto Farm Sea Event (Fully)', false, function(Autofullseaeventfunc)
     CancelTween(AutoFullySeaEvent)
 end)
 
-function EquipAllWeapon()
+
+function EquipWeaponFruit()
 	pcall(function()
 		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-			if v:IsA('Tool') and not (v.Name == "Summon Sea Beast" or v.Name == "Water Body" or v.Name == "Awakening") then
+			if v.ToolTip == "Blox Fruit" and v:IsA('Tool') then
 				local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(v.Name) 
 				game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
-                wait(0.5)
 			end
 		end
 	end)
 end
-
 --AutoFullSeaeventByDomadic
 task.spawn(function()
     while wait() do
@@ -8664,7 +8669,7 @@ task.spawn(function()
                                     Tween(v.VehicleSeat.CFrame * CFrame.new(0, 30, -20))
                                     AimBotSkillPosition = v.VehicleSeat
                                     Skillaimbot = true
-                                    EquipAllWeapon()
+                                    EquipWeaponFruit()
                                     if SkillZ then
                                     UseSkill("Z")
                                     end
@@ -8704,7 +8709,7 @@ task.spawn(function()
                         if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Health") and v.Health.Value > 0 then
                             repeat task.wait()
                                 Tween(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0))
-                                EquipAllWeapon()
+                                EquipWeaponFruit()
                                 AimBotSkillPosition = v.HumanoidRootPart
                                 Skillaimbot = true
                                 if SkillZ then
@@ -9029,7 +9034,7 @@ spawn(function()
         
    
 	
-	Sea:Toggle('Auto Get Azure Ember', false, function(AGAM)
+	Sea:Toggle('Auto Collect Azure Ember', false, function(AGAM)
     AutoGetAzure = AGAM
     CancelTween(AutoGetAzure)
 end)
