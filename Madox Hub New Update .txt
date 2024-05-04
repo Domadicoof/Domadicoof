@@ -4687,7 +4687,7 @@ MaterialList = {
 }
 end
 
-Main:Dropdown('Select Material', MaterialList, {""}, function(matelist)
+Main:Dropdown('Select Material', MaterialList, function(matelist)
   SelectMaterial = matelist
   end)
 
@@ -10520,7 +10520,7 @@ Dungeon:Toggle("Auto Farm Kill Mob",_G.Raid,function(kill)
                               v.Humanoid.WalkSpeed = 0
                               v.Humanoid.JumpPower = 0 
                               EquipTool(SelectWeapon)
-                              Tween(v.HumanoidRootPart.Position,v.HumanoidRootPart.CFrame*CFrame.new(0,45,0))
+                              Tween(v.HumanoidRootPart.CFrame*CFrame.new(0,45,0))
                              game:GetService'VirtualUser':CaptureController()
                              game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
                           until not _G.Raid or not v.Parent or v.Humanoid.Health <= 0 or not game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1")
@@ -10925,7 +10925,7 @@ end
             Tween(CFrame.new(-11571.440429688, 49.172668457031, -7574.7368164062))
         end)
     end
-
+if World2 then
 Dungeon:Label("🏟️ Law Boss 🏟️")
 
 Dungeon:Toggle("Auto Law Boss",AutoLaw,function(value)
@@ -10987,6 +10987,7 @@ end)
 			end
 		end)
 	end)
+end
     
 Dungeon:Label("🧿 Esp Section 🧿")
 
