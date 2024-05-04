@@ -1,4 +1,4 @@
-
+--Skidหาพ่อมึงอะไอควายมึงเขียนเองดีสัสโดยเฉพาะไอKoben
 local ScreenGui1 = Instance.new("ScreenGui")
 local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
@@ -3403,53 +3403,8 @@ end)
                 LOL.Name = "LOL"
                 LOL.Parent = game.Workspace
                 LOL.Material = "Neon"
-                spawn(function()
-                while wait() do
-                pcall(function()
-                    wait(0.1) 
-                    game:GetService('TweenService'):Create(
-                        LOL,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {Color = Color3.fromRGB(255, 0, 0)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        LOL,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {Color = Color3.fromRGB(255, 155, 0)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        LOL,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {Color = Color3.fromRGB(255, 255, 0)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        LOL,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {Color = Color3.fromRGB(0, 255, 0)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        LOL,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {Color = Color3.fromRGB(0, 255, 255)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        LOL,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {Color = Color3.fromRGB(0, 155, 255)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        LOL,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {Color = Color3.fromRGB(255, 0, 255)}
-                    ):Play() 
-                    wait(.5)            
-                    game:GetService('TweenService'):Create(
-                        LOL,TweenInfo.new(1,Enum.EasingStyle.Linear,Enum.EasingDirection.InOut),
-                        {Color = Color3.fromRGB(255, 0, 155)}
-                    ):Play() 
-                    wait(.5)
-                end)
-                end
-                end)
+                LOL.Transparency = 0.5
+                LOL.Color = Color3.fromRGB(0, 247, 255)
                 LOL.Size = Vector3.new(20,0.5,20)
             elseif game:GetService("Workspace"):FindFirstChild("LOL") then
                 game.Workspace["LOL"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.6, 0)
@@ -5934,7 +5889,7 @@ end)
                             STOPRL.wrapAttackAnimationAsync = function(a,b,c,d,func)
                                 local Hits = STOPRL.getBladeHits(b,c,d)
                                 if Hits then
-                                    if  _G.FastAttackNormalSpeed then
+                                    if  _G.FastAttack then
                                         STOP.play = function() end
                                         a:Play(20.1,15.1,10.1)
                                         func(Hits)
@@ -11989,6 +11944,16 @@ end)
 		end)
 	end)
 	
+function EquipWeaponFruit()
+	pcall(function()
+		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+			if v.ToolTip == "Blox Fruit" and v:IsA('Tool') then
+				local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(v.Name) 
+				game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
+			end
+		end
+	end)
+end
 SeaTab:AddToggle("Auto Sea Event (Fully)", _G.AutoFullSeaevent,function(value)
          _G.AutoFullSeaevent = value
         StopTween( _G.AutoFullSeaevent)
@@ -12006,7 +11971,7 @@ task.spawn(function()
                                     topos(v.VehicleSeat.CFrame * CFrame.new(0, 30, -20))
                                     AimBotSkillPosition = v.VehicleSeat
                                     Skillaimbot = true
-                                    EquipAllWeapon()
+                                    EquipWeaponFruit()
                                     if SkillZ then
                                     UseSkill("Z")
                                     end
@@ -12043,7 +12008,7 @@ task.spawn(function()
                         if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Health") and v.Health.Value > 0 then
                             repeat task.wait()
                                 topos(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0))
-                                EquipAllWeapon()
+                                EquipWeaponFruit()
                                 AimBotSkillPosition = v.HumanoidRootPart
                                 Skillaimbot = true
                                 if SkillZ then
@@ -12268,7 +12233,7 @@ end)
                                     topos(v.VehicleSeat.CFrame * CFrame.new(0, 30, -20))
                                     AimBotSkillPosition = v.VehicleSeat
                                     Skillaimbot = true
-                                    EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)
+                                    EquipWeaponFruit()
                                     if SkillZ then
                                     UseSkill("Z")
                                     end
@@ -12316,7 +12281,7 @@ SeaTab:AddToggle("Auto Sea Beast",_G.bjirFishBoat,function(value)
                             repeat task.wait()
                                 game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                                 topos(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0))
-                                EquipWeapon(game.Players.LocalPlayer.Data.DevilFruit.Value)  
+                                EquipWeaponFruit()
                                 AimBotSkillPosition = v.HumanoidRootPart
                                 Skillaimbot = true
                                 if SkillZ then
@@ -12383,7 +12348,7 @@ FrozenIsland = SeaTab:AddLabel("")
     StopTween(_G.AutoFKitsune)
     end)
     
-    SeaTab:AddToggle("Auto Azuer Ember",_G.AutoAzuerEmber,function(value)
+    SeaTab:AddToggle("Auto Collect Azuer Ember",_G.AutoAzuerEmber,function(value)
     _G.AutoAzuerEmber = value
     StopTween(_G.AutoAzuerEmber)
     end)
