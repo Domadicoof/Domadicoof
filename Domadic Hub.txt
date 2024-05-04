@@ -1307,7 +1307,11 @@ if game.PlaceId == 2753915549 then
                 NameQuest = "Area1Quest"
                 NameMon = "Raider"
                 CFrameQuest = CFrame.new(-429.543518, 71.7699966, 1836.18188, -0.22495985, 0, -0.974368095, 0, 1, 0, 0.974368095, 0, -0.22495985)
-                CFrameMon = CFrame.new(-728.3267211914062, 52.779319763183594, 2345.7705078125)
+                if raMon == 1 then
+					CFrameMon = CFrame.new(-728.3267211914062, 52.779319763183594, 2345.7705078125)
+				elseif raMon == 2 then
+					CFrameMon = CFrame.new(375, 39, 2320)
+				end
             elseif MyLevel == 725 or MyLevel <= 774 then
                 Mon = "Mercenary"
                 LevelQuest = 2
@@ -9728,7 +9732,7 @@ if World1 then
          _G.Autowadenhop = value
     end)
     
-    local NamfonPos = CFrame.new(5186.14697265625, 24.86684226989746, 832.1885375976562)
+    local WadenPos = CFrame.new(5186.14697265625, 24.86684226989746, 832.1885375976562)
     spawn(function()
         while wait() do
             if  _G.Autowaden and World1 then
@@ -9753,13 +9757,13 @@ if World1 then
                         end
                     else
                     if BypassTP then
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - TridentPos.Position).Magnitude > 1500 then
-			        BTP(TridentPos)
-				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - TridentPos.Position).Magnitude < 1500 then
-				    topos(TridentPos)
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - WadenPos.Position).Magnitude > 1500 then
+			        BTP(WadenPos)
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - WadenPos.Position).Magnitude < 1500 then
+				    topos(WadenPos)
 					end
 				else
-				    topos(TridentPos)
+				    topos(WadenPos)
 				end
 				    UnEquipWeapon(_G.SelectWeapon)
                     topos(CFrame.new(5186.14697265625, 24.86684226989746, 832.1885375976562))
