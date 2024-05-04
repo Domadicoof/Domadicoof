@@ -3403,10 +3403,11 @@ end)
                 LOL.Name = "LOL"
                 LOL.Parent = game.Workspace
                 LOL.Anchored = true
-                LOL.Transparency = 1
+                LOL.Material = "SmoothPlastic"
+                LOL.Transparency = 0.1
                 LOL.Size = Vector3.new(30,-0.5,30)
             elseif game:GetService("Workspace"):FindFirstChild("LOL") then
-                game.Workspace["LOL"].CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -3.6, 0)
+                game.Workspace["LOL"].CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Y - 3.92,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
             end
         else
             if game:GetService("Workspace"):FindFirstChild("LOL") then
