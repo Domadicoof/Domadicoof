@@ -3497,6 +3497,13 @@ end)
         end)
     end)
     
+    function UseSkill(skill)
+        Tool = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,skill,false,game)
+        task.wait()
+        game:GetService("VirtualInputManager"):SendKeyEvent(false,skill,false,game)
+    end
+    
     game:GetService("Players").LocalPlayer.Idled:connect(function()
         game:GetService("VirtualUser"):Button2Down(Vector2.new(0,0),workspace.CurrentCamera.CFrame)
         wait(1)
@@ -8169,7 +8176,7 @@ end
                                 end
                             end)
                         else
-                           TP1(CFrameMon)
+                           topos(CFrameMon)
                            UnEquipWeapon(_G.SelectWeapon)
                             AutoSwordMasteryMag = false
                             local Mob = game:GetService("ReplicatedStorage"):FindFirstChild(Mon) 
@@ -12192,12 +12199,6 @@ end)
     StopTween(_G.KillGhostShip)
     end)
     
-    function UseSkill(skill)
-        Tool = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Tool")
-        game:GetService("VirtualInputManager"):SendKeyEvent(true,skill,false,game)
-        task.wait()
-        game:GetService("VirtualInputManager"):SendKeyEvent(false,skill,false,game)
-    end
     
     spawn(function()
         while wait() do
