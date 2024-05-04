@@ -3403,6 +3403,7 @@ end)
                 LOL.Name = "LOL"
                 LOL.Parent = game.Workspace
                 LOL.Anchored = true
+                LOL.Material = "Glass"
                 LOL.Transparency = 0.5
                 LOL.Size = Vector3.new(30,-0.5,30)
             elseif game:GetService("Workspace"):FindFirstChild("LOL") then
