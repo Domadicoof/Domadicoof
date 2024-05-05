@@ -1307,11 +1307,7 @@ if game.PlaceId == 2753915549 then
                 NameQuest = "Area1Quest"
                 NameMon = "Raider"
                 CFrameQuest = CFrame.new(-429.543518, 71.7699966, 1836.18188, -0.22495985, 0, -0.974368095, 0, 1, 0, 0.974368095, 0, -0.22495985)
-                if raMon == 1 then
-					CFrameMon = CFrame.new(-728.3267211914062, 52.779319763183594, 2345.7705078125)
-				elseif raMon == 2 then
-					CFrameMon = CFrame.new(375, 39, 2320)
-				end
+				CFrameMon = CFrame.new(-728.3267211914062, 52.779319763183594, 2345.7705078125)
             elseif MyLevel == 725 or MyLevel <= 774 then
                 Mon = "Mercenary"
                 LevelQuest = 2
@@ -3398,6 +3394,14 @@ spawn(function()
     end
 end)
 
+    function GetCountMaterials(MaterialName)
+            local Inventory = game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")
+            for i, v in pairs(Inventory) do
+                if v.Name == MaterialName then
+                    return v["Count"]
+                end
+            end
+        end
     
     spawn(function()
         pcall(function()
@@ -12400,7 +12404,32 @@ notification.Volume = 5 --ระวังหูแตก
             end
         end
     end)
-end
+
+_G.SetAzureEmber = 20
+    SeaTab:AddSlider("Azure Ember to Trade",0,30,20,function(value)
+    _G.SetAzureEmber = value
+    end)
+    
+    
+    SeaTab:AddToggle("Auto Trade Azure",_G.TradeAureEmber,function(value)
+    _G.TradeAureEmber = value
+    end)
+    
+    spawn(function()
+            while wait() do
+                if _G.TradeAureEmber then
+                    pcall(function()
+                        local AzureAvilable = GetCountMaterials("Azure Ember")
+                        if AzureAvilable >= _G.SetAzureEmber then
+                            game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/KitsuneStatuePray"):InvokeServer()
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("KitsuneStatuePray")
+                        end
+                    end)
+                end
+            end
+        end)
+    end
+        
     
     SeaTab:AddLabel("Boat")
     
