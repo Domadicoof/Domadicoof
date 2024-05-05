@@ -3551,10 +3551,43 @@ H:AddButton("Copy Youtube Domadic Hub",function()
 setclipboard("https://youtube.com/@nomadicoof789")
 end)
 
+H:AddSeperator("Main Player Settings")
+
+H:AddToggle("Hop When Admin Join Server",true,function(value)
+ AutoHopDevAdmin = value
+ end)
+
+spawn(function()
+     while wait() do
+        if AutoHopDevAdmin then
+            for i,v in pairs(game.Players:GetPlayers()) do
+                if v.Name == "red_game43" or v.Name == "rip_indra" or v.Name == "Axiore" or v.Name == "Polkster" or v.Name == "wenlocktoad" or v.Name == "Daigrock" or v.Name == "toilamvidamme" or v.Name == "oofficialnoobie" or v.Name == "Uzoth" or v.Name == "Azarth" or v.Name == "arlthmetic" or v.Name == "Death_King" or v.Name == "Lunoven" or v.Name == "TheGreateAced" or v.Name == "rip_fud" or v.Name == "drip_mama" or v.Name == "layandikit12" or v.Name == "Hingoi" or v.Name == "Fud10" then
+                Hop()
+                end
+            end
+        end
+    end
+end)
+
+H:AddToggle("Hop When Near Player",false,function(value)
+ AutoHopNearPlayer = value
+ end)
+ 
+    spawn(function()
+            while wait() do
+                if AutoHopNearPlayer then
+                    pcall(function()
+                        if game.Players.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
+                            Hop()
+                        end
+                    end)
+                end
+            end
+        end)
+	
 H:AddLine()
 H:AddLabel("New Update Log")
 H:AddLabel("[-] Fix Auto Raid Ship|13/4/2023|16:00")
-
 
 H:AddSeperator("UpdLog")
 
@@ -5152,10 +5185,10 @@ end)
                                 if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CakePos.Position).Magnitude > 1500 then
 						        BTP(CakePos)
 						        elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CakePos.Position).Magnitude < 1500 then
-						        topos(CakePos * Check)
+						        topos(CakePos)
 						        end
 					        else
-						        topos(CakePos * Check)
+						        topos(CakePos)
 					        end
                                     MagnetDought = false
                                     UnEquipWeapon(_G.SelectWeapon)
@@ -10122,10 +10155,10 @@ end)
                     if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BonePos.Position).Magnitude > 1500 then
 			        BTP(BonePos)
 				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BonePos.Position).Magnitude < 1500 then
-				    topos(BonePos * Check)
+				    topos(BonePos)
 					end
 				else
-				    topos(BonePos * Check)
+				    topos(BonePos)
 				end
 				        UnEquipWeapon(_G.SelectWeapon)
                         StartMagnetBoneMon = false
