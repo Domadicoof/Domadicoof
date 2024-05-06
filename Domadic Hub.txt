@@ -11976,11 +11976,7 @@ task.spawn(function()
                                     repeat task.wait()
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
-                                        if game.Players.LocalPlayer.Character.Humanoid.Health < 2000 then
-                                           topos(v.HumanoidRootPart.CFrame * CFrame.new(0, 100, 0))    
-                                        else
-                                           topos(v.HumanoidRootPart.CFrame * CFrame.new(0, 50, 0))
-                                        end
+                                        topos(v.HumanoidRootPart.CFrame * CFrame.new(0, 55, 0))    
                                         game:GetService("VirtualUser"):CaptureController()
                                         game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
                                     until v.Humanoid.Health <= 0 or not v.Parent or _G.AutoFullSeaevent == false
@@ -12259,7 +12255,7 @@ SeaTab:AddToggle("Auto Sea Beast",_G.bjirFishBoat,function(value)
         end)
     end
 end)
-
+        
     spawn(function()
         while wait() do
             if _G.SkillUseJa then
@@ -13459,7 +13455,7 @@ end)
         pcall(function()
             while wait() do
                 if _G.Safe_Mode then
-                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+                    game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,200,0)
                 end
             end
         end)
@@ -15078,6 +15074,32 @@ end)
     
     D:AddSeperator("Others")
     
+spawn(function()
+    while wait() do
+    for i,v in pairs(game.Workspace:GetChildren()) do
+        if string.find(v.Name, "Fruit") then
+            FruitInSvr:Set("Fruit :"..v.Name)
+            end
+        end
+    end
+end)
+
+spawn(function()
+    while wait() do
+    for i,v in pairs(game.Workspace:GetChildren()) do
+        if string.find(v.Name, "Fruit") then
+            Fruitmposition = v.Name
+            posfruit = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Fruitmposition.Handle.Position).Magnitude)
+            DisFRoFru:Set("Distane From Fruit:"..posfruit)
+            end
+        end
+    end
+end)
+
+FruitInSvr = D:AddLabel("Fruit : ")
+
+DisFRoFru = D:AddLabel("Distance From Fruit: ")
+
     D:AddDropdown("Select Fruits Eat",Table_DevilFruitSniper,function(value)
         _G.SelectFruitEat = value
     end)
@@ -15124,6 +15146,8 @@ end)
             end
         end)
     end)
+    
+
     
     D:AddToggle("Auto Random Fruit",_G.Random_Auto,function(value)
         _G.Random_Auto = value
@@ -15226,7 +15250,7 @@ end
                     if string.find(v.Name, "Fruit") then
                         MainName = v.Name
                         NameNoFruit = string.gsub(v.Name, " Fruit", "")
-                        if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(MainName) then
+                        if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(MainName) or game:GetService("Players").LocalPlayer.Character:FindFirstChild(MainName) then
                             local args = {
                                 [1] = "StoreFruit",
                                 [2] = NameNoFruit.."-"..NameNoFruit,
@@ -15247,7 +15271,7 @@ end
     end)
     
     spawn(function()
-			while wait(.1) do
+			while wait(1) do
 				if _G.FruitCheck then
 					for i,v in pairs(game.Workspace:GetChildren()) do
 						if string.find(v.Name, "Fruit") then
