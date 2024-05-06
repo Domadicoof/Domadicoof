@@ -15079,6 +15079,8 @@ spawn(function()
     for i,v in pairs(game.Workspace:GetChildren()) do
         if string.find(v.Name, "Fruit") then
             FruitInSvr:Set("Fruit :"..v.Name)
+        else
+            FruitInSvr:Set("Fruit : No Fruit")
             end
         end
     end
@@ -15089,7 +15091,7 @@ spawn(function()
     for i,v in pairs(game.Workspace:GetChildren()) do
         if string.find(v.Name, "Fruit") then
             Fruitmposition = v.Name
-            posfruit = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Fruitmposition.Handle.Position).Magnitude)
+            posfruit = math.floor((game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Handle.Position).Magnitude)
             DisFRoFru:Set("Distane From Fruit:"..posfruit)
             end
         end
