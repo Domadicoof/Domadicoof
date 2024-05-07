@@ -11962,10 +11962,105 @@ task.spawn(function()
                                     topos(v.VehicleSeat.CFrame * CFrame.new(0, 30, -20))
                                     AimBotSkillPosition = v.VehicleSeat
                                     Skillaimbot = true
-                                    _G.SkillUseJa = true
+                                    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Melee" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							if _G.SkillZ then
+                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                                wait(.1)
+                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                            end
+            
+                            if _G.SkillX then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                            end
+                            
+                            if _G.SkillC then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+                            end
+            
+							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Blox Fruit" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							if _G.SkillZ then
+                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                                wait(.1)
+                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                            end
+            
+                            if _G.SkillX then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                            end
+                            
+                            if _G.SkillC then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+                            end
+            
+                            if _G.SkillV then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+                            end
+							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Sword" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							if _G.SkillZ then
+                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                                wait(.1)
+                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                            end
+            
+                            if _G.SkillX then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                            end
+                            
+                            if _G.SkillC then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+                            end
+							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Gun" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							if _G.SkillZ then
+                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                                wait(.1)
+                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                            end
+            
+                            if _G.SkillX then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                            end
                                     until not v.Parent or not v:FindFirstChild("Health") or not v.Health.Value > 0 or _G.AutoFullSeaevent == false
                                     Skillaimbot = false
-                                    _G.SkillUseJa = false
                                 end
                             end
                         end
@@ -11990,10 +12085,105 @@ task.spawn(function()
                                 topos(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0))
                                 AimBotSkillPosition = v.HumanoidRootPart
                                 Skillaimbot = true
-                                _G.SkillUseJa = true
+                                for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Melee" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							if _G.SkillZ then
+                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                                wait(.1)
+                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                            end
+            
+                            if _G.SkillX then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                            end
+                            
+                            if _G.SkillC then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+                            end
+            
+							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Blox Fruit" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							if _G.SkillZ then
+                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                                wait(.1)
+                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                            end
+            
+                            if _G.SkillX then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                            end
+                            
+                            if _G.SkillC then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+                            end
+            
+                            if _G.SkillV then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
+                            end
+							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Sword" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							if _G.SkillZ then
+                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                                wait(.1)
+                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                            end
+            
+                            if _G.SkillX then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                            end
+                            
+                            if _G.SkillC then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
+                            end
+							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+								if v:IsA("Tool") then
+									if v.ToolTip == "Gun" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
+										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
+									end
+								end
+							end
+							if _G.SkillZ then
+                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
+                                wait(.1)
+                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
+                            end
+            
+                            if _G.SkillX then
+                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
+                            wait(.1)
+                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
+                            end
                             until not v:FindFirstChild("HumanoidRootPart") or not v:FindFirstChild("Health") or not v.Health.Value > 0 or _G.AutoFullSeaevent == false
                             Skillaimbot = false
-                            _G.SkillUseJa = false
                         end
                     end
                 end
@@ -12181,10 +12371,6 @@ end)
     SeaTab:AddToggle("Auto Raid Ship",_G.KillGhostShip,function(value)
     _G.KillGhostShip = value
     StopTween(_G.KillGhostShip)
-    if _G.KillGhostShip == false then
-            _G.SkillUseJa = false
-            Skillaimbot = false
-        end
     end)
     
     
@@ -12197,14 +12383,13 @@ end)
                             if v.Name == "PirateBrigade" or v.Name == "PirateGrandBrigade" or v.Name == "FishBoat" then
                                 if v.Parent and v:FindFirstChild("Health") and v.Health.Value > 0 then
                                     repeat task.wait()
+                                    EquipWeapon(_G.SelectWeapon)
                                     topos(v.VehicleSeat.CFrame * CFrame.new(0, 30, -20))
                                     AimBotSkillPosition = v.VehicleSeat
                                     Skillaimbot = true
-                                    EquipWeapon(_G.SelectWeapon)
-                                    _G.SkillUseJa = true
+                                    EquipWeapon(_G.SelectWeapon)                      
                                     until not  _G.KillGhostShip or not v.Parent or not v:FindFirstChild("Health") or not v.Health.Value > 0
                                     Skillaimbot = false
-                                    _G.SkillUseJa = false
                                 end
                             end
                         end
@@ -12226,10 +12411,6 @@ end)
 SeaTab:AddToggle("Auto Sea Beast",_G.bjirFishBoat,function(value)
     _G.bjirFishBoat = value
     StopTween(_G.bjirFishBoat)
-    if Auto_Seabest == false then
-            _G.SkillUseJa = false
-            Skillaimbot = false
-        end
     end)
        
  task.spawn(function()
@@ -12240,14 +12421,13 @@ SeaTab:AddToggle("Auto Sea Beast",_G.bjirFishBoat,function(value)
                     for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
                         if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Health") and v.Health.Value > 0 then
                             repeat task.wait()
+                                EquipWeapon(_G.SelectWeapon)
                                 game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Sit = false
                                 topos(v.HumanoidRootPart.CFrame * CFrame.new(0,500,0))
                                 AimBotSkillPosition = v.HumanoidRootPart
                                 Skillaimbot = true
-                                _G.SkillUseJa = true
                             until not v:FindFirstChild("HumanoidRootPart") or not v:FindFirstChild("Health") or not v.Health.Value > 0 or _G.bjirFishBoat == false
                             Skillaimbot = false
-                            _G.SkillUseJa = false
                         end
                     end
                 end
@@ -12256,112 +12436,6 @@ SeaTab:AddToggle("Auto Sea Beast",_G.bjirFishBoat,function(value)
     end
 end)
         
-    spawn(function()
-        while wait() do
-            if _G.SkillUseJa then
-                   pcall(function()
-							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-								if v:IsA("Tool") then
-									if v.ToolTip == "Melee" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
-										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-									end
-								end
-							end
-							if _G.SkillZ then
-                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-                                wait(.1)
-                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-                            end
-            
-                            if _G.SkillX then
-                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-                            wait(.1)
-                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-                            end
-                            
-                            if _G.SkillC then
-                            game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
-                            wait(.1)
-                            game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
-                            end
-            
-							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-								if v:IsA("Tool") then
-									if v.ToolTip == "Blox Fruit" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
-										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-									end
-								end
-							end
-							if _G.SkillZ then
-                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-                                wait(.1)
-                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-                            end
-            
-                            if _G.SkillX then
-                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-                            wait(.1)
-                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-                            end
-                            
-                            if _G.SkillC then
-                            game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
-                            wait(.1)
-                            game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
-                            end
-            
-                            if _G.SkillV then
-                            game:service('VirtualInputManager'):SendKeyEvent(true, "V", false, game)
-                            wait(.1)
-                            game:service('VirtualInputManager'):SendKeyEvent(false, "V", false, game)
-                            end
-							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-								if v:IsA("Tool") then
-									if v.ToolTip == "Sword" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
-										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-									end
-								end
-							end
-							if _G.SkillZ then
-                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-                                wait(.1)
-                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-                            end
-            
-                            if _G.SkillX then
-                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-                            wait(.1)
-                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-                            end
-                            
-                            if _G.SkillC then
-                            game:service('VirtualInputManager'):SendKeyEvent(true, "C", false, game)
-                            wait(.1)
-                            game:service('VirtualInputManager'):SendKeyEvent(false, "C", false, game)
-                            end
-							for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-								if v:IsA("Tool") then
-									if v.ToolTip == "Gun" then -- "Blox Fruit" , "Sword" , "Wear" , "Agility"
-										game.Players.LocalPlayer.Character.Humanoid:EquipTool(v)
-									end
-								end
-							end
-							if _G.SkillZ then
-                                game:service('VirtualInputManager'):SendKeyEvent(true, "Z", false, game)
-                                wait(.1)
-                                game:service('VirtualInputManager'):SendKeyEvent(false, "Z", false, game)
-                            end
-            
-                            if _G.SkillX then
-                            game:service('VirtualInputManager'):SendKeyEvent(true, "X", false, game)
-                            wait(.1)
-                            game:service('VirtualInputManager'):SendKeyEvent(false, "X", false, game)
-                            end
-                            
-                    end)
-                end
-            end
-        end)
     
      spawn(function()
     pcall(function()
@@ -13260,7 +13334,7 @@ end)
 			if _G.AutoPlayerHunter then
 				if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
 					wait(.5)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")					
 				else
 					for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
 						if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) then
