@@ -14205,7 +14205,8 @@ end
             "Peanut Island",
             "Cake Island",
             "Cocoa Island",
-            "Candy Island New⛄"
+            "Candy Island New⛄",
+            "Tiki Island"
             },function(value)
             _G.SelectIsland = value
         end)
@@ -14309,6 +14310,8 @@ end
                     topos(CFrame.new(87.94276428222656, 73.55451202392578, -12319.46484375))
                 elseif _G.SelectIsland == "Candy Island New⛄" then
                     topos(CFrame.new(-1014.4241943359375, 149.11068725585938, -14555.962890625))
+                elseif _G.SelectIsland == "Tiki Island" then
+                    topos(CFrame.new(-17003, 175, 1050))
                 end
             until not _G.TeleportIsland
         end
@@ -14507,7 +14510,8 @@ if World3 then
 		"Peanut Island",
 		"Cake Island",
 		"Sea to Treats",
-		"Sea to Treats New"
+		"Sea to Treats New",
+		"Tiki Island"
 	},function(value)
 		_G.SelectWarp = value
 	end)
@@ -14731,6 +14735,11 @@ T:AddButton("Bypass Tp",function(value)
 	elseif _G.SelectWarp == "Sea to Treats New" then
 		wait(.1)
 		game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1141.0223388671875, 47.25519561767578, -14204.609375) 
+		game:GetService("Players").LocalPlayer.Character.LowerTorso:Destroy()
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+	elseif _G.SelectWarp == "Tiki Island" then
+		wait(.1)
+		game.Players.localPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-17003, 175, 1050) 
 		game:GetService("Players").LocalPlayer.Character.LowerTorso:Destroy()
 		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 	end
