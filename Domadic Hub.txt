@@ -14995,17 +14995,6 @@ end)
     
     D:AddSeperator("Others")
     
-spawn(function()
-    while wait() do
-    for i,v in pairs(game.Workspace:GetChildren()) do
-        if string.find(v.Name, "Fruit") then
-            FruitInSvr:Set("Fruit :"..v.Name)
-        else
-            FruitInSvr:Set("Fruit : No Fruit")
-            end
-        end
-    end
-end)
 
 spawn(function()
     while wait() do
@@ -15019,7 +15008,6 @@ spawn(function()
     end
 end)
 
-FruitInSvr = D:AddLabel("Fruit : ")
 
 DisFRoFru = D:AddLabel("Distance From Fruit: ")
 
@@ -15200,7 +15188,7 @@ end
 						if string.find(v.Name, "Fruit") then
 							game.StarterGui:SetCore("SendNotification", {
 								Title = "Fruit Notifications", 
-								Text = "Fruit : "..v.Name ,
+								Text = "Fruit : "..v.Name,
 								Icon = "http://www.roblox.com/asset/?id=12523036534",
 								Duration = 2.5
 							})
