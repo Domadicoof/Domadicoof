@@ -10587,11 +10587,11 @@ if World2 then
 spawn(function()
     pcall(function()
         while wait() do
-            if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LegendarySwordDealer", "1") then
+            if game:GetService("ReplicatedStorage").WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("LegendarySwordDealer", "1") then
                 LegendSwordsSet("Shisui")
-            elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LegendarySwordDealer","2") then
+            elseif game:GetService("ReplicatedStorage").WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("LegendarySwordDealer", "2") then
                 LegendSwords:Set("Wando")
-            elseif game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("LegendarySwordDealer","3") then
+            elseif game:GetService("ReplicatedStorage").WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("LegendarySwordDealer", "3") then
                 LegendSwords:Set("Saddi")
             else
                 LegendSwords:Set("Not Found LegendSwords")
