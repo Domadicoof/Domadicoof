@@ -9042,7 +9042,6 @@ end)
                 end
             end
         end)
-end
     
     _G.SetAzureEmber = 20
     Sea:Slider("Set Azure Ember to Trade",0,30,20,function(value)
