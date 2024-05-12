@@ -3201,21 +3201,7 @@ end
     end
 
     
-function topos(Pos)
-        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
-        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/325, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
-        tween:Play()
-        if Distance <= 250 then
-            tween:Cancel()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
-        end
-        if _G.StopTween == true then
-            tween:Cancel()
-            _G.Clip = false
-        end
-    end
-    
+
 --Tween Boats 
 function TPB(CFgo)
 	local tween_s = game:service"TweenService"
@@ -3248,7 +3234,7 @@ function TPP(CFgo)
 	return tweenfunc
 end
 
-getgenv().ToTargets = function(p)
+function topos(p)
     task.spawn(function()
         pcall(function()
             if game:GetService("Players").LocalPlayer:DistanceFromCharacter(p.Position) <= 250 then 
@@ -10995,7 +10981,6 @@ end
                                 repeat task.wait()
                                     EquipWeapon(_G.SelectWeapon)
                                     AutoHaki()
-                                    if string.find(v.Name,"Ship") then
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Head.CanCollide = false
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -11007,7 +10992,6 @@ end
                                     else
                                         StartEctoplasmMagnet = false
                                         topos(CFrame.new(911.35827636719, 125.95812988281, 33159.5390625))
-                                    end
                                 until _G.AutoEctoplasm == false or not v.Parent or v.Humanoid.Health <= 0
                             end
                         end
