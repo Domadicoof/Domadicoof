@@ -4240,7 +4240,7 @@ local LogoToggle = Instance.new("ImageLabel")
 	LogoToggle.BackgroundTransparency = 1.000
 	LogoToggle.Position = UDim2.new(0, 7, 0, 2)
 	LogoToggle.Size = UDim2.new(0, 26, 0, 26)
-	LogoToggle.Image = "http://www.roblox.com/asset/?id="..tostring(14395120725)
+	LogoToggle.Image = "http://www.roblox.com/asset/?id="..tostring(17448027523)
 
 			Circle.Name = "Circle"
 			Circle.Parent = ToggleImage
@@ -5248,7 +5248,7 @@ task.spawn(function()
 					if Auto_Farm then
 						if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-								if v.Name == Ms and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
+								if v.Name == Ms and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 250 then
 									v.Humanoid:ChangeState(11)
 									v.Humanoid.JumpPower = 0
 									v.Humanoid.WalkSpeed = 0
@@ -5264,7 +5264,7 @@ task.spawn(function()
 						end
 					else
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-							if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
+							if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 250 then
 								v.Humanoid:ChangeState(11)
 							    v.Humanoid.JumpPower = 0
 								v.Humanoid.WalkSpeed = 0
@@ -5282,7 +5282,7 @@ task.spawn(function()
 					if Auto_Farm then
 						if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 							for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-								if v.Name == namemon and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
+								if v.Name == namemon and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 250 then
 									v.Humanoid:ChangeState(11)
 									v.Humanoid.JumpPower = 0
 									v.Humanoid.WalkSpeed = 0
@@ -5298,7 +5298,7 @@ task.spawn(function()
 						end
 					else
 						for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-							if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
+							if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 250 then
 								v.Humanoid:ChangeState(11)
 								v.Humanoid.JumpPower = 0
 								v.Humanoid.WalkSpeed = 0
@@ -5796,7 +5796,7 @@ end)
 		game:GetService("RunService").Heartbeat:Connect(function()
 			pcall(function()
 				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-					if (Auto_Farm_Bone or _G.Settings.Mastery["Farm Mastery SwordList"]) and StatrMagnetBoneMon and (v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy") and (v.HumanoidRootPart.Position - PosMonBone.Position).magnitude <= 350 then
+					if (Auto_Farm_Bone or _G.Settings.Mastery["Farm Mastery SwordList"]) and StatrMagnetBoneMon and (v.Name == "Reborn Skeleton" or v.Name == "Living Zombie" or v.Name == "Demonic Soul" or v.Name == "Posessed Mummy") and (v.HumanoidRootPart.Position - PosMonBone.Position).magnitude <= 250 then
 						v.HumanoidRootPart.CFrame = PosMonBone
 						v.HumanoidRootPart.CanCollide = false
 						v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -6289,7 +6289,7 @@ end)
 			pcall(function()
 				if StatrMagnet then
 					for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-						if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
+						if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 250 then
 							if InMyNetWork(v.HumanoidRootPart) then
 								v.HumanoidRootPart.CFrame = PosMon
 								v.Humanoid.JumpPower = 0
@@ -6680,7 +6680,7 @@ spawn(function()
 		pcall(function()
 			if MastertyMagnet then
 				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-					if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 300 then
+					if (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 250 then
 						if v.Humanoid:FindFirstChild("Animator") then
 							v.Humanoid.Animator:Destroy()
 						end
