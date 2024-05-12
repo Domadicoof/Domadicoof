@@ -3001,7 +3001,7 @@ end
                 if game:GetService("Players").LocalPlayer.Character.Dodge then
                     if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.Character.Dodge then
                         for i2,v2 in next, getupvalues(v) do
-                            if tostring(v2) == "0.1" then
+                            if tostring(v2) == "0.3" then
                             repeat wait(.1)
                                 setupvalue(v,i2,0)
                             until not nododgecool
@@ -10954,7 +10954,7 @@ end
                         topos(CFrame.new(6571.1201171875, 299.23028564453, -6967.841796875))
                     elseif game:GetService("Workspace").Enemies:FindFirstChild("Snow Lurker") or game:GetService("Workspace").Enemies:FindFirstChild("Arctic Warrior") then
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
-                            if (v.Name == "Snow Lurker" or v.Name == "Arctic Warrior") and v.Humanoid.Health > 0 then
+                            if v.Name == "Snow Lurker" or v.Name == "Arctic Warrior" then
                                 repeat task.wait()
                                     EquipWeapon(_G.SelectWeapon)
                                     AutoHaki()
@@ -10977,7 +10977,9 @@ end
             end
         end)
     end)
+end
     
+    if World2 then
     M:AddToggle("Auto Farm Ectoplasm",_G.AutoEctoplasm,function(value)
         _G.AutoEctoplasm = value
         StopTween(_G.AutoEctoplasm)
