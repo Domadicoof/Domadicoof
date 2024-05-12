@@ -3001,7 +3001,7 @@ end
                 if game:GetService("Players").LocalPlayer.Character.Dodge then
                     if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.Character.Dodge then
                         for i2,v2 in next, getupvalues(v) do
-                            if tostring(v2) == "0.3" then
+                            if tostring(v2) == "0.4" then
                             repeat wait(.1)
                                 setupvalue(v,i2,0)
                             until not nododgecool
