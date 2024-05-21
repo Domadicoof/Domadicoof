@@ -1,0 +1,77 @@
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Name = "Notify"
+ScreenGui.Parent = game:GetService("CoreGui")
+Frame.BorderSizePixel = 0
+Frame.Size = UDim2.new(0, 270, 0, 565)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 1
+Frame.Position = UDim2.new(0.721269, 0, 0.0112385, 0)
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Parent = ScreenGui
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Name = ""
+UIListLayout.Parent = Frame
+
+	local function create(des,5)
+
+		local NotifyFrame = Instance.new("Frame")
+		local ImageLabel = Instance.new("ImageLabel")
+		local TextLabel = Instance.new("TextLabel")
+		local Des = Instance.new("TextLabel")
+		local UICorner = Instance.new("UICorner")
+		NotifyFrame.BorderSizePixel = 0
+		NotifyFrame.Size = UDim2.new(0, 270, 0, 78)
+		NotifyFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		NotifyFrame.Name = ""
+		NotifyFrame.BackgroundColor3 = Color3.fromRGB(9, 9, 9)
+		NotifyFrame.Parent = game:GetService("CoreGui").Notify.Frame
+		ImageLabel.ImageColor3 = Color3.fromRGB(0, 0, 255)
+		ImageLabel.BorderSizePixel = 0
+		ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		ImageLabel.Image = "rbxassetid://17448027523"
+		ImageLabel.Size = UDim2.new(0, 45, 0, 45)
+		ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		ImageLabel.Name = ""
+		ImageLabel.BackgroundTransparency = 1
+		ImageLabel.Position = UDim2.new(0.0296296, 0, 0, 0)
+		ImageLabel.Parent = NotifyFrame
+		TextLabel.BorderSizePixel = 0
+		TextLabel.TextYAlignment = Enum.TextYAlignment.Top
+		TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		TextLabel.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+		TextLabel.TextSize = 14
+		TextLabel.Position = UDim2.new(0.196296, 0, 0.0769231, 0)
+		TextLabel.Size = UDim2.new(0, 217, 0, 16)
+		TextLabel.Name = ""
+		TextLabel.TextColor3 = Color3.fromRGB(0, 0, 255)
+		TextLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		TextLabel.Text = "Jy Conquer"
+		TextLabel.BackgroundTransparency = 1
+		TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+		TextLabel.Parent = NotifyFrame
+		Des.BorderSizePixel = 0
+		Des.TextYAlignment = Enum.TextYAlignment.Top
+		Des.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+		Des.FontFace = Font.new("rbxasset://fonts/families/GothamSSm.json", Enum.FontWeight.Bold, Enum.FontStyle.Normal)
+		Des.TextSize = 11
+		Des.Position = UDim2.new(0.207407, 0, 0.358974, 0)
+		Des.Size = UDim2.new(0, 211, 0, 50)
+		Des.Name = ""
+		Des.TextColor3 = Color3.fromRGB(255, 255, 255)
+		Des.BorderColor3 = Color3.fromRGB(0, 0, 0)
+		Des.Text = "Description : "..des
+		Des.BackgroundTransparency = 1
+		Des.TextXAlignment = Enum.TextXAlignment.Left
+		Des.Parent = NotifyFrame
+		UICorner.Name = "UICorner"
+		UICorner.CornerRadius = UDim.new(0, 4)
+		UICorner.Parent = NotifyFrame
+
+			game.Debris:AddItem(NotifyFrame,w)
+	end
+	return Alert
+	
