@@ -5036,13 +5036,13 @@ Page1.CreateToggle({
                         end
                     else
                     if BypassTP then
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuestBoss.Position).Magnitude > 1500 then
-			        BTP(CFrameQuestBoss)
-				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameQuestBoss.Position).Magnitude < 1500 then
-				    topos(CFrameQuestBoss)
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude > 1500 then
+			        BTP(CFrameBoss)
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude < 1500 then
+				    topos(CFrameBoss)
 					end
 				else
-				    topos(CFrameQuestBoss)
+				    topos(CFrameBoss)
 				end
                         if game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss) then
                             topos(game:GetService("ReplicatedStorage"):FindFirstChild(_G.SelectBoss).HumanoidRootPart.CFrame * CFrame.new(5,10,2))
@@ -5147,13 +5147,13 @@ Page1.CreateToggle({
                         BossSuperFrame = game:GetService("ReplicatedStorage"):FindFirstChild(boss).HumanoidRootPart.CFrame
                     if BypassTP then
                         if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BossSuperFrame.Position).Magnitude > 1500 then
-                            BTP(loc3 * CFrame.new(5,10,2))
+                            BTP(BossSuperFrame * CFrame.new(5,10,2))
                             wait(3)
                         elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - BossSuperFrame.Position).Magnitude < 1500 then
-                            Tween(loc3 * CFrame.new(5,10,2)))
+                            topos(BossSuperFrame * CFrame.new(5,10,2)))
                         end
                     else
-                        Tween(loc3 * CFrame.new(5,10,2))
+                        topos(BossSuperFrame * CFrame.new(5,10,2))
                     end
                     end
                     end
