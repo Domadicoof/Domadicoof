@@ -397,10 +397,9 @@
 	
 	LoadSettings()
 
-
-
-	function TelePBoss(p)
+function TelePBoss(p)
 		pcall(function()
+		    if Bypass then
 			if (p.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 2000 and not Auto_Raid and game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 				if NameQuest == "FishmanQuest" then
 					_G.Stop_Tween = true
@@ -450,6 +449,7 @@
 					wait()
 					_G.Stop_Tween = nil
 					Mix_Farm = nil
+					end
 				end
 			end
 		end)
@@ -1958,6 +1958,7 @@
 			end
 			return {["QuestLv"] = questlv, ["CFrameQuest"] = npcpos, ["NameMon"] = namemon, ["NameQuest"] = namequest, ["LevelReq"] = levelreq}
 		end
+	
 		
 
 	function CheckLevel3()
@@ -2784,7 +2785,6 @@
 				NameMon = "Island Boy"
 				CFrameQ = CFrame.new(-16547.748046875, 61.13533401489258, -173.41360473632812)
 				CFrameMon = CFrame.new(-16901.26171875, 84.06756591796875, -192.88906860351562)
-				SelectMonster = "Isle Outlaw"
 				TelePBoss(CFrameQ)
 			elseif Lv >= 2500 and Lv <= 2524 or SelectMonster == "Sun-kissed Warrior" then 
 				Ms = "Sun-kissed Warrior"
@@ -3393,7 +3393,7 @@ end)
 		})
 	end
 	
-	---Fast Attack
+	--Fast Attack
 
 	local CombatFramework = require(game:GetService("Players").LocalPlayer.PlayerScripts:WaitForChild("CombatFramework"))
 	local CombatFrameworkR = getupvalues(CombatFramework)[2]
@@ -5078,7 +5078,7 @@ spawn(function()
 									--CheckLevel2()
 									repeat task.wait()
 										for i,v in pairs(game.Workspace._WorldOrigin.EnemySpawns:GetChildren()) do
-											if string.find(v.Name,NameMon) then
+											if string.find(v.Name,NotFindGray) then
 												TP(v.CFrame * CFrame.new(0,30,0))
 											end
 										end
@@ -5207,7 +5207,7 @@ spawn(function()
 		end)
 	end
 end)
-
+--
 
 task.spawn(function()
 	while task.wait() do
@@ -5339,6 +5339,12 @@ end)
 Main:Toggle(" Fast Attack Dobble",_G.Setting_table.DbFast,function(vu)
 	DbFast = vu
 	_G.Setting_table.DbFast = vu
+	Update_Setting(getgenv()['MyName'])
+end)
+
+Main:Toggle("Bypass Teleport",_G.Setting_table.KobenHeegeen,function(vu)
+	Bypass = vu
+	_G.Setting_table.Bypass = vu
 	Update_Setting(getgenv()['MyName'])
 end)
 
