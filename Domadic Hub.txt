@@ -1,24 +1,31 @@
 
-local ScreenGui1 = Instance.new("ScreenGui")
-local ImageButton1 = Instance.new("ImageButton")
+local UserInputService = game:GetService("UserInputService")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local TweenService = game:GetService("TweenService")
+local tween = game:service"TweenService"
+local RunService = game:GetService("RunService")
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local GuiService = game:GetService("GuiService")
+local SoundClick2 = Instance.new("Sound")
+SoundClick2.Name = "Sound Effect"
+SoundClick2.SoundId = "rbxassetid://3398620867"
+SoundClick2.Volume = 1
+SoundClick2.Parent = game.Workspace
+local UIStroke = Instance.new("UIStroke")
 local UICorner = Instance.new("UICorner")
-
-ScreenGui1.Name = "ImageButton"
-ScreenGui1.Parent = game.CoreGui
-ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-ImageButton1.Parent = ScreenGui1
-ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton1.BorderSizePixel = 0
-ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton1.Size = UDim2.new(0, 50, 0, 50)
-ImageButton1.Draggable = true
-ImageButton1.Image = "http://www.roblox.com/asset/?id=12523036534"
-ImageButton1.MouseButton1Down:connect(function()
-  game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
-  game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
-end)
-UICorner.Parent = ImageButton1
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local RobloxButton = Enum.ButtonStyle.RobloxButton
+ScreenGui.Parent = game.CoreGui:WaitForChild("RobloxGui"):WaitForChild("Modules")
+ScreenGui.Name = "dsfwefwfwdfsfasdadaxczcw"
+ImageButton.Parent = ScreenGui
+ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton.Size = UDim2.new(0, 45, 0, 45)
+ImageButton.Draggable = true
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BackgroundTransparency = 1
+ImageButton.Image = "http://www.roblox.com/asset/?id=12523036534"
 
 do local GUI = game.CoreGui:FindFirstChild("SOMEXHUB");if GUI then GUI:Destroy();end;if _G.Color == nil then
     _G.Color = Color3.fromRGB(0, 247, 255)
@@ -26,18 +33,18 @@ do local GUI = game.CoreGui:FindFirstChild("SOMEXHUB");if GUI then GUI:Destroy()
 end
 
 do
-    local NamfonHub = workspace:FindFirstChild("DeeKub")
-    if NamfonHub then
-        NamfonHub:Destroy()
+    local DomadicHub = workspace:FindFirstChild("Sawat")
+    if DomadicHub then
+        DomadicHub:Destroy()
     end
 end
 
-local Namfon = Instance.new("Part",workspace)
-Namfon.Size = Vector3.new(30,5,30)
-Namfon.Name = "DeeKub"
-Namfon.Transparency = 1
-Namfon.CanCollide = true
-Namfon.Anchored = true
+local Dmax = Instance.new("Part",workspace)
+Dmax.Size = Vector3.new(30,5,30)
+Dmax.Name = "Sawat"
+Dmax.Transparency = 1
+Dmax.CanCollide = true
+Dmax.Anchored = true
 
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -3200,6 +3207,21 @@ end
         _G.Clip = false
     end
 
+    function topos(Pos)
+        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+        if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/325, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+        tween:Play()
+        if Distance <= 250 then
+            tween:Cancel()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+        end
+        if _G.StopTween == true then
+            tween:Cancel()
+            _G.Clip = false
+        end
+    end
+    
     
 
 --Tween Boats 
@@ -3234,7 +3256,7 @@ function TPP(CFgo)
 	return tweenfunc
 end
 
-function topos(p)
+getgenv().ToTargets = function(p)
     task.spawn(function()
         pcall(function()
             if game:GetService("Players").LocalPlayer:DistanceFromCharacter(p.Position) <= 250 then 
@@ -3557,7 +3579,8 @@ end)
 	
 H:AddLine()
 H:AddLabel("New Update Log")
-H:AddLabel("[-] Fix Auto Raid Ship|13/4/2023|16:00")
+H:AddLabel("[-] Fix Dodge No Cooldown|14/5/2023|16:00")
+H:AddLabel("[+] Auto Trade|14/5/2023|16:00")
 
 H:AddSeperator("UpdLog")
 
@@ -3667,6 +3690,7 @@ H:AddLabel("[+] Fast Tp Collect Azure|25/3/2023|12:44")
 H:AddLabel("[+] New Tween|25/3/2023|16:46")
 H:AddLabel("[+] Auto Quest Boss|1/4/2023|16:00")
 H:AddLabel("[-] Fix Auto Raid Ship|13/4/2023|16:00")
+H:AddLabel("[-] Fix Dodge No Cooldown|14/5/2023|16:00")
 
 
 
