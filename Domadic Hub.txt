@@ -1,31 +1,24 @@
 
-local UserInputService = game:GetService("UserInputService")
-local VirtualInputManager = game:GetService("VirtualInputManager")
-local TweenService = game:GetService("TweenService")
-local tween = game:service"TweenService"
-local RunService = game:GetService("RunService")
-local LocalPlayer = game:GetService("Players").LocalPlayer
-local Mouse = LocalPlayer:GetMouse()
-local GuiService = game:GetService("GuiService")
-local SoundClick2 = Instance.new("Sound")
-SoundClick2.Name = "Sound Effect"
-SoundClick2.SoundId = "rbxassetid://3398620867"
-SoundClick2.Volume = 1
-SoundClick2.Parent = game.Workspace
-local UIStroke = Instance.new("UIStroke")
+local ScreenGui1 = Instance.new("ScreenGui")
+local ImageButton1 = Instance.new("ImageButton")
 local UICorner = Instance.new("UICorner")
-local ScreenGui = Instance.new("ScreenGui")
-local ImageButton = Instance.new("ImageButton")
-local RobloxButton = Enum.ButtonStyle.RobloxButton
-ScreenGui.Parent = game.CoreGui:WaitForChild("RobloxGui"):WaitForChild("Modules")
-ScreenGui.Name = "dsfwefwfwdfsfasdadaxczcw"
-ImageButton.Parent = ScreenGui
-ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
-ImageButton.Size = UDim2.new(0, 45, 0, 45)
-ImageButton.Draggable = true
-ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-ImageButton.BackgroundTransparency = 1
-ImageButton.Image = "http://www.roblox.com/asset/?id=12523036534"
+
+ScreenGui1.Name = "ImageButton"
+ScreenGui1.Parent = game.CoreGui
+ScreenGui1.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+ImageButton1.Parent = ScreenGui1
+ImageButton1.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton1.BorderSizePixel = 0
+ImageButton1.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton1.Size = UDim2.new(0, 50, 0, 50)
+ImageButton1.Draggable = true
+ImageButton1.Image = "http://www.roblox.com/asset/?id=12523036534"
+ImageButton1.MouseButton1Down:connect(function()
+  game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
+  game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+end)
+UICorner.Parent = ImageButton1
 
 do local GUI = game.CoreGui:FindFirstChild("SOMEXHUB");if GUI then GUI:Destroy();end;if _G.Color == nil then
     _G.Color = Color3.fromRGB(0, 247, 255)
@@ -11005,6 +10998,7 @@ end
                                 repeat task.wait()
                                     EquipWeapon(_G.SelectWeapon)
                                     AutoHaki()
+                                    if string.find(v.Name,"Ship") then
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Head.CanCollide = false
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
@@ -11016,6 +11010,7 @@ end
                                     else
                                         StartEctoplasmMagnet = false
                                         topos(CFrame.new(911.35827636719, 125.95812988281, 33159.5390625))
+                                    end
                                 until _G.AutoEctoplasm == false or not v.Parent or v.Humanoid.Health <= 0
                             end
                         end
@@ -16625,17 +16620,7 @@ Misc:AddToggle("Esp Mystic Island", false, function(value)
 
 _G.Remove_Effect = true
 
-spawn(function()
-    game:GetService('RunService').Stepped:Connect(function()
-        if _G.Remove_Effect then
-            for i, v in pairs(game:GetService("ReplicatedStorage").Effect.Container:GetChildren()) do
-                if v.Name == "Death" then
-                    v:Destroy() 
-                end
-            end
-        end
-    end)
-    end)
+
 
 print("Domadic Hub Load Complete")
 
