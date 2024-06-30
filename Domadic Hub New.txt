@@ -178,7 +178,7 @@ function library.Create(options)
 	TextLabel_6.Size = UDim2.new(0, 200, 0, 50)
 	TextLabel_6.ZIndex = 2
 	TextLabel_6.Font = Enum.Font.FredokaOne
-	TextLabel_6.Text = "Domadic Hub"
+	TextLabel_6.Text = "discord.gg/H59rXDs5"
 	TextLabel_6.TextColor3 = Color3.fromRGB(189, 198, 212)
 	TextLabel_6.TextSize = 14.000
 	TextLabel_6.TextTransparency = 1.000
@@ -2065,7 +2065,7 @@ end
 
 -- Dark Blue Theme
 local Windown = library.Create({
-	Title = "Domadic Hub| [New]", Logo = 12523036534,
+	Title = "Domadic Hub| [discord.gg/H59rXDs5]", Logo = 12523036534,
 	CornerRadius = 2, UISize = {
 		X = 600,
 		Y = 400
