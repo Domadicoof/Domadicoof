@@ -1,6 +1,101 @@
+local UserInputService = game:GetService("UserInputService")
+local VirtualInputManager = game:GetService("VirtualInputManager")
+local TweenService = game:GetService("TweenService")
+local tween = game:service"TweenService"
+local RunService = game:GetService("RunService")
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Mouse = LocalPlayer:GetMouse()
+local GuiService = game:GetService("GuiService")
+local SoundClick2 = Instance.new("Sound")
+SoundClick2.Name = "Sound Effect"
+SoundClick2.SoundId = "rbxassetid://3398620867"
+SoundClick2.Volume = 1
+SoundClick2.Parent = game.Workspace
+local UIStroke = Instance.new("UIStroke")
+local UICorner = Instance.new("UICorner")
+local ScreenGui = Instance.new("ScreenGui")
+local ImageButton = Instance.new("ImageButton")
+local RobloxButton = Enum.ButtonStyle.RobloxButton
+ScreenGui.Parent = game.CoreGui:WaitForChild("RobloxGui"):WaitForChild("Modules")
+ScreenGui.Name = "ChangFai"
+ImageButton.Parent = ScreenGui
+ImageButton.Position = UDim2.new(0.120833337, 0, 0.0952890813, 0)
+ImageButton.Size = UDim2.new(0, 45, 0, 45)
+ImageButton.Draggable = true
+ImageButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+ImageButton.BackgroundTransparency = 1
+ImageButton.Image = "rbxassetid://12523036534"
+function LoadFunction()    
+        ImageButton.MouseEnter:Connect(function()
+        TweenService:Create(
+            ImageButton,
+            TweenInfo.new(.2, Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+            {Size = UDim2.new(0, 80, 0, 80)}
+        ):Play()
+    end)
+    ImageButton.MouseLeave:Connect(function()
+        TweenService:Create(
+            ImageButton,
+            TweenInfo.new(.2, Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+            {Size = UDim2.new(0, 50, 0, 50)}
+        ):Play()
+    end)
+    
+    local LoadFocus = false
+    
+    ImageButton.MouseButton1Down:Connect(function()
+        if LoadFocus == false then 
+            LoadFocus = false
+            TweenService:Create(
+                ImageButton,
+                TweenInfo.new(.2, Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+                {Rotation = 180}
+            ):Play()
+            SoundClick2:Play()
+            TweenService:Create(
+                ImageButton,
+                TweenInfo.new(.4, Enum.EasingStyle.Quart, Enum.EasingDirection.In),
+                {ImageTransparency = 0}
+            ):Play()
+            wait(.5)
+            TweenService:Create(
+                ImageButton,
+                TweenInfo.new(.2, Enum.EasingStyle.Back, Enum.EasingDirection.InOut),
+                {Rotation = 0}
+            ):Play()
+            TweenService:Create(
+                ImageButton,
+                TweenInfo.new(.4, Enum.EasingStyle.Quart, Enum.EasingDirection.In),
+                {ImageTransparency = 0}
+            ):Play()
+            wait(.5)	
+            
+        end
+    end)
+end
+    LoadFunction()
+    ImageButton.MouseButton1Down:connect(function()
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,305,false,game)
+    game:GetService("VirtualInputManager"):SendKeyEvent(false,305,false,game)
+    end)
+	function Vec(text)
+		local Notification = require(game.ReplicatedStorage.Notification)
+		local notification = Notification.new(text)
+		notification.Duration = 4
+		notification:Display()
+	end
+	local function tablefound(ta, object)
+		for i,v in pairs(ta) do
+			if v == object then
+				return true
+			end
+		end
+		return false
+	end
+
 local library = {}
 local par = game.CoreGui
-_G.ToggleUi = true
+_G.ToggleUi = false
 
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -4309,7 +4404,7 @@ end)
     spawn(function()
         pcall(function()
             while wait() do
-                if _G.AutoAdvanceDungeon or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFactory or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or _G.Autodoughking or _G.AutoFarmMaterial or _G.AutoNevaSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or _G.Namfon or _G.AutoSwordMastery or _G.Auto_Seabest or _G.AutoSeaBest or _G.AutoKillTial or _G.Auto_Saber or _G.Position_Spawn or _G.Farmfast or _G.AutoRace or _G.RaidPirate or Open_Color_Haki or _G.AutoTerrorshark or FarmShark or _G.farmpiranya or _G.Fish_Crew_Member == true or _G.AutoFarmAllBoss or _G.TeleportKitsune or _G.RelzFishBoat or _G.CollectAzure then
+                if _G.AutoAdvanceDungeon or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFactory or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or FarmBoss or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or _G.Autodoughking or _G.AutoFarmMaterial or _G.AutoNevaSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.d or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or AutoFarmChest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.TeleportNPC or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.RaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.AutoPlayerHunter or _G.AutoFactory or Grab_Chest or _G.Namfon or _G.AutoSwordMastery or _G.Auto_Seabest or _G.AutoSeaBest or _G.AutoKillTial or _G.Auto_Saber or _G.Position_Spawn or _G.Farmfast or _G.AutoRace or _G.RaidPirate or Open_Color_Haki or _G.AutoTerrorshark or FarmShark or _G.farmpiranya or _G.Fish_Crew_Member == true or _G.AutoFarmAllBoss or _G.TeleportKitsune or _G.RelzFishBoat or _G.CollectAzure or _G.AutoDarkCoat then
                     if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                         local Noclip = Instance.new("BodyVelocity")
                         Noclip.Name = "BodyClip"
@@ -4325,7 +4420,7 @@ end)
     spawn(function()
         pcall(function()
             game:GetService("RunService").Stepped:Connect(function()
-                if _G.AutoAdvanceDungeon or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFactory or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NoClip or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or _G.Autodoughking or _G.AutoFarmMaterial or _G.AutoNevaSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.TeleportNPC or _G.AutoKai or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.AutoRaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.AutoPlayerHunter or _G.AutoFactory or _G.Namfon or _G.AutoSwordMastery or _G.Auto_Seabest or _G.AutoSeaBest or _G.AutoKillTial or _G.Auto_Saber or _G.Position_Spawn or _G.TPB or _G.Farmfast or _G.AutoRace or _G.RaidPirate or Open_Color_Haki or _G.AutoTerrorshark or FarmShark or _G.farmpiranya or _G.SailBoat or _G.AutoFarmChest or _G.ChestBypass or _G.Fish_Crew_Member == true or _G.AutoFarmAllBoss or _G.TeleportKitsune or _G.RelzFishBoat or _G.CollectAzure then
+                if _G.AutoAdvanceDungeon or _G.AutoDoughtBoss or _G.Auto_DungeonMobAura or _G.AutoFarmChest or _G.AutoFactory or _G.AutoFarmBossHallow or _G.AutoFarmSwanGlasses or _G.AutoLongSword or _G.AutoBlackSpikeycoat or _G.AutoElectricClaw or _G.AutoFarmGunMastery or _G.AutoHolyTorch or _G.AutoLawRaid or _G.AutoFarmBoss or _G.AutoTwinHooks or _G.AutoOpenSwanDoor or _G.AutoDragon_Trident or _G.AutoSaber or _G.NoClip or _G.AutoFarmFruitMastery or _G.AutoFarmGunMastery or _G.TeleportIsland or _G.Auto_EvoRace or _G.AutoFarmAllMsBypassType or _G.AutoObservationv2 or _G.AutoMusketeerHat or _G.AutoEctoplasm or _G.AutoRengoku or _G.Auto_Rainbow_Haki or _G.AutoObservation or _G.AutoDarkDagger or _G.Safe_Mode or _G.MasteryFruit or _G.AutoBudySword or _G.AutoOderSword or _G.AutoBounty or _G.AutoAllBoss or _G.Auto_Bounty or _G.AutoSharkman or _G.Auto_Mastery_Fruit or _G.Auto_Mastery_Gun or _G.Auto_Dungeon or _G.Auto_Cavender or _G.Auto_Pole or _G.Auto_Kill_Ply or _G.Auto_Factory or _G.AutoSecondSea or _G.TeleportPly or _G.AutoBartilo or _G.Auto_DarkBoss or _G.GrabChest or _G.AutoFarmBounty or _G.Holy_Torch or _G.AutoFarm or _G.Clip or _G.AutoElitehunter or _G.AutoThirdSea or _G.Auto_Bone or _G.Autoheart or _G.Autodoughking or _G.AutoFarmMaterial or _G.AutoNevaSoulGuitar or _G.Auto_Dragon_Trident or _G.Autotushita or _G.Autowaden or _G.Autogay or _G.Autopole or _G.Autosaw or _G.AutoObservationHakiV2 or _G.AutoFarmNearest or _G.AutoCarvender or _G.AutoTwinHook or AutoMobAura or _G.Tweenfruit or _G.TeleportNPC or _G.AutoKai or _G.Leather or _G.Auto_Wing or _G.Umm or _G.Makori_gay or Radioactive or Fish or Gunpowder or Dragon_Scale or Cocoafarm or Scrap or MiniHee or _G.AutoFarmSeabaest or Auto_Cursed_Dual_Katana or _G.AutoFarmMob or _G.AutoMysticIsland or _G.AutoFarmDungeon or _G.RaidPirate or _G.AutoQuestRace or _G.TweenMGear or getgenv().AutoFarm or _G.AutoPlayerHunter or _G.AutoFactory or _G.Namfon or _G.AutoSwordMastery or _G.Auto_Seabest or _G.AutoSeaBest or _G.AutoKillTial or _G.Auto_Saber or _G.Position_Spawn or _G.TPB or _G.Farmfast or _G.AutoRace or _G.RaidPirate or Open_Color_Haki or _G.AutoTerrorshark or FarmShark or _G.farmpiranya or _G.SailBoat or _G.AutoFarmChest or _G.ChestBypass or _G.Fish_Crew_Member == true or _G.AutoFarmAllBoss or _G.TeleportKitsune or _G.RelzFishBoat or _G.CollectAzure or _G.AutoDarkCoat then
                     for _, v in pairs(game:GetService("Players").LocalPlayer.Character:GetDescendants()) do
                         if v:IsA("BasePart") then
                             v.CanCollide = false    
@@ -9000,15 +9095,14 @@ Page4.CreateToggle({
                         for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                             if v.Name == "Beautiful Pirate" then
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                    repeat task.wait()
+                                    repeat task.wait(_G.FastAttackDelay)
                                         AutoHaki()
                                         EquipWeapon(_G.SelectWeapon)
                                         v.HumanoidRootPart.CanCollide = false
                                         v.Humanoid.WalkSpeed = 0
                                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                         topos(v.HumanoidRootPart.CFrame * Pos)
-                                        game:GetService("VirtualUser"):CaptureController()
-                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                        AttackNoCD()
                                         -- sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
                                     until not  _G.AutoCarvender or not v.Parent or v.Humanoid.Health <= 0
                                 end
@@ -9036,6 +9130,116 @@ Page4.CreateToggle({
     end)
 end
 
+if World3 then
+Page4.CreateToggle({
+	Name = "Auto Twin Hook",
+	Dis = " GetTwin Hook",
+	Value = false,
+	Callback = function(v)
+	_G.AutoTwinHook = v
+	StopTween(_G.AutoTwinHook)
+		print(v)
+	end,
+}) 
+
+local ElephantPos = CFrame.new(-13348.0654296875, 405.8904113769531, -8570.62890625)
+    spawn(function()
+        while wait() do
+            if  _G.AutoTwinHook and World3 then
+                pcall(function()
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Captain Elephant") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Captain Elephant" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait(_G.FastAttackDelay)
+                                        AutoHaki()
+                                        EquipWeapon(_G.SelectWeapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        topos(v.HumanoidRootPart.CFrame * Pos)
+                                        AttackNoCD()
+                                        --sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
+                                    until not  _G.AutoTwinHook or not v.Parent or v.Humanoid.Health <= 0
+                                end
+                            end
+                        end
+                    else
+                    if BypassTP then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - ElephantPos.Position).Magnitude > 1500 then
+			        BTP(ElephantPos)
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - ElephantPos.Position).Magnitude < 1500 then
+				    topos(ElephantPos)
+					end
+				else
+				    topos(ElephantPos)
+				end
+				    UnEquipWeapon(_G.SelectWeapon)
+                    topos(CFrame.new(-13348.0654296875, 405.8904113769531, -8570.62890625))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Captain Elephant") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Captain Elephant").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        else
+                            if  _G.AutoTwinHook_Hop then
+                                Hop()
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+end
+
+
+if World2 then
+Page4.CreateToggle({
+	Name = "Auto DarkCoat",
+	Dis = " GetDarkCoat",
+	Value = false,
+	Callback = function(v)
+	_G.AutoDarkCoat = v
+	StopTween(_G.AutoDarkCoat)
+		print(v)
+	end,
+}) 
+spawn(function()
+        while wait() do
+            if  _G.AutoDarkCoat and World2 then
+                pcall(function()
+                    if game:GetService("Workspace").Enemies:FindFirstChild("Darkbeard") then
+                        for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                            if v.Name == "Darkbeard" then
+                                if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                    repeat task.wait()
+                                        AutoHaki()
+                                        EquipWeapon(_G.SelectWeapon)
+                                        v.HumanoidRootPart.CanCollide = false
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                        topos(v.HumanoidRootPart.CFrame * Pos)
+                                        game:GetService("VirtualUser"):CaptureController()
+                                        game:GetService("VirtualUser"):Button1Down(Vector2.new(1280,672))
+                                        sethiddenproperty(game.Players.LocalPlayer,"SimulationRadius",math.huge)
+                                    until not  _G.AutoDarkCoat or not v.Parent or v.Humanoid.Health <= 0
+                                end
+                            end
+                        end
+                    else
+				    UnEquipWeapon(_G.SelectWeapon)
+                    topos(CFrame.new(3677.08203125, 62.751937866211, -3144.8332519531))
+                        if game:GetService("ReplicatedStorage"):FindFirstChild("Darkbeard") then
+                            topos(game:GetService("ReplicatedStorage"):FindFirstChild("Darkbeard").HumanoidRootPart.CFrame * CFrame.new(2,20,2))
+                        else
+                            if  _G.AutoDarkCoatHop then
+                                Hop()
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+end
 if World1 or World2 then 
     Page5.CreateLable({
 	Name = "Sea event In Sea 3"
@@ -9224,7 +9428,7 @@ function AddEsp(Name, Parent)
             end
         end)
     TextLabel.TextSize = 15
-    TextLabel.Text = "MyBoat"
+    TextLabel.Text = ""
 end
     
     
@@ -9320,7 +9524,7 @@ end
                             if workspace.Enemies:FindFirstChild("PirateBrigade") or workspace.Enemies:FindFirstChild("PirateGrandBrigade") or workspace.Enemies:FindFirstChild("FishBoat") then
                                 repeat task.wait()
                                     local BoatCFrame = v.VehicleSeat.CFrame
-                                    if (BoatCFrame.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 50 then
+                                    if v:FindFirstChild("VehicleSeat") then
                                         _G.SeaSkill = true
                                     else
                                         _G.SeaSkill = false
@@ -9328,7 +9532,7 @@ end
                                     topos(BoatCFrame * CFrame.new(0, 20, -20))
                                     Skillaimbot = true
                                     AimBotSkillPosition = BoatCFrame.Position
-                                until not v.Parent or v.Health.Value < 0 or not workspace.Enemies:FindFirstChild("PirateBrigade") or not workspace.Enemies:FindFirstChild("PirateGrandBrigade") or not game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") or not v:FindFirstChild("VehicleSeat") or not _G.RelzFishBoat
+                                until not v.Parent or not v:FindFirstChild("Health") or not v.Health.Value < 0 or not workspace.Enemies:FindFirstChild("PirateBrigade") or not workspace.Enemies:FindFirstChild("PirateGrandBrigade") or not game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") or not v:FindFirstChild("VehicleSeat") or not _G.RelzFishBoat
                                 Skillaimbot = false
                                 _G.SeaSkill = false
                             end
@@ -9339,7 +9543,7 @@ end
                                 if CheckSeaBeast() then
                                 repeat wait()
                                     CFrameSeaBeast = v.HumanoidRootPart.CFrame
-                                    if (CFrameSeaBeast.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Position).Magnitude <= 200 then
+                                    if v:FindFirstChild("HumanoidRootPart") then
                                         _G.SeaSkill = true
                                     else
                                         _G.SeaSkill = false
@@ -10110,17 +10314,7 @@ end
 
     
     
-function EquipAllWeapon()
-	pcall(function()
-		for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-			if v:IsA('Tool') and not (v.Name == "Summon Sea Beast" or v.Name == "Water Body" or v.Name == "Awakening") then
-				local ToolHumanoid = game.Players.LocalPlayer.Backpack:FindFirstChild(v.Name) 
-				game.Players.LocalPlayer.Character.Humanoid:EquipTool(ToolHumanoid) 
-                wait(1)
-			end
-		end
-	end)
-end
+
 
         
 local gg = getrawmetatable(game)
@@ -10784,6 +10978,55 @@ end
 Page3.CreateLable({
 	Name = "Other"
 })
+
+if World3 then
+Page3.CreateToggle({
+	Name = "Auto Pirate Raid",
+	Dis = "Auto Pirate Raid",
+	Value = false,
+	Callback = function(v)
+	_G.RaidPirate = v
+	StopTween(_G.RaidPirate)
+		print(v)
+	end,
+}) 
+
+
+spawn(function()
+    while wait() do
+        if _G.RaidPirate then
+            pcall(function()
+                local CFrameBoss = CFrame.new(-5496.17432, 313.768921, -2841.53027, 0.924894512, 7.37058015e-09, 0.380223751, 3.5881019e-08, 1, -1.06665446e-07, -0.380223751, 1.12297109e-07, 0.924894512)
+                if (CFrame.new(-5539.3115234375, 313.800537109375, -2972.372314453125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if _G.RaidPirate and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 2000 then
+                                repeat task.wait(_G.FastAttackDelay)
+                                    AutoHaki()
+                                    EquipWeapon(_G.SelectWeapon)
+                                    v.HumanoidRootPart.CanCollide = false
+                                    v.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
+                                    topos(v.HumanoidRootPart.CFrame * Pos)
+                                    AttackNoCD()
+                                until v.Humanoid.Health <= 0 or not v.Parent or not _G.RaidPirate
+                            end
+                        end
+                    end
+                else
+                    UnEquipWeapon(_G.SelectWeapon)
+                    if BypassTP then
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude > 1500 then
+			        BTP(CFrameBoss)
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude < 1500 then
+				    topos(CFrameBoss)
+					end
+                    end
+                end
+            end)
+        end
+    end
+    end)
+end
 
 if World2 then
 Page3.CreateToggle({
@@ -12019,8 +12262,9 @@ Page10.CreateButton({
 	end,
 })
 
+
 Page10.CreateToggle({
-	Name = "Auto Kill Player",
+	Name = "Auto Kill Player in When Complete Traial",
 	Dis = "Kill Player In Traial",
 	Value = false,
 	Callback = function(v)
@@ -12190,12 +12434,12 @@ end
                                 EquipWeapon(_G.SelectWeapon)
                                 AutoHaki()
                                 topos(v.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,5))
-                                -- UseskillKill = true
+                                UseskillKill = true
                                 v.Character.HumanoidRootPart.CanCollide = false
                                 v.Character.HumanoidRootPart.Size = Vector3.new(60, 60, 60)
                                 AttackNoCD()
                             until not _G.AutoKillTial or not v.Parent or v.Humanoid.Health <= 0 
-                            -- UseskillKill = false
+                            UseskillKill = false
                         end
                     end
                 end
