@@ -6232,6 +6232,8 @@ Page2.CreateLable({
 	Name = "Mastery Set"
 })
     
+    
+	
 Page2.CreateToggle({
 	Name = "Skill Z",
 	Dis = "Use Skill Z",
@@ -9565,7 +9567,7 @@ end
                             if game:GetService("Workspace").Enemies:FindFirstChild("Terrorshark") then
                                 if v.Name == "Terrorshark" then
                                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                                        repeat task.wait(0.15)
+                                        repeat task.wait(_G.FastAttackDelay)
                                             AutoHaki()
                                             EquipWeapon(_G.SelectWeapon)
                                             AttackNoCD()
@@ -10996,7 +10998,7 @@ spawn(function()
     while wait() do
         if _G.RaidPirate then
             pcall(function()
-                local CFrameBoss = CFrame.new(-5496.17432, 313.768921, -2841.53027, 0.924894512, 7.37058015e-09, 0.380223751, 3.5881019e-08, 1, -1.06665446e-07, -0.380223751, 1.12297109e-07, 0.924894512)
+                local Frame3 = CFrame.new(-5496.17432, 313.768921, -2841.53027, 0.924894512, 7.37058015e-09, 0.380223751, 3.5881019e-08, 1, -1.06665446e-07, -0.380223751, 1.12297109e-07, 0.924894512)
                 if (CFrame.new(-5539.3115234375, 313.800537109375, -2972.372314453125).Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 500 then
                     for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                         if _G.RaidPirate and v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
@@ -11015,10 +11017,10 @@ spawn(function()
                 else
                     UnEquipWeapon(_G.SelectWeapon)
                     if BypassTP then
-                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude > 1500 then
-			        BTP(CFrameBoss)
-				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - CFrameBoss.Position).Magnitude < 1500 then
-				    topos(CFrameBoss)
+                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Frame3.Position).Magnitude > 1500 then
+			        BTP(Frame3)
+				    elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Frame3.Position).Magnitude < 1500 then
+				    topos(Frame3)
 					end
                     end
                 end
@@ -11797,55 +11799,41 @@ Pointstat = Page8.CreateLable({
         end
     end)
     
+    Page7.CreateMultiDropdown({
+	Name = "Slect Stats",
+	Value = {"Melee"},
+	List = {"Melee","Defense","Sword","Gun","Demon Fruit"},
+	Callback = function(v)
+	STlis = v
+		print(v)
+	end,
+})
+
+spawn(function()
+		while wait() do
+			pcall(function()
+				if _G.Auto_Stats then
+				if game.Players.localPlayer.Data.Points.Value >= PointStats then
+					for _,g in next, STlis do
+						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint",tostring(g),PointStats)
+						end
+					end
+				end
+			end)
+		end
+	end)
+	
 Page7.CreateToggle({
-	Name = "Melee",
-	Dis = "Stats Melee",
+	Name = "Auto Stats",
+	Dis = "Stats Slect",
 	Value = false,
 	Callback = function(v)
-	melee = v
+	_G.Auto_Stats = v
 		print(v)
 	end,
 }) 
        
-Page7.CreateToggle({
-	Name = "Defense",
-	Dis = "Stats Defense",
-	Value = false,
-	Callback = function(v)
-	defense = v
-		print(v)
-	end,
-}) 
 
-Page7.CreateToggle({
-	Name = "Sword",
-	Dis = "Stats Sword",
-	Value = false,
-	Callback = function(v)
-	sword = v
-		print(v)
-	end,
-}) 
-
-Page7.CreateToggle({
-	Name = "Gun",
-	Dis = "Stats Gun",
-	Value = false,
-	Callback = function(v)
-	gun = v
-		print(v)
-	end,
-}) 
-
-Page7.CreateToggle({
-	Name = "Devil Fruit",
-	Dis = "Stats Fruit",
-	Value = false,
-	Callback = function(v)
-	demonfruit = v
-		print(v)
-	end,
-}) 
 
 Page7.CreateSlider({
 	Name = "Point",
@@ -11859,52 +11847,7 @@ Page7.CreateSlider({
 })
 
 
-spawn(function()
-		while wait() do
-			if game.Players.localPlayer.Data.Points.Value >= PointStats then
-				if melee then
-					local args = {
-						[1] = "AddPoint",
-						[2] = "Melee",
-						[3] = PointStats
-					}
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				end 
-				if defense then
-					local args = {
-						[1] = "AddPoint",
-						[2] = "Defense",
-						[3] = PointStats
-					}
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				end 
-				if sword then
-					local args = {
-						[1] = "AddPoint",
-						[2] = "Sword",
-						[3] = PointStats
-					}
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				end 
-				if gun then
-					local args = {
-						[1] = "AddPoint",
-						[2] = "Gun",
-						[3] = PointStats
-					}
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				end 
-				if demonfruit then
-					local args = {
-						[1] = "AddPoint",
-						[2] = "Demon Fruit",
-						[3] = PointStats
-					}
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				end
-			end
-		end
-	end)
+
 
 Melee = Page8.CreateLable({
 	Name = "Melee"
@@ -12557,7 +12500,26 @@ Page9.CreateToggle({
 		print(v)
 	end,
 }) 
+Page9.CreateToggle({
+	Name = "Kill Player Bypass Tp",
+	Dis = "Fast Kill Player",
+	Value = false,
+	Callback = function(v)
+	DMDHub = v
+                                    if DMDHub == false then
+                                        game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.Size = Vector3.new(2, 2, 1)
+                                    end
+                                    while DMDHub do task.wait()
+                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0)
+                                        game.Players:FindFirstChild(_G.SelectPly).Character.HumanoidRootPart.Size = Vector3.new(60,60,60)
+                                        game:GetService'VirtualUser':CaptureController()
+                                        game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+                                    end
+		print(v)
+	end,
+}) 
 
+                                    
 Page9.CreateToggle({
 	Name = "Kill Player",
 	Dis = "kilplayer",
@@ -12604,7 +12566,46 @@ Page9.CreateToggle({
             end
         end
     end)
-    
+   
+Page9.CreateLable({
+	Name = "Bring Boat"
+})
+
+BoatsName = {}
+
+for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
+  table.insert(BoatsName ,v.Name)
+end 
+
+
+Boats = Page9.CreateDropdown({
+	Name = "Select Boat",
+	Value = "Boat  ",
+	List = BoatsName,
+	Callback = function(v)
+	    _G.ELkY = v
+		print(v)
+	end,
+})
+
+
+Page9.CreateButton({
+	Name = "Refresh Boat",
+	Callback = function()
+		BoatsName = {}
+        Boats:Clear()
+        for i,v in pairs(game:GetService("Workspace").Boats:GetChildren()) do  
+            Boats:Add(v.Name)
+        end
+	end,
+})
+
+Page9.CreateButton({
+	Name = "Bring Boat",
+	Callback = function()
+		game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Boats[_G.ELkY].VehicleSeat.CFrame
+	end,
+})
 
 Page9.CreateLable({
 	Name = "Quest Player"
