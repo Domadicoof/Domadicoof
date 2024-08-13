@@ -1954,16 +1954,16 @@ local MemeBit = Main:AddLabel("Sttus:")
     
     Main:AddSeperator("🤨Lord Sus🤨")
     
-    local Mpum = Main:AddLabel("Status")
+    local LordGry = Main:AddLabel("Status")
 
 
 	spawn(function()
 		while wait() do
 			pcall(function()
 				if workspace.Monster:FindFirstChild("Lord Sus") then
-					Mpum:Set("Status : Spawn!")	
+					LordGry:Set("Status : Spawn!")	
 				else
-					Mpum:Set("Status : Lord Sus Not Found!")	
+					LordGry:Set("Status : Lord Sus Not Found!")	
 				end
 			end)
 		end
