@@ -1,4 +1,4 @@
---Sources Free For everyone 
+
 local notification = Instance.new("Sound")
 notification.Parent = game:GetService("SoundService")
 notification.SoundId = "rbxassetid://9086208751"
@@ -16,4 +16,4 @@ game.StarterGui:SetCore("SendNotification", {
       Text = "âœ…Completeâœ…";
 notification:Play()
 })
-loadstring(Game:HttpGetAsync("https://pastebin.com/raw/uHg5K6WB"))()
+loadstring(Game:HttpGetAsync("https://pastebin.com/raw/mCskWPVp"))()
