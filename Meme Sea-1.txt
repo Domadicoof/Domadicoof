@@ -2517,7 +2517,7 @@ end)
 
 
     
-    
+    S:AddLabel("Wait for update")
     S:AddSeperator("Ability")
     
     S:AddButton("Buy Aura",function()
