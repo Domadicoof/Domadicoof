@@ -1804,10 +1804,12 @@ local MemeBit = Main:AddLabel("Sttus:")
                                 if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat task.wait()
                                         EquipWeapon(_G.SelectWeapon)
+                                        UseS = true
                                         TP(v.HumanoidRootPart.CFrame * MethodFarm)                                        
                                         game:GetService'VirtualUser':CaptureController()
                                         game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),game:GetService("Workspace").Camera.CFrame)
-                                    until not _G.AutoMEmeBeast or not v.Parent or v.Humanoid.Health <= 0                                    
+                                    until not _G.AutoMEmeBeast or not v.Parent or v.Humanoid.Health <= 0
+                                    UseS = false                                    
                                 end
                             end
                         end
