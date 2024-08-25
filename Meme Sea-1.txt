@@ -1175,7 +1175,7 @@ local LogoToggle = Instance.new("ImageLabel")
     return uitab
 end
     
-
+--DomadicCheckQuest
 function CheckQuest()
         local MyLevel = game:GetService("Players").LocalPlayer.PlayerData.Level.Value
         if MyLevel >= 1 and MyLevel <= 49 then
@@ -1309,7 +1309,7 @@ function CheckQuest()
            FrameQ = CFrame.new(2278.8076171875, -90.5616455078125, -5399.32666015625)
         end
     end
-    
+    --CheckSlect
 function CheckFarmMob()
         if MoN == "Floppa" then
             MobFarm = "Floppa"
@@ -1442,11 +1442,11 @@ function CheckFarmMob()
            FrameQFarm = CFrame.new(2278.8076171875, -90.5616455078125, -5399.32666015625)
         end
         end
-    
+    --functionTeleport
     function TP(Kuy)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Kuy
     end
-    
+    --EquipWeapon 
     function EquipWeapon(ToolSe)
         if game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe) then
             getgenv().tool = game.Players.LocalPlayer.Backpack:FindFirstChild(ToolSe)
@@ -1454,9 +1454,9 @@ function CheckFarmMob()
             game.Players.LocalPlayer.Character.Humanoid:EquipTool(tool)
         end
     end
-    
+    --PlyName
     Delta = game.Players.LocalPlayer.Name
-    
+    --MonTable
     MonGAY = {"Floppa","Golden Floppa","Big Floppa","Doge","Cheems","Walter Dog","Staring Fish","Hamster","Snow Tree","The Rock","Banana Cat","Sus Face","Egg Dog","Popcat","Gorilla King","Smiling Cat","Killerfish","Bingus","Obamid","Floppy","Creepy Head","Scary Skull","Pink Absorber","Troll Face","Uncanny Cat","Quandale Dingle","Moai","Red Sus","Sus Duck","Sigma Man","Dancing Cat","Toothless Dragon","Manly Nugget","Huh Cat","Mystical Tree","Old Man","Nyan Cat","Baller","Slicer","Rick Roller","Gigachad","MrBeast","Handsome Man"}
     
     Spwan1 = CFrame.new(-1180.0992431640625, -92.91278076171875, 1460.7950439453125)   
@@ -1465,8 +1465,10 @@ function CheckFarmMob()
     Quest2 = CFrame.new(6566.28271484375, -94.78914642333984, 4796.65869140625)
     Spwan3 = CFrame.new(-2356.23388671875, -75.37208557128906, 3180.397705078125)
     Quest3 = CFrame.new(2891.572509765625, -51.79050064086914, 4208.52783203125)
+    --Partใต้ตีน
     
-    spawn(function()
+    
+  spawn(function()
         game:GetService("RunService").RenderStepped:Connect(function()
             if _G.AutoFarm or _G.AutoCoolQuest or _G.AutolGaitPumunk or _G.AutoMEmeBeast or _G.EvoOrb or _G.Pixell or _G.Raid or _G.AutoFarmMob or _G.AutoFullLord or _G.AutoEvil or _G.AutoFullEvil then
                 if not game:GetService("Workspace"):FindFirstChild("TaiFoot") then
@@ -1486,8 +1488,6 @@ function CheckFarmMob()
             end
         end)
     end)
-    
- 
     --noclip
     spawn(function()
         pcall(function()
@@ -1504,7 +1504,7 @@ function CheckFarmMob()
     end)
             
 
-
+--ConfigStopNoclip
     function StopNoClip(Config)
         if Config == false then
             if game:GetService("Workspace"):FindFirstChild("TaiFoot") then
@@ -2116,7 +2116,7 @@ local MemeBit = Main:AddLabel("Sttus:")
     
     spawn(function()
         while wait() do
-            if _G.AutoLord then
+            if _G.AutoEvil then
                 pcall(function()
                     if workspace.Monster:FindFirstChild("Evil Noob") then
                         for i,v in pairs(workspace.Monster:GetChildren()) do
@@ -2519,10 +2519,16 @@ end)
 
 
     
-    S:AddLabel("Wait for update")
+    
     S:AddSeperator("Ability")
     
-    S:AddButton("Buy Aura",function()
+    S:AddButton("Flash Step",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Ability_Teacher","Giga Chad")
+	end)
+	S:AddButton("instinct",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Ability_Teacher","Nugget Man")
+	end)
+	S:AddButton("Buy Aura",function()
 	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Ability_Teacher","Aura Master")
 	end)
     
@@ -2532,13 +2538,43 @@ end)
     S:AddButton("Buy Commat",function()
 	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("FightingStyle_Teacher","Maxwell")
 	end)
+	S:AddButton("Buy Baller",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("FightingStyle_Teacher","Baller")
+	end)
 	
 	
 	S:AddSeperator("🔪Sword🔪")
     
     S:AddButton("Buy Katana",function()
 	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Weapon_Seller","Doge")
+	end)	
+	S:AddButton("Buy Hanger",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Weapon_Seller","Hanger")
 	end)
+	S:AddButton("Buy Hanger",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Weapon_Seller","Hanger")
+	end)
+	S:AddButton("Buy Frame Katana",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Weapon_Seller","Cheems")
+	end)
+	S:AddButton("Buy Banana",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Weapon_Seller","Smiling Cat")
+	end)
+	S:AddButton("Buy Bonk",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Weapon_Seller","Meme Man")
+	end)
+	S:AddButton("Buy Pumkin",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Weapon_Seller","Gravestone")
+	end)
+	S:AddButton("Buy Pop Cat",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Weapon_Seller","Ohio Popcat")
+	end)
+	S:AddButton("Buy Pop Cat",function()
+	game:GetService("ReplicatedStorage").OtherEvent.MainEvents.Modules:FireServer("Weapon_Seller","Ohio Popcat")
+	end)
+	
+	
+	
     
     Raid:AddToggle("Auto Raid",_G.Raid,function(value)
   _G.Raid = value
@@ -2589,11 +2625,16 @@ end)
                                     Mon = v.Name
                                     game:GetService'VirtualUser':CaptureController()
                                     game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672),game:GetService("Workspace").Camera.CFrame)
-                                    until not _G.Raid or not v.Parent or v.Humanoid.Health <= 0 or not workspace.Monster:FindFirstChild(v.Name)
+                                    until not _G.Raid or not v.Parent or v.Humanoid.Health <= 0
                                     StartMagnet = false
                                     UseS = false
                                     end
                                     end
+                                    for i,v in pairs(workspace.Raids:GetChildren()) do
+                                    if string.find(v.Name,"Raid_") then                          
+                                    TP(v.PrimaryPart.CFrame * CFrame.new(5,100,2))                                     
+                                     end
+                                     end
                                 end
                             end
                         end
@@ -2601,6 +2642,8 @@ end)
                 end
             end
         end)
+        
+        workspace.Region:FindFirstChild("RaidArea")
     
     Misc:AddSeperator("💻Server💻")
     
@@ -2786,7 +2829,7 @@ end)
 		if _G.AutoStoreFruit then
 			pcall(function()
 			for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
-				if string.find(v.Name, "Power") then
+				if v:IsA("Tool") and v.ToolTip == "Power" and v:GetAttribute("Using") == nil then
 				EquipWeapon(v.Name)
 				wait(.1)
 				if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(v.Name) or game:GetService("Players").LocalPlayer.Character:FindFirstChild(v.Name) then
@@ -2795,7 +2838,7 @@ end)
 					end
 					end
 				for i,v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
-				if string.find(v.Name, "Power") then
+				if v:IsA("Tool") and v.ToolTip == "Power" and v:GetAttribute("Using") == nil then
 				EquipWeapon(v.Name)
 				wait(.1)
 				if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(v.Name) or game:GetService("Players").LocalPlayer.Character:FindFirstChild(v.Name) then
