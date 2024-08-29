@@ -5673,8 +5673,8 @@ Page1.CreateToggle({
 	Dis = "Farm Farm Chest [Teleport]",
 	Value = false,
 	Callback = function(v)
-	_G.AutoFarmChest = v
-	    StopTween(_G.AutoFarmChest)
+	_G.ChestBypass = v
+	    StopTween(_G.ChestBypass)
 		print(v)
 	end,
 })
