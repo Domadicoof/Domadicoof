@@ -2164,17 +2164,17 @@ end
 local Windown = library.Create({
 	Title = "Domadic Hub| [discord.gg/H59rXDs5]", Logo = 12523036534,
 	CornerRadius = 2, UISize = {
-		X = 600,
+		X = 700,
 		Y = 400
 	},UIColor = {
-		['Shadown'] = Color3.fromRGB(21, 71, 71),
-		['MainBackground'] = Color3.fromRGB(21, 71, 71),
-		['Background2'] = Color3.fromRGB(34, 83, 80),
-		['ToggleO'] = Color3.fromRGB(36, 90, 91),
-		['TapButtonColor'] = Color3.fromRGB(63, 136, 134),
-		['DropDownSelect'] = Color3.fromRGB(38, 90, 88),
-		['TextColor'] = Color3.fromRGB(133, 150, 150)
-	}
+        ['Shadow'] = Color3.fromRGB(48, 51, 71),
+        ['MainBackground'] = Color3.fromRGB(48, 51, 71),
+        ['Background2'] = Color3.fromRGB(56, 60, 83),
+        ['ToggleO'] = Color3.fromRGB(61, 65, 91),
+        ['TapButtonColor'] = Color3.fromRGB(113, 117, 136),
+        ['DropDownSelect'] = Color3.fromRGB(61, 65, 90),
+        ['TextColor'] = Color3.fromRGB(142, 144, 150)
+    }
 })
 
 
@@ -4279,19 +4279,83 @@ end
 end
 
 
-function topos(Pos)
-        Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/TweenSpeed, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
-        tween:Play()
-        if Distance <= 250 then
-            tween:Cancel()
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
-        end
-        if _G.StopTween == true then
-            tween:Cancel()
+function topos(p)
+	task.spawn(function()
+		pcall(function()
+			if game:GetService("Players").LocalPlayer:DistanceFromCharacter(p.Position) <= 200 then 
+				game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = p
+				if game.Players.LocalPlayer.Character:FindFirstChild("Root") then
+					game.Players.LocalPlayer.Character:FindFirstChild("Root"):Destroy();
+					wait()
+					topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+					wait()
+					if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
+						game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip"):Destroy()
+					end
+				end;
+				if game.Players.LocalPlayer.Character:FindFirstChild("Root") then
+					game.Players.LocalPlayer.Character:FindFirstChild("Root"):Remove();
+				end;
+			elseif not game.Players.LocalPlayer.Character:FindFirstChild("Root")then 
+				local K = Instance.new("Part",game.Players.LocalPlayer.Character)
+				K.Size = Vector3.new(1,0.5,1)
+				K.Name = "Root"
+				K.Anchored = true
+				K.Transparency = 1
+				K.CanCollide = false
+				K.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
+			end
+			local r = game:GetService("Players").LocalPlayer
+			local U = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude
+			local z = game:service("TweenService")
+			local B = TweenInfo.new((p.Position-game.Players.LocalPlayer.Character.Root.Position).Magnitude/TweenSpeed,Enum.EasingStyle.Linear)
+			local S,g = pcall(function()
+				local q = z:Create(game.Players.LocalPlayer.Character.Root,B,{CFrame = p})
+				q:Play()
+			end)
+			if _G.StopTween == true then
+            q:Cancel()
             _G.Clip = false
         end
-    end
+			if not S then 
+				return g
+			end
+			game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+			if S and game.Players.LocalPlayer.Character:FindFirstChild("Root") then 
+				pcall(function()
+					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude >= 50 then 
+						task.spawn(function()
+							pcall(function()
+								if (game.Players.LocalPlayer.Character.Root.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 200 then 
+									game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+								else 
+									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame=game.Players.LocalPlayer.Character.Root.CFrame
+								end
+							end)
+						end)
+					elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude >= 25 and(game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude < 40 then 
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
+					elseif (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude < 25 then 
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
+					end
+				end)
+			end
+		end)
+	end)    
+end
+task.spawn(function()
+	while task.wait() do 
+		pcall(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.Root.CFrame;
+			if (game.Players.LocalPlayer.Character.Root.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude >= 1 then
+				game.Players.LocalPlayer.Character.Root.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame;
+			end
+		end)
+	end
+end)
+
+
+
     
 
 
@@ -4937,6 +5001,16 @@ Page1.CreateLable({
 	Name = "Mastery"
 })
 
+Page1.CreateDropdown({
+	Name = "Mastery Mode",
+	Value = "Quest",
+	List = {"Quest", "Near"},
+	Callback = function(v)
+	SelectedMasteryMode = v
+		print(v)
+	end,
+})
+
 Page1.CreateToggle({
 	Name = "Auto Farm Fruit Mastery",
 	Dis = "Farm Level Mastery Fruit",
@@ -4959,6 +5033,7 @@ Page1.CreateToggle({
 		print(v)
 	end,
 })
+
 
     
     
@@ -5698,6 +5773,15 @@ spawn(function()
                     _G.ChestBypass = false
                     topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
                 end
+            end
+        end)
+    end
+end)
+spawn(function()
+    while wait(10) do
+        pcall(function()
+            if _G.ChestBypass then
+                    game.Players.LocalPlayer.Character.Head:Destroy()
             end
         end)
     end
@@ -8080,7 +8164,7 @@ end
 
     spawn(function()
         while wait() do
-            if _G.AutoFarmFruitMastery then
+            if _G.AutoFarmFruitMastery and SelectedMasteryMode == "Quest" then
                 pcall(function()
                     CheckQuest()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
@@ -8089,7 +8173,7 @@ end
                     end
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                         repeat wait()
-                            TP1(CFrameQuest)
+                            topos(CFrameQuest)
                         until (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 3 or not _G.AutoFarmFruitMastery
                         if (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest",NameQuest,LevelQuest)
@@ -8106,14 +8190,14 @@ end
                                                     EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                                                     UseSkill = true
                                                     Skillaimbot = true
-                                                    TP1(v.HumanoidRootPart.CFrame * CFrame.new(0, 15, 0))
+                                                    topos(v.HumanoidRootPart.CFrame * CFrame.new(0, 15, 0))
                                                 else           
                                                     UseSkill = false 
                                                     Skillaimbot = false
                                                     EquipWeapon(_G.SelectWeapon)
-                                                    TP1(v.HumanoidRootPart.CFrame * Pos)
+                                                    topos(v.HumanoidRootPart.CFrame * Pos)
                                                 end
-                                                AimBotSkillPosition = v.HumanoidRootPart.CFrame.Position
+                                                AimBotSkillPosition = v.HumanoidRootPart.Position
                                                 MonFarm = v.Name
                                                 PosMon = v.HumanoidRootPart.CFrame
                                                 AutoHaki()
@@ -8132,7 +8216,7 @@ end
                                 end
                             end
                         else
-                            TP1(CFrameMon)
+                            topos(CFrameMon)
                             UnEquipWeapon(_G.SelectWeapon)
                         end
                     end
@@ -8155,6 +8239,53 @@ end
         end
     end
 
+
+
+spawn(function()
+        while wait() do
+            if _G.AutoFarmFruitMastery and SelectedMasteryMode == "Near" then
+                pcall(function()
+                            for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
+                                    if v.Name then
+                                    if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 5000 then
+                                        HealthMs = v.Humanoid.MaxHealth * _G.Kill_At/100
+                                            repeat task.wait()
+                                                if v.Humanoid.Health <= HealthMs then
+                                                    EquipWeapon(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                                                    UseSkill = true
+                                                    Skillaimbot = true
+                                                    topos(v.HumanoidRootPart.CFrame * CFrame.new(0, 15, 0))
+                                                else           
+                                                    UseSkill = false 
+                                                    Skillaimbot = false
+                                                    EquipWeapon(_G.SelectWeapon)
+                                                    topos(v.HumanoidRootPart.CFrame * Pos)
+                                                end
+                                                AimBotSkillPosition = v.HumanoidRootPart.Position
+                                                MonFarm = v.Name
+                                                PosMon = v.HumanoidRootPart.CFrame
+                                                AutoHaki()
+                                                v.HumanoidRootPart.CanCollide = false
+                                                v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                                v.Humanoid.WalkSpeed = 0
+                                                v.Head.CanCollide = false
+                                                StartBring = true
+                                                NormalAttack()
+                                            until not _G.AutoFarmFruitMastery or v.Humanoid.Health <= 0 or not v.Parent 
+                                            StartBring = false
+                                            UseSkill = false
+                                            Skillaimbot = false                                       
+                                end
+                            end
+                            UnEquipWeapon(_G.SelectWeapon)
+                        end
+                    end
+                end)
+            end
+        end
+    end)
+    
     -- spawn(function()
     --     while wait() do
     --         if SelectedMasteryMode == "Nearest" and _G.AutoFarmFruitMastery then
@@ -8220,7 +8351,7 @@ end)
     spawn(function()
         pcall(function()
             while wait() do
-                if _G.AutoFarmGunMastery then
+                if _G.AutoFarmGunMastery and SelectedMasteryMode == "Quest" then
                     CheckQuest()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                     if not string.find(QuestTitle, NameMon) then
@@ -8246,6 +8377,11 @@ end)
                                                     game:GetService("Players").LocalPlayer.Character.Humanoid:FindFirstChild(""):InvokeServer("TAP", Vector3.new(ShootPosition.Position))
                                                     UseGunSkill = true
                                                     Skillaimbot = true
+                                                    local args = {
+                                                        [1] = v.HumanoidRootPart.Position,
+                                                        [2] = v.HumanoidRootPart
+                                                    }
+                                                    game:GetService("Players").LocalPlayer.Character[SelectWeaponGun].RemoteFunctionShoot:InvokeServer(unpack(args))
                                                 else
                                                     EquipWeapon(_G.SelectWeapon)
                                                     topos(v.HumanoidRootPart.CFrame * Pos)
@@ -8275,6 +8411,58 @@ end)
                            UnEquipWeapon(_G.SelectWeapon)
                         end 
                     end
+                end
+            end
+        end)
+    end)
+    
+    spawn(function()
+        pcall(function()
+            while wait() do
+                if _G.AutoFarmGunMastery and SelectedMasteryMode == "Near" then
+                            pcall(function()
+                                for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                                    if v.Name then
+                                        if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v:FindFirstChild("HumanoidRootPart").Position).Magnitude <= 5000 then
+                                            repeat task.wait()
+                                                HealthMin = v.Humanoid.MaxHealth * _G.Kill_At/100
+                                                ShootPosition = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, -15, 0)
+                                                if v.Humanoid.Health <= HealthMin then
+                                                    EquipWeapon(SelectWeaponGun)
+                                                    topos(v.HumanoidRootPart.CFrame * CFrame.new(0, 15, 0))
+                                                    game:GetService("Players").LocalPlayer.Character.Humanoid:FindFirstChild(""):InvokeServer("TAP", Vector3.new(ShootPosition.Position))
+                                                    UseGunSkill = true
+                                                    Skillaimbot = true
+                                                    local args = {
+                                                        [1] = v.HumanoidRootPart.Position,
+                                                        [2] = v.HumanoidRootPart
+                                                    }
+                                                    game:GetService("Players").LocalPlayer.Character[SelectWeaponGun].RemoteFunctionShoot:InvokeServer(unpack(args))
+                                                else
+                                                    EquipWeapon(_G.SelectWeapon)
+                                                    topos(v.HumanoidRootPart.CFrame * Pos)
+                                                    UseGunSkill = false
+                                                    Skillaimbot = false
+                                                end
+                                                NormalAttack()
+                                                AutoHaki()
+                                                v.Humanoid.WalkSpeed = 0
+                                                v.HumanoidRootPart.CanCollide = false
+                                                v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                                v.Head.CanCollide = false
+                                                AimBotSkillPosition = v.HumanoidRootPart.Position
+                                                StartBring = true 
+                                                PosMon = v.HumanoidRootPart.CFrame
+                                                MonFarm = v.Name
+                                            until v.Humanoid.Health <= 0 or _G.AutoFarmGunMastery == false or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false
+                                            UseGunSkill = false
+                                            Skillaimbot = false
+                                            StartBring = false
+                                        end
+                                    end
+                                end
+                            end)
+                           UnEquipWeapon(_G.SelectWeapon)
                 end
             end
         end)
@@ -9634,7 +9822,7 @@ end
                                     end
                                     topos(BoatCFrame1 * CFrame.new(0, 20, -20))
                                     Skillaimbot = true
-                                    AimBotSkillPosition = BoatCFrame.Position
+                                    AimBotSkillPosition = v.VehicleSeat.Position
                                 until not v.Parent or not v:FindFirstChild("Health") or v.Health.Value <= 0 or not game:GetService("Workspace").Enemies:FindFirstChild("FishBoat") or not v:FindFirstChild("VehicleSeat") or not _G.RelzFishBoat
                                 Skillaimbot = false
                                 _G.SeaSkill = false
@@ -9652,7 +9840,7 @@ end
                                     end
                                     topos(BoatCFrame2 * CFrame.new(0, 20, -20))
                                     Skillaimbot = true
-                                    AimBotSkillPosition = BoatCFrame.Position
+                                    AimBotSkillPosition = v.VehicleSeat.Position
                                 until not v.Parent or not v:FindFirstChild("Health") or v.Health.Value <= 0 or not workspace.Enemies:FindFirstChild("PirateBrigade") or not v:FindFirstChild("VehicleSeat") or not _G.RelzFishBoat
                                 Skillaimbot = false
                                 _G.SeaSkill = false
@@ -9670,7 +9858,7 @@ end
                                     end
                                     topos(BoatCFrame3 * CFrame.new(0, 20, -20))
                                     Skillaimbot = true
-                                    AimBotSkillPosition = BoatCFrame.Position
+                                    AimBotSkillPosition = v.VehicleSeat.Position
                                 until not v.Parent or not v:FindFirstChild("Health") or v.Health.Value <= 0 or not workspace.Enemies:FindFirstChild("PirateGrandBrigade") or not v:FindFirstChild("VehicleSeat") or not _G.RelzFishBoat
                                 Skillaimbot = false
                                 _G.SeaSkill = false
@@ -9688,7 +9876,7 @@ end
                                         _G.SeaSkill = false
                                     end
                                     Skillaimbot = true
-                                    AimBotSkillPosition = v.HumanoidRootPart.CFrame.Position
+                                    AimBotSkillPosition = v.HumanoidRootPart.Position
                                     topos(CFrameSeaBeast * CFrame.new(0,500,0))
                                 until not _G.AutoSeaBest or CheckSeaBeast() == false or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Health.Value <= 0 or not v.Parent
                                 Skillaimbot = false
@@ -15002,12 +15190,6 @@ Page15.CreateToggle({
 	end,
 })
 
-Page16.CreateButton({
-	Name = "Rejoin Server",
-	Callback = function()
-		game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
-	end,
-})
 
 Page16.CreateButton({
 	Name = "Rejoin Server",
