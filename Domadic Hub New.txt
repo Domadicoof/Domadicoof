@@ -2159,6 +2159,7 @@ function library.Create(options)
 	end
 	return library.TapGroup
 end
+local Alert = loadstring(Game:HttpGet"https://pst.innomi.net/paste/p79skjosyq4vfsxozdb6chtn/raw")()
 
 -- Dark Blue Theme
 local Windown = library.Create({
@@ -4269,14 +4270,20 @@ function TP(Pos)
     ):Play()
 end
 
-    function TP1(Pos)
+function TP1(Pos)
         Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-        game:GetService("TweenService"):Create(
-            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,
-            TweenInfo.new(Distance/TweenSpeed, Enum.EasingStyle.Linear),
-            {CFrame = Pos}
-        ):Play()
-end
+        pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/TweenSpeed, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+        tween:Play()
+        if Distance <= 250 then
+            tween:Cancel()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+        end
+        if _G.StopTween == true then
+            tween:Cancel()
+            _G.Clip = false
+        end
+    end
+    
 
 
 function topos(p)
@@ -6241,14 +6248,14 @@ end
 
 Page2.CreateDropdown({
 	Name = "Fast Attack Delay",
-	Value = "0.175",
+	Value = "0.200",
 	List = {0, 0.100, 0.150, 0.165, 0.175, 0.200, 0.250},
 	Callback = function(v)
 	_G.FastAttackDelay = v
 		print(v)
 	end,
 })
-_G.FastAttackDelay = "0.175"
+_G.FastAttackDelay = "0.200"
 
 
 Page2.CreateToggle({
@@ -12338,7 +12345,7 @@ Page10.CreateLable({
 Page10.CreateButton({
 	Name = "Teleport To Top GreatTree",
 	Callback = function()
-		topos(CFrame.new(2947.556884765625, 2281.630615234375, -7213.54931640625))
+		TP1(CFrame.new(2947.556884765625, 2281.630615234375, -7213.54931640625))
 	end,
 })
 
@@ -12352,14 +12359,14 @@ Page10.CreateButton({
 Page10.CreateButton({
 	Name = "Teleport To Lever Pull",
 	Callback = function()
-		topos(CFrame.new(28575.181640625, 14936.6279296875, 72.31636810302734))
+		TP1(CFrame.new(28575.181640625, 14936.6279296875, 72.31636810302734))
 	end,
 })
 
 Page10.CreateButton({
 	Name = "Teleport To Ancient One",
 	Callback = function()
-		topos(CFrame.new(28981.552734375, 14888.4267578125, -120.245849609375))
+		TP1(CFrame.new(28981.552734375, 14888.4267578125, -120.245849609375))
 	end,
 })
 
@@ -12521,42 +12528,42 @@ Page10.CreateButton({
 Page10.CreateButton({
 	Name = "Teleport Cyborg Door",
 	Callback = function()
-		topos(CFrame.new(28492.4140625, 14894.4267578125, -422.1100158691406))
+		TP1(CFrame.new(28492.4140625, 14894.4267578125, -422.1100158691406))
 	end,
 })
 
 Page10.CreateButton({
 	Name = "Teleport Fish Door",
 	Callback = function()
-		topos(CFrame.new(28224.056640625, 14889.4267578125, -210.5872039794922))
+		TP1(CFrame.new(28224.056640625, 14889.4267578125, -210.5872039794922))
 	end,
 })
  
  Page10.CreateButton({
 	Name = "Teleport Ghoul Door",
 	Callback = function()
-		topos(CFrame.new(28672.720703125, 14889.1279296875, 454.5961608886719))
+		TP1(CFrame.new(28672.720703125, 14889.1279296875, 454.5961608886719))
 	end,
 })
 
 Page10.CreateButton({
 	Name = "Teleport Human Door",
 	Callback = function()
-		topos(CFrame.new(29237.294921875, 14889.4267578125, -206.94955444335938))
+		TP1(CFrame.new(29237.294921875, 14889.4267578125, -206.94955444335938))
 	end,
 })
 
 Page10.CreateButton({
 	Name = "Teleport Mink Door",
 	Callback = function()
-		topos(CFrame.new(29020.66015625, 14889.4267578125, -379.2682800292969))
+		TP1(CFrame.new(29020.66015625, 14889.4267578125, -379.2682800292969))
 	end,
 })
 
 Page10.CreateButton({
 	Name = "Teleport Sky Door",
 	Callback = function()
-		topos(CFrame.new(28967.408203125, 14918.0751953125, 234.31198120117188))
+		TP1(CFrame.new(28967.408203125, 14918.0751953125, 234.31198120117188))
 	end,
 })
   
@@ -12714,21 +12721,21 @@ end)
 Page10.CreateButton({
 	Name = "Complete Angel Trial",
 	Callback = function()
-		topos(game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame)
+		TP1(game.Workspace.Map.SkyTrial.Model.FinishPart.CFrame)
 	end,
 })
 
 Page10.CreateButton({
 	Name = "Complete Rabit Trial",
 	Callback = function()
-		topos(game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0))
+		TP1(game:GetService("Workspace").Map.MinkTrial.Ceiling.CFrame * CFrame.new(0,-5,0))
 	end,
 })
 
 Page10.CreateButton({
 	Name = "Complete Cyborg Trial",
 	Callback = function()
-		topos(CFrame.new(0,300,0))
+		TP1(CFrame.new(0,300,0))
 	end,
 })
 end
@@ -13503,14 +13510,14 @@ Page11.CreateToggle({
 Page11.CreateButton({
 	Name = "Teleport to Lab",
 	Callback = function()
-		topos(CFrame.new(-6438.73535, 250.645355, -4501.50684))
+		TP1(CFrame.new(-6438.73535, 250.645355, -4501.50684))
 	end,
 })
     elseif World3 then
 Page11.CreateButton({
 	Name = "Teleport to Lab",
 	Callback = function()
-		topos(CFrame.new(-5017.40869, 314.844055, -2823.0127, -0.925743818, 4.48217499e-08, -0.378151238, 4.55503146e-09, 1, 1.07377559e-07, 0.378151238, 9.7681621e-08, -0.925743818))
+		TP1(CFrame.new(-5017.40869, 314.844055, -2823.0127, -0.925743818, 4.48217499e-08, -0.378151238, 4.55503146e-09, 1, 1.07377559e-07, 0.378151238, 9.7681621e-08, -0.925743818))
 	end,
 })
     end
@@ -14632,6 +14639,14 @@ Page15.CreateToggle({
 	end,
 })
 
+Page15.CreateButton({
+	Name = "Stop Tween",
+	Callback = function()
+		topos(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+		TP1(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+        _G.Clip = false
+	end,
+})
 
 	
 Page15.CreateLable({
@@ -15269,3 +15284,4 @@ HakiDealer = Page16.CreateLable({
 FindFruit = Page16.CreateLable({
 	Name = "Devil Fruit"
 })
+Alert:create("Done Loaded!")
