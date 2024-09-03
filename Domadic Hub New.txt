@@ -1,5 +1,4 @@
 
-
 local UserInputService = game:GetService("UserInputService")
 local VirtualInputManager = game:GetService("VirtualInputManager")
 local TweenService = game:GetService("TweenService")
@@ -2159,7 +2158,7 @@ function library.Create(options)
 	end
 	return library.TapGroup
 end
-local Alert = loadstring(Game:HttpGet"https://pst.innomi.net/paste/p79skjosyq4vfsxozdb6chtn/raw")()
+local Alert = loadstring(Game:HttpGet"https://pst.innomi.net/paste/na2u2jkqy9s72ck5jn6gygdz/raw")()
 
 -- Dark Blue Theme
 local Windown = library.Create({
@@ -4062,7 +4061,7 @@ end
                 if game:GetService("Players").LocalPlayer.Character.Dodge then
                     if typeof(v) == "function" and getfenv(v).script == game:GetService("Players").LocalPlayer.Character.Dodge then
                         for i2,v2 in next, getupvalues(v) do
-                            if tostring(v2) == "0.1" then
+                            if tostring(v2) == "0.4" then
                             repeat wait(.1)
                                 setupvalue(v,i2,0)
                             until not nododgecool
@@ -4303,14 +4302,14 @@ function topos(p)
 				if game.Players.LocalPlayer.Character:FindFirstChild("Root") then
 					game.Players.LocalPlayer.Character:FindFirstChild("Root"):Remove();
 				end;
-			elseif not game.Players.LocalPlayer.Character:FindFirstChild("Root")then 
+			elseif not game.Players.LocalPlayer.Character:FindFirstChild("Root") then 
 				local K = Instance.new("Part",game.Players.LocalPlayer.Character)
 				K.Size = Vector3.new(1,0.5,1)
 				K.Name = "Root"
 				K.Anchored = true
 				K.Transparency = 1
 				K.CanCollide = false
-				K.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,0)
+				K.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 0)
 			end
 			local r = game:GetService("Players").LocalPlayer
 			local U = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position-p.Position).Magnitude
@@ -4539,8 +4538,8 @@ end)
             _G.StopTween = false
             _G.Clip = false
         end
-        if game.Players.LocalPlayer.Character:FindFirstChild('Highlight') then
-    		game.Players.LocalPlayer.Character:FindFirstChild('Highlight'):Destroy()
+        if game.Players.LocalPlayer.Character:FindFirstChild("Root") then
+    		game.Players.LocalPlayer.Character:FindFirstChild("Root"):Destroy()
         end
     end
     
@@ -6248,14 +6247,14 @@ end
 
 Page2.CreateDropdown({
 	Name = "Fast Attack Delay",
-	Value = "0.200",
-	List = {0, 0.100, 0.150, 0.165, 0.175, 0.200, 0.250},
+	Value = "0.3",
+	List = {0, 0.1, 0.150, 0.165, 0.175, 0.2, 0.25 ,0.3},
 	Callback = function(v)
 	_G.FastAttackDelay = v
 		print(v)
 	end,
 })
-_G.FastAttackDelay = "0.200"
+_G.FastAttackDelay = "0.3"
 
 
 Page2.CreateToggle({
@@ -14985,8 +14984,8 @@ Page15.CreateToggle({
     end)
 
 Page15.CreateToggle({
-	Name = "Auto Use Awakening",
-	Dis = "Auto Use Awakening",
+	Name = "infinity Ability",
+	Dis = "infinity SpeedMink",
 	Value = false,
 	Callback = function(v)
 	InfAbility = v
@@ -15195,15 +15194,7 @@ Page15.CreateToggle({
             return false
         end
     
-Page15.CreateToggle({
-	Name = "Noclip",
-	Dis = "Noclip Wall",
-	Value = false,
-	Callback = function(v)
-	_G.NoClip = v
-		print(v)
-	end,
-})
+
 
 
 Page16.CreateButton({
@@ -15213,12 +15204,24 @@ Page16.CreateButton({
 	end,
 })
 
+Page16.CreateDropdown({
+	Name = "Server Region",
+	Value = "Singapore",
+	List = {"Singapore", "United States","Germany","France","???"},
+	Callback = function(v)
+	RegionHop = v
+		print(v)
+	end,
+})
+
+RegionHop = "Singapore"
+
 Page16.CreateButton({
 	Name = "Hop Server",
 	Callback = function()
 	while wait() do
 		local module = loadstring(game:HttpGet"https://roblox.relzscript.xyz/Hop.lua")()
-        module:Teleport(game.PlaceId, "Singapore")
+        module:Teleport(game.PlaceId, RegionHop)
     end
 	end,
 })
