@@ -8170,7 +8170,7 @@ end
 
     spawn(function()
         while wait() do
-            if _G.AutoFarmFruitMastery and SelectedMasteryMode == "เอาเควส" then
+            if _G.AutoFarmFruitMastery and SelectedMasteryMode == "Quest" then
                 pcall(function()
                     CheckQuest()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
@@ -8249,7 +8249,7 @@ end
 
 spawn(function()
         while wait() do
-            if _G.AutoFarmFruitMastery and SelectedMasteryMode == "รอบตัว" then
+            if _G.AutoFarmFruitMastery and SelectedMasteryMode == "Near" then
                 pcall(function()
                             for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                 if v:FindFirstChild("HumanoidRootPart") and v:FindFirstChild("Humanoid") and v.Humanoid.Health > 0 then
@@ -8357,7 +8357,7 @@ end)
     spawn(function()
         pcall(function()
             while wait() do
-                if _G.AutoFarmGunMastery and SelectedMasteryMode == "เอาเควส" then
+                if _G.AutoFarmGunMastery and SelectedMasteryMode == "Quest" then
                     CheckQuest()
                     local QuestTitle = game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text
                     if not string.find(QuestTitle, NameMon) then
@@ -8425,7 +8425,7 @@ end)
     spawn(function()
         pcall(function()
             while wait() do
-                if _G.AutoFarmGunMastery and SelectedMasteryMode == "รอบตัว" then
+                if _G.AutoFarmGunMastery and SelectedMasteryMode == "Near" then
                             pcall(function()
                                 for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
                                     if v.Name then
