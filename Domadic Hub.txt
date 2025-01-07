@@ -98,9 +98,14 @@ _G.Settings = {
         ["Set To Trade Azure Ember"] = 20,
         ["Auto Trade Shrine"] = false,
         
-        --[Race V4]
+        --[Prehistoric Island]
         
-
+        ["Teleport Prehistoric"] = false,                    
+        ["Auto Uzoth Dragon Talon Upgrade"] = false,
+        ["Auto Purple Belt"] = false, 
+        ["Auto Claim Quest Dojo"] = false, 
+        ["Auto Kill Hydar Islands Mob"] = false,
+      
 		--[For God Human]
 
 		["Auto Fish Tail Sea 1"] = false,
@@ -2433,16 +2438,16 @@ end
 
 function LoadSettings()
 	if readfile and writefile and isfile and isfolder then
-		if not isfolder("Shin Hub Folder") then
-			makefolder("Shin Hub Folder")
+		if not isfolder("Domadic Hub") then
+			makefolder("Domadic Hub")
 		end
-		if not isfolder("Shin Hub Folder/Blox Fruits/") then
-			makefolder("Shin Hub Folder/Blox Fruits/")
+		if not isfolder("Domadic Hub/Blox Fruits/") then
+			makefolder("Domadic Hub/Blox Fruits/")
 		end
-		if not isfile("Shin Hub Folder/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
-			writefile("Shin Hub Folder/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(_G.Settings))
+		if not isfile("Domadic Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
+			writefile("Domadic Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(_G.Settings))
 		else
-			local Decode = game:GetService("HttpService"):JSONDecode(readfile("Shin Hub Folder/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
+			local Decode = game:GetService("HttpService"):JSONDecode(readfile("Domadic Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
 			for i,v in pairs(Decode) do
 				_G.Settings[i] = v
 			end
@@ -2454,7 +2459,7 @@ end
 
 function SaveSettings()
 	if readfile and writefile and isfile and isfolder then
-		if not isfile("Shin Hub Folder/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
+		if not isfile("Domadic Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
 			LoadSettings()
 		else
 			local Decode = game:GetService("HttpService"):JSONDecode(readfile("Shin Hub Folder/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
@@ -2462,7 +2467,7 @@ function SaveSettings()
 			for i,v in pairs(_G.Settings) do
 				Array[i] = v
 			end
-			writefile("Shin Hub Folder/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(Array))
+			writefile("Domadic Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json", game:GetService("HttpService"):JSONEncode(Array))
 		end
 	else
 		return warn("Status : Undetected Executor")
@@ -2784,7 +2789,8 @@ task.spawn(function()
 				Tushita_Quest2 or Tushita_Quest1 or AutoFarmMaterial or teleporttop or AutoFarmChest or _G.Settings.Main["Auto Sail Boat"] or _G.Settings.Main["Auto Quest Soul Guitar"] or
 				_G.Settings.Main["Teleport To Mirage Island"] or _G.Settings.Main["Teleport To Advanced Fruit Dealer"] or _G.Settings.Main["Teleport To Blue Gear"] or _G.Settings.Main["Teleport To Kitsune Island"] or
 				_G.Settings.Main["Collect Azure Ember"] or _G.Settings.Main["Auto Farm Race"] or _G.Settings.Main["Auto Kill Players Complete Traial"] or _G.Settings.Main["Auto Quest Race"] or
-				_G.Settings.Main["Auto Castle Raid"] or _G.Settings.Main["Auto Factory"] or
+				_G.Settings.Main["Auto Castle Raid"] or _G.Settings.Main["Auto Factory"] or _G.Settings.Main["Teleport Prehistoric"] or _G.Settings.Main["Auto Uzoth Dragon Talon Upgrade"] or
+				_G.Settings.Main["Collect Blaze Ember"] or _G.Settings.Main["Auto Purple Belt"] or _G.Settings.Main["Auto Claim Quest Dojo"] or _G.Settings.Main["Auto Kill Hydar Islands Mob"] or
 				--[For God Human]
 				--_G.Settings.Main["Auto Fish Tail Sea 1"] or _G.Settings.Main["Auto Fish Tail Sea 3"] or _G.Settings.Main["Auto Magma Ore Sea 2"] or 
 				--_G.Settings.Main["Auto Magma Ore Sea 1"] or _G.Settings.Main["Auto Mystic Droplet"] or _G.Settings.Main["Auto Dragon Scales"] or 
@@ -3380,6 +3386,21 @@ function GetMaterial(matname)
 		end
 	end
 	return 0
+end
+
+-- [GetBeltDojo]
+
+function getAcc(BeltName)
+	for i,v in pairs(game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventory")) do
+		if type(v) == "table" then
+			if v.Type == "Wear" then
+				if v.Name == BeltName then
+					return true
+				end
+			end
+		end
+	end
+	return false
 end
 
 local AllMaterial
@@ -4222,7 +4243,7 @@ function CheckQuest()
 			LevelFarm = 3
 
 			Name = "Dragon Crew Warrior"
-			QuestName = "AmazonQuest"
+			QuestName = "DragonCrewQuest"
 
 			LevelQuest = 1
 			NameMon = "Warrior"
@@ -4230,13 +4251,13 @@ function CheckQuest()
 			CFrameMon = CFrame.new(6339, 52, -1213)
 			VectorMon = Vector3.new(6338, 52, -1213)
 
-			CFrameQuest = CFrame.new(5835, 52, -1105)
-			VectorQuest = Vector3.new(5835, 52, -1105)
+			CFrameQuest = CFrame.new(6735.11084, 126.990463, -711.097961, 0.629286051, -0, -0.777173758, 0, 1, -0, 0.777173758, 0, 0.629286051)
+			VectorQuest = Vector3.new(6735.11084, 126.990463, -711.097961, 0.629286051, -0, -0.777173758, 0, 1, -0, 0.777173758, 0, 0.629286051)
 		elseif MyLevel == 1600 or MyLevel <= 1624 then
 			LevelFarm = 4
 
 			Name = "Dragon Crew Archer"
-			QuestName = "AmazonQuest"
+			QuestName = "DragonCrewQuest"
 
 			LevelQuest = 2
 			NameMon = "Archer"
@@ -4244,16 +4265,16 @@ function CheckQuest()
 			CFrameMon = CFrame.new(6594, 383, 139)
 			VectorMon = Vector3.new(6594, 383, 139)
 
-			CFrameQuest = CFrame.new(5835, 52, -1105)
-			VectorQuest = Vector3.new(5835, 52, -1105)
+			CFrameQuest = CFrame.new(6735.11084, 126.990463, -711.097961, 0.629286051, -0, -0.777173758, 0, 1, -0, 0.777173758, 0, 0.629286051)
+			VectorQuest = Vector3.new(6735.11084, 126.990463, -711.097961, 0.629286051, -0, -0.777173758, 0, 1, -0, 0.777173758, 0, 0.629286051)
 		elseif MyLevel == 1625 or MyLevel <= 1649 then
 			LevelFarm = 5
 
-			Name = "Female Islander"
-			QuestName = "AmazonQuest2"
+			Name = "Hydra Enforcer"
+			QuestName = "VenomCrewQuest"
 
 			LevelQuest = 1
-			NameMon = "Female"
+			NameMon = "Hydra Enforcer"
 
 			CFrameMon = CFrame.new(5308, 819, 1047)
 			VectorMon = Vector3.new(5308, 819, 1047)
@@ -4263,11 +4284,11 @@ function CheckQuest()
 		elseif MyLevel == 1650 or MyLevel <= 1699 then
 			LevelFarm = 6
 
-			Name = "Giant Islander"
-			QuestName = "AmazonQuest2"
+			Name = "Venomous Assailant"
+			QuestName = "VenomCrewQuest"
 
 			LevelQuest = 2
-			NameMon = "Giant Islanders"
+			NameMon = "Venomous Assailant"
 
 			CFrameMon = CFrame.new(4951, 602, -68)
 			VectorMon = Vector3.new(4951, 602, -68)
@@ -5325,7 +5346,7 @@ function CheckOldQuest(LevelFarm)
 			VectorQuest = Vector3.new(-288, 44, 5576)
 		elseif LevelFarm == 3 then
 			Name = "Dragon Crew Warrior"
-			QuestName = "AmazonQuest"
+			QuestName = "DragonCrewQuest"
 
 			LevelQuest = 1
 			NameMon = "Warrior"
@@ -5333,11 +5354,11 @@ function CheckOldQuest(LevelFarm)
 			CFrameMon = CFrame.new(6339, 52, -1213)
 			VectorMon = Vector3.new(6338, 52, -1213)
 
-			CFrameQuest = CFrame.new(5835, 52, -1105)
-			VectorQuest = Vector3.new(5835, 52, -1105)
+			CFrameQuest = CFrame.new(6735.11084, 126.990463, -711.097961, 0.629286051, -0, -0.777173758, 0, 1, -0, 0.777173758, 0, 0.629286051)
+			VectorQuest = Vector3.new(6735.11084, 126.990463, -711.097961, 0.629286051, -0, -0.777173758, 0, 1, -0, 0.777173758, 0, 0.629286051)
 		elseif LevelFarm == 4 then
 			Name = "Dragon Crew Archer"
-			QuestName = "AmazonQuest"
+			QuestName = "DragonCrewQuest"
 
 			LevelQuest = 2
 			NameMon = "Archer"
@@ -5345,26 +5366,26 @@ function CheckOldQuest(LevelFarm)
 			CFrameMon = CFrame.new(6594, 383, 139)
 			VectorMon = Vector3.new(6594, 383, 139)
 
-			CFrameQuest = CFrame.new(5835, 52, -1105)
-			VectorQuest = Vector3.new(5835, 52, -1105)
+			CFrameQuest = CFrame.new(6735.11084, 126.990463, -711.097961, 0.629286051, -0, -0.777173758, 0, 1, -0, 0.777173758, 0, 0.629286051)
+			VectorQuest = Vector3.new(6735.11084, 126.990463, -711.097961, 0.629286051, -0, -0.777173758, 0, 1, -0, 0.777173758, 0, 0.629286051)
 		elseif LevelFarm == 5 then
-			Name = "Female Islander"
-			QuestName = "AmazonQuest2"
+			Name = "Hydra Enforcer"
+			QuestName = "VenomCrewQuest"
 
 			LevelQuest = 1
-			NameMon = "Female"
+			NameMon = "Hydra Enforcer"
 
-			CFrameMon = CFrame.new(5308, 819, 1047)
-			VectorMon = Vector3.new(5308, 819, 1047)
+			CFrameMon = CFrame.new(6735.11084, 126.990463, -711.097961, 0.629286051, -0, -0.777173758, 0, 1, -0, 0.777173758, 0, 0.629286051)
+			VectorMon = Vector3.new(6735.11084, 126.990463, -711.097961, 0.629286051, -0, -0.777173758, 0, 1, -0, 0.777173758, 0, 0.629286051)
 
 			CFrameQuest = CFrame.new(5443, 602, 751)
 			VectorQuest = Vector3.new(5443, 602, 751)
 		elseif LevelFarm == 6 then
-			Name = "Giant Islander"
-			QuestName = "AmazonQuest2"
+			Name = "Venomous Assailant"
+			QuestName = "VenomCrewQuest"
 
 			LevelQuest = 2
-			NameMon = "Giant Islanders"
+			NameMon = "Venomous Assailant"
 
 			CFrameMon = CFrame.new(4951, 602, -68)
 			VectorMon = Vector3.new(4951, 602, -68)
@@ -6016,7 +6037,7 @@ local Page2 = Tap1.CreatePage({
 })
 
 local Tap2 = Windown.CreateTap({
-	Title = "Misc Main",
+	Title = "Quest",
 	Icon = 11155953071
 })
 
@@ -6055,7 +6076,7 @@ local Page8 = Tap4.CreatePage({
 })
 
 local Tap5 = Windown.CreateTap({
-	Title = "Race V4",
+	Title = "Special Quest",
 	Icon = 14477517268
 })
 
@@ -6854,8 +6875,6 @@ task.spawn(function()
 		end)
 	end
 end)
-
-
 
 
 
@@ -13990,7 +14009,6 @@ end
                                 if v.Name == "Fish Crew Member" then
                                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat wait()
-                                        StartMagnet = true
 											FastAttack = true
 											if _G.Settings.Configs["Auto Haki"] then
 												if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
@@ -14001,7 +14019,6 @@ end
 												wait()
 												EquipWeapon(_G.Settings.Configs["Select Weapon"])
 											end
-											PosMon = v.HumanoidRootPart.CFrame
 											if not _G.Settings.Configs["Fast Attack"] then
 												game:GetService'VirtualUser':CaptureController()
 												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -14018,8 +14035,7 @@ end
 											v.Humanoid:ChangeState(11)
 											toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Configs["Distance Auto Farm"],0))
                                     until not _G.Settings.Main["Auto Kill Fish Crew Members"] or not v.Parent or v.Humanoid.Health <= 0
-                                    StartMagnet = false
-                                    StartMagnet = false
+                                    FastAttack = false
                                     end
                                 end
                             end
@@ -14107,7 +14123,6 @@ end
                                 if v.Name == "Terrorshark" then
                                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                         repeat wait()
-                                            StartMagnet = true
 											FastAttack = true
 											if _G.Settings.Configs["Auto Haki"] then
 												if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
@@ -14118,7 +14133,6 @@ end
 												wait()
 												EquipWeapon(_G.Settings.Configs["Select Weapon"])
 											end
-											PosMon = v.HumanoidRootPart.CFrame
 											if not _G.Settings.Configs["Fast Attack"] then
 												game:GetService'VirtualUser':CaptureController()
 												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -14135,7 +14149,6 @@ end
 											v.Humanoid:ChangeState(11)
 											toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,60,0))
                                         until not  _G.Settings.Main["Auto Kill Terrorshark"] or not v.Parent or v.Humanoid.Health <= 0
-                                        StartMagnet = false
                                         FastAttack = false
                                     end
                                 end
@@ -14147,7 +14160,6 @@ end
                                 if v.Name == "Piranha" then
                                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat wait()
-                                        StartMagnet = true
 											FastAttack = true
 											if _G.Settings.Configs["Auto Haki"] then
 												if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
@@ -14158,7 +14170,6 @@ end
 												wait()
 												EquipWeapon(_G.Settings.Configs["Select Weapon"])
 											end
-											PosMon = v.HumanoidRootPart.CFrame
 											if not _G.Settings.Configs["Fast Attack"] then
 												game:GetService'VirtualUser':CaptureController()
 												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -14175,7 +14186,6 @@ end
 											v.Humanoid:ChangeState(11)
 											toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Configs["Distance Auto Farm"],0))
                                     until not _G.Settings.Main["Auto Kill Piranha"] or not v.Parent or v.Humanoid.Health <= 0
-                                    StartMagnet = false
                                     FastAttack = false
                                     end
                                 end
@@ -14187,7 +14197,6 @@ end
                                 if v.Name == "Shark" then
                                     if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
                                     repeat wait()
-                                        StartMagnet = true
 											FastAttack = true
 											if _G.Settings.Configs["Auto Haki"] then
 												if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
@@ -14198,7 +14207,6 @@ end
 												wait()
 												EquipWeapon(_G.Settings.Configs["Select Weapon"])
 											end
-											PosMon = v.HumanoidRootPart.CFrame
 											if not _G.Settings.Configs["Fast Attack"] then
 												game:GetService'VirtualUser':CaptureController()
 												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
@@ -14215,7 +14223,6 @@ end
 											v.Humanoid:ChangeState(11)
 											toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Configs["Distance Auto Farm"],0))
                                     until not _G.Settings.Main["Auto Kill Shark"] or not v.Parent or v.Humanoid.Health <= 0
-                                    StartMagnet = false
                                     FastAttack = false
                                     end
                                 end
@@ -15098,8 +15105,374 @@ spawn(function()
     end)
 end)
 
-end
+Page9.CreateLable({
+	Name = "Prehistoric Island"
+})
 
+SetCheeEask = Page9.CreateLable({
+	Name = "Prehistoric Island Umm."
+})
+
+spawn(function()
+    pcall(function()
+        while wait() do
+            if game:GetService("Workspace").Map:FindFirstChild('PrehistoricRelic') then
+                SetCheeEask:Set('✅: Prehistoric Island')
+            else
+                SetCheeEask:Set('❌: Prehistoric Island')
+            end
+        end
+    end)
+end)
+
+Page9.CreateToggle({
+	Name = "Auto Prehistoric Island",
+	Dis = "Teleport to Prehistoric Island",
+	Value = _G.Settings.Main["Teleport Prehistoric"],
+	Callback = function(v)
+	_G.Settings.Main["Teleport Prehistoric"] = v
+	if v == false then
+		wait()
+		toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+		wait()
+	end
+	    SaveSettings()
+		print(v)
+	end,
+})
+
+spawn(function()
+    while task.wait() do
+        if _G.Settings.Main["Teleport Prehistoric"] then
+            if game:GetService("Workspace").Map:FindFirstChild("PrehistoricRelic") then
+                toTarget(game.Workspace._WorldOrigin.Locations:FindFirstChild("Prehistoric Island").CFrame * CFrame.new(0,50,0))
+            end
+        end
+    end
+end)
+
+Page9.CreateLable({
+	Name = "Dojo Quest"
+})
+
+DojoProgessCheck = Page9.CreateLable({
+	Name = "Status"
+})
+
+DojoGuide = Page9.CreateLable({
+	Name = "Status"
+})
+ 
+spawn(function()
+    pcall(function()
+        while wait() do
+            if getAcc("Dojo Belt (White)") == false and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoProgessCheck:Set("Dojo Progress : Get Dojo Belt (White)")
+            DojoGuide:Set("Kill 20 NPC on Quest Use Auto Farm Level")
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == false and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoProgessCheck:Set("Dojo Progress : Get Dojo Belt (Yellow)")
+            DojoGuide:Set("Kill 5 Sea Mob Use Sea Event")          
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == false and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoProgessCheck:Set("Dojo Progress : Get Dojo Belt (Orange)")
+            DojoGuide:Set("Complete 1 Trade Fruit")
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == false and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoProgessCheck:Set("Dojo Progress : Get Dojo Belt (Green)")
+            DojoGuide:Set("Go to Sea Level 4-6 and wait there 5 minutes")          
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (true)") == false and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == false and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoProgessCheck:Set("Dojo Progress : Get Dojo Belt (Blue)")
+            DojoGuide:Set("Collect Fruit dropped")
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == false and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoProgessCheck:Set("Dojo Progress : Get Dojo Belt (Purple)")
+            DojoGuide:Set("Kill 3 Elite Hunter")
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == true and getAcc("Dojo Belt (Red)") == false and getAcc("Dojo Belt (Black)") == false then
+            DojoProgessCheck:Set("Dojo Progress : Get Dojo Belt (Red)")
+            DojoGuide:Set("Defeat a Terrorshark or Rumbling Waters")
+        elseif getAcc("Dojo Belt (White)") == true and getAcc("Dojo Belt (Yellow)") == true and getAcc("Dojo Belt (Orange)") == true and getAcc("Dojo Belt (Green)") == true and getAcc("Dojo Belt (Blue)") == true and getAcc("Dojo Belt (Purple)") == true and getAcc("Dojo Belt (Red)") == true and getAcc("Dojo Belt (Black)") == false then
+            DojoProgessCheck:Set("Dojo Progress : Get Dojo Belt (Black)")
+            DojoGuide:Set("Complete Prehistoric Island event \n and collect 3 Dinosaur bones")
+        end
+        wait(300)
+        end
+    end)
+end)
+
+
+
+Page9.CreateToggle({
+	Name = "Auto Get Quest Dojo",
+	Dis = "Get Quest Dojo",
+	Value = _G.Settings.Main["Auto Claim Quest Dojo"],
+	Callback = function(v)
+	_G.Settings.Main["Auto Claim Quest Dojo"] = v
+	if v == false then
+		wait()
+		toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+		wait()
+	end
+	    SaveSettings()
+		print(v)
+	end,
+})
+local DojoQuestNpc = CFrame.new(5855.19629, 1208.32178, 872.713501, 0.606994748, -1.81058823e-09, -0.794705868, 5.72712722e-09, 1, 2.09605577e-09, 0.794705868, -5.82367621e-09, 0.606994748)
+
+spawn(function()
+    while task.wait() do
+        if _G.Settings.Main["Auto Claim Quest Dojo"] then
+            pcall(function()           
+                    toTarget(DojoQuestNpc)                        
+                if (DojoQuestNpc.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+                    local ohTable1 = {
+                        ["NPC"] = "Dojo Trainer",
+                        ["Command"] = "ClaimQuest"
+                    }
+                    
+                    game:GetService("ReplicatedStorage").Modules.Net["RF/InteractDragonQuest"]:InvokeServer(ohTable1)
+
+                    wait(1)
+
+                    local ohTable2 = {
+                        ["NPC"] = "Dojo Trainer",
+                        ["Command"] = "RequestQuest"
+                    }
+                    
+                    game:GetService("ReplicatedStorage").Modules.Net["RF/InteractDragonQuest"]:InvokeServer(ohTable2)
+                end
+            end)
+        end
+    end
+end)
+
+
+Page9.CreateToggle({
+	Name = "Auto Purple Belt",
+	Dis = "Auto Purple Belt",
+	Value = _G.Settings.Main["Auto Purple Belt"],
+	Callback = function(v)
+	_G.Settings.Main["Auto Purple Belt"] = v
+	if v == false then
+		wait()
+		toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+		wait()
+	end
+	    SaveSettings()
+		print(v)
+	end,
+})
+
+spawn(function()
+    while task.wait() do
+        if _G.Settings.Main["Auto Purple Belt"] then
+            pcall(function()
+                if game:GetService("Workspace").Enemies:FindFirstChild("Diablo") or game:GetService("Workspace").Enemies:FindFirstChild("Deandre") or game:GetService("Workspace").Enemies:FindFirstChild("Urban") then
+                    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+                        if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                            if v.Name == "Diablo" or v.Name == "Deandre" or v.Name == "Urban" then
+                                repeat wait()
+											FastAttack = true
+											if _G.Settings.Configs["Auto Haki"] then
+												if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+													game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+												end
+											end
+											if not game.Players.LocalPlayer.Character:FindFirstChild(_G.Settings.Configs["Select Weapon"]) then
+												wait()
+												EquipWeapon(_G.Settings.Configs["Select Weapon"])
+											end
+											if not _G.Settings.Configs["Fast Attack"] then
+												game:GetService'VirtualUser':CaptureController()
+												game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+											end
+											v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+											if _G.Settings.Configs["Show Hitbox"] then
+												v.HumanoidRootPart.Transparency = _G.Hitbox_LocalTransparency
+											else
+												v.HumanoidRootPart.Transparency = 1
+											end
+											v.Humanoid.JumpPower = 0
+											v.Humanoid.WalkSpeed = 0
+											v.HumanoidRootPart.CanCollide = false
+											v.Humanoid:ChangeState(11)
+											toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Configs["Distance Auto Farm"],0))
+                                until _G.Settings.Main["Auto Purple Belt"] == false or v.Humanoid.Health <= 0 or not v.Parent
+                            end
+                        end
+                    end
+                else
+                    if game:GetService("ReplicatedStorage"):FindFirstChild("Diablo") then              
+                        toTarget(game:GetService("ReplicatedStorage"):FindFirstChild("Diablo").HumanoidRootPart.CFrame)
+                    elseif game:GetService("ReplicatedStorage"):FindFirstChild("Deandre") then
+                        toTarget(game:GetService("ReplicatedStorage"):FindFirstChild("Deandre").HumanoidRootPart.CFrame)
+                    elseif game:GetService("ReplicatedStorage"):FindFirstChild("Urban") then
+                        toTarget(game:GetService("ReplicatedStorage"):FindFirstChild("Urban").HumanoidRootPart.CFrame)
+                    end
+                end
+            end)
+        end
+    end
+end)
+
+Page9.CreateLable({
+	Name = "Dargon Hunter"
+})
+
+
+Page9.CreateToggle({
+	Name = "Auto Uzoth Upgrade",
+	Dis = "Upgrade Dragon Talon",
+	Value = _G.Settings.Main["Auto Uzoth Dragon Talon Upgrade"],
+	Callback = function(v)
+	_G.Settings.Main["Auto Uzoth Dragon Talon Upgrade"] = v
+	if v == false then
+		wait()
+		toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+		wait()
+	end
+	    SaveSettings()
+		print(v)
+	end,
+})
+
+Page9.CreateToggle({
+	Name = "Collect Blaze Ember",
+	Dis = "Collect Blaze Ember",
+	Value = _G.Settings.Main["Collect Blaze Ember"],
+	Callback = function(v)
+	_G.Settings.Main["Collect Blaze Ember"] = v
+	if v == false then
+		wait()
+		toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+		wait()
+	end
+	    SaveSettings()
+		print(v)
+	end,
+})
+
+
+
+
+Page9.CreateToggle({
+	Name = "Auto Farm Hydra Island Mob",
+	Dis = "Auto Farm Hydra Island Mob",
+	Value = _G.Settings.Main["Auto Kill Hydar Islands Mob"],
+	Callback = function(value)
+	_G.Settings.Main["Auto Kill Hydar Islands Mob"] = value
+			if value == false then
+				wait()
+				toTarget(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame)
+				wait()
+			end
+			SaveSettings()
+			task.spawn(function()
+				while wait() do
+					pcall(function()
+						if _G.Settings.Main["Auto Kill Hydar Islands Mob"] then
+							if game:GetService("Workspace").Enemies:FindFirstChild("Hydra Enforcer") or game:GetService("Workspace").Enemies:FindFirstChild("Venomous Assailant") then
+								for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+									if v.Name == "Hydra Enforcer" or v.Name == "Venomous Assailant" then
+										if v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+											repeat wait()
+												StartMagnet = true
+												FastAttack = true
+												MonFarm = v.Name
+												if _G.Settings.Configs["Auto Haki"] then
+													if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+														game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+													end
+												end
+												if not game.Players.LocalPlayer.Character:FindFirstChild(_G.Settings.Configs["Select Weapon"]) then
+													wait()
+													EquipWeapon(_G.Settings.Configs["Select Weapon"])
+												end
+												PosMon = v.HumanoidRootPart.CFrame
+												if not _G.Settings.Configs["Fast Attack"] then
+													game:GetService'VirtualUser':CaptureController()
+													game:GetService'VirtualUser':Button1Down(Vector2.new(1280, 672))
+												end
+												v.HumanoidRootPart.Size = Vector3.new(60,60,60)
+												if _G.Settings.Configs["Show Hitbox"] then
+													v.HumanoidRootPart.Transparency = _G.Hitbox_LocalTransparency
+												else
+													v.HumanoidRootPart.Transparency = 1
+												end
+												v.Humanoid.JumpPower = 0
+												v.Humanoid.WalkSpeed = 0
+												v.HumanoidRootPart.CanCollide = false
+												v.Humanoid:ChangeState(11)
+												toTarget(v.HumanoidRootPart.CFrame * CFrame.new(0,_G.Settings.Configs["Distance Auto Farm"],0))
+											until not _G.Settings.Main["Auto Kill Hydar Islands Mob"] or v.Humanoid.Health <= 0 or not v.Parent or v.Humanoid.Health <= 0
+											StartMagnet = false
+											FastAttack = false
+										end
+									end
+								end
+							else
+								toTarget(CFrame.new(5394.36475, 1082.71057, 561.993958, -0.62453711, 3.17826405e-08, -0.780995131, 6.77530991e-08, 1, -1.34849545e-08, 0.780995131, -6.13366922e-08, -0.62453711))
+							end
+						end
+					end)
+				end
+			end)
+		end,
+	})
+	
+spawn(function()
+    while task.wait() do
+        if _G.Settings.Main["Collect Blaze Ember"] then
+            pcall(function()
+                for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+                    if v.Name == "EmberTemplate" then
+                        v.Part.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                    end
+                end
+            end)
+        end
+    end
+end)
+
+
+spawn(function()
+    while task.wait() do
+        if _G.Settings.Main["Auto Uzoth Dragon Talon Upgrade"] then
+            local UzothNPC = CFrame.new(5661.89014, 1211.31909, 864.836731, 0.811413169, -1.36805838e-08, -0.584473014, 4.75227395e-08, 1, 4.25682458e-08, 0.584473014, -6.23161966e-08, 0.811413169)
+
+            Tween(UzothNPC)
+            if (UzothNPC.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 5 then
+                local ohTable1 = {
+                    ["NPC"] = "Uzoth",
+                    ["Command"] = "Upgrade"
+                }
+                
+                game:GetService("ReplicatedStorage").Modules.Net["RF/InteractDragonQuest"]:InvokeServer(ohTable1)
+            end
+        end
+    end
+end)
+ 
+spawn(function()
+    while task.wait() do
+        if _G.Settings.Main["Collect Berries"] then
+            pcall(function()
+                for i,v in pairs(workspace.Map.IslandModel:GetChildren()) do
+                    if string.find(v.Name, "{") then
+                    if v:IsA("Model") then 
+                        v.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                        end
+                    end
+                end
+            end)
+        end
+    end
+end)
+
+Page9.CreateButton({
+	Name = "Teleport To Dragon Hunter",
+	Callback = function()
+		toTarget(CFrame.new(5865.80811, 1209.50269, 811.746582, -0.675207436, -6.76664627e-08, 0.737627923, 8.33632186e-09, 1, 9.93661047e-08, -0.737627923, 7.32418357e-08, -0.675207436))
+	end,
+})
+
+end
 if World3 then
 Page10.CreateLable({
 	Name = "Race V4"
@@ -17306,9 +17679,9 @@ Page19.CreateButton({Name = "Rejoin", Callback = function()
 end})
 
 Page19.CreateButton({Name = "Delete Save Settings (Off Opened Function)", Callback = function()
-    if isfolder("Shin Hub Folder") then delfolder("Shin Hub Folder") 
+    if isfolder("Domadic Hub") then delfolder("Domadic Hub") 
     game.StarterGui:SetCore("SendNotification", {
-		Title = "Shin Hub", 
+		Title = "Domadic Hub", 
 		Text = "Success Wait for Rejoin" ,
 		Icon = "http://www.roblox.com/asset/?id=12523036534",
 		Duration = 2.5
