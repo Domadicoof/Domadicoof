@@ -15449,21 +15449,7 @@ spawn(function()
     end
 end)
  
-spawn(function()
-    while task.wait() do
-        if _G.Settings.Main["Collect Berries"] then
-            pcall(function()
-                for i,v in pairs(workspace.Map.IslandModel:GetChildren()) do
-                    if string.find(v.Name, "{") then
-                    if v:IsA("Model") then 
-                        v.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                        end
-                    end
-                end
-            end)
-        end
-    end
-end)
+
 
 Page9.CreateButton({
 	Name = "Teleport To Dragon Hunter",
