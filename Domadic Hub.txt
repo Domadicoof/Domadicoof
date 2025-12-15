@@ -2770,6 +2770,8 @@ end
     
 -- [Body Gyro]
 
+
+    
 task.spawn(function()
 	game:GetService("RunService").Stepped:Connect(function()
 		pcall(function()
@@ -2802,12 +2804,7 @@ task.spawn(function()
 				_G.Settings.Teleport["Teleport to Sea Beast"] or
 				--[Raids]
 				_G.Settings.Raids["Auto Raids"] or _G.Settings.Raids["Auto Next Place"]
-			then
-				if syn then
-					setfflag("HumanoidParallelRemoveNoPhysics", "False")
-					setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
-					game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
-				else
+			then			
 					if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 						if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1") then
 							local BodyVelocity = Instance.new("BodyVelocity")
@@ -2820,7 +2817,6 @@ task.spawn(function()
 					for _, v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
 						if v:IsA("BasePart") then
 							v.CanCollide = false    
-						end
 					end
 				end
 			else
