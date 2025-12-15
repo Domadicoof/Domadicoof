@@ -147,7 +147,7 @@ _G.Settings = {
 
 
 		["Fast Attack"] = true,
-		["Fast Attack Type"] = "Normal", --{Normal,Fast,Slow}
+		--["Fast Attack Type"] = "Normal", --{Normal,Fast,Slow}
 
 		["Select Weapon"] = {},
 
@@ -11175,10 +11175,9 @@ end
 Page2.CreateToggle({
 	Name = "Fast Attack",
 	Dis = "Fast Attack",
-	Value = _G.Settings.Configs["Fast Attack"],
+	Value = true,
 	Callback = function(v)
-	    _G.Settings.Configs["Fast Attack"] = v
-	    SaveSettings()
+	    _G.FastAttack = v
 		print(v)
 	end,
 })
@@ -11186,15 +11185,15 @@ Page2.CreateToggle({
 Page2.CreateToggle({
 	Name = "Attack Player",
 	Dis = "Fast Attack Player",
-	Value = attackPlayers,
+	Value = false,
 	Callback = function(v)
-	    _G.Settings.Configs["Fast Attack"] = v
+	    attackPlayers = v
 		print(v)
 	end,
 })
 
 
-if _G.Settings.Configs["Fast Attack"] then
+if _G.FastAttack and FastAttack then
     local _ENV = (getgenv or getrenv or getfenv)()
 
     local function SafeWaitForChild(parent, childName)
