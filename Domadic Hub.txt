@@ -2462,7 +2462,7 @@ function SaveSettings()
 		if not isfile("Domadic Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json") then
 			LoadSettings()
 		else
-			local Decode = game:GetService("HttpService"):JSONDecode(readfile("Shin Hub Folder/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
+			local Decode = game:GetService("HttpService"):JSONDecode(readfile("Domadic Hub/Blox Fruits/" .. game.Players.LocalPlayer.Name .. ".json"))
 			local Array = {}
 			for i,v in pairs(_G.Settings) do
 				Array[i] = v
@@ -11355,7 +11355,7 @@ Weapon = {
 	"Fruit"
 }
 Page2.CreateDropdown({
-	Name = "Fast Attack Type",
+	Name = "Wepon Type",
 	Value = "Melee",
 	List = Weapon,
 	Callback = function(v)
