@@ -11183,17 +11183,16 @@ Page2.CreateToggle({
 	end,
 })
 
-
-
-Page2.CreateDropdown({
-	Name = "Fast Attack Type",
-	Value = "Fast",
-	List = {"Fast","Normal","Slow"},
+Page2.CreateToggle({
+	Name = "Attack Player",
+	Dis = "Fast Attack Player",
+	Value = attackPlayers,
 	Callback = function(v)
-	_G.Settings.Configs["Fast Attack Type"] = v
+	    _G.Settings.Configs["Fast Attack"] = v
 		print(v)
 	end,
 })
+
 
 if _G.Settings.Configs["Fast Attack"] then
     local _ENV = (getgenv or getrenv or getfenv)()
@@ -11272,7 +11271,7 @@ if _G.Settings.Configs["Fast Attack"] then
         local FastAttack = {
             Distance = 100,
             attackMobs = true,
-            attackPlayers = true,
+            attackPlayers = v,
             Equipped = nil
         }
 
@@ -11348,25 +11347,7 @@ if _G.Settings.Configs["Fast Attack"] then
         return FastAttack
     end)()
 end
-    
-task.spawn(function()
-        while task.wait(0) do
-         if FastAttack and _G.Settings.Configs["Fast Attack"] then      
-         if _G.Settings.Configs["Fast Attack Type"] == "Normal" then
-            if (tick() - Module.AttackCooldown) < .1 then continue end
-        elseif _G.Settings.Configs["Fast Attack Type"] == "Fast" then
-            if (tick() - Module.AttackCooldown) < .01 then continue end
-        elseif _G.Settings.Configs["Fast Attack Type"] == "Slow" then
-            if (tick() - Module.AttackCooldown) < .7 then continue end
-        end
-            if not Settings.AutoClick then continue end
-            if not Module.IsAlive(client.Character) then continue end
-            if not client.Character:FindFirstChildOfClass("Tool") then continue end
-
-            FastAttack:BladeHits()
-            end
-        end
-    end)
+   
 
 -- [Table Weapon]
 Weapon = {
