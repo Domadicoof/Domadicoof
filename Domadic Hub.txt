@@ -11187,7 +11187,7 @@ Page2.CreateToggle({
 
 Page2.CreateDropdown({
 	Name = "Fast Attack Type",
-	Value = _G.Settings.Configs["Fast Attack Type"],
+	Value = "Fast",
 	List = {"Fast","Normal","Slow"},
 	Callback = function(v)
 	_G.Settings.Configs["Fast Attack Type"] = v
