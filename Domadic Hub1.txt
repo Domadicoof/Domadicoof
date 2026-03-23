@@ -16855,6 +16855,7 @@ Page12.CreateButton({
 			end
 			
 			if _G.SelectLocalTeleport == "Submerged Island" then
+			    toTarget(CFrame.new(-16269.7041, 25.2288494, 1373.65955, 0.997390985, 1.47309942e-09, -0.0721890926, -4.00651912e-09, 0.99999994, -2.51183763e-09, 0.0721890852, 5.75363091e-10, 0.997390926))
 				task.wait(2)
 				local args = {"TravelToSubmergedIsland"}
 				game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/SubmarineWorkerSpeak"):InvokeServer(unpack(args))
