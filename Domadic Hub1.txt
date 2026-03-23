@@ -16633,7 +16633,7 @@ if World1 then
 elseif World2 then
 	TeleportTable = {"Dock","Mansion","Kingdom Of Rose","Cafe","Sunflower Field","Jeramy Mountain","Colossuem","Factory","The Bridge","Green Bit","Graveyard","Dark Area","Snow Mountain","Hot Island","Cold Island","Ice Castle","Usopp's Island","inscription Island","Forgotten Island","Ghost Ship"}
 elseif World3 then
-	TeleportTable = {"Port Town","Hydra Island","Gaint Tree","Mansion","Castle on the Sea","Graveyard Island","Icecream Island","Peanut Island","Lab","Cake Loaf"}
+	TeleportTable = {"Port Town","Hydra Island","Gaint Tree","Mansion","Castle on the Sea","Graveyard Island","Icecream Island","Peanut Island","Lab","Cake Loaf","Cocoa Island", "Candy Island" , "Tiki Outpost" , "Submerged Island"}
 end
 
 Page12.CreateButton({
@@ -16840,6 +16840,25 @@ Page12.CreateButton({
 
 			if _G.SelectLocalTeleport == "Cake Loaf" then
 				toTarget(CFrame.new(-1977.36767578125, 251.509521484375, -12380.4189453125))
+			end
+			
+			if _G.SelectLocalTeleport == "Cocoa Island" then
+				toTarget(CFrame.new(87.94276428222656, 73.55451202392578, -12319.46484375))
+			end
+			
+			if _G.SelectLocalTeleport == "Candy Island" then
+				toTarget(CFrame.new(-1014.4241943359375, 149.11068725585938, -14555.962890625))
+			end
+			
+			if _G.SelectLocalTeleport == "Tiki Outpost" then
+				toTarget(CFrame.new(-16218.6826, 9.08636189, 445.618408, -0.0610186495, 1.10512588e-09, -0.99813664, -1.83458475e-08, 1, 2.22871765e-09, 0.99813664, 1.84476558e-08, -0.0610186495))
+			end
+			
+			if _G.SelectLocalTeleport == "Submerged Island" then
+				task.wait(2)
+				local args = {"TravelToSubmergedIsland"}
+				game:GetService("ReplicatedStorage").Modules.Net:FindFirstChild("RF/SubmarineWorkerSpeak"):InvokeServer(unpack(args))
+				return
 			end
 		end
 	end,
