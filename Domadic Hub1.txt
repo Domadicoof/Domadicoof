@@ -2767,7 +2767,65 @@ end
         end
     end
 
-	
+	local function UpdateBerryESP()
+    local CollectionService = game:GetService("CollectionService")
+    local Bushes = CollectionService:GetTagged("BerryBush")
+    
+    if not _G.BerryEsp then
+        for _, obj in pairs(workspace:GetChildren()) do
+            if obj:IsA("Part") and obj.Name:match("BerryESP_.*") then
+                obj:Destroy()
+            end
+        end
+        return
+    end
+    
+    -- Tạo ESP khi bật
+    for _, bush in ipairs(Bushes) do
+        pcall(function()
+            local bushPos = bush.Parent:GetPivot().Position
+            
+            for attrName, attrValue in pairs(bush:GetAttributes()) do
+                if attrValue then
+                    local partName = "BerryESP_" .. attrValue .. "_" .. tostring(bushPos)
+                    local part = workspace:FindFirstChild(partName)
+                    
+                    if not part then
+                        part = Instance.new("Part", workspace)
+                        part.Name = partName
+                        part.Transparency = 1
+                        part.Size = Vector3.new(1, 1, 1)
+                        part.Anchored = true
+                        part.CanCollide = false
+                        part.CFrame = CFrame.new(bushPos)
+                        
+                        local billboard = Instance.new("BillboardGui", part)
+                        billboard.Name = "NameESP"
+                        billboard.Size = UDim2.new(0, 200, 0, 30)
+                        billboard.Adornee = part
+                        billboard.ExtentsOffset = Vector3.new(0, 1, 0)
+                        billboard.AlwaysOnTop = true
+                        
+                        local textLabel = Instance.new("TextLabel", billboard)
+                        textLabel.Font = Enum.Font.Code
+                        textLabel.TextSize = 14
+                        textLabel.TextWrapped = true
+                        textLabel.Size = UDim2.new(1, 0, 1, 0)
+                        textLabel.TextYAlignment = Enum.TextYAlignment.Top
+                        textLabel.BackgroundTransparency = 1
+                        textLabel.TextStrokeTransparency = 0.5
+                        textLabel.TextColor3 = Color3.fromRGB(80, 245, 245)
+                    end
+                    
+                    if part and part.NameESP then
+                        local distance = round((game.Players.LocalPlayer.Character.Head.Position - bushPos).Magnitude / 3)
+                        part.NameESP.TextLabel.Text = "[" .. attrValue .. "] " .. distance .. "M"
+                    end
+                end
+            end
+        end)
+    end
+end
 
     
     
@@ -4731,7 +4789,7 @@ function CheckQuest()
 
 			CFrameQuest = CFrame.new(-16661.890625, 105.2862319946289, 1576.69775390625)
 			VectorQuest = Vector3.new(-16661.890625, 105.2862319946289, 1576.69775390625)
-		elseif MyLevel >= 2575 then
+		elseif MyLevel == 2575 or MyLevel <= 2599 then
 			LevelFarm = 38
 
 			Name = "Skull Slayer"
@@ -4745,6 +4803,90 @@ function CheckQuest()
 
 			CFrameQuest = CFrame.new(-16661.890625, 105.2862319946289, 1576.69775390625)
 			VectorQuest = Vector3.new(-16661.890625, 105.2862319946289, 1576.69775390625)
+	elseif MyLevel == 2600 or MyLevel <= 2624 then
+			LevelFarm = 39
+
+			Name = "Reef Bandit"
+			QuestName = "SubmergedQuest1"
+
+			LevelQuest = 1
+			NameMon = "Reef Bandit"
+
+			CFrameMon = CFrame.new(10875.6689453125, -2101.617919921875, 9294.767578125)
+			VectorMon = Vector3.new(10875.6689453125, -2101.617919921875, 9294.767578125)
+
+			CFrameQuest = CFrame.new(10778.875, -2087.72437, 9265.18359, 0.934615612, -9.33109447e-08, -0.355659455, 9.17655143e-08, 1, -2.12154276e-08, 0.355659455, -1.28090019e-08, 0.934615612)
+			VectorQuest = Vector3.new(10778.875, -2087.72437, 9265.18359, 0.934615612, -9.33109447e-08, -0.355659455, 9.17655143e-08, 1, -2.12154276e-08, 0.355659455, -1.28090019e-08, 0.934615612)
+		elseif MyLevel == 2625 or MyLevel <= 2649 then
+			LevelFarm = 40
+
+			Name = "Coral Pirate"
+			QuestName = "SubmergedQuest1"
+
+			LevelQuest = 2
+			NameMon = "Coral Pirate"
+
+			CFrameMon = CFrame.new(10875.6689453125, -2101.617919921875, 9294.767578125)
+			VectorMon = Vector3.new(10875.6689453125, -2101.617919921875, 9294.767578125)
+
+			CFrameQuest = CFrame.new(10778.875, -2087.72437, 9265.18359, 0.934615612, -9.33109447e-08, -0.355659455, 9.17655143e-08, 1, -2.12154276e-08, 0.355659455, -1.28090019e-08, 0.934615612)
+			VectorQuest = Vector3.new(10778.875, -2087.72437, 9265.18359, 0.934615612, -9.33109447e-08, -0.355659455, 9.17655143e-08, 1, -2.12154276e-08, 0.355659455, -1.28090019e-08, 0.934615612)
+		elseif MyLevel == 2650 or MyLevel <= 2674 then
+			LevelFarm = 41
+
+			Name = "Sea Chanter"
+			QuestName = "SubmergedQuest2"
+
+			LevelQuest = 1
+			NameMon = "Sea Chanter"
+
+			CFrameMon = CFrame.new(10672.0908203125, -2057.589599609375, 10048.6904296875)
+			VectorMon = Vector3.new(10672.0908203125, -2057.589599609375, 10048.6904296875)
+
+			CFrameQuest = CFrame.new(10880.6855, -2086.20044, 10032.624, -0.321384728, 9.87648434e-08, -0.946948707, 7.13271007e-08, 1, 8.00902953e-08, 0.946948707, -4.18033075e-08, -0.321384728)
+			VectorQuest = Vector3.new(10880.6855, -2086.20044, 10032.624, -0.321384728, 9.87648434e-08, -0.946948707, 7.13271007e-08, 1, 8.00902953e-08, 0.946948707, -4.18033075e-08, -0.321384728)
+		elseif MyLevel == 2675 or MyLevel <= 2699 then
+			LevelFarm = 42
+
+			Name = "Ocean Prophet"
+			QuestName = "SubmergedQuest2"
+
+			LevelQuest = 2
+			NameMon = "Ocean Prophet"
+
+			CFrameMon = CFrame.new(11063.4833984375, -2001.4295654296875, 10149.6416015625)
+			VectorMon = Vector3.new(11063.4833984375, -2001.4295654296875, 10149.6416015625)
+
+			CFrameQuest = CFrame.new(10880.6855, -2086.20044, 10032.624, -0.321384728, 9.87648434e-08, -0.946948707, 7.13271007e-08, 1, 8.00902953e-08, 0.946948707, -4.18033075e-08, -0.321384728)
+			VectorQuest = Vector3.new(10880.6855, -2086.20044, 10032.624, -0.321384728, 9.87648434e-08, -0.946948707, 7.13271007e-08, 1, 8.00902953e-08, 0.946948707, -4.18033075e-08, -0.321384728)
+		elseif MyLevel == 2700 or MyLevel <= 2724 then
+			LevelFarm = 43
+
+			Name = "High Disciple"
+			QuestName = "SubmergedQuest3"
+
+			LevelQuest = 1
+			NameMon = "High Disciple"
+
+			CFrameMon = CFrame.new(9808.64453125, -1942.4215087890625, 9674.8837890625)
+			VectorMon = Vector3.new(9808.64453125, -1942.4215087890625, 9674.8837890625)
+
+			CFrameQuest = CFrame.new(9640.08789, -1992.44507, 9613.65234, -0.957327187, 4.11991223e-08, 0.289006323, 1.5775445e-08, 1, -9.02985846e-08, -0.289006323, -8.18860855e-08, -0.957327187)
+			VectorQuest = Vector3.new(9640.08789, -1992.44507, 9613.65234, -0.957327187, 4.11991223e-08, 0.289006323, 1.5775445e-08, 1, -9.02985846e-08, -0.289006323, -8.18860855e-08, -0.957327187)
+		elseif MyLevel >= 2725 then
+			LevelFarm = 44
+
+			Name = "Grand Devotee"
+			QuestName = "SubmergedQuest3"
+
+			LevelQuest = 2
+			NameMon = "Grand Devotee"
+
+			CFrameMon = CFrame.new(9808.64453125, -1942.4215087890625, 9674.8837890625)
+			VectorMon = Vector3.new(9808.64453125, -1942.4215087890625, 9674.8837890625)
+
+			CFrameQuest = CFrame.new(9640.08789, -1992.44507, 9613.65234, -0.957327187, 4.11991223e-08, 0.289006323, 1.5775445e-08, 1, -9.02985846e-08, -0.289006323, -8.18860855e-08, -0.957327187)
+			VectorQuest = Vector3.new(9640.08789, -1992.44507, 9613.65234, -0.957327187, 4.11991223e-08, 0.289006323, 1.5775445e-08, 1, -9.02985846e-08, -0.289006323, -8.18860855e-08, -0.957327187)
 		end
 	end
 end
@@ -5781,6 +5923,84 @@ function CheckOldQuest(LevelFarm)
 
 			CFrameQuest = CFrame.new(-16661.890625, 105.2862319946289, 1576.69775390625)
 			VectorQuest = Vector3.new(-16661.890625, 105.2862319946289, 1576.69775390625)
+		elseif LevelFarm == 39 then
+
+			Name = "Reef Bandit"
+			QuestName = "SubmergedQuest1"
+
+			LevelQuest = 1
+			NameMon = "Reef Bandit"
+
+			CFrameMon = CFrame.new(10875.6689453125, -2101.617919921875, 9294.767578125)
+			VectorMon = Vector3.new(10875.6689453125, -2101.617919921875, 9294.767578125)
+
+			CFrameQuest = CFrame.new(10778.875, -2087.72437, 9265.18359, 0.934615612, -9.33109447e-08, -0.355659455, 9.17655143e-08, 1, -2.12154276e-08, 0.355659455, -1.28090019e-08, 0.934615612)
+			VectorQuest = Vector3.new(10778.875, -2087.72437, 9265.18359, 0.934615612, -9.33109447e-08, -0.355659455, 9.17655143e-08, 1, -2.12154276e-08, 0.355659455, -1.28090019e-08, 0.934615612)
+		elseif LevelFarm == 40 then
+
+			Name = "Coral Pirate"
+			QuestName = "SubmergedQuest1"
+
+			LevelQuest = 2
+			NameMon = "Coral Pirate"
+
+			CFrameMon = CFrame.new(10875.6689453125, -2101.617919921875, 9294.767578125)
+			VectorMon = Vector3.new(10875.6689453125, -2101.617919921875, 9294.767578125)
+
+			CFrameQuest = CFrame.new(10778.875, -2087.72437, 9265.18359, 0.934615612, -9.33109447e-08, -0.355659455, 9.17655143e-08, 1, -2.12154276e-08, 0.355659455, -1.28090019e-08, 0.934615612)
+			VectorQuest = Vector3.new(10778.875, -2087.72437, 9265.18359, 0.934615612, -9.33109447e-08, -0.355659455, 9.17655143e-08, 1, -2.12154276e-08, 0.355659455, -1.28090019e-08, 0.934615612)
+		elseif LevelFarm == 41 then
+
+			Name = "Sea Chanter"
+			QuestName = "SubmergedQuest2"
+
+			LevelQuest = 1
+			NameMon = "Sea Chanter"
+
+			CFrameMon = CFrame.new(10672.0908203125, -2057.589599609375, 10048.6904296875)
+			VectorMon = Vector3.new(10672.0908203125, -2057.589599609375, 10048.6904296875)
+
+			CFrameQuest = CFrame.new(10880.6855, -2086.20044, 10032.624, -0.321384728, 9.87648434e-08, -0.946948707, 7.13271007e-08, 1, 8.00902953e-08, 0.946948707, -4.18033075e-08, -0.321384728)
+			VectorQuest = Vector3.new(10880.6855, -2086.20044, 10032.624, -0.321384728, 9.87648434e-08, -0.946948707, 7.13271007e-08, 1, 8.00902953e-08, 0.946948707, -4.18033075e-08, -0.321384728)
+		elseif LevelFarm == 42 then
+
+			Name = "Ocean Prophet"
+			QuestName = "SubmergedQuest2"
+
+			LevelQuest = 2
+			NameMon = "Ocean Prophet"
+
+			CFrameMon = CFrame.new(11063.4833984375, -2001.4295654296875, 10149.6416015625)
+			VectorMon = Vector3.new(11063.4833984375, -2001.4295654296875, 10149.6416015625)
+
+			CFrameQuest = CFrame.new(10880.6855, -2086.20044, 10032.624, -0.321384728, 9.87648434e-08, -0.946948707, 7.13271007e-08, 1, 8.00902953e-08, 0.946948707, -4.18033075e-08, -0.321384728)
+			VectorQuest = Vector3.new(10880.6855, -2086.20044, 10032.624, -0.321384728, 9.87648434e-08, -0.946948707, 7.13271007e-08, 1, 8.00902953e-08, 0.946948707, -4.18033075e-08, -0.321384728)
+		elseif LevelFarm == 43 then
+
+			Name = "High Disciple"
+			QuestName = "SubmergedQuest3"
+
+			LevelQuest = 1
+			NameMon = "High Disciple"
+
+			CFrameMon = CFrame.new(9808.64453125, -1942.4215087890625, 9674.8837890625)
+			VectorMon = Vector3.new(9808.64453125, -1942.4215087890625, 9674.8837890625)
+
+			CFrameQuest = CFrame.new(9640.08789, -1992.44507, 9613.65234, -0.957327187, 4.11991223e-08, 0.289006323, 1.5775445e-08, 1, -9.02985846e-08, -0.289006323, -8.18860855e-08, -0.957327187)
+			VectorQuest = Vector3.new(9640.08789, -1992.44507, 9613.65234, -0.957327187, 4.11991223e-08, 0.289006323, 1.5775445e-08, 1, -9.02985846e-08, -0.289006323, -8.18860855e-08, -0.957327187)
+		elseif LevelFarm == 44 then
+
+			Name = "Grand Devotee"
+			QuestName = "SubmergedQuest3"
+
+			LevelQuest = 2
+			NameMon = "Grand Devotee"
+
+			CFrameMon = CFrame.new(9555.4931640625, -1993.469482421875, 9829.021484375)
+			VectorMon = Vector3.new(9555.4931640625, -1993.469482421875, 9829.021484375)
+
+			CFrameQuest = CFrame.new(9640.08789, -1992.44507, 9613.65234, -0.957327187, 4.11991223e-08, 0.289006323, 1.5775445e-08, 1, -9.02985846e-08, -0.289006323, -8.18860855e-08, -0.957327187)
+			VectorQuest = Vector3.new(9640.08789, -1992.44507, 9613.65234, -0.957327187, 4.11991223e-08, 0.289006323, 1.5775445e-08, 1, -9.02985846e-08, -0.289006323, -8.18860855e-08, -0.957327187)
 		end
 	end
 end
@@ -6202,14 +6422,52 @@ spawn(function()
                     end
                 end
                 if nearestChest then
-                    _tp(nearestChest:GetPivot())
+                    toTarget(nearestChest:GetPivot())
                 end
             end)
         end
     end
 end)
 
+Page1.CreateToggle({
+	Name = "Auto Collect Berry",
+	Dis = "Collect Berry On Map",
+	Value = _G.Settings.Main["Auto Collect Berry"],
+	Callback = function(v)
+	_G.Settings.Main["Auto Collect Berry"] = v
+	SaveSettings()
+		print(v)
+	end,
+})
 
+spawn(function()
+	while wait() do
+		if _G.Settings.Main["Auto Collect Berry"] then
+			local I = game:GetService("CollectionService");
+			local e = game:GetService("Players");
+			local K = e.LocalPlayer;
+			local n = I:GetTagged("BerryBush");
+			local d, z = math.huge;
+			for I = 1, #n, 1 do
+				local e = n[I];
+				for I, K in pairs(e:GetAttributes()) do
+					if not BerryArray or table.find(BerryArray, K) then
+						toTarget(e.Parent:GetPivot());
+						for I = 1, #n, 1 do
+							local e = n[I];
+							for I, e in pairs(e:GetChildren()) do
+								if not _G.Settings.Main["Auto Collect Berry"] or table.find(BerryArray, e) then
+									toTarget(e.WorldPivot);
+									fireproximityprompt(e.ProximityPrompt, math.huge);
+								end;
+							end;
+						end;
+					end;
+				end;
+			end;
+		end;
+	end;
+end);
 
 
 Page1.CreateButton({
@@ -6280,6 +6538,7 @@ Page1.CreateToggle({
                 end
             end
         end)
+
 
 AttackRandomType = 1
 spawn(function()
@@ -6440,7 +6699,7 @@ function AutoFarmLevel()
 					elseif World1 and not (Name == "Fishman Commando" or Name == "Fishman Warrior") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
 						if Questtween then Questtween:Stop() end wait(.5)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(3864.8515625, 6.6796875, -1926.7841796875))
-					elseif World1 and (Name == "God's Guard [Lv. 450]" or Name == "Sky Bandit" or Name == "Dark Master") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 3000 then
+					elseif World1 and (Name == "God's Guard" or Name == "Sky Bandit" or Name == "Dark Master") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 3000 then
 						if Questtween then Questtween:Stop() end wait(.5)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance", Vector3.new(-4607.8227539063, 872.54248046875, -1667.5568847656))
 					elseif World1 and (Name == "Shanda" or Name == "Royal Squad"or Name == "Royal Soldier") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 8000 then
@@ -6616,7 +6875,7 @@ function AutoFarmLevel()
 				elseif World2 and not string.find(Name, "Ship") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 30000 then
 					if Questtween then Questtween:Stop() end
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-6508.5581054688, 89.034996032715, -132.83953857422))
-				elseif (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
+				elseif (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 500 then
 					if Questtween then Questtween:Stop() end
 					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameQuest
 					wait(1)
@@ -6682,10 +6941,10 @@ function AutoFarmLevel()
 					FastAttack = false
 					if not string.find(GetQuestTitle.Text, NameMon) then Com("F_","AbandonQuest"); end
 					Modstween = toTarget(CFrameMon.Position,CFrameMon)
-					if World1 and (Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
+					if World1 and (Name == "Fishman Commando" or Name == "Fishman Warrior") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
 						if Modstween then Modstween:Stop() end wait(.5)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
-					elseif World1 and not (Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
+					elseif World1 and not (Name == "Fishman Commando" or Name == "Fishman Warrior") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
 						if Modstween then Modstween:Stop() end wait(.5)
 						game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(3864.8515625, 6.6796875, -1926.7841796875))
 					elseif World2 and string.find(Name, "Ship") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 30000 then
@@ -6707,10 +6966,10 @@ function AutoFarmLevel()
 			StartMagnet = false
 			FastAttack = false
 			Questtween = toTarget(CFrameQuest.Position,CFrameQuest)
-			if World1 and (Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
+			if World1 and (Name == "Fishman Commando" or Name == "Fishman Warrior") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
 				if Questtween then Questtween:Stop() end wait(.5)
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
-			elseif World1 and not (Name == "Fishman Commando [Lv. 400]" or Name == "Fishman Warrior [Lv. 375]") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
+			elseif World1 and not (Name == "Fishman Commando" or Name == "Fishman Warrior") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 50000 then
 				if Questtween then Questtween:Stop() end wait(.5)
 				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(3864.8515625, 6.6796875, -1926.7841796875))
 			elseif World2 and string.find(Name, "Ship") and (CFrameQuest.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).magnitude > 30000 then
@@ -6722,7 +6981,7 @@ function AutoFarmLevel()
 			elseif (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 250 then
 				if Questtween then Questtween:Stop() end
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrameQuest
-				wait(1)
+	        		wait(1)
 				if game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health > 0 then
 					Com("F_","StartQuest", QuestName, LevelQuest)
 					Com("F_","SetSpawnPoint")
@@ -8230,68 +8489,8 @@ Page1.CreateToggle({
 		end,
 	})
 
-	Page1.CreateToggle({
-	Name = "Auto Buy Enchanment Haki",
-	Dis = " Buy Enchanment Haki",
-	Value = _G.Settings.Main["Auto Buy Enchanment Haki"],
-	Callback = function(value)
-	_G.Settings.Main["Auto Buy Enchanment Haki"] = value
-			SaveSettings()
-			task.spawn(function()
-				while wait() do
-					pcall(function()
-						if _G.Settings.Main["Auto Buy Enchanment Haki"] then
-							local args = {
-								[1] = "ColorsDealer",
-								[2] = "2"
-							}
-							game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-						end
-					end)
-				end
-			end)
-		end,
-	})
 
-Page1.CreateToggle({
-	Name = "Auto Collect Berry",
-	Dis = "Collect Berry On Map",
-	Value = _G.Settings.Main["Auto Collect Berry"],
-	Callback = function(v)
-	_G.Settings.Main["Auto Collect Berry"] = v
-	SaveSettings()
-		print(v)
-	end,
-})
 
-spawn(function()
-	while wait(Sec) do
-		if _G.Settings.Main["Auto Collect Berry"] then
-			local I = game:GetService("CollectionService");
-			local e = game:GetService("Players");
-			local K = e.LocalPlayer;
-			local n = I:GetTagged("BerryBush");
-			local d, z = math.huge;
-			for I = 1, #n, 1 do
-				local e = n[I];
-				for I, K in pairs(e:GetAttributes()) do
-					if not BerryArray or table.find(BerryArray, K) then
-						_tp(e.Parent:GetPivot());
-						for I = 1, #n, 1 do
-							local e = n[I];
-							for I, e in pairs(e:GetChildren()) do
-								if not BerryArray or table.find(BerryArray, e) then
-									_tp(e.WorldPivot);
-									fireproximityprompt(e.ProximityPrompt, math.huge);
-								end;
-							end;
-						end;
-					end;
-				end;
-			end;
-		end;
-	end;
-end);
 
 	Page1.CreateLable({
 	Name = "Status : God Human (List)"
@@ -11232,9 +11431,9 @@ Page2.CreateToggle({
 })
 
 
-_G.FastAttack = true
 
-if _G.FastAttack then
+
+if _G.FastAttack and FastAttack then
     local _ENV = (getgenv or getrenv or getfenv)()
 
     local function SafeWaitForChild(parent, childName)
@@ -14783,11 +14982,11 @@ end)
                 end
             end)
 
-Page8.CreateLable({
+Page7.CreateLable({
 	Name = "Setting"
 })
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Use Skill Fruit",
 	Dis = "EquippFruit ",
 	Value = _G.Settings.Configs["Use Fruit"],
@@ -14798,7 +14997,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Use Skill Melee",
 	Dis = "Use Melee",
 	Value = _G.Settings.Configs["Use Melee"],
@@ -14809,7 +15008,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Use Skill Sword",
 	Dis = "Equipp Sword",
 	Value = _G.Settings.Configs["Use Sword"],
@@ -14820,7 +15019,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Use Skill Gun",
 	Dis = "Equipp Gun",
 	Value = _G.Settings.Configs["Use Gun"],
@@ -14832,11 +15031,11 @@ Page8.CreateToggle({
 }) 
 
 
-    Page8.CreateLable({
+    Page7.CreateLable({
 	Name = "Skill Fruit"
 })
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill Z",
 	Dis = "Use Z",
 	Value = _G.Settings.Configs["Skill Fruit Z"],
@@ -14847,7 +15046,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill X",
 	Dis = "Use X",
 	Value = _G.Settings.Configs["Skill Fruit X"],
@@ -14858,7 +15057,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill C",
 	Dis = "Use C",
 	Value = _G.Settings.Configs["Skill Fruit C"],
@@ -14869,7 +15068,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill V",
 	Dis = "Use V",
 	Value = _G.Settings.Configs["Skill Fruit V"],
@@ -14881,11 +15080,11 @@ Page8.CreateToggle({
 }) 
 
 
-    Page8.CreateLable({
+    Page7.CreateLable({
 	Name = "Skill Melee"
 })
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill Z",
 	Dis = "Use Z",
 	Value = _G.Settings.Configs["Skill Melee Z"],
@@ -14896,7 +15095,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill X",
 	Dis = "Use X",
 	Value = _G.Settings.Configs["Skill Melee X"],
@@ -14907,7 +15106,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill C",
 	Dis = "Use C",
 	Value = _G.Settings.Configs["Skill Melee C"],
@@ -14918,7 +15117,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill V",
 	Dis = "Ues V",
 	Value = _G.Settings.Configs["Skill Melee V"],
@@ -14931,11 +15130,11 @@ Page8.CreateToggle({
 
 
 
-Page8.CreateLable({
+Page7.CreateLable({
 	Name = "Skill Sword"
 })
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill Z",
 	Dis = "Use Z",
 	Value = _G.Settings.Configs["Skill Sword Z"],
@@ -14946,7 +15145,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill X",
 	Dis = "Use X",
 	Value = _G.Settings.Configs["Skill Sword X"],
@@ -14957,11 +15156,11 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateLable({
+Page7.CreateLable({
 	Name = "Skill Gun"
 })
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill Z",
 	Dis = "Use Z",
 	Value = _G.Settings.Configs["Skill Gun Z"],
@@ -14972,7 +15171,7 @@ Page8.CreateToggle({
 	end,
 }) 
 
-Page8.CreateToggle({
+Page7.CreateToggle({
 	Name = "Skill X",
 	Dis = "Use X",
 	Value = _G.Settings.Configs["Skill Gun X"],
@@ -14983,6 +15182,258 @@ Page8.CreateToggle({
 	end,
 }) 
 end
+
+Page8.CreateLable({
+	Name = "Fishing"
+})
+
+-- บริการ
+local RS = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local TweenService = game:GetService("TweenService")
+local CoreGui = game:GetService("CoreGui")
+
+-- กำหนดค่ารีโมท
+local FishReplicated = RS:WaitForChild("FishReplicated")
+local FishingRequest = FishReplicated:WaitForChild("FishingRequest")
+local FishingClientConfig = require(FishReplicated:WaitForChild("FishingClient"):WaitForChild("Config"))
+local GetWaterHeight = require(RS:WaitForChild("Util"):WaitForChild("GetWaterHeightAtLocation"))
+
+local Net = RS:WaitForChild("Modules"):WaitForChild("Net")
+local CraftRemote = Net:WaitForChild("RF/Craft")
+local JobsRemote = Net:WaitForChild("RF/JobsRemoteFunction")
+local ToolAbilities = Net:WaitForChild("RF/JobToolAbilities")
+
+Page8.CreateDropdown({
+	Name = "Select Fishing Rod",
+	Value = _G.Settings.Main["Select Fishing Rod"],
+	List = {"Fishing Rod","Gold Rod","Shark Rod","Shell Rod","Treasure Rod"},
+	Callback = function(v)
+	_G.Settings.Main["Select Fishing Rod"] = v
+	SaveSettings()
+		print(v)
+	end,
+})
+
+Page8.CreateDropdown({
+	Name = "Select Bait",
+	Value = _G.Settings.Main["Select Bait"],
+	List = {"Basic Bait","Kelp Bait","Good Bait","Abyssal Bait","Frozen Bait","Epic Bait","Carnivore Bait"},
+	Callback = function(v)
+	_G.Settings.Main["Select Bait"] = v
+	SaveSettings()
+		print(v)
+	end,
+})
+
+        if _G.Settings.Main["Auto Buy Bait"] then
+            pcall(function()
+                CraftRemote:InvokeServer("Craft", _G.SelectedBait, {})
+            end)
+        end
+        
+task.spawn(function()
+    while task.wait(2) do
+        if _G.Settings.Main["Auto Buy Bait"] and _G.Settings.Main["Select Bait"] then
+            pcall(function()
+                CraftRemote:InvokeServer("Craft", _G.SelectedBait, {})
+            end)
+        end
+    end
+end)
+
+Page8.CreateToggle({
+	Name = "Auto Buy Bait",
+	Dis = "Buy Bait",
+	Value = _G.Settings.Main["Auto Buy Bait"],
+	Callback = function(v)
+	_G.Settings.Main["Auto Buy Bait"] = v
+	SaveSettings()
+		print(v)
+	end,
+}) 
+
+Page8.CreateToggle({
+	Name = "Auto Fishing",
+	Dis = "Auto Fishing",
+	Value = _G.Settings.Main["Auto Fishing"],
+	Callback = function(v)
+	_G.Settings.Main["Auto Fishing"] = v
+	SaveSettings()
+		print(v)
+	end,
+}) 
+
+-- Loop Auto Fishing
+task.spawn(function()
+    while task.wait(0.5) do
+        if _G.Settings.Main["Auto Fishing"] then
+            pcall(function()
+                local plr = Players.LocalPlayer
+                local char = plr.Character or plr.CharacterAdded:Wait()
+                local hrp = char:FindFirstChild("HumanoidRootPart")
+                
+                if not hrp then return end
+
+                local equippedTool = char:FindFirstChildOfClass("Tool")
+                
+                -- Verifica se a vara selecionada está equipada
+                if _G.Settings.Main["Select Fishing Rod"] and (not equippedTool or equippedTool.Name ~= _G.Settings.Main["Select Fishing Rod"]) then
+                    local rodInBag = plr.Backpack:FindFirstChild(_G.Settings.Main["Select Fishing Rod"])
+                    
+                    if rodInBag then
+                        -- Se tiver na mochila, equipa sozinho
+                        char.Humanoid:EquipTool(rodInBag)
+                        equippedTool = rodInBag
+                    else
+                        -- Sử dụng thông báo 
+                        game.StarterGui:SetCore("SendNotification", {
+			    		Title = "Auto Fish", 
+				    	Text = "please equip: " .. tostring(_G.Settings.Main["Select Fishing Rod"]),
+			    		Icon = "http://www.roblox.com/asset/?id=12523036534",
+				    	Duration = 2.5
+			    	})
+                        return -- Para a execução aqui para não dar erro tentando pescar sem vara
+                    end
+                end
+
+                if equippedTool then
+                    local maxLaunch = FishingClientConfig.Rod.MaxLaunchDistance
+                    local waterHeight = GetWaterHeight(hrp.Position)
+                    
+                    local rayOrigin = char.Head.Position
+                    local rayDirection = hrp.CFrame.LookVector * maxLaunch
+                    
+                    local ignoreList = {char, Workspace.Characters, Workspace.Enemies}
+                    local _, hitPos = Workspace:FindPartOnRayWithIgnoreList(Ray.new(rayOrigin, rayDirection), ignoreList)
+                    
+                    local targetPos = hitPos and Vector3.new(hitPos.X, math.max(hitPos.Y, waterHeight), hitPos.Z)
+                    
+                    local state = equippedTool:GetAttribute("State")
+                    local serverState = equippedTool:GetAttribute("ServerState")
+
+                    if targetPos and (state == "ReeledIn" or serverState == "ReeledIn") then
+                        FishingRequest:InvokeServer("StartCasting")
+                        task.wait()
+                        FishingRequest:InvokeServer("CastLineAtLocation", targetPos, 100, true)
+                    
+                    elseif serverState == "Biting" then
+                        FishingRequest:InvokeServer("Catching", true)
+                        task.wait(0.1)
+                        FishingRequest:InvokeServer("Catch", 1)
+                        
+                        -- Sử dụng thông báo của bearlib khi câu được cá
+                        game.StarterGui:SetCore("SendNotification", {
+			    		Title = "Auto Fish", 
+				    	Text = "New item caught" ,
+			    		Icon = "http://www.roblox.com/asset/?id=12523036534",
+				    	Duration = 2.5
+			    	})
+                    end
+                end
+            end)
+        end
+    end
+end)
+
+Page8.CreateToggle({
+	Name = "Auto Fishing Quest",
+	Dis = "Auto Fishing Quest",
+	Value = _G.Settings.Main["Auto Fishing Quest"],
+	Callback = function(v)
+	_G.Settings.Main["Auto Fishing Quest"] = v
+	SaveSettings()
+		print(v)
+	end,
+}) 
+
+local function HasQuest()
+    local playerGui = Players.LocalPlayer:FindFirstChild("PlayerGui")
+    if playerGui then
+        local questGui = playerGui:FindFirstChild("Quest") or playerGui:FindFirstChild("QuestGui")
+        if questGui and questGui:FindFirstChild("Container") and questGui.Container:FindFirstChild("QuestTitle") then
+            return true
+        end
+    end
+    return false
+end
+
+task.spawn(function()
+    while task.wait(1) do
+        if _G.Settings.Main["Auto Fishing Quest"] then
+            pcall(function()
+                if not HasQuest() then
+                    JobsRemote:InvokeServer("FishingNPC", "Angler", "AskQuest")
+                end
+            end)
+        end
+    end
+end)
+
+Page8.CreateToggle({
+	Name = "Auto Quest",
+	Dis = "Auto Quest Complete",
+	Value = _G.Settings.Main["Auto Quest Complete"],
+	Callback = function(v)
+	_G.Settings.Main["Auto Quest Complete"] = v
+	SaveSettings()
+		print(v)
+	end,
+}) 
+
+task.spawn(function()
+    while task.wait(5) do
+        if _G.Settings.Main["Auto Quest Complete"] then
+            pcall(function()
+                JobsRemote:InvokeServer("FishingNPC", "FinishQuest")
+            end)
+        end
+    end
+end)
+
+Page8.CreateToggle({
+	Name = "Auto Sell",
+	Dis = "Auto Sell Fish",
+	Value = _G.Settings.Main["Auto Sell Fish"],
+	Callback = function(v)
+	_G.Settings.Main["Auto Sell Fish"] = v
+	SaveSettings()
+		print(v)
+	end,
+}) 
+
+task.spawn(function()
+    while task.wait(5) do
+        if _G.Settings.Main["Auto Sell Fish"] then
+            pcall(function()
+                JobsRemote:InvokeServer("FishingNPC", "SellFish")
+            end)
+        end
+    end
+end)
+
+Page8.CreateToggle({
+	Name = "Auto Use Skill",
+	Dis = "use skill of the rod",
+	Value = _G.Settings.Main["Auto Skill Z"],
+	Callback = function(v)
+	_G.Settings.Main["Auto Skill Z"] = v
+	SaveSettings()
+		print(v)
+	end,
+}) 
+
+task.spawn(function()
+    while task.wait(0.5) do
+        if _G.Settings.Main["Auto Skill Z"] then
+            pcall(function()
+                ToolAbilities:InvokeServer("Z", true)
+            end)
+        end
+    end
+end)
 
 if World2 or World1 then
 Page9.CreateLable({
@@ -17874,6 +18325,16 @@ Page19.CreateToggle({
 	end,
 })     
 
+Page19.CreateToggle({
+	Name = "Berry Esp",
+	Dis = "Berry Esp",
+	Value = false,
+	Callback = function(v)
+	_G.BerryEsp = v
+		UpdateBerryESP()
+		print(v)
+	end,
+})     
 
 spawn(function()
 	    while wait() do
@@ -17888,6 +18349,9 @@ spawn(function()
 		    end
     		if _G.IslandEsp  then
 			    IslandESP() 
+		    end
+	    	if _G.BerryEsp  then
+			    UpdateBerryESP()
 		    end
 		    if ESPPlayer then
 			    PlrESP()
