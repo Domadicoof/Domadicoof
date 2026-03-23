@@ -11433,7 +11433,7 @@ Page2.CreateToggle({
 
 
 
-if _G.FastAttack and FastAttack then
+if _G.FastAttack then
     local _ENV = (getgenv or getrenv or getfenv)()
 
     local function SafeWaitForChild(parent, childName)
